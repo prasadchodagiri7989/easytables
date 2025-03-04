@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -396,7 +395,7 @@ export const ScientificCalculator = () => {
             3
           </Button>
           <Button 
-            variant="primary" 
+            variant="default" 
             onClick={handleEquals}
             className="row-span-2"
           >
