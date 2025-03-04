@@ -1,0 +1,222 @@
+
+import React, { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Card } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { X } from "lucide-react";
+
+export const AverageCalculator = () => {
+  // For "Simple Average" calculator
+  const [numbers, setNumbers] = useState("");
+  const [average, setAverage] = useState<number | null>(null);
+  const [count, setCount] = useState<number | null>(null);
+  const [sum, setSum] = useState<number | null>(null);
+
+  // For "Weighted Average" calculator
+  const [weightedItems, setWeightedItems] = useState([{ value: "", weight: "" }]);
+  const [weightedAverage, setWeightedAverage] = useState<number | null>(null);
+
+  const calculateAverage = () => {
+    // Parse the numbers from the input string
+    const values = numbers
+      .split(/[\s,;]+/) // Split by spaces, commas, or semicolons
+      .filter((val) => val.trim() !== "")
+      .map((val) => parseFloat(val.trim()))
+      .filter((val) => !isNaN(val));
+
+    if (values.length === 0) return;
+
+    const total = values.reduce((acc, val) => acc + val, 0);
+    const avg = total / values.length;
+
+    setAverage(avg);
+    setCount(values.length);
+    setSum(total);
+  };
+
+  const calculateWeightedAverage = () => {
+    const items = weightedItems.filter(
+      (item) => item.value.trim() !== "" && item.weight.trim() !== ""
+    );
+
+    if (items.length === 0) return;
+
+    const values = items.map((item) => ({
+      value: parseFloat(item.value),
+      weight: parseFloat(item.weight)
+    }));
+
+    const validValues = values.filter(
+      (item) => !isNaN(item.value) && !isNaN(item.weight)
+    );
+
+    if (validValues.length === 0) return;
+
+    const sumOfWeightedValues = validValues.reduce(
+      (acc, item) => acc + item.value * item.weight,
+      0
+    );
+    const sumOfWeights = validValues.reduce(
+      (acc, item) => acc + item.weight,
+      0
+    );
+
+    if (sumOfWeights === 0) return;
+
+    const avg = sumOfWeightedValues / sumOfWeights;
+    setWeightedAverage(avg);
+  };
+
+  const handleAddItem = () => {
+    setWeightedItems([...weightedItems, { value: "", weight: "" }]);
+  };
+
+  const handleRemoveItem = (index: number) => {
+    if (weightedItems.length === 1) return;
+    const newItems = [...weightedItems];
+    newItems.splice(index, 1);
+    setWeightedItems(newItems);
+  };
+
+  const handleWeightedItemChange = (
+    index: number,
+    field: "value" | "weight",
+    value: string
+  ) => {
+    const newItems = [...weightedItems];
+    newItems[index][field] = value;
+    setWeightedItems(newItems);
+  };
+
+  return (
+    <div className="calculator-container">
+      <h2 className="calculator-header">Average Calculator</h2>
+      
+      <Tabs defaultValue="simple" className="w-full">
+        <TabsList className="grid grid-cols-2 mb-6">
+          <TabsTrigger value="simple">Simple Average</TabsTrigger>
+          <TabsTrigger value="weighted">Weighted Average</TabsTrigger>
+        </TabsList>
+        
+        <TabsContent value="simple" className="animate-fade-in">
+          <Card className="p-6 glass-card">
+            <div className="space-y-4">
+              <div className="form-group">
+                <Label htmlFor="numbers" className="form-label">Enter Numbers</Label>
+                <Textarea
+                  id="numbers"
+                  value={numbers}
+                  onChange={(e) => setNumbers(e.target.value)}
+                  placeholder="Enter numbers separated by commas, spaces, or line breaks"
+                  className="calculator-input min-h-24"
+                />
+                <p className="form-hint">Example: 10, 15, 20, 25</p>
+              </div>
+              
+              <Button 
+                onClick={calculateAverage}
+                className="calculator-button w-full"
+              >
+                Calculate Average
+              </Button>
+              
+              {average !== null && (
+                <div className="calculator-result">
+                  <div className="space-y-2">
+                    <div className="flex justify-between">
+                      <span className="font-medium">Count:</span>
+                      <span>{count}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="font-medium">Sum:</span>
+                      <span>{sum?.toFixed(2)}</span>
+                    </div>
+                    <div className="flex justify-between text-lg font-bold">
+                      <span>Average:</span>
+                      <span className="text-primary">{average.toFixed(2)}</span>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </Card>
+        </TabsContent>
+        
+        <TabsContent value="weighted" className="animate-fade-in">
+          <Card className="p-6 glass-card">
+            <div className="space-y-4">
+              {weightedItems.map((item, index) => (
+                <div key={index} className="flex items-end gap-3">
+                  <div className="flex-1">
+                    <Label className="form-label">Value</Label>
+                    <Input
+                      type="number"
+                      value={item.value}
+                      onChange={(e) => 
+                        handleWeightedItemChange(index, "value", e.target.value)
+                      }
+                      placeholder="Value"
+                      className="calculator-input"
+                    />
+                  </div>
+                  
+                  <div className="flex-1">
+                    <Label className="form-label">Weight</Label>
+                    <Input
+                      type="number"
+                      value={item.weight}
+                      onChange={(e) => 
+                        handleWeightedItemChange(index, "weight", e.target.value)
+                      }
+                      placeholder="Weight"
+                      className="calculator-input"
+                    />
+                  </div>
+                  
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    onClick={() => handleRemoveItem(index)}
+                    disabled={weightedItems.length === 1}
+                    className="mb-0"
+                  >
+                    <X size={16} />
+                  </Button>
+                </div>
+              ))}
+              
+              <Button
+                variant="outline"
+                onClick={handleAddItem}
+                className="w-full"
+              >
+                Add Item
+              </Button>
+              
+              <Button 
+                onClick={calculateWeightedAverage}
+                className="calculator-button w-full"
+              >
+                Calculate Weighted Average
+              </Button>
+              
+              {weightedAverage !== null && (
+                <div className="calculator-result">
+                  <div className="text-center">
+                    <p className="text-lg font-medium">Weighted Average</p>
+                    <p className="text-xl font-bold text-primary mt-2">
+                      {weightedAverage.toFixed(2)}
+                    </p>
+                  </div>
+                </div>
+              )}
+            </div>
+          </Card>
+        </TabsContent>
+      </Tabs>
+    </div>
+  );
+};
