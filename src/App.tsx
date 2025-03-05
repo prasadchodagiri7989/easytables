@@ -16,6 +16,7 @@ import { FinalGradeCalculator } from "./components/calculators/FinalGradeCalcula
 import { MortgageCalculator } from "./components/calculators/MortgageCalculator";
 import { CompoundInterestCalculator } from "./components/calculators/CompoundInterestCalculator";
 import { BMICalculator } from "./components/calculators/BMICalculator";
+import { Layout } from "./components/Layout";
 
 const queryClient = new QueryClient();
 
@@ -27,16 +28,16 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/scientific" element={<ScientificCalculator />} />
-          <Route path="/percentage" element={<PercentageCalculator />} />
-          <Route path="/fraction" element={<FractionCalculator />} />
-          <Route path="/average" element={<AverageCalculator />} />
-          <Route path="/grade" element={<GradeCalculator />} />
-          <Route path="/gpa" element={<GPACalculator />} />
-          <Route path="/final-grade" element={<FinalGradeCalculator />} />
-          <Route path="/mortgage" element={<MortgageCalculator />} />
-          <Route path="/compound-interest" element={<CompoundInterestCalculator />} />
-          <Route path="/bmi" element={<BMICalculator />} />
+          <Route path="/scientific" element={<Layout><ScientificCalculator /></Layout>} />
+          <Route path="/percentage" element={<Layout><PercentageCalculator /></Layout>} />
+          <Route path="/fraction" element={<Layout><FractionCalculator /></Layout>} />
+          <Route path="/average" element={<Layout><AverageCalculator /></Layout>} />
+          <Route path="/grade" element={<Layout><GradeCalculator /></Layout>} />
+          <Route path="/gpa" element={<Layout><GPACalculator /></Layout>} />
+          <Route path="/final-grade" element={<Layout><FinalGradeCalculator /></Layout>} />
+          <Route path="/mortgage" element={<Layout><MortgageCalculator /></Layout>} />
+          <Route path="/compound-interest" element={<Layout><CompoundInterestCalculator /></Layout>} />
+          <Route path="/bmi" element={<Layout><BMICalculator /></Layout>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
