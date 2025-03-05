@@ -33,7 +33,8 @@ const SidebarLink = ({ to, icon: Icon, label }: SidebarLinkProps) => (
 export const Sidebar = ({ open, onClose }: SidebarProps) => {
   return (
     <aside className={cn(
-      "fixed top-0 left-0 h-full w-64 bg-white z-30 border-r border-gray-200/50 shadow-sm transition-transform duration-300 ease-in-out transform",
+      "fixed top-0 left-0 h-full w-64 bg-white z-30 border-r border-gray-200/50 shadow-sm",
+      "transition-transform duration-300 ease-in-out",
       open ? "translate-x-0" : "-translate-x-full md:translate-x-0",
       "flex flex-col"
     )}>
