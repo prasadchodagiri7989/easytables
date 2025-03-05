@@ -58,9 +58,9 @@ export const PercentageCalculator = () => {
       
       <Tabs defaultValue="percentage-of" className="w-full">
         <TabsList className="grid grid-cols-3 mb-6">
-          <TabsTrigger value="percentage-of">What is X% of Y?</TabsTrigger>
-          <TabsTrigger value="percentage">X is what % of Y?</TabsTrigger>
-          <TabsTrigger value="percentage-change">Percentage Change</TabsTrigger>
+          <TabsTrigger value="percentage-of" className="whitespace-normal text-xs sm:text-sm">What is X% of Y?</TabsTrigger>
+          <TabsTrigger value="percentage" className="whitespace-normal text-xs sm:text-sm">X is what % of Y?</TabsTrigger>
+          <TabsTrigger value="percentage-change" className="whitespace-normal text-xs sm:text-sm">Percentage Change</TabsTrigger>
         </TabsList>
         
         <TabsContent value="percentage-of" className="animate-fade-in">

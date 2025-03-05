@@ -16,19 +16,30 @@ interface SidebarLinkProps {
   to: string;
   icon: React.ElementType;
   label: string;
+  onClose: () => void;
 }
 
-const SidebarLink = ({ to, icon: Icon, label }: SidebarLinkProps) => (
-  <NavLink 
-    to={to} 
-    className={({ isActive }) => 
-      cn("sidebar-link", isActive && "active")
+const SidebarLink = ({ to, icon: Icon, label, onClose }: SidebarLinkProps) => {
+  const handleClick = () => {
+    // Close sidebar on mobile when a link is clicked
+    if (window.innerWidth < 768) {
+      onClose();
     }
-  >
-    <Icon size={18} />
-    <span>{label}</span>
-  </NavLink>
-);
+  };
+
+  return (
+    <NavLink 
+      to={to} 
+      onClick={handleClick}
+      className={({ isActive }) => 
+        cn("sidebar-link", isActive && "active")
+      }
+    >
+      <Icon size={18} />
+      <span>{label}</span>
+    </NavLink>
+  );
+};
 
 export const Sidebar = ({ open, onClose }: SidebarProps) => {
   return (
@@ -49,17 +60,17 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
       </div>
 
       <div className="flex-1 overflow-y-auto p-4 space-y-1">
-        <SidebarLink to="/" icon={Home} label="Home" />
+        <SidebarLink to="/" icon={Home} label="Home" onClose={onClose} />
         
         <div className="py-2">
           <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider pl-4 mb-2">
             Calculators
           </div>
           <div className="space-y-1">
-            <SidebarLink to="/scientific" icon={Calculator} label="Scientific" />
-            <SidebarLink to="/percentage" icon={Percent} label="Percentage" />
-            <SidebarLink to="/fraction" icon={DivideSquare} label="Fraction" />
-            <SidebarLink to="/average" icon={BarChart2} label="Average" />
+            <SidebarLink to="/scientific" icon={Calculator} label="Scientific" onClose={onClose} />
+            <SidebarLink to="/percentage" icon={Percent} label="Percentage" onClose={onClose} />
+            <SidebarLink to="/fraction" icon={DivideSquare} label="Fraction" onClose={onClose} />
+            <SidebarLink to="/average" icon={BarChart2} label="Average" onClose={onClose} />
           </div>
         </div>
 
@@ -68,9 +79,9 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
             Education
           </div>
           <div className="space-y-1">
-            <SidebarLink to="/grade" icon={Award} label="Grade" />
-            <SidebarLink to="/gpa" icon={GraduationCap} label="GPA" />
-            <SidebarLink to="/final-grade" icon={Award} label="Final Grade" />
+            <SidebarLink to="/grade" icon={Award} label="Grade" onClose={onClose} />
+            <SidebarLink to="/gpa" icon={GraduationCap} label="GPA" onClose={onClose} />
+            <SidebarLink to="/final-grade" icon={Award} label="Final Grade" onClose={onClose} />
           </div>
         </div>
 
@@ -79,8 +90,8 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
             Finance
           </div>
           <div className="space-y-1">
-            <SidebarLink to="/mortgage" icon={Home} label="Mortgage" />
-            <SidebarLink to="/compound-interest" icon={TrendingUp} label="Compound Interest" />
+            <SidebarLink to="/mortgage" icon={Home} label="Mortgage" onClose={onClose} />
+            <SidebarLink to="/compound-interest" icon={TrendingUp} label="Compound Interest" onClose={onClose} />
           </div>
         </div>
 
@@ -89,7 +100,7 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
             Health
           </div>
           <div className="space-y-1">
-            <SidebarLink to="/bmi" icon={Weight} label="BMI" />
+            <SidebarLink to="/bmi" icon={Weight} label="BMI" onClose={onClose} />
           </div>
         </div>
       </div>
