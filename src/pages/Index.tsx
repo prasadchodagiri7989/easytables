@@ -7,7 +7,7 @@ const Index = () => {
       <div className="min-h-[calc(100vh-2rem)] flex flex-col items-center justify-center p-6">
         <div className="glass-card p-8 max-w-3xl w-full animate-scale-in">
           <h1 className="text-4xl font-bold mb-6 text-center bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
-            Welcome to Math Tools
+            Welcome to EasyTables
           </h1>
           <p className="text-xl text-center text-gray-600 mb-8">
             Your all-in-one suite of mathematical calculators and educational tools
