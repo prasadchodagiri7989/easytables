@@ -103,7 +103,7 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
       </div>
 
       <div className="p-4 border-t border-gray-200/50 text-center">
-        <p className="text-xs text-gray-500">© 2023 Math Tools</p>
+        <p className="text-xs text-gray-500">© 2025 Easy Tables</p>
       </div>
     </aside>
   );
