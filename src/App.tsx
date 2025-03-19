@@ -16,6 +16,7 @@ import { FinalGradeCalculator } from "./components/calculators/FinalGradeCalcula
 import { MortgageCalculator } from "./components/calculators/MortgageCalculator";
 import { CompoundInterestCalculator } from "./components/calculators/CompoundInterestCalculator";
 import { BMICalculator } from "./components/calculators/BMICalculator";
+import { UnitConverter } from "./components/calculators/UnitConverter";
 import { Layout } from "./components/Layout";
 
 const queryClient = new QueryClient();
@@ -38,6 +39,7 @@ const App = () => (
           <Route path="/mortgage" element={<Layout><MortgageCalculator /></Layout>} />
           <Route path="/compound-interest" element={<Layout><CompoundInterestCalculator /></Layout>} />
           <Route path="/bmi" element={<Layout><BMICalculator /></Layout>} />
+          <Route path="/unit-converter" element={<Layout><UnitConverter /></Layout>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

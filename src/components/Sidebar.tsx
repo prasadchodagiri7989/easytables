@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { 
   Calculator, Percent, DivideSquare, BarChart2, GraduationCap, 
-  Award, Home, DollarSign, TrendingUp, Weight, ChevronLeft 
+  Award, Home, DollarSign, TrendingUp, Weight, ChevronLeft, ArrowRightLeft
 } from "lucide-react";
 
 interface SidebarProps {
@@ -71,6 +71,7 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
             <SidebarLink to="/percentage" icon={Percent} label="Percentage" onClose={onClose} />
             <SidebarLink to="/fraction" icon={DivideSquare} label="Fraction" onClose={onClose} />
             <SidebarLink to="/average" icon={BarChart2} label="Average" onClose={onClose} />
+            <SidebarLink to="/unit-converter" icon={ArrowRightLeft} label="Unit Converter" onClose={onClose} />
           </div>
         </div>
 

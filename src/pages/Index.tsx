@@ -30,6 +30,10 @@ const Index = () => {
               <h3 className="font-medium mb-2">Average Calculator</h3>
               <p className="text-sm text-gray-500">Find means and averages</p>
             </a>
+            <a href="/unit-converter" className="glass-card p-5 hover:shadow-md transition-all text-center">
+              <h3 className="font-medium mb-2">Unit Converter</h3>
+              <p className="text-sm text-gray-500">Convert between units</p>
+            </a>
             <a href="/grade" className="glass-card p-5 hover:shadow-md transition-all text-center">
               <h3 className="font-medium mb-2">Grade Calculator</h3>
               <p className="text-sm text-gray-500">Calculate your grades</p>
