@@ -98,7 +98,7 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
             </CollapsibleContent>
           </Collapsible>
           
-          <SidebarLink to="/unit-converter" icon={ArrowRightLeft} label="Unit Converter" onClose={onClose} />
+          <SidebarLink to="/unit-converter" icon={ArrowRightLeft} label="Converter" onClose={onClose} />
         </div>
       </div>
 
