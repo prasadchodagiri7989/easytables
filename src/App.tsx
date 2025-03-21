@@ -19,6 +19,13 @@ import { BMICalculator } from "./components/calculators/BMICalculator";
 import { UnitConverter } from "./components/calculators/UnitConverter";
 import { Layout } from "./components/Layout";
 
+// Import the online tools components
+import { CurrentTime } from "./components/tools/CurrentTime";
+import { Stopwatch } from "./components/tools/Stopwatch";
+import { AlarmClock } from "./components/tools/AlarmClock";
+import { TodoList } from "./components/tools/TodoList";
+import { RandomNumberGenerator } from "./components/tools/RandomNumberGenerator";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -40,6 +47,15 @@ const App = () => (
           <Route path="/compound-interest" element={<Layout><CompoundInterestCalculator /></Layout>} />
           <Route path="/bmi" element={<Layout><BMICalculator /></Layout>} />
           <Route path="/unit-converter" element={<Layout><UnitConverter /></Layout>} />
+          
+          {/* Online Tools Routes */}
+          <Route path="/current-time" element={<Layout><CurrentTime /></Layout>} />
+          <Route path="/todays-date" element={<Layout><CurrentTime /></Layout>} />
+          <Route path="/stopwatch" element={<Layout><Stopwatch /></Layout>} />
+          <Route path="/alarm-clock" element={<Layout><AlarmClock /></Layout>} />
+          <Route path="/todo-list" element={<Layout><TodoList /></Layout>} />
+          <Route path="/random-number" element={<Layout><RandomNumberGenerator /></Layout>} />
+          
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
