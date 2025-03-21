@@ -4,7 +4,10 @@ import { NavLink } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { 
   Calculator, Percent, DivideSquare, BarChart2, GraduationCap, 
-  Award, Home, DollarSign, TrendingUp, Weight, ChevronLeft, ArrowRightLeft, ChevronDown
+  Award, Home, DollarSign, TrendingUp, Weight, ChevronLeft, ArrowRightLeft, ChevronDown,
+  Clock, BarChart, Calendar, Phone, Camera, FileText, MousePointer, Timer, Mic,
+  Monitor, Lock, PieChart, Shuffle, Activity, Film, Smartphone, MessageSquare, Edit,
+  Table, Volume2, CalendarDays, CheckSquare, Music, Ruler, Video, Tool
 } from "lucide-react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
@@ -44,6 +47,7 @@ const SidebarLink = ({ to, icon: Icon, label, onClose }: SidebarLinkProps) => {
 
 export const Sidebar = ({ open, onClose }: SidebarProps) => {
   const [calculatorsOpen, setCalculatorsOpen] = useState(false);
+  const [toolsOpen, setToolsOpen] = useState(false);
 
   return (
     <aside className={cn(
@@ -98,7 +102,65 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
             </CollapsibleContent>
           </Collapsible>
           
-          <SidebarLink to="/unit-converter" icon={ArrowRightLeft} label="Converter" onClose={onClose} />
+          <SidebarLink to="/unit-converter" icon={ArrowRightLeft} label="Unit Converter" onClose={onClose} />
+          
+          <Collapsible
+            open={toolsOpen}
+            onOpenChange={setToolsOpen}
+            className="w-full mt-2"
+          >
+            <CollapsibleTrigger className="flex items-center justify-between w-full px-4 py-2 rounded-md hover:bg-gray-100 text-left">
+              <div className="flex items-center">
+                <Tool size={18} className="mr-2" />
+                <span className="text-sm font-medium">Online Tools</span>
+              </div>
+              <ChevronDown 
+                size={16} 
+                className={cn(
+                  "transition-transform duration-200",
+                  toolsOpen ? "rotate-180" : ""
+                )} 
+              />
+            </CollapsibleTrigger>
+            <CollapsibleContent className="pl-6 space-y-1 mt-1">
+              <SidebarLink to="/alarm-clock" icon={Clock} label="Alarm Clock" onClose={onClose} />
+              <SidebarLink to="/bar-graph" icon={BarChart} label="Bar Graph Maker" onClose={onClose} />
+              <SidebarLink to="/calendar" icon={Calendar} label="Calendar" onClose={onClose} />
+              <SidebarLink to="/call-recorder" icon={Phone} label="Call Recorder" onClose={onClose} />
+              <SidebarLink to="/camera" icon={Camera} label="Camera Online" onClose={onClose} />
+              <SidebarLink to="/chart-maker" icon={BarChart2} label="Chart Maker" onClose={onClose} />
+              <SidebarLink to="/click-counter" icon={MousePointer} label="Click Counter" onClose={onClose} />
+              <SidebarLink to="/cps-test" icon={Timer} label="CPS Test" onClose={onClose} />
+              <SidebarLink to="/countdown" icon={Timer} label="Countdown Timer" onClose={onClose} />
+              <SidebarLink to="/current-time" icon={Clock} label="Current Time" onClose={onClose} />
+              <SidebarLink to="/line-graph" icon={Activity} label="Line Graph Maker" onClose={onClose} />
+              <SidebarLink to="/grocery-list" icon={FileText} label="Grocery List" onClose={onClose} />
+              <SidebarLink to="/mic-test" icon={Mic} label="Mic Test" onClose={onClose} />
+              <SidebarLink to="/online-clock" icon={Clock} label="Online Clock" onClose={onClose} />
+              <SidebarLink to="/online-mirror" icon={Monitor} label="Online Mirror" onClose={onClose} />
+              <SidebarLink to="/notepad" icon={Edit} label="Online Notepad" onClose={onClose} />
+              <SidebarLink to="/notes" icon={FileText} label="Online Notes" onClose={onClose} />
+              <SidebarLink to="/password-generator" icon={Lock} label="Password Generator" onClose={onClose} />
+              <SidebarLink to="/pie-chart" icon={PieChart} label="Pie Chart Maker" onClose={onClose} />
+              <SidebarLink to="/random-number" icon={Shuffle} label="Random Number Generator" onClose={onClose} />
+              <SidebarLink to="/scatter-plot" icon={BarChart} label="XY Scatter Plot" onClose={onClose} />
+              <SidebarLink to="/scoreboard" icon={Activity} label="Scoreboard" onClose={onClose} />
+              <SidebarLink to="/screen-recorder" icon={Film} label="Screen Recorder" onClose={onClose} />
+              <SidebarLink to="/screenshot" icon={Smartphone} label="Screenshot" onClose={onClose} />
+              <SidebarLink to="/speech-to-text" icon={MessageSquare} label="Speech to Text" onClose={onClose} />
+              <SidebarLink to="/stopwatch" icon={Clock} label="Stopwatch" onClose={onClose} />
+              <SidebarLink to="/text-editor" icon={Edit} label="Text Editor" onClose={onClose} />
+              <SidebarLink to="/table-chart" icon={Table} label="Table Chart Maker" onClose={onClose} />
+              <SidebarLink to="/text-to-speech" icon={Volume2} label="Text to Speech" onClose={onClose} />
+              <SidebarLink to="/todays-date" icon={CalendarDays} label="Today's Date" onClose={onClose} />
+              <SidebarLink to="/todo-list" icon={CheckSquare} label="To-Do List" onClose={onClose} />
+              <SidebarLink to="/tone-generator" icon={Music} label="Tone Generator" onClose={onClose} />
+              <SidebarLink to="/ruler-cm" icon={Ruler} label="Ruler (cm/mm)" onClose={onClose} />
+              <SidebarLink to="/ruler-inch" icon={Ruler} label="Ruler (inch)" onClose={onClose} />
+              <SidebarLink to="/voice-recorder" icon={Mic} label="Voice Recorder" onClose={onClose} />
+              <SidebarLink to="/webcam-test" icon={Video} label="Webcam Test" onClose={onClose} />
+            </CollapsibleContent>
+          </Collapsible>
         </div>
       </div>
 
