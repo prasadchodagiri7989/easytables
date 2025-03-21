@@ -7,7 +7,7 @@ import {
   Award, Home, DollarSign, TrendingUp, Weight, ChevronLeft, ArrowRightLeft, ChevronDown,
   Clock, BarChart, Calendar, Phone, Camera, FileText, MousePointer, Timer, Mic,
   Monitor, Lock, PieChart, Shuffle, Activity, Film, Smartphone, MessageSquare, Edit,
-  Table, Volume2, CalendarDays, CheckSquare, Music, Ruler, Video, Tool
+  Table, Volume2, CalendarDays, CheckSquare, Music, Ruler, Video, Wrench
 } from "lucide-react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
@@ -111,7 +111,7 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
           >
             <CollapsibleTrigger className="flex items-center justify-between w-full px-4 py-2 rounded-md hover:bg-gray-100 text-left">
               <div className="flex items-center">
-                <Tool size={18} className="mr-2" />
+                <Wrench size={18} className="mr-2" />
                 <span className="text-sm font-medium">Online Tools</span>
               </div>
               <ChevronDown 
