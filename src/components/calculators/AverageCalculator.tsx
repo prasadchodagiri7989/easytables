@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { X } from "lucide-react";
+import { GuidanceSection } from "@/components/GuidanceSection";
 
 export const AverageCalculator = () => {
   // For "Simple Average" calculator
@@ -217,6 +218,71 @@ export const AverageCalculator = () => {
           </Card>
         </TabsContent>
       </Tabs>
+
+      <GuidanceSection title="How to Use the Average Calculator">
+        <div className="space-y-4">
+          <div>
+            <h4 className="font-medium mb-1">Simple Average (Arithmetic Mean)</h4>
+            <p>The simple average is the sum of values divided by the number of values.</p>
+            <p className="mt-2"><strong>Formula:</strong> Average = (x₁ + x₂ + ... + xₙ) / n</p>
+            
+            <div className="mt-1 mb-2">
+              <p><strong>Example:</strong> Find the average of 10, 15, 20, 25, and 30.</p>
+              <p>Sum = 10 + 15 + 20 + 25 + 30 = 100</p>
+              <p>Count = 5</p>
+              <p>Average = 100 / 5 = 20</p>
+            </div>
+            
+            <p><strong>To use the Simple Average calculator:</strong></p>
+            <ol className="list-decimal pl-5">
+              <li>Enter your numbers in the text box, separated by commas, spaces, or line breaks</li>
+              <li>Click "Calculate Average"</li>
+              <li>The result will show the count, sum, and average of your values</li>
+            </ol>
+          </div>
+          
+          <div>
+            <h4 className="font-medium mb-1">Weighted Average</h4>
+            <p>A weighted average takes into account the relative importance (weight) of each value.</p>
+            <p className="mt-2"><strong>Formula:</strong> Weighted Average = (x₁w₁ + x₂w₂ + ... + xₙwₙ) / (w₁ + w₂ + ... + wₙ)</p>
+            
+            <div className="mt-1 mb-2">
+              <p><strong>Example:</strong> Calculate a course grade with the following components:</p>
+              <ul className="list-disc pl-5">
+                <li>Homework (weight 20%): 85</li>
+                <li>Midterm (weight 30%): 78</li>
+                <li>Final (weight 50%): 92</li>
+              </ul>
+              <p>Weighted Average = (85×20 + 78×30 + 92×50) / (20 + 30 + 50)</p>
+              <p>= (1700 + 2340 + 4600) / 100</p>
+              <p>= 8640 / 100</p>
+              <p>= 86.4</p>
+            </div>
+            
+            <p><strong>To use the Weighted Average calculator:</strong></p>
+            <ol className="list-decimal pl-5">
+              <li>Enter value and weight pairs for each item</li>
+              <li>Add more items if needed by clicking "Add Item"</li>
+              <li>Click "Calculate Weighted Average"</li>
+              <li>The result will show the weighted average of your values</li>
+            </ol>
+          </div>
+          
+          <div>
+            <h4 className="font-medium">When to use Weighted vs. Simple Average</h4>
+            <ul className="list-disc pl-5">
+              <li>Use <strong>Simple Average</strong> when all values are equally important</li>
+              <li>Use <strong>Weighted Average</strong> when some values should have more influence than others, such as:
+                <ul className="list-disc pl-5 mt-1">
+                  <li>Calculating grades where assignments have different weights</li>
+                  <li>Computing portfolio returns where investments have different sizes</li>
+                  <li>Finding an average score where tests have different maximum points</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </GuidanceSection>
     </div>
   );
 };

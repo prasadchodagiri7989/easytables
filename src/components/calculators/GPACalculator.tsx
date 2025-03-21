@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { X, Plus } from "lucide-react";
+import { GuidanceSection } from "@/components/GuidanceSection";
 
 export const GPACalculator = () => {
   const [courses, setCourses] = useState([
@@ -212,6 +213,71 @@ export const GPACalculator = () => {
           )}
         </div>
       </Card>
+
+      <GuidanceSection title="How to Use the GPA Calculator">
+        <p>This calculator helps you determine your Grade Point Average (GPA) based on your course grades and credit hours.</p>
+        
+        <h4 className="font-medium mt-3 mb-1">Steps to Calculate Your GPA</h4>
+        <ol className="list-decimal pl-5 space-y-1">
+          <li>Enter the name of each course (optional but helps you keep track)</li>
+          <li>Enter the number of credit hours for each course</li>
+          <li>Select the letter grade received for each course</li>
+          <li>Add more courses as needed using the "Add Course" button</li>
+          <li>Click "Calculate GPA" to see your results</li>
+        </ol>
+        
+        <h4 className="font-medium mt-3 mb-1">GPA Calculation Formula</h4>
+        <p>GPA = Total Grade Points / Total Credit Hours</p>
+        <p>Where Grade Points = Credits × Grade Value</p>
+        
+        <h4 className="font-medium mt-3 mb-1">Standard Grade Point Values</h4>
+        <div className="overflow-x-auto">
+          <table className="min-w-full border text-sm mt-2">
+            <thead>
+              <tr className="bg-muted">
+                <th className="px-3 py-1 border">Letter Grade</th>
+                <th className="px-3 py-1 border">Grade Point Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td className="px-3 py-1 border">A+</td><td className="px-3 py-1 border">4.0</td></tr>
+              <tr><td className="px-3 py-1 border">A</td><td className="px-3 py-1 border">4.0</td></tr>
+              <tr><td className="px-3 py-1 border">A-</td><td className="px-3 py-1 border">3.7</td></tr>
+              <tr><td className="px-3 py-1 border">B+</td><td className="px-3 py-1 border">3.3</td></tr>
+              <tr><td className="px-3 py-1 border">B</td><td className="px-3 py-1 border">3.0</td></tr>
+              <tr><td className="px-3 py-1 border">B-</td><td className="px-3 py-1 border">2.7</td></tr>
+              <tr><td className="px-3 py-1 border">C+</td><td className="px-3 py-1 border">2.3</td></tr>
+              <tr><td className="px-3 py-1 border">C</td><td className="px-3 py-1 border">2.0</td></tr>
+              <tr><td className="px-3 py-1 border">C-</td><td className="px-3 py-1 border">1.7</td></tr>
+              <tr><td className="px-3 py-1 border">D+</td><td className="px-3 py-1 border">1.3</td></tr>
+              <tr><td className="px-3 py-1 border">D</td><td className="px-3 py-1 border">1.0</td></tr>
+              <tr><td className="px-3 py-1 border">D-</td><td className="px-3 py-1 border">0.7</td></tr>
+              <tr><td className="px-3 py-1 border">F</td><td className="px-3 py-1 border">0.0</td></tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <h4 className="font-medium mt-3 mb-1">Example Calculation</h4>
+        <div className="mt-1">
+          <p>Let's calculate the GPA for these courses:</p>
+          <ul className="list-disc pl-5 my-2">
+            <li>Biology: 4 credits, grade A (4.0)</li>
+            <li>Mathematics: 3 credits, grade B+ (3.3)</li>
+            <li>History: 3 credits, grade C (2.0)</li>
+          </ul>
+          
+          <p>Grade Points = (4 × 4.0) + (3 × 3.3) + (3 × 2.0) = 16 + 9.9 + 6 = 31.9</p>
+          <p>Total Credits = 4 + 3 + 3 = 10</p>
+          <p>GPA = 31.9 / 10 = 3.19</p>
+        </div>
+        
+        <h4 className="font-medium mt-3 mb-1">Common GPA Scales</h4>
+        <ul className="list-disc pl-5">
+          <li><strong>4.0 Scale</strong> - Most common in the US (used in this calculator)</li>
+          <li><strong>5.0 Scale</strong> - Sometimes used for weighted GPAs with honors/AP courses</li>
+          <li><strong>100-point Scale</strong> - Percentages (90-100 = A, 80-89 = B, etc.)</li>
+        </ul>
+      </GuidanceSection>
     </div>
   );
 };

@@ -6,6 +6,7 @@ import { Card } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { GuidanceSection } from "@/components/GuidanceSection";
 
 export const BMICalculator = () => {
   const [height, setHeight] = useState<number>(170);
@@ -134,8 +135,90 @@ export const BMICalculator = () => {
           </div>
         )}
       </Card>
+
+      <GuidanceSection title="How to Use the BMI Calculator">
+        <p>Body Mass Index (BMI) is a measure of body fat based on height and weight. This calculator helps you determine your BMI and corresponding weight category.</p>
+        
+        <h4 className="font-medium mt-3 mb-1">Steps to Calculate Your BMI</h4>
+        <ol className="list-decimal pl-5 space-y-1">
+          <li>Select either Metric (cm/kg) or Imperial (ft-in/lbs) units</li>
+          <li>Enter your height and weight in the selected units</li>
+          <li>Click "Calculate BMI" to see your results</li>
+        </ol>
+        
+        <h4 className="font-medium mt-3 mb-1">BMI Formula</h4>
+        <div className="space-y-2">
+          <div>
+            <p className="font-medium">Metric Formula:</p>
+            <p>BMI = weight (kg) / [height (m)]²</p>
+          </div>
+          
+          <div>
+            <p className="font-medium">Imperial Formula:</p>
+            <p>BMI = 703 × weight (lb) / [height (in)]²</p>
+          </div>
+        </div>
+        
+        <h4 className="font-medium mt-3 mb-1">BMI Categories</h4>
+        <div className="overflow-x-auto">
+          <table className="min-w-full border text-sm mt-2">
+            <thead>
+              <tr className="bg-muted">
+                <th className="px-3 py-1 border">BMI</th>
+                <th className="px-3 py-1 border">Weight Category</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="px-3 py-1 border">Below 18.5</td>
+                <td className="px-3 py-1 border">Underweight</td>
+              </tr>
+              <tr>
+                <td className="px-3 py-1 border">18.5 - 24.9</td>
+                <td className="px-3 py-1 border">Normal weight</td>
+              </tr>
+              <tr>
+                <td className="px-3 py-1 border">25.0 - 29.9</td>
+                <td className="px-3 py-1 border">Overweight</td>
+              </tr>
+              <tr>
+                <td className="px-3 py-1 border">30.0 and above</td>
+                <td className="px-3 py-1 border">Obese</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <h4 className="font-medium mt-3 mb-1">Example Calculation</h4>
+        <div className="space-y-2">
+          <div>
+            <p className="font-medium">Metric Example:</p>
+            <p>Height: 175 cm (1.75 m)</p>
+            <p>Weight: 70 kg</p>
+            <p>BMI = 70 / (1.75)² = 70 / 3.0625 = 22.9</p>
+            <p>Category: Normal weight</p>
+          </div>
+          
+          <div>
+            <p className="font-medium">Imperial Example:</p>
+            <p>Height: 5 feet 9 inches (69 inches)</p>
+            <p>Weight: 154 pounds</p>
+            <p>BMI = 703 × 154 / (69)² = 703 × 154 / 4761 = 22.8</p>
+            <p>Category: Normal weight</p>
+          </div>
+        </div>
+        
+        <h4 className="font-medium mt-3 mb-1">Limitations of BMI</h4>
+        <p>While BMI is a useful screening tool, it has limitations:</p>
+        <ul className="list-disc pl-5">
+          <li>It doesn't distinguish between muscle and fat mass</li>
+          <li>It may overestimate body fat in athletes and those with muscular builds</li>
+          <li>It may underestimate body fat in older persons and those who have lost muscle mass</li>
+          <li>It doesn't consider factors like age, sex, ethnicity, and body composition</li>
+        </ul>
+        
+        <p className="mt-2 text-sm text-muted-foreground">Always consult with a healthcare provider for a comprehensive health assessment.</p>
+      </GuidanceSection>
     </div>
   );
 };
-
-export default BMICalculator;

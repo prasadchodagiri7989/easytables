@@ -1,7 +1,9 @@
+
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
+import { GuidanceSection } from "@/components/GuidanceSection";
 
 export const ScientificCalculator = () => {
   const [display, setDisplay] = useState("0");
@@ -416,6 +418,44 @@ export const ScientificCalculator = () => {
           </Button>
         </div>
       </Card>
+      
+      <GuidanceSection title="How to Use the Scientific Calculator">
+        <p>This scientific calculator offers a range of mathematical operations and functions for both basic and advanced calculations.</p>
+        
+        <h4 className="font-medium mt-3 mb-1">Basic Operations</h4>
+        <ul className="list-disc pl-5 space-y-1">
+          <li>Addition (+): Enter a number, press +, enter another number, then press =</li>
+          <li>Subtraction (-): Enter a number, press -, enter another number, then press =</li>
+          <li>Multiplication (×): Enter a number, press ×, enter another number, then press =</li>
+          <li>Division (÷): Enter a number, press ÷, enter another number, then press =</li>
+        </ul>
+        
+        <h4 className="font-medium mt-3 mb-1">Advanced Functions</h4>
+        <ul className="list-disc pl-5 space-y-1">
+          <li>Trigonometric functions (sin, cos, tan): Enter an angle value, then press the corresponding button</li>
+          <li>Logarithmic functions (log, ln): Enter a number, then press log (base 10) or ln (natural log)</li>
+          <li>Power functions (x², x^y): Enter a number, then press x² for square or x^y followed by another number and = for custom powers</li>
+          <li>Square root (√): Enter a number, then press √</li>
+          <li>Reciprocal (1/x): Enter a number, then press 1/x</li>
+        </ul>
+        
+        <h4 className="font-medium mt-3 mb-1">Memory Functions</h4>
+        <ul className="list-disc pl-5 space-y-1">
+          <li>MS (Memory Store): Saves the displayed number to memory</li>
+          <li>MR (Memory Recall): Recalls the number from memory</li>
+          <li>MC (Memory Clear): Clears the memory</li>
+          <li>M+ (Memory Add): Adds the displayed number to the memory</li>
+          <li>M- (Memory Subtract): Subtracts the displayed number from the memory</li>
+        </ul>
+        
+        <h4 className="font-medium mt-3 mb-1">Example Calculations</h4>
+        <div className="space-y-2">
+          <p><strong>Calculate sin(30):</strong> Enter 30, press "sin" → Result: 0.5</p>
+          <p><strong>Calculate 2³:</strong> Enter 2, press "x^y", enter 3, press "=" → Result: 8</p>
+          <p><strong>Calculate √16:</strong> Enter 16, press "√" → Result: 4</p>
+          <p><strong>Calculate log(100):</strong> Enter 100, press "log" → Result: 2</p>
+        </div>
+      </GuidanceSection>
     </div>
   );
 };

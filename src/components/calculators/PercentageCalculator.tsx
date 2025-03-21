@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { GuidanceSection } from "@/components/GuidanceSection";
 
 export const PercentageCalculator = () => {
   // For "What is X% of Y?" calculator
@@ -196,6 +197,83 @@ export const PercentageCalculator = () => {
           </Card>
         </TabsContent>
       </Tabs>
+
+      <GuidanceSection title="How to Use the Percentage Calculator">
+        <div className="space-y-4">
+          <div>
+            <h4 className="font-medium mb-1">What is X% of Y?</h4>
+            <p>Use this calculator to find a percentage of a number.</p>
+            <p className="mt-2"><strong>Formula:</strong> Result = (X/100) × Y</p>
+            
+            <div className="mt-1 mb-2">
+              <p><strong>Example:</strong> What is 15% of 200?</p>
+              <p>Result = (15/100) × 200 = 30</p>
+            </div>
+          </div>
+          
+          <div>
+            <h4 className="font-medium mb-1">X is what % of Y?</h4>
+            <p>Use this calculator to find what percentage one number is of another.</p>
+            <p className="mt-2"><strong>Formula:</strong> Result = (X/Y) × 100</p>
+            
+            <div className="mt-1 mb-2">
+              <p><strong>Example:</strong> 30 is what percentage of 200?</p>
+              <p>Result = (30/200) × 100 = 15%</p>
+            </div>
+          </div>
+          
+          <div>
+            <h4 className="font-medium mb-1">Percentage Change</h4>
+            <p>Use this calculator to find the percentage increase or decrease between two values.</p>
+            <p className="mt-2"><strong>Formula:</strong> Result = ((New Value - Original Value) / Original Value) × 100</p>
+            
+            <div className="mt-1 mb-2">
+              <p><strong>Example:</strong> Calculate the percentage change from 200 to 230.</p>
+              <p>Result = ((230 - 200) / 200) × 100 = 15%</p>
+            </div>
+          </div>
+          
+          <div>
+            <h4 className="font-medium">Common Percentage Conversions</h4>
+            <table className="min-w-full border text-sm mt-2">
+              <thead>
+                <tr className="bg-muted">
+                  <th className="px-2 py-1 border">Fraction</th>
+                  <th className="px-2 py-1 border">Percentage</th>
+                  <th className="px-2 py-1 border">Decimal</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="px-2 py-1 border">1/4</td>
+                  <td className="px-2 py-1 border">25%</td>
+                  <td className="px-2 py-1 border">0.25</td>
+                </tr>
+                <tr>
+                  <td className="px-2 py-1 border">1/3</td>
+                  <td className="px-2 py-1 border">33.33%</td>
+                  <td className="px-2 py-1 border">0.333</td>
+                </tr>
+                <tr>
+                  <td className="px-2 py-1 border">1/2</td>
+                  <td className="px-2 py-1 border">50%</td>
+                  <td className="px-2 py-1 border">0.5</td>
+                </tr>
+                <tr>
+                  <td className="px-2 py-1 border">2/3</td>
+                  <td className="px-2 py-1 border">66.67%</td>
+                  <td className="px-2 py-1 border">0.667</td>
+                </tr>
+                <tr>
+                  <td className="px-2 py-1 border">3/4</td>
+                  <td className="px-2 py-1 border">75%</td>
+                  <td className="px-2 py-1 border">0.75</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </GuidanceSection>
     </div>
   );
 };

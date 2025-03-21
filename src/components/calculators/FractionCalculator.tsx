@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { GuidanceSection } from "@/components/GuidanceSection";
 
 export const FractionCalculator = () => {
   const [numerator1, setNumerator1] = useState("");
@@ -181,6 +182,56 @@ export const FractionCalculator = () => {
           </div>
         )}
       </Card>
+
+      <GuidanceSection title="How to Use the Fraction Calculator">
+        <p>This calculator allows you to perform basic operations with fractions, including addition, subtraction, multiplication, and division.</p>
+        
+        <h4 className="font-medium mt-3 mb-1">Steps to Use</h4>
+        <ol className="list-decimal pl-5 space-y-1">
+          <li>Enter the numerator and denominator for the first fraction</li>
+          <li>Select the operation you want to perform (+, -, ×, or ÷)</li>
+          <li>Enter the numerator and denominator for the second fraction</li>
+          <li>Click "Calculate" to see the result</li>
+        </ol>
+        
+        <h4 className="font-medium mt-3 mb-1">Fraction Operations</h4>
+        <div className="space-y-2">
+          <div>
+            <p className="font-medium">Addition</p>
+            <p>When adding fractions, we need a common denominator:</p>
+            <p className="my-1">a/b + c/d = (a×d + c×b)/(b×d)</p>
+            <p><strong>Example:</strong> 1/4 + 2/3 = (1×3 + 2×4)/(4×3) = (3 + 8)/12 = 11/12</p>
+          </div>
+          
+          <div>
+            <p className="font-medium">Subtraction</p>
+            <p>Similar to addition, we need a common denominator:</p>
+            <p className="my-1">a/b - c/d = (a×d - c×b)/(b×d)</p>
+            <p><strong>Example:</strong> 3/4 - 1/3 = (3×3 - 1×4)/(4×3) = (9 - 4)/12 = 5/12</p>
+          </div>
+          
+          <div>
+            <p className="font-medium">Multiplication</p>
+            <p>To multiply fractions, multiply the numerators and denominators:</p>
+            <p className="my-1">a/b × c/d = (a×c)/(b×d)</p>
+            <p><strong>Example:</strong> 2/3 × 3/4 = (2×3)/(3×4) = 6/12 = 1/2</p>
+          </div>
+          
+          <div>
+            <p className="font-medium">Division</p>
+            <p>To divide fractions, multiply by the reciprocal of the second fraction:</p>
+            <p className="my-1">a/b ÷ c/d = (a/b) × (d/c) = (a×d)/(b×c)</p>
+            <p><strong>Example:</strong> 2/3 ÷ 3/4 = (2/3) × (4/3) = (2×4)/(3×3) = 8/9</p>
+          </div>
+        </div>
+        
+        <h4 className="font-medium mt-3 mb-1">Simplifying Fractions</h4>
+        <p>The calculator automatically simplifies your answer to the lowest terms by dividing both the numerator and denominator by their greatest common divisor (GCD).</p>
+        
+        <h4 className="font-medium mt-3 mb-1">Mixed Numbers</h4>
+        <p>For results where the numerator is greater than the denominator, the calculator also shows the mixed number form (whole + fraction).</p>
+        <p><strong>Example:</strong> 5/2 is shown as 2 1/2</p>
+      </GuidanceSection>
     </div>
   );
 };

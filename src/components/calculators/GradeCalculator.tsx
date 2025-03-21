@@ -6,6 +6,7 @@ import { Card } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { X, Plus } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
+import { GuidanceSection } from "@/components/GuidanceSection";
 
 export const GradeCalculator = () => {
   const [assignments, setAssignments] = useState([
@@ -207,6 +208,100 @@ export const GradeCalculator = () => {
           )}
         </div>
       </Card>
+
+      <GuidanceSection title="How to Use the Grade Calculator">
+        <p>This calculator helps you determine your overall grade by considering the scores and weights of multiple assignments or assessments.</p>
+        
+        <h4 className="font-medium mt-3 mb-1">Steps to Calculate Your Grade</h4>
+        <ol className="list-decimal pl-5 space-y-1">
+          <li>Enter a name for each assignment (e.g., "Midterm Exam", "Project")</li>
+          <li>Enter your score and the maximum possible score (the "out of" value)</li>
+          <li>Enter the weight as a percentage (e.g., 20 for 20% of your total grade)</li>
+          <li>Add more assignments as needed using the "Add Assignment" button</li>
+          <li>Click "Calculate Grade" to see your overall grade</li>
+        </ol>
+        
+        <h4 className="font-medium mt-3 mb-1">Understanding Weighted Grades</h4>
+        <p>When assignments have different weights, their contribution to your final grade is proportional to their weight.</p>
+        
+        <div className="my-2">
+          <p>For each assignment, we calculate:</p>
+          <p className="ml-4">Assignment Percentage = (Your Score / Maximum Score) × 100</p>
+          <p>Then the weighted score is:</p>
+          <p className="ml-4">Weighted Score = Assignment Percentage × Weight</p>
+          <p>The overall grade is the sum of all weighted scores divided by the sum of all weights.</p>
+        </div>
+        
+        <h4 className="font-medium mt-3 mb-1">Example Calculation</h4>
+        <div className="overflow-x-auto">
+          <table className="min-w-full border text-sm mt-2">
+            <thead>
+              <tr className="bg-muted">
+                <th className="px-3 py-1 border">Assignment</th>
+                <th className="px-3 py-1 border">Score</th>
+                <th className="px-3 py-1 border">Out Of</th>
+                <th className="px-3 py-1 border">Percentage</th>
+                <th className="px-3 py-1 border">Weight</th>
+                <th className="px-3 py-1 border">Weighted Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="px-3 py-1 border">Homework</td>
+                <td className="px-3 py-1 border">85</td>
+                <td className="px-3 py-1 border">100</td>
+                <td className="px-3 py-1 border">85%</td>
+                <td className="px-3 py-1 border">20%</td>
+                <td className="px-3 py-1 border">17.0</td>
+              </tr>
+              <tr>
+                <td className="px-3 py-1 border">Midterm</td>
+                <td className="px-3 py-1 border">78</td>
+                <td className="px-3 py-1 border">100</td>
+                <td className="px-3 py-1 border">78%</td>
+                <td className="px-3 py-1 border">30%</td>
+                <td className="px-3 py-1 border">23.4</td>
+              </tr>
+              <tr>
+                <td className="px-3 py-1 border">Final Exam</td>
+                <td className="px-3 py-1 border">92</td>
+                <td className="px-3 py-1 border">100</td>
+                <td className="px-3 py-1 border">92%</td>
+                <td className="px-3 py-1 border">50%</td>
+                <td className="px-3 py-1 border">46.0</td>
+              </tr>
+              <tr className="bg-muted">
+                <td colSpan={4} className="px-3 py-1 border"></td>
+                <td className="px-3 py-1 border font-medium">Total: 100%</td>
+                <td className="px-3 py-1 border font-medium">86.4%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <p className="mt-3">In this example, the overall grade is 86.4%, typically a B grade.</p>
+        
+        <h4 className="font-medium mt-3 mb-1">Common Grading Scales</h4>
+        <div className="overflow-x-auto">
+          <table className="min-w-full border text-sm mt-2">
+            <thead>
+              <tr className="bg-muted">
+                <th className="px-3 py-1 border">Letter Grade</th>
+                <th className="px-3 py-1 border">Percentage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td className="px-3 py-1 border">A</td><td className="px-3 py-1 border">90-100%</td></tr>
+              <tr><td className="px-3 py-1 border">B</td><td className="px-3 py-1 border">80-89%</td></tr>
+              <tr><td className="px-3 py-1 border">C</td><td className="px-3 py-1 border">70-79%</td></tr>
+              <tr><td className="px-3 py-1 border">D</td><td className="px-3 py-1 border">60-69%</td></tr>
+              <tr><td className="px-3 py-1 border">F</td><td className="px-3 py-1 border">0-59%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <p className="mt-3 text-xs text-muted-foreground">Note: Grading scales may vary by institution.</p>
+      </GuidanceSection>
     </div>
   );
 };
