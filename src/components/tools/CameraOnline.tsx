@@ -1,0 +1,187 @@
+
+import React, { useState, useRef, useEffect } from "react";
+import { Camera, X, Image, RotateCcw, Download } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
+
+export const CameraOnline = () => {
+  const [stream, setStream] = useState<MediaStream | null>(null);
+  const [capturedImage, setCapturedImage] = useState<string | null>(null);
+  const [permissionError, setPermissionError] = useState<string | null>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const { toast } = useToast();
+
+  useEffect(() => {
+    // Initial camera setup
+    startCamera();
+    
+    // Cleanup on unmount
+    return () => {
+      if (stream) {
+        stream.getTracks().forEach(track => track.stop());
+      }
+    };
+  }, []);
+
+  const startCamera = async () => {
+    try {
+      // Reset any previous errors
+      setPermissionError(null);
+      
+      const mediaStream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: "user" }
+      });
+      
+      setStream(mediaStream);
+      
+      // Connect stream to video element when available
+      if (videoRef.current) {
+        videoRef.current.srcObject = mediaStream;
+      }
+    } catch (error) {
+      console.error('Error accessing camera:', error);
+      setPermissionError("Camera access denied. Please allow camera access in your browser settings.");
+      
+      toast({
+        title: "Camera access denied",
+        description: "Please allow camera access to use this feature",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const captureImage = () => {
+    if (!videoRef.current || !canvasRef.current) return;
+    
+    const video = videoRef.current;
+    const canvas = canvasRef.current;
+    
+    // Set canvas dimensions to match video
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    
+    // Draw video frame to canvas
+    const context = canvas.getContext('2d');
+    if (context) {
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+      
+      // Convert canvas to data URL (image)
+      const imageDataURL = canvas.toDataURL('image/png');
+      setCapturedImage(imageDataURL);
+      
+      toast({
+        title: "Image captured",
+        description: "Your photo has been captured and is ready to download",
+      });
+    }
+  };
+
+  const resetCamera = () => {
+    setCapturedImage(null);
+    
+    toast({
+      title: "Camera reset",
+      description: "Ready to take a new photo",
+    });
+  };
+
+  const downloadImage = () => {
+    if (!capturedImage) return;
+    
+    const link = document.createElement('a');
+    link.href = capturedImage;
+    link.download = `photo-${new Date().toISOString()}.png`;
+    link.click();
+    
+    toast({
+      title: "Download started",
+      description: "Your photo is being downloaded",
+    });
+  };
+
+  return (
+    <div className="max-w-2xl mx-auto">
+      <Card className="shadow-md">
+        <CardHeader className="bg-primary/5">
+          <div className="flex items-center">
+            <Camera className="mr-2 text-primary" size={24} />
+            <CardTitle>Camera Online</CardTitle>
+          </div>
+          <CardDescription>
+            Take photos using your device camera
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="pt-6 pb-4">
+          {permissionError ? (
+            <div className="p-6 text-center">
+              <Camera className="mx-auto mb-4 text-muted-foreground" size={48} />
+              <h3 className="text-lg font-medium mb-2">Camera Access Required</h3>
+              <p className="text-muted-foreground mb-4">{permissionError}</p>
+              <Button onClick={() => window.location.reload()}>Try Again</Button>
+            </div>
+          ) : (
+            <div className="space-y-4">
+              <div className="relative overflow-hidden rounded-lg bg-black aspect-video">
+                {!capturedImage ? (
+                  <video
+                    ref={videoRef}
+                    autoPlay
+                    playsInline
+                    muted
+                    className={`w-full h-full object-cover ${stream ? 'opacity-100' : 'opacity-0'}`}
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center">
+                    <img src={capturedImage} alt="Captured" className="max-w-full max-h-full" />
+                  </div>
+                )}
+                
+                {/* Hidden canvas for capturing the image */}
+                <canvas ref={canvasRef} className="hidden" />
+              </div>
+              
+              <div className="flex flex-wrap justify-center gap-2">
+                {!capturedImage ? (
+                  <Button
+                    onClick={captureImage}
+                    className="flex items-center gap-2"
+                    size="lg"
+                    disabled={!stream}
+                  >
+                    <Camera size={16} />
+                    Take Photo
+                  </Button>
+                ) : (
+                  <>
+                    <Button
+                      onClick={resetCamera}
+                      variant="outline"
+                      className="flex items-center gap-2"
+                    >
+                      <RotateCcw size={16} />
+                      Take Another
+                    </Button>
+                    
+                    <Button
+                      onClick={downloadImage}
+                      className="flex items-center gap-2"
+                    >
+                      <Download size={16} />
+                      Download Photo
+                    </Button>
+                  </>
+                )}
+              </div>
+              
+              <div className="text-center text-sm text-muted-foreground">
+                <p>Photos are processed locally and not sent to any server.</p>
+              </div>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+    </div>
+  );
+};
