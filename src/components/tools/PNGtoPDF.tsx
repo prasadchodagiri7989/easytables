@@ -1,6 +1,5 @@
-
 import React, { useState, useRef } from "react";
-import { Image, Download, Trash2, Plus, Eye } from "lucide-react";
+import { FileImage, Download, Trash2, Plus, Eye } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
@@ -16,11 +15,16 @@ export const PNGtoPDF = () => {
     const files = event.target.files;
     
     if (files && files.length > 0) {
-      const pngFiles = Array.from(files).filter(file => 
+      const newImages = Array.from(files).filter(file => 
         file.type === 'image/png'
-      );
+      ).map(file => {
+        return {
+          file,
+          preview: URL.createObjectURL(file)
+        };
+      });
       
-      if (pngFiles.length === 0) {
+      if (newImages.length === 0) {
         toast({
           title: "Invalid files",
           description: "Please select PNG files only",
@@ -29,17 +33,10 @@ export const PNGtoPDF = () => {
         return;
       }
       
-      const newImages = pngFiles.map(file => {
-        return {
-          file,
-          preview: URL.createObjectURL(file)
-        };
-      });
-      
       setImages(prev => [...prev, ...newImages]);
       
       toast({
-        title: `${pngFiles.length} PNG file${pngFiles.length > 1 ? 's' : ''} added`,
+        title: `${newImages.length} PNG${newImages.length > 1 ? 's' : ''} added`,
         description: "PNG files have been added to the queue"
       });
       
@@ -57,11 +54,11 @@ export const PNGtoPDF = () => {
     const files = event.dataTransfer.files;
     
     if (files && files.length > 0) {
-      const pngFiles = Array.from(files).filter(file => 
+      const imageFiles = Array.from(files).filter(file => 
         file.type === 'image/png'
       );
       
-      if (pngFiles.length === 0) {
+      if (imageFiles.length === 0) {
         toast({
           title: "Invalid files",
           description: "Please drop PNG files only",
@@ -70,7 +67,7 @@ export const PNGtoPDF = () => {
         return;
       }
       
-      const newImages = pngFiles.map(file => {
+      const newImages = imageFiles.map(file => {
         return {
           file,
           preview: URL.createObjectURL(file)
@@ -80,7 +77,7 @@ export const PNGtoPDF = () => {
       setImages(prev => [...prev, ...newImages]);
       
       toast({
-        title: `${pngFiles.length} PNG file${pngFiles.length > 1 ? 's' : ''} added`,
+        title: `${imageFiles.length} PNG${imageFiles.length > 1 ? 's' : ''} added`,
         description: "PNG files have been added to the queue"
       });
     }
@@ -96,8 +93,8 @@ export const PNGtoPDF = () => {
     setImages(images.filter((_, i) => i !== index));
     
     toast({
-      title: "PNG file removed",
-      description: "The PNG file has been removed from the queue"
+      title: "Image removed",
+      description: "The image has been removed from the queue"
     });
   };
 
@@ -106,8 +103,8 @@ export const PNGtoPDF = () => {
     setImages([]);
     
     toast({
-      title: "All PNG files cleared",
-      description: "All PNG files have been removed from the queue"
+      title: "All images cleared",
+      description: "All images have been removed from the queue"
     });
   };
 
@@ -124,9 +121,10 @@ export const PNGtoPDF = () => {
     setIsGenerating(true);
     
     try {
+      // Fix: Create a jsPDF instance with correct parameters
       const doc = new jsPDF({
         orientation: "portrait",
-        unit: "px",
+        unit: "px"
       });
       
       // Process each image
@@ -197,7 +195,7 @@ export const PNGtoPDF = () => {
       <Card className="shadow-md">
         <CardHeader className="bg-primary/5">
           <div className="flex items-center">
-            <Image className="mr-2 text-primary" size={24} />
+            <FileImage className="mr-2 text-primary" size={24} />
             <CardTitle>PNG to PDF Converter</CardTitle>
           </div>
           <CardDescription>
@@ -211,17 +209,17 @@ export const PNGtoPDF = () => {
             onDragOver={handleDragOver}
             onClick={() => fileInputRef.current?.click()}
           >
-            <Image size={48} className="mx-auto mb-4 text-muted-foreground/50" />
-            <h3 className="text-lg font-medium mb-2">Add PNG Files</h3>
+            <FileImage size={48} className="mx-auto mb-4 text-muted-foreground/50" />
+            <h3 className="text-lg font-medium mb-2">Add PNG Images</h3>
             <p className="text-sm text-muted-foreground mb-4">
               Drag and drop PNG files here, or click to select
             </p>
             <Button>
-              <Plus size={16} className="mr-1" /> Select PNG Files
+              <Plus size={16} className="mr-1" /> Select Images
             </Button>
             <input
               type="file"
-              accept=".png,image/png"
+              accept="image/png"
               multiple
               onChange={handleFileChange}
               ref={fileInputRef}
@@ -232,7 +230,7 @@ export const PNGtoPDF = () => {
           {images.length > 0 && (
             <>
               <div className="flex items-center justify-between">
-                <h3 className="text-lg font-medium">{images.length} PNG File{images.length > 1 ? 's' : ''}</h3>
+                <h3 className="text-lg font-medium">{images.length} PNG{images.length > 1 ? 's' : ''}</h3>
                 <Button variant="outline" size="sm" onClick={clearAll}>
                   <Trash2 size={16} className="mr-1" /> Clear All
                 </Button>
@@ -243,7 +241,7 @@ export const PNGtoPDF = () => {
                   <div key={index} className="relative group border rounded-md overflow-hidden">
                     <img 
                       src={img.preview} 
-                      alt={`PNG ${index + 1}`} 
+                      alt={`Image ${index + 1}`} 
                       className="w-full h-32 object-cover"
                     />
                     <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
@@ -283,7 +281,7 @@ export const PNGtoPDF = () => {
           )}
           
           <p className="text-sm text-muted-foreground">
-            Tip: You can add multiple PNG files at once, and they will be added as separate pages in the PDF.
+            Tip: You can add multiple PNG images at once, and they will be added as separate pages in the PDF.
           </p>
         </CardContent>
       </Card>
