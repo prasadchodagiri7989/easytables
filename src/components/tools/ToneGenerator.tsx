@@ -1,6 +1,5 @@
-
 import React, { useState, useRef, useEffect } from "react";
-import { Music, Play, Square, Volume2, VolumeX, Waveform } from "lucide-react";
+import { Music, Play, Square, Volume2, VolumeX, WaveSine } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
@@ -30,10 +29,8 @@ export const ToneGenerator = () => {
   const gainNodeRef = useRef<GainNode | null>(null);
   const { toast } = useToast();
 
-  // Initialize audio context
   useEffect(() => {
     return () => {
-      // Cleanup on unmount
       if (oscillatorRef.current) {
         oscillatorRef.current.stop();
         oscillatorRef.current.disconnect();
@@ -57,31 +54,25 @@ export const ToneGenerator = () => {
     try {
       const audioContext = initAudio();
       
-      // Stop any existing oscillator
       if (oscillatorRef.current) {
         oscillatorRef.current.stop();
         oscillatorRef.current.disconnect();
       }
       
-      // Create oscillator
       const oscillator = audioContext.createOscillator();
       oscillatorRef.current = oscillator;
       oscillator.type = waveType;
       oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
       
-      // Create gain node (volume control)
       const gainNode = audioContext.createGain();
       gainNodeRef.current = gainNode;
       
-      // Set volume (accounting for mute state)
       const actualVolume = isMuted ? 0 : volume;
       gainNode.gain.setValueAtTime(actualVolume, audioContext.currentTime);
       
-      // Connect nodes
       oscillator.connect(gainNode);
       gainNode.connect(audioContext.destination);
       
-      // Start oscillator
       oscillator.start();
       setPlaying(true);
       
@@ -102,12 +93,10 @@ export const ToneGenerator = () => {
 
   const stopTone = () => {
     if (oscillatorRef.current) {
-      // Add a small fade out to avoid clicks
       if (gainNodeRef.current && audioContextRef.current) {
         const now = audioContextRef.current.currentTime;
         gainNodeRef.current.gain.linearRampToValueAtTime(0, now + 0.02);
         
-        // Stop oscillator after fade
         setTimeout(() => {
           if (oscillatorRef.current) {
             oscillatorRef.current.stop();
@@ -132,7 +121,6 @@ export const ToneGenerator = () => {
 
   const toggleMute = () => {
     if (isMuted) {
-      // Unmute
       setVolume(previousVolume);
       setIsMuted(false);
       
@@ -140,7 +128,6 @@ export const ToneGenerator = () => {
         gainNodeRef.current.gain.setValueAtTime(previousVolume, audioContextRef.current.currentTime);
       }
     } else {
-      // Mute
       setPreviousVolume(volume);
       setIsMuted(true);
       
@@ -236,7 +223,7 @@ export const ToneGenerator = () => {
               
               {playing && (
                 <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2">
-                  <Waveform 
+                  <WaveSine 
                     size={80} 
                     className={`text-primary ${
                       waveType === 'sine' ? 'animate-pulse' : 'animate-bounce'
