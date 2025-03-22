@@ -7,7 +7,8 @@ import {
   Award, Home, DollarSign, TrendingUp, Weight, ChevronLeft, ArrowRightLeft, ChevronDown,
   Clock, BarChart, Calendar, Phone, Camera, FileText, MousePointer, Timer, Mic,
   Monitor, Lock, PieChart, Shuffle, Activity, Film, Smartphone, MessageSquare, Edit,
-  Table, Volume2, CalendarDays, CheckSquare, Music, Ruler, Video, Wrench
+  Table, Volume2, CalendarDays, CheckSquare, Music, Ruler, Video, Wrench, Hash,
+  AlignJustify, FileImage, Type
 } from "lucide-react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
@@ -48,6 +49,7 @@ const SidebarLink = ({ to, icon: Icon, label, onClose }: SidebarLinkProps) => {
 export const Sidebar = ({ open, onClose }: SidebarProps) => {
   const [calculatorsOpen, setCalculatorsOpen] = useState(false);
   const [toolsOpen, setToolsOpen] = useState(false);
+  const [textToolsOpen, setTextToolsOpen] = useState(false);
 
   return (
     <aside className={cn(
@@ -103,6 +105,34 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
           </Collapsible>
           
           <SidebarLink to="/unit-converter" icon={ArrowRightLeft} label="Unit Converter" onClose={onClose} />
+          
+          <Collapsible
+            open={textToolsOpen}
+            onOpenChange={setTextToolsOpen}
+            className="w-full mt-2"
+          >
+            <CollapsibleTrigger className="flex items-center justify-between w-full px-4 py-2 rounded-md hover:bg-gray-100 text-left">
+              <div className="flex items-center">
+                <Type size={18} className="mr-2" />
+                <span className="text-sm font-medium">Text Tools</span>
+              </div>
+              <ChevronDown 
+                size={16} 
+                className={cn(
+                  "transition-transform duration-200",
+                  textToolsOpen ? "rotate-180" : ""
+                )} 
+              />
+            </CollapsibleTrigger>
+            <CollapsibleContent className="pl-6 space-y-1 mt-1">
+              <SidebarLink to="/word-counter" icon={Hash} label="Word Counter" onClose={onClose} />
+              <SidebarLink to="/character-counter" icon={Type} label="Character Counter" onClose={onClose} />
+              <SidebarLink to="/line-counter" icon={AlignJustify} label="Line Counter" onClose={onClose} />
+              <SidebarLink to="/word-frequency" icon={BarChart2} label="Word Frequency" onClose={onClose} />
+              <SidebarLink to="/pdf-reader" icon={FileText} label="PDF Reader" onClose={onClose} />
+              <SidebarLink to="/image-to-text" icon={FileImage} label="OCR - Image to Text" onClose={onClose} />
+            </CollapsibleContent>
+          </Collapsible>
           
           <Collapsible
             open={toolsOpen}

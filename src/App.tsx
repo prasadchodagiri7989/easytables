@@ -56,6 +56,14 @@ import { VoiceRecorder } from "./components/tools/VoiceRecorder";
 import { WebcamTest } from "./components/tools/WebcamTest";
 import { Layout } from "./components/Layout";
 
+// Import text tools
+import { WordCounter } from "./components/tools/WordCounter";
+import { CharacterCounter } from "./components/tools/CharacterCounter";
+import { LineCounter } from "./components/tools/LineCounter";
+import { WordFrequency } from "./components/tools/WordFrequency";
+import { PDFReader } from "./components/tools/PDFReader";
+import { ImageToText } from "./components/tools/ImageToText";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -77,6 +85,14 @@ const App = () => (
           <Route path="/compound-interest" element={<Layout><CompoundInterestCalculator /></Layout>} />
           <Route path="/bmi" element={<Layout><BMICalculator /></Layout>} />
           <Route path="/unit-converter" element={<Layout><UnitConverter /></Layout>} />
+          
+          {/* Text Tools Routes */}
+          <Route path="/word-counter" element={<Layout><WordCounter /></Layout>} />
+          <Route path="/character-counter" element={<Layout><CharacterCounter /></Layout>} />
+          <Route path="/line-counter" element={<Layout><LineCounter /></Layout>} />
+          <Route path="/word-frequency" element={<Layout><WordFrequency /></Layout>} />
+          <Route path="/pdf-reader" element={<Layout><PDFReader /></Layout>} />
+          <Route path="/image-to-text" element={<Layout><ImageToText /></Layout>} />
           
           {/* Online Tools Routes */}
           <Route path="current-time" element={<Layout><CurrentTime /></Layout>} />
