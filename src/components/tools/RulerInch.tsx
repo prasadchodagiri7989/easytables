@@ -29,7 +29,9 @@ export const RulerInch = () => {
     document.body.appendChild(dpiDiv);
     
     // Get the computed width in pixels
-    const dpiValue = Math.round(getComputedStyle(dpiDiv).width.replace('px', ''));
+    const computedWidth = getComputedStyle(dpiDiv).width;
+    // Extract number from string "Xpx" and convert to number
+    const dpiValue = parseInt(computedWidth.replace('px', ''), 10);
     document.body.removeChild(dpiDiv);
     
     setDpi(dpiValue);

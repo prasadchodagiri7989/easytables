@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from "react";
 import { Mic, StopCircle, Pause, Play, Save, Trash2, Rewind, FastForward, Download } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -6,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { Slider } from "@/components/ui/slider";
 import { Progress } from "@/components/ui/progress";
+import { Label } from "@/components/ui/label";
 
 export const VoiceRecorder = () => {
   const [isRecording, setIsRecording] = useState(false);
@@ -28,14 +28,11 @@ export const VoiceRecorder = () => {
   const { toast } = useToast();
 
   useEffect(() => {
-    // Check microphone permissions on mount
     checkMicrophonePermission();
     
-    // Create audio element
     const audio = new Audio();
     audioRef.current = audio;
     
-    // Setup audio event listeners
     audio.addEventListener('timeupdate', updatePlaybackProgress);
     audio.addEventListener('ended', handlePlaybackEnded);
     audio.addEventListener('loadedmetadata', () => {
@@ -45,22 +42,18 @@ export const VoiceRecorder = () => {
     });
     
     return () => {
-      // Cleanup
       cleanupRecording();
       cleanupPlayback();
       
-      // Remove event listeners
       audio.removeEventListener('timeupdate', updatePlaybackProgress);
       audio.removeEventListener('ended', handlePlaybackEnded);
       
-      // Release audio
       if (audioBlobUrl) {
         URL.revokeObjectURL(audioBlobUrl);
       }
     };
   }, []);
   
-  // Update volume when changed
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = volume;
@@ -71,7 +64,6 @@ export const VoiceRecorder = () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       
-      // Stop all tracks to release microphone until needed
       stream.getTracks().forEach(track => track.stop());
       
       setPermissionGranted(true);
@@ -85,7 +77,6 @@ export const VoiceRecorder = () => {
 
   const startRecording = async () => {
     try {
-      // Reset previous recording data
       if (audioBlobUrl) {
         URL.revokeObjectURL(audioBlobUrl);
         setAudioBlobUrl(null);
@@ -94,46 +85,38 @@ export const VoiceRecorder = () => {
       setRecordingTime(0);
       audioChunksRef.current = [];
       
-      // Request microphone access
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       streamRef.current = stream;
       
-      // Create MediaRecorder instance
       const mediaRecorder = new MediaRecorder(stream);
       mediaRecorderRef.current = mediaRecorder;
       
-      // Setup data handling
       mediaRecorder.ondataavailable = (e) => {
         if (e.data.size > 0) {
           audioChunksRef.current.push(e.data);
         }
       };
       
-      // Handle recording stops
       mediaRecorder.onstop = () => {
         const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/webm' });
         const url = URL.createObjectURL(audioBlob);
         setAudioBlobUrl(url);
         setAudioBlob(audioBlob);
         
-        // Update audio element source
         if (audioRef.current) {
           audioRef.current.src = url;
           audioRef.current.load();
         }
         
-        // Release microphone
         if (streamRef.current) {
           streamRef.current.getTracks().forEach(track => track.stop());
           streamRef.current = null;
         }
       };
       
-      // Start recording
       mediaRecorder.start();
       setIsRecording(true);
       
-      // Start timer
       timerRef.current = window.setInterval(() => {
         setRecordingTime(prevTime => prevTime + 1);
       }, 1000);
@@ -160,7 +143,6 @@ export const VoiceRecorder = () => {
     
     setIsRecording(false);
     
-    // Stop timer
     if (timerRef.current) {
       clearInterval(timerRef.current);
       timerRef.current = null;
@@ -178,7 +160,6 @@ export const VoiceRecorder = () => {
     audioRef.current.play();
     setIsPlaying(true);
     
-    // Start progress tracking
     updatePlaybackProgress();
   };
 
@@ -188,7 +169,6 @@ export const VoiceRecorder = () => {
     audioRef.current.pause();
     setIsPlaying(false);
     
-    // Stop progress tracking
     if (animationFrameRef.current) {
       cancelAnimationFrame(animationFrameRef.current);
       animationFrameRef.current = null;
@@ -261,12 +241,10 @@ export const VoiceRecorder = () => {
   };
 
   const deleteRecording = () => {
-    // Stop playback if playing
     if (isPlaying) {
       pausePlayback();
     }
     
-    // Clear recording data
     if (audioBlobUrl) {
       URL.revokeObjectURL(audioBlobUrl);
     }
@@ -287,18 +265,15 @@ export const VoiceRecorder = () => {
   };
 
   const cleanupRecording = () => {
-    // Stop recording if active
     if (mediaRecorderRef.current && mediaRecorderRef.current.state !== 'inactive') {
       mediaRecorderRef.current.stop();
     }
     
-    // Stop and release microphone stream
     if (streamRef.current) {
       streamRef.current.getTracks().forEach(track => track.stop());
       streamRef.current = null;
     }
     
-    // Clear recording timer
     if (timerRef.current) {
       clearInterval(timerRef.current);
       timerRef.current = null;
@@ -308,12 +283,10 @@ export const VoiceRecorder = () => {
   };
 
   const cleanupPlayback = () => {
-    // Stop playback if active
     if (audioRef.current) {
       audioRef.current.pause();
     }
     
-    // Cancel animation frame if active
     if (animationFrameRef.current) {
       cancelAnimationFrame(animationFrameRef.current);
       animationFrameRef.current = null;
@@ -322,7 +295,6 @@ export const VoiceRecorder = () => {
     setIsPlaying(false);
   };
 
-  // Format time in MM:SS format
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60).toString().padStart(2, '0');
     const secs = Math.floor(seconds % 60).toString().padStart(2, '0');
@@ -380,7 +352,6 @@ export const VoiceRecorder = () => {
                 </div>
               </div>
               
-              {/* Recording/Playback controls */}
               <div className="flex flex-wrap justify-center gap-2">
                 {!audioBlobUrl ? (
                   isRecording ? (

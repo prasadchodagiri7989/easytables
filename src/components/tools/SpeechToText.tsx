@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from "react";
 import { Mic, StopCircle, Save, Copy, RotateCcw, Download } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -15,6 +14,29 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
+interface SpeechRecognitionConstructor {
+  new (): SpeechRecognition;
+}
+
+interface SpeechRecognition extends EventTarget {
+  lang: string;
+  continuous: boolean;
+  interimResults: boolean;
+  start(): void;
+  stop(): void;
+  abort(): void;
+  onresult: ((event: any) => void) | null;
+  onerror: ((event: any) => void) | null;
+  onend: (() => void) | null;
+}
+
+declare global {
+  interface Window {
+    SpeechRecognition?: SpeechRecognitionConstructor;
+    webkitSpeechRecognition?: SpeechRecognitionConstructor;
+  }
+}
+
 export const SpeechToText = () => {
   const [isRecording, setIsRecording] = useState(false);
   const [transcript, setTranscript] = useState("");
@@ -25,14 +47,12 @@ export const SpeechToText = () => {
   const [interimResults, setInterimResults] = useState(true);
   const [recordingTime, setRecordingTime] = useState(0);
   
-  const recognitionRef = useRef<any>(null);
+  const recognitionRef = useRef<SpeechRecognition | null>(null);
   const timerRef = useRef<number | null>(null);
   const { toast } = useToast();
   
-  // Initialize speech recognition
   useEffect(() => {
-    // Check if browser supports speech recognition
-    if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+    if (!window.SpeechRecognition && !window.webkitSpeechRecognition) {
       setPermissionError("Speech recognition is not supported in your browser. Try Chrome, Edge, or Safari.");
       return;
     }
@@ -52,7 +72,6 @@ export const SpeechToText = () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       
-      // Stop all tracks to release microphone
       stream.getTracks().forEach(track => track.stop());
       
       setPermissionGranted(true);
@@ -75,9 +94,13 @@ export const SpeechToText = () => {
     }
     
     try {
-      // Initialize speech recognition
-      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-      const recognition = new SpeechRecognition();
+      const SpeechRecognitionAPI = window.SpeechRecognition || window.webkitSpeechRecognition;
+      
+      if (!SpeechRecognitionAPI) {
+        throw new Error("Speech recognition not supported");
+      }
+      
+      const recognition = new SpeechRecognitionAPI();
       
       recognition.lang = language;
       recognition.continuous = true;
@@ -99,7 +122,6 @@ export const SpeechToText = () => {
           }
         }
         
-        // Add auto-punctuation if enabled
         if (autoPunctuation && finalTranscript) {
           finalTranscript = applyAutoPunctuation(finalTranscript);
         }
@@ -125,21 +147,17 @@ export const SpeechToText = () => {
       };
       
       recognition.onend = () => {
-        // Only stop if we're not still supposed to be recording
         if (isRecording) {
-          // Restart recognition if it stops unexpectedly
           recognition.start();
         } else {
           setIsRecording(false);
         }
       };
       
-      // Start recognition
       recognition.start();
       recognitionRef.current = recognition;
       setIsRecording(true);
       
-      // Start timer
       setRecordingTime(0);
       timerRef.current = window.setInterval(() => {
         setRecordingTime(prev => prev + 1);
@@ -168,13 +186,11 @@ export const SpeechToText = () => {
     
     setIsRecording(false);
     
-    // Stop timer
     if (timerRef.current) {
       clearInterval(timerRef.current);
       timerRef.current = null;
     }
     
-    // Clean up interim results
     setTranscript(transcript.replace(/\s?\(.*?\)$/, ''));
     
     if (isRecording) {
@@ -237,16 +253,12 @@ export const SpeechToText = () => {
     });
   };
   
-  // Apply simple auto-punctuation rules
   const applyAutoPunctuation = (text: string) => {
-    // Capitalize first letter
     text = text.trim();
     if (text.length > 0) {
       text = text.charAt(0).toUpperCase() + text.slice(1);
     }
     
-    // Attempt to add periods at natural sentence breaks
-    // This is a very basic implementation
     const pausePatterns = [
       /\b(but|and|or|so|because|however|therefore)\s+/gi,
       /\b(i mean|you know|actually|basically|honestly|literally)\s+/gi
@@ -261,7 +273,6 @@ export const SpeechToText = () => {
       });
     });
     
-    // Add period at the end if missing
     if (text.length > 0 && !text.endsWith('.') && !text.endsWith('!') && !text.endsWith('?')) {
       text += '.';
     }
@@ -269,7 +280,6 @@ export const SpeechToText = () => {
     return text;
   };
   
-  // Format recording time (MM:SS)
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60).toString().padStart(2, '0');
     const secs = (seconds % 60).toString().padStart(2, '0');

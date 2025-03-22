@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Clock, Settings } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -20,6 +19,19 @@ interface ClockSettings {
   showDate: boolean;
   timezone: string;
 }
+
+// Fallback list of common timezones when Intl.supportedValuesOf isn't available
+const FALLBACK_TIMEZONES = [
+  'America/New_York',
+  'America/Chicago', 
+  'America/Denver',
+  'America/Los_Angeles',
+  'Europe/London',
+  'Europe/Paris',
+  'Asia/Tokyo',
+  'Australia/Sydney',
+  'Pacific/Auckland',
+];
 
 export const OnlineClock = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -43,39 +55,20 @@ export const OnlineClock = () => {
   
   // Get list of available timezones
   useEffect(() => {
-    // Use Intl API to get timezones if available
-    if (typeof Intl !== 'undefined' && Intl.supportedValuesOf) {
-      try {
-        const timezones = Intl.supportedValuesOf('timeZone');
+    try {
+      // Check if the browser supports this API (many don't)
+      if (typeof Intl !== 'undefined' && 'supportedValuesOf' in Intl) {
+        // TypeScript doesn't know about this method, so we need to use type assertion
+        const timezones = (Intl as any).supportedValuesOf('timeZone');
         setAvailableTimezones(timezones);
-      } catch (error) {
-        console.error('Error getting timezones:', error);
+      } else {
         // Fallback to common timezones
-        setAvailableTimezones([
-          'America/New_York',
-          'America/Chicago', 
-          'America/Denver',
-          'America/Los_Angeles',
-          'Europe/London',
-          'Europe/Paris',
-          'Asia/Tokyo',
-          'Australia/Sydney',
-          'Pacific/Auckland',
-        ]);
+        setAvailableTimezones(FALLBACK_TIMEZONES);
       }
-    } else {
+    } catch (error) {
+      console.error('Error getting timezones:', error);
       // Fallback to common timezones
-      setAvailableTimezones([
-        'America/New_York',
-        'America/Chicago', 
-        'America/Denver',
-        'America/Los_Angeles',
-        'Europe/London',
-        'Europe/Paris',
-        'Asia/Tokyo',
-        'Australia/Sydney',
-        'Pacific/Auckland',
-      ]);
+      setAvailableTimezones(FALLBACK_TIMEZONES);
     }
   }, []);
   

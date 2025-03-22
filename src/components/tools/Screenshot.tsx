@@ -1,4 +1,3 @@
-
 import React, { useState, useRef } from "react";
 import { Image, Camera, Download, Monitor, Crop, Copy, Check } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -64,9 +63,11 @@ export const Screenshot = () => {
   
   const doCapture = async () => {
     try {
-      // Request screen capture
+      // Request screen capture - use proper constraints format
+      // The displayMedia API doesn't use mediaSource directly in constraints
       const stream = await navigator.mediaDevices.getDisplayMedia({
-        video: { mediaSource: "screen" }
+        video: true, // Standard video constraints
+        audio: false
       });
       
       // Create video element to get a frame

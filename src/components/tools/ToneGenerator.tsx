@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Music, Play, Square, Volume2, VolumeX, WaveSine } from "lucide-react";
+import { Music, Play, Square, Volume2, VolumeX, Waves } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
@@ -223,7 +223,7 @@ export const ToneGenerator = () => {
               
               {playing && (
                 <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2">
-                  <WaveSine 
+                  <Waves 
                     size={80} 
                     className={`text-primary ${
                       waveType === 'sine' ? 'animate-pulse' : 'animate-bounce'
