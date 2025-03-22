@@ -63,6 +63,31 @@ const Index = () => {
           </div>
         </div>
         
+        <div className="glass-card p-8 max-w-3xl w-full animate-scale-in mb-8">
+          <h2 className="text-2xl font-bold mb-6 text-center bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+            PDF Tools
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+            <a href="/image-to-pdf" className="glass-card p-5 hover:shadow-md transition-all text-center">
+              <h3 className="font-medium mb-2">Image to PDF</h3>
+              <p className="text-sm text-gray-500">Convert images to PDF format</p>
+            </a>
+            <a href="/jpg-to-pdf" className="glass-card p-5 hover:shadow-md transition-all text-center">
+              <h3 className="font-medium mb-2">JPG to PDF</h3>
+              <p className="text-sm text-gray-500">Convert JPG files to PDF</p>
+            </a>
+            <a href="/png-to-pdf" className="glass-card p-5 hover:shadow-md transition-all text-center">
+              <h3 className="font-medium mb-2">PNG to PDF</h3>
+              <p className="text-sm text-gray-500">Convert PNG files to PDF</p>
+            </a>
+            <a href="/pdf-viewer" className="glass-card p-5 hover:shadow-md transition-all text-center">
+              <h3 className="font-medium mb-2">PDF Viewer</h3>
+              <p className="text-sm text-gray-500">View and interact with PDFs</p>
+            </a>
+          </div>
+        </div>
+        
         <div className="glass-card p-8 max-w-3xl w-full animate-scale-in">
           <h2 className="text-2xl font-bold mb-6 text-center bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
             Online Tools

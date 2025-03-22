@@ -64,6 +64,12 @@ import { WordFrequency } from "./components/tools/WordFrequency";
 import { PDFReader } from "./components/tools/PDFReader";
 import { ImageToText } from "./components/tools/ImageToText";
 
+// Import PDF tools
+import { ImageToPDF } from "./components/tools/ImageToPDF";
+import { JPGtoPDF } from "./components/tools/JPGtoPDF";
+import { PNGtoPDF } from "./components/tools/PNGtoPDF";
+import { PDFViewer } from "./components/tools/PDFViewer";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -74,6 +80,8 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          
+          {/* Calculator Routes */}
           <Route path="/scientific" element={<Layout><ScientificCalculator /></Layout>} />
           <Route path="/percentage" element={<Layout><PercentageCalculator /></Layout>} />
           <Route path="/fraction" element={<Layout><FractionCalculator /></Layout>} />
@@ -93,6 +101,12 @@ const App = () => (
           <Route path="/word-frequency" element={<Layout><WordFrequency /></Layout>} />
           <Route path="/pdf-reader" element={<Layout><PDFReader /></Layout>} />
           <Route path="/image-to-text" element={<Layout><ImageToText /></Layout>} />
+          
+          {/* PDF Tools Routes */}
+          <Route path="/image-to-pdf" element={<Layout><ImageToPDF /></Layout>} />
+          <Route path="/jpg-to-pdf" element={<Layout><JPGtoPDF /></Layout>} />
+          <Route path="/png-to-pdf" element={<Layout><PNGtoPDF /></Layout>} />
+          <Route path="/pdf-viewer" element={<Layout><PDFViewer /></Layout>} />
           
           {/* Online Tools Routes */}
           <Route path="current-time" element={<Layout><CurrentTime /></Layout>} />
