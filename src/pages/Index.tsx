@@ -1,7 +1,7 @@
+
 import { Layout } from "@/components/Layout";
-import { ArrowRightIcon, HelpCircle } from "lucide-react";
+import { ArrowRightIcon } from "lucide-react";
 import { Link } from "react-router-dom";
-import { GuidanceSection } from "@/components/GuidanceSection";
 
 const Index = () => {
   return (
@@ -61,18 +61,6 @@ const Index = () => {
               <p className="text-sm text-gray-500">Calculate your BMI</p>
             </a>
           </div>
-          
-          <GuidanceSection title="How to Use Calculators">
-            <p>Our calculators are designed to be intuitive and easy to use:</p>
-            <ul className="list-disc pl-5 space-y-1">
-              <li>Simply select the calculator that matches your needs</li>
-              <li>Enter your values in the provided input fields</li>
-              <li>Click the calculate button to get your results instantly</li>
-              <li>Each calculator includes specific instructions on its page</li>
-              <li>Results can be copied to clipboard or downloaded as needed</li>
-            </ul>
-            <p className="mt-2">For more complex calculators, step-by-step guides are included on each page.</p>
-          </GuidanceSection>
         </div>
         
         <div className="glass-card p-8 max-w-3xl w-full animate-scale-in mb-8">
@@ -98,18 +86,6 @@ const Index = () => {
               <p className="text-sm text-gray-500">View and interact with PDFs</p>
             </a>
           </div>
-          
-          <GuidanceSection title="How to Use PDF Tools">
-            <p>Our PDF tools help you work with PDF files efficiently:</p>
-            <ul className="list-disc pl-5 space-y-1">
-              <li>Convert images to PDF by uploading or dragging and dropping your files</li>
-              <li>Multiple images can be combined into a single PDF document</li>
-              <li>JPG and PNG converters offer specialized optimization for those formats</li>
-              <li>The PDF Viewer allows you to read PDF files directly in your browser</li>
-              <li>All processing happens locally on your device - your files are never uploaded to any server</li>
-            </ul>
-            <p className="mt-2">Processing time depends on the size and number of files you're converting.</p>
-          </GuidanceSection>
         </div>
         
         <div className="glass-card p-8 max-w-3xl w-full animate-scale-in">
@@ -155,18 +131,6 @@ const Index = () => {
               <p className="text-sm text-gray-500">Edit and format text</p>
             </a>
           </div>
-          
-          <GuidanceSection title="How to Use Online Tools">
-            <p>Our online utility tools are designed to be straightforward and useful:</p>
-            <ul className="list-disc pl-5 space-y-1">
-              <li>Time tools like Current Time, Stopwatch, and Alarm Clock are synced with your device</li>
-              <li>Productivity tools like To-Do Lists save data to your browser's local storage</li>
-              <li>The Random Number Generator creates truly random numbers within your specified range</li>
-              <li>Chart Maker provides various visualization options for your data</li>
-              <li>Text tools process your input instantly without any external server connections</li>
-            </ul>
-            <p className="mt-2">All online tools work offline after initial load, perfect for reliable access anywhere.</p>
-          </GuidanceSection>
           
           <div className="mt-6 text-center">
             <Link to="#" className="text-primary hover:underline inline-flex items-center">
