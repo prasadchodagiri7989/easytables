@@ -2,6 +2,7 @@
 import { Layout } from "@/components/Layout";
 import { ArrowRightIcon } from "lucide-react";
 import { Link } from "react-router-dom";
+import { GuidanceSection } from "@/components/GuidanceSection";
 
 const Index = () => {
   return (
@@ -61,6 +62,23 @@ const Index = () => {
               <p className="text-sm text-gray-500">Calculate your BMI</p>
             </a>
           </div>
+          
+          <GuidanceSection title="How to use Calculator Tools">
+            <p>Our calculator tools are designed to be intuitive and easy to use:</p>
+            <ul className="list-disc pl-5 space-y-1 mt-2">
+              <li><strong>Scientific Calculator</strong>: Use for complex mathematical operations. Supports trigonometric functions, logarithms, exponents, and more.</li>
+              <li><strong>Percentage Calculator</strong>: Calculate percentages of values or find what percentage one number is of another.</li>
+              <li><strong>Fraction Calculator</strong>: Add, subtract, multiply, or divide fractions with automatic simplification.</li>
+              <li><strong>Average Calculator</strong>: Enter a set of numbers to find the mean, median, and mode.</li>
+              <li><strong>Unit Converter</strong>: Convert between different units of measurement across various categories.</li>
+              <li><strong>Grade Calculator</strong>: Enter your assignment scores and weights to calculate your current grade.</li>
+              <li><strong>GPA Calculator</strong>: Calculate your GPA by entering course credits and grades.</li>
+              <li><strong>Final Grade Calculator</strong>: Determine what score you need on your final exam to achieve your desired grade.</li>
+              <li><strong>Mortgage Calculator</strong>: Calculate monthly mortgage payments based on principal, interest rate, and term.</li>
+              <li><strong>Compound Interest Calculator</strong>: Project investment growth with different compounding frequencies.</li>
+              <li><strong>BMI Calculator</strong>: Calculate your Body Mass Index based on height and weight.</li>
+            </ul>
+          </GuidanceSection>
         </div>
         
         <div className="glass-card p-8 max-w-3xl w-full animate-scale-in mb-8">
@@ -86,6 +104,17 @@ const Index = () => {
               <p className="text-sm text-gray-500">View and interact with PDFs</p>
             </a>
           </div>
+          
+          <GuidanceSection title="How to use PDF Tools">
+            <p>Our PDF tools help you work with PDF documents efficiently:</p>
+            <ul className="list-disc pl-5 space-y-1 mt-2">
+              <li><strong>Image to PDF</strong>: Upload one or more image files (multiple formats supported) to convert them into a single PDF document. Drag and drop or use the file selection dialog.</li>
+              <li><strong>JPG to PDF</strong>: Specifically optimized for JPG images. Upload your JPG files and convert them to a professional-looking PDF. Multiple JPGs will be converted to multiple pages.</li>
+              <li><strong>PNG to PDF</strong>: Convert PNG images with transparency to PDF format. Great for diagrams, logos, and screenshots that need to maintain quality.</li>
+              <li><strong>PDF Viewer</strong>: View PDF documents directly in your browser. Supports zooming, page navigation, and text selection without downloading the file.</li>
+            </ul>
+            <p className="mt-2">All PDF tools work entirely in your browser - no files are uploaded to our servers, ensuring your data privacy and security.</p>
+          </GuidanceSection>
         </div>
         
         <div className="glass-card p-8 max-w-3xl w-full animate-scale-in">
@@ -131,6 +160,22 @@ const Index = () => {
               <p className="text-sm text-gray-500">Edit and format text</p>
             </a>
           </div>
+          
+          <GuidanceSection title="How to use Online Tools">
+            <p>Our collection of online tools provides everyday utilities for various tasks:</p>
+            <ul className="list-disc pl-5 space-y-1 mt-2">
+              <li><strong>Current Time</strong>: Displays accurate date and time based on your local timezone. Updates automatically in real-time.</li>
+              <li><strong>Stopwatch</strong>: Precision timer with lap recording functionality. Start, stop, reset, and record lap times with millisecond precision.</li>
+              <li><strong>Alarm Clock</strong>: Set multiple alarms with custom labels. Receive browser notifications when alarms trigger.</li>
+              <li><strong>To-Do List</strong>: Create, edit, and manage tasks. Mark items as complete, set priorities, and organize your daily activities.</li>
+              <li><strong>Random Number Generator</strong>: Generate random numbers within custom ranges. Options for integers, decimals, and unique number sets.</li>
+              <li><strong>Chart Maker</strong>: Create professional charts and graphs from your data. Supports bar, line, pie, and other chart types with customization options.</li>
+              <li><strong>Countdown Timer</strong>: Set timers for specific durations or count down to important dates and events.</li>
+              <li><strong>Password Generator</strong>: Create strong, secure passwords with customizable length and character sets. Copy directly to clipboard.</li>
+              <li><strong>Text Editor</strong>: Format and edit text with basic formatting options. Save and export your work in various formats.</li>
+            </ul>
+            <p className="mt-2">Most online tools save your data in your browser's local storage, so your information persists between sessions while keeping your data private.</p>
+          </GuidanceSection>
           
           <div className="mt-6 text-center">
             <Link to="#" className="text-primary hover:underline inline-flex items-center">
