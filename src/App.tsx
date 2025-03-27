@@ -6,6 +6,27 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+
+// Tools
+import RedirectGenerator from "./components/tools/RedirectGenerator";
+import Base64Encode from "./components/tools/Base64Encode";
+import Base64Decode from "./components/tools/Base64Decode";
+import Base64ToImage from "./components/tools/Base64ToImage";
+import ImageToBase64 from "./components/tools/ImageToBase64";
+import ColorTester from "./components/tools/ColorTester";
+import ColorPickerFromImage from "./components/tools/ColorPickerFromImage";
+import HtmlEditor from "./components/tools/HtmlEditor";
+import HtmlLinkGenerator from "./components/tools/HtmlLinkGenerator";
+import HtmlTableGenerator from "./components/tools/HtmlTableGenerator";
+import HttpHeaderChecker from "./components/tools/HttpHeaderChecker";
+import HttpStatusChecker from "./components/tools/HttpStatusChecker";
+import SvgViewer from "./components/tools/SvgViewer";
+import UrlEncode from "./components/tools/UrlEncode";
+import UrlDecode from "./components/tools/UrlDecode";
+import ScreenResolution from "./components/tools/ScreenResolution";
+import PixelRuler from "./components/tools/PixelRuler";
+import WindowSize from "./components/tools/WindowSize";
+
 import { ScientificCalculator } from "./components/calculators/ScientificCalculator";
 import { PercentageCalculator } from "./components/calculators/PercentageCalculator";
 import { FractionCalculator } from "./components/calculators/FractionCalculator";
@@ -145,6 +166,27 @@ const App = () => (
           <Route path="ruler-inch" element={<Layout><RulerInch /></Layout>} />
           <Route path="voice-recorder" element={<Layout><VoiceRecorder /></Layout>} />
           <Route path="webcam-test" element={<Layout><WebcamTest /></Layout>} />
+
+          {/* Tool Routes */}
+          <Route path="/tools/redirect-generator" element={<Layout><RedirectGenerator /></Layout>} />
+          <Route path="/tools/base64-encode" element={<Layout><Base64Encode /></Layout>} />
+          <Route path="/tools/base64-decode" element={<Layout><Base64Decode /></Layout>} />
+          <Route path="/tools/base64-to-image" element={<Layout><Base64ToImage /></Layout>} />
+          <Route path="/tools/image-to-base64" element={<Layout><ImageToBase64 /></Layout>} />
+          <Route path="/tools/color-tester" element={<Layout><ColorTester /></Layout>} />
+          <Route path="/tools/color-picker-from-image" element={<Layout><ColorPickerFromImage /></Layout>} />
+          <Route path="/tools/html-editor" element={<Layout><HtmlEditor /></Layout>} />
+          <Route path="/tools/html-link-generator" element={<Layout><HtmlLinkGenerator /></Layout>} />
+          <Route path="/tools/html-table-generator" element={<Layout><HtmlTableGenerator /></Layout>} />
+          <Route path="/tools/http-header-checker" element={<Layout><HttpHeaderChecker /></Layout>} />
+          <Route path="/tools/http-status-checker" element={<Layout><HttpStatusChecker /></Layout>} />
+          <Route path="/tools/svg-viewer" element={<Layout><SvgViewer /></Layout>} />
+          <Route path="/tools/url-encode" element={<Layout><UrlEncode /></Layout>} />
+          <Route path="/tools/url-decode" element={<Layout><UrlDecode /></Layout>} />
+          <Route path="/tools/screen-resolution" element={<Layout><ScreenResolution /></Layout>} />
+          <Route path="/tools/pixel-ruler" element={<Layout><PixelRuler /></Layout>} />
+          <Route path="/tools/window-size" element={<Layout><WindowSize /></Layout>} />
+          
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
