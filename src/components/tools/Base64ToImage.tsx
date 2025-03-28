@@ -4,6 +4,7 @@ import { Download, Upload, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import ToolLayout from "@/components/ui/ToolLayout";
+import { GuidanceSection } from "../GuidanceSection";
 
 const Base64ToImage = () => {
   const [base64Input, setBase64Input] = useState("");
@@ -62,6 +63,7 @@ const Base64ToImage = () => {
   };
 
   return (
+    <>
     <ToolLayout
       title="Base64 to Image Converter"
       description="Convert Base64 encoded strings to viewable and downloadable images."
@@ -167,6 +169,35 @@ const Base64ToImage = () => {
         )}
       </div>
     </ToolLayout>
+    <GuidanceSection title="How to Use the Base64 to Image Converter">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the Base64 to Image Converter</h4>
+      <p>The Base64 to Image Converter allows you to convert Base64 encoded strings into viewable and downloadable images.</p>
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Paste your Base64 encoded string into the input field.</li>
+        <li>Ensure the string includes or excludes the data URL prefix as needed.</li>
+        <li>Select the desired image format (e.g., PNG).</li>
+        <li>Specify a file name for the converted image.</li>
+        <li>Click "Convert to Image" to generate the image from the Base64 string.</li>
+        <li>View and download the generated image for further use.</li>
+      </ol>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Features</h4>
+      <ul className="list-disc pl-5">
+        <li>Converts Base64 encoded strings into images instantly.</li>
+        <li>Supports multiple image formats, including PNG.</li>
+        <li>Allows customization of the file name before downloading.</li>
+        <li>Easy-to-use interface for quick conversions.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
+    </>
   );
 };
 

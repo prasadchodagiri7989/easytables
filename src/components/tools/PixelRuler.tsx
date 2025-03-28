@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { MoveHorizontal, MoveVertical, Maximize2, Minimize2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ToolLayout from "@/components/ui/ToolLayout";
+import { GuidanceSection } from "../GuidanceSection";
 
 const PixelRuler = () => {
   const [orientation, setOrientation] = useState<"horizontal" | "vertical">("horizontal");
@@ -185,6 +186,7 @@ const PixelRuler = () => {
   };
 
   return (
+    <>
     <ToolLayout
       title="Online Pixel Ruler"
       description="Measure elements on your screen in pixels. Useful for web designers and developers."
@@ -293,6 +295,42 @@ const PixelRuler = () => {
         </div>
       </div>
     </ToolLayout>
+    <GuidanceSection title="How to Use the Online Pixel Ruler">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the Pixel Ruler</h4>
+      <p>The Online Pixel Ruler allows you to measure elements on your screen in pixels, making it an essential tool for web designers and developers.</p>
+
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Use the buttons to adjust the ruler width in increments of 100px.</li>
+        <li>Switch between horizontal and vertical orientation as needed.</li>
+        <li>Position the ruler next to the element you want to measure.</li>
+        <li>For more precise measurements, use your browser's developer tools.</li>
+      </ol>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Device Information</h4>
+      <ul className="list-disc pl-5">
+        <li><strong>Screen Resolution:</strong> 1536 × 864 pixels</li>
+        <li><strong>Device Pixel Ratio:</strong> 1.25x</li>
+        <li>Effective resolution is adjusted based on pixel density.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Why Use This Tool?</h4>
+      <ul className="list-disc pl-5">
+        <li>Accurately measure elements without needing external software.</li>
+        <li>Quickly adjust dimensions to match design specifications.</li>
+        <li>Ensure pixel-perfect alignment in UI/UX design.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
+    </>
   );
 };
 

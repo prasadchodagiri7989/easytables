@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { Progress } from "@/components/ui/progress";
+import { GuidanceSection } from "../GuidanceSection";
 
 export const CPSTest = () => {
   const [count, setCount] = useState(0);
@@ -254,6 +255,31 @@ export const CPSTest = () => {
           </div>
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use the CPS Test">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Measuring Clicks Per Second (CPS)</h4>
+      <p>The CPS Test allows you to measure how many clicks you can make per second within a given time frame.</p>
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Select a test duration (5s, 10s, 30s, or 60s).</li>
+        <li>Click the "Start Test" button to begin.</li>
+        <li>Click as fast as you can until the timer runs out.</li>
+        <li>Your total clicks and CPS score will be displayed at the end.</li>
+      </ol>
+    </div>
+    
+    <div>
+      <h4 className="font-medium mb-1">Improving Your CPS Score</h4>
+      <ul className="list-disc pl-5">
+        <li>Use a gaming mouse with a high click response rate.</li>
+        <li>Try clicking techniques like jitter clicking or butterfly clicking.</li>
+        <li>Practice regularly to improve finger speed and coordination.</li>
+      </ul>
+    </div>
+  </div>
+      </GuidanceSection>
+
     </div>
   );
 };

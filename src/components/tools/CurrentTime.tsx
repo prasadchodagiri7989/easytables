@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Calendar as CalendarIcon, Clock } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { GuidanceSection } from "../GuidanceSection";
 
 export const CurrentTime = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -62,6 +63,29 @@ export const CurrentTime = () => {
           </div>
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use the Current Time Display">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Viewing the Current Time</h4>
+      <p>The Current Time display shows the local date and time based on your device settings.</p>
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Simply open the tool to view the current time instantly.</li>
+        <li>The time updates automatically to reflect real-time changes.</li>
+      </ol>
+    </div>
+    
+    <div>
+      <h4 className="font-medium mb-1">Use Cases for the Current Time Display</h4>
+      <ul className="list-disc pl-5">
+        <li>Checking the local time without needing a clock or phone.</li>
+        <li>Synchronizing activities or events based on the current time.</li>
+        <li>Quickly verifying the date and time for scheduling purposes.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
     </div>
   );
 };

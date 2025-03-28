@@ -7,6 +7,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import { GuidanceSection } from "../GuidanceSection";
 
 export const TextEditor = () => {
   const [content, setContent] = useState<string>("");
@@ -396,6 +397,42 @@ export const TextEditor = () => {
           </div>
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use the Text Editor">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the Text Editor</h4>
+      <p>The Text Editor allows you to create and edit text documents directly in your browser.</p>
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Start typing in the editor to create your document.</li>
+        <li>Use the toolbar to format text with headings (H1, H2, H3).</li>
+        <li>Click "Save" to store your document locally.</li>
+        <li>Click "Download" to save your document as a text file.</li>
+        <li>Use "Clear" to erase all text and start fresh.</li>
+      </ol>
+    </div>
+    
+    <div>
+      <h4 className="font-medium mb-1">Features</h4>
+      <ul className="list-disc pl-5">
+        <li>Simple and user-friendly interface.</li>
+        <li>Supports basic text formatting.</li>
+        <li>Auto-saves your work to local storage.</li>
+        <li>Quick download option to save files.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Why Use This Tool?</h4>
+      <ul className="list-disc pl-5">
+        <li>Perfect for taking quick notes and drafting text.</li>
+        <li>Works offline with auto-save functionality.</li>
+        <li>No need to install additional software.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
     </div>
   );
 };

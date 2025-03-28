@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { GuidanceSection } from "../GuidanceSection";
 
 export const CharacterCounter = () => {
   const [text, setText] = useState("");
@@ -201,6 +202,36 @@ Most frequent character: "${mostFrequentChar.char}" (${mostFrequentChar.count} t
           </div>
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use the Character Counter">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the Character Counter</h4>
+      <p>The Character Counter tool helps you analyze text by providing detailed character, line, and paragraph statistics.</p>
+
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Type or paste text into the input area to analyze characters instantly.</li>
+        <li>View real-time statistics, including total characters, characters without spaces, lines, paragraphs, and sentences.</li>
+        <li>Identify the most frequently used character in your text.</li>
+        <li>Click "Paste from Clipboard" to quickly insert copied text.</li>
+        <li>Use "Clear" to remove the text and start fresh.</li>
+        <li>Click "Copy Statistics" to copy the analysis results for easy sharing.</li>
+      </ol>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Features</h4>
+      <ul className="list-disc pl-5">
+        <li>Instant character, line, and paragraph analysis.</li>
+        <li>Counts total characters, characters without spaces, and most frequent character.</li>
+        <li>Breaks down text into lines, paragraphs, and sentences.</li>
+        <li>Quick shortcuts: Ctrl+V (Cmd+V on Mac) to paste text.</li>
+        <li>Easy-to-use buttons for clearing and copying statistics.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
     </div>
   );
 };

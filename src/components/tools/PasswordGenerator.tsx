@@ -8,6 +8,7 @@ import { Slider } from "@/components/ui/slider";
 import { useToast } from "@/hooks/use-toast";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
+import { GuidanceSection } from "../GuidanceSection";
 
 export const PasswordGenerator = () => {
   const [password, setPassword] = useState("");
@@ -234,6 +235,41 @@ export const PasswordGenerator = () => {
           </div>
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use Password Generator">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the Password Generator</h4>
+      <p>The Password Generator helps you create secure, random passwords with customizable settings.</p>
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Adjust the password length using the slider.</li>
+        <li>Select the character sets you want to include (uppercase, lowercase, numbers, symbols).</li>
+        <li>Click "Generate New Password" to create a secure password.</li>
+        <li>Click "Copy" to save the password to your clipboard.</li>
+      </ol>
+    </div>
+    
+    <div>
+      <h4 className="font-medium mb-1">Features</h4>
+      <ul className="list-disc pl-5">
+        <li>Generate strong, random passwords instantly.</li>
+        <li>Customize password length and character types.</li>
+        <li>Indicates password strength based on complexity.</li>
+        <li>Quick copy function for easy usage.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Why Use This Tool?</h4>
+      <ul className="list-disc pl-5">
+        <li>Enhance security with randomly generated passwords.</li>
+        <li>Eliminate the need for manually creating passwords.</li>
+        <li>Works instantly with no installation or login required.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
     </div>
   );
 };

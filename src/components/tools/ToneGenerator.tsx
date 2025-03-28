@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Input } from "@/components/ui/input";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { GuidanceSection } from "../GuidanceSection";
 
 type WaveType = 'sine' | 'square' | 'sawtooth' | 'triangle';
 
@@ -353,6 +354,32 @@ export const ToneGenerator = () => {
           </div>
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use the Tone Generator">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the Tone Generator</h4>
+      <p>The Tone Generator allows you to generate and listen to audio tones at different frequencies.</p>
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Enter a frequency value (between 20 Hz and 20,000 Hz).</li>
+        <li>Click "Play Tone" to hear the generated sound.</li>
+        <li>Adjust the volume slider to control sound intensity.</li>
+        <li>Select different wave types (Sine, Square, Sawtooth, Triangle) for various sound effects.</li>
+        <li>Use preset musical notes for common frequencies.</li>
+      </ol>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Features</h4>
+      <ul className="list-disc pl-5">
+        <li>Generates tones within a wide frequency range (20 Hz - 20 kHz).</li>
+        <li>Supports multiple waveforms for different sound effects.</li>
+        <li>Volume control for precise sound adjustments.</li>
+        <li>Preset musical notes for quick access.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
     </div>
   );
 };

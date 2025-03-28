@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { GuidanceSection } from "../GuidanceSection";
 
 export const WordCounter = () => {
   const [text, setText] = useState("");
@@ -130,6 +131,34 @@ Characters (excluding spaces): ${charNoSpacesCount}`);
           </p>
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use the Word Counter">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the Word Counter</h4>
+      <p>The Word Counter tool helps you quickly count words, characters, and more in your text.</p>
+
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Type or paste text into the input area to get word and character counts instantly.</li>
+        <li>View real-time statistics, including word count, character count (with and without spaces).</li>
+        <li>Click "Paste from Clipboard" to quickly paste copied text.</li>
+        <li>Use "Clear" to remove the text and start fresh.</li>
+        <li>Click "Copy Statistics" to copy the word and character counts for easy sharing.</li>
+      </ol>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Features</h4>
+      <ul className="list-disc pl-5">
+        <li>Instant word and character count updates.</li>
+        <li>Counts total words, characters, and characters without spaces.</li>
+        <li>Quick shortcuts: Ctrl+V (Cmd+V on Mac) to paste text.</li>
+        <li>Easy-to-use buttons for clearing and copying statistics.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
     </div>
   );
 };

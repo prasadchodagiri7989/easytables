@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { jsPDF } from "jspdf";
+import { GuidanceSection } from "../GuidanceSection";
 
 export const ImageToPDF = () => {
   const [images, setImages] = useState<Array<{ file: File; preview: string }>>([]);
@@ -274,6 +275,35 @@ export const ImageToPDF = () => {
           </p>
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use the Image to PDF Converter">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the Image to PDF Converter</h4>
+      <p>The Image to PDF Converter allows you to convert multiple images into a single PDF document effortlessly.</p>
+
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Click "Add Images" to select image files from your device.</li>
+        <li>Drag and drop image files into the upload area for quick selection.</li>
+        <li>You can add multiple images at once; they will be added as separate pages in the PDF.</li>
+        <li>Once the images are uploaded, click "Convert to PDF" to generate the document.</li>
+        <li>Download the final PDF file and use it as needed.</li>
+      </ol>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Features</h4>
+      <ul className="list-disc pl-5">
+        <li>Convert images into a high-quality PDF document.</li>
+        <li>Supports multiple image formats, including PNG, JPEG, GIF, and WebP.</li>
+        <li>Drag-and-drop functionality for easy file selection.</li>
+        <li>Maintain image quality in the converted PDF.</li>
+        <li>Simple and user-friendly interface.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
     </div>
   );
 };

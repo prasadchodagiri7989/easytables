@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { Progress } from "@/components/ui/progress";
+import { GuidanceSection } from "../GuidanceSection";
 
 export const MicTest = () => {
   const [isRecording, setIsRecording] = useState(false);
@@ -305,6 +306,40 @@ export const MicTest = () => {
           )}
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use the Microphone Test Tool">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Testing Your Microphone</h4>
+      <p>The Microphone Test tool helps you check if your microphone is working properly.</p>
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Ensure your microphone is connected to your device.</li>
+        <li>Allow microphone access in your browser settings.</li>
+        <li>Speak into your microphone and observe the audio feedback.</li>
+        <li>If no sound is detected, check your device settings and try again.</li>
+      </ol>
+    </div>
+    
+    <div>
+      <h4 className="font-medium mb-1">Troubleshooting Tips</h4>
+      <ul className="list-disc pl-5">
+        <li>Ensure your microphone is not muted.</li>
+        <li>Check if another application is using the microphone.</li>
+        <li>Try restarting your browser or computer.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Why Use This Tool?</h4>
+      <ul className="list-disc pl-5">
+        <li>Quickly verify microphone functionality.</li>
+        <li>Diagnose audio input issues.</li>
+        <li>Ensure clear communication for calls and recordings.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
     </div>
   );
 };

@@ -4,6 +4,8 @@ import { Copy, Check } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import ToolLayout from "../ui/ToolLayout";
+import { GuidanceSection } from "@/components/GuidanceSection";
+
 
 const RedirectGenerator = () => {
   const [sourceUrl, setSourceUrl] = useState("");
@@ -44,6 +46,7 @@ const RedirectGenerator = () => {
   };
 
   return (
+    <>
     <ToolLayout
       title="301 Redirect Generator"
       description="Generate code for permanent 301 redirects using htaccess, meta tags, or JavaScript."
@@ -128,6 +131,34 @@ const RedirectGenerator = () => {
         )}
       </div>
     </ToolLayout>
+    <GuidanceSection title="How to Use the 301 Redirect Generator">
+        <div className="space-y-4">
+          <div>
+            <h4 className="font-medium mb-1">What is a 301 Redirect?</h4>
+            <p>A 301 redirect is a permanent redirect that tells search engines and users that a page has moved to a new URL.</p>
+          </div>
+
+          <div>
+            <h4 className="font-medium mb-1">How to Use:</h4>
+            <ol className="list-decimal pl-5">
+              <li>Enter the old URL path you want to redirect from.</li>
+              <li>Enter the full destination URL where users should be redirected.</li>
+              <li>Click "Generate Redirect Code" to get the redirect options.</li>
+              <li>Copy and implement the generated code into your server configuration, HTML, or JavaScript.</li>
+            </ol>
+          </div>
+
+          <div>
+            <h4 className="font-medium">Which Redirect Method to Use?</h4>
+            <ul className="list-disc pl-5">
+              <li><strong>.htaccess (Apache)</strong>: Best for permanent redirects on Apache servers.</li>
+              <li><strong>Meta Tag</strong>: Quick client-side redirect, but not ideal for SEO.</li>
+              <li><strong>JavaScript</strong>: Redirect users using JavaScript, useful for dynamic pages.</li>
+            </ul>
+          </div>
+        </div>
+      </GuidanceSection>
+    </>
   );
 };
 

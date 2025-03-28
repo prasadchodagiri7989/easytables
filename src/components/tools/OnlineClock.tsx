@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
+import { GuidanceSection } from "../GuidanceSection";
 
 interface ClockSettings {
   showSeconds: boolean;
@@ -221,6 +222,39 @@ export const OnlineClock = () => {
           </Tabs>
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use the Online Clock Tool">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Viewing the Current Time</h4>
+      <p>The Online Clock tool allows you to view the current time in various formats and time zones.</p>
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Open the Online Clock tool.</li>
+        <li>View the current time, date, and timezone.</li>
+        <li>Adjust settings to change the time format (12-hour or 24-hour).</li>
+        <li>Select different time zones if needed.</li>
+      </ol>
+    </div>
+    
+    <div>
+      <h4 className="font-medium mb-1">Customization Options</h4>
+      <ul className="list-disc pl-5">
+        <li>Switch between 12-hour and 24-hour time formats.</li>
+        <li>Change the displayed timezone to match your preference.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Why Use This Tool?</h4>
+      <ul className="list-disc pl-5">
+        <li>Convenient for checking time across different locations.</li>
+        <li>Helps in scheduling meetings across time zones.</li>
+        <li>Provides an accurate and reliable clock display.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
     </div>
   );
 };

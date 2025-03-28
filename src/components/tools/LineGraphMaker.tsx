@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { Label } from "@/components/ui/label";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
+import { GuidanceSection } from "../GuidanceSection";
 
 interface DataItem {
   name: string;
@@ -222,6 +223,40 @@ export const LineGraphMaker = () => {
           </div>
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use the Line Graph Maker">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Creating a Line Graph</h4>
+      <p>The Line Graph Maker allows you to generate and customize line graphs based on your data.</p>
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Enter a title for your graph.</li>
+        <li>Add data points by entering labels for the X-axis and corresponding values for the Y-axis.</li>
+        <li>Click "Add Data Point" to include more points.</li>
+        <li>The graph updates dynamically as you add data.</li>
+      </ol>
+    </div>
+    
+    <div>
+      <h4 className="font-medium mb-1">Customizing Your Graph</h4>
+      <ul className="list-disc pl-5">
+        <li>Modify data points by adjusting their labels and values.</li>
+        <li>Choose a title to represent your data effectively.</li>
+        <li>Ensure data points are relevant to showcase meaningful trends.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Use Cases for Line Graphs</h4>
+      <ul className="list-disc pl-5">
+        <li>Visualizing trends over time, such as sales or temperature changes.</li>
+        <li>Comparing multiple datasets by analyzing fluctuations in values.</li>
+        <li>Presenting statistical data for reports and presentations.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
     </div>
   );
 };

@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
+import { GuidanceSection } from "../GuidanceSection";
 
 export const TableChartMaker = () => {
   const [tableTitle, setTableTitle] = useState("My Table");
@@ -493,6 +494,23 @@ export const TableChartMaker = () => {
           </div>
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use the Table Chart Maker">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the Table Chart Maker</h4>
+      <p>The Table Chart Maker allows you to create and edit tables directly in your browser.</p>
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Click on any cell to edit its content.</li>
+        <li>Use the toolbar to format your table.</li>
+        <li>Click "Add Row" or "Add Column" to expand your table.</li>
+        <li>Toggle options like borders, row numbers, and padding.</li>
+        <li>Click "Download CSV" or "Download HTML" to save your table.</li>
+      </ol>
+    </div>
+  </div>
+</GuidanceSection>
+
     </div>
   );
 };

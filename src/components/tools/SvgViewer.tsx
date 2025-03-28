@@ -4,6 +4,7 @@ import { Upload, Download, Copy, Check, RefreshCw, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import ToolLayout from "@/components/ui/ToolLayout";
+import { GuidanceSection } from "../GuidanceSection";
 
 const SvgViewer = () => {
   const [svgCode, setSvgCode] = useState("");
@@ -84,6 +85,7 @@ const SvgViewer = () => {
   };
 
   return (
+    <>
     <ToolLayout
       title="SVG Viewer/Editor"
       description="View, edit, and optimize SVG images. Useful for web developers and designers."
@@ -232,6 +234,36 @@ const SvgViewer = () => {
         </div>
       </div>
     </ToolLayout>
+    <GuidanceSection title="How to Use the SVG Viewer/Editor">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the SVG Viewer/Editor</h4>
+      <p>The SVG Viewer/Editor allows you to view, edit, and optimize SVG images easily, making it a powerful tool for web developers and designers.</p>
+      
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Upload an SVG file or paste your SVG code in the provided editor.</li>
+        <li>Modify the SVG code directly to see real-time updates in the preview.</li>
+        <li>Use the background color and size options to customize the preview.</li>
+        <li>Click "Update Preview" to refresh the rendered SVG.</li>
+        <li>Once satisfied, copy the optimized SVG code or download the updated file.</li>
+        <li>Click "Clear" to reset the editor and start over.</li>
+      </ol>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Why Use This Tool?</h4>
+      <ul className="list-disc pl-5">
+        <li>Instantly preview and edit SVG images.</li>
+        <li>Optimize SVG code for performance and compatibility.</li>
+        <li>Test different background colors and sizes before implementation.</li>
+        <li>Useful for web design, UI development, and vector graphic optimization.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
+    </>
   );
 };
 

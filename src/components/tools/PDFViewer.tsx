@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
+import { GuidanceSection } from "../GuidanceSection";
 
 export const PDFViewer = () => {
   const [pdfUrl, setPdfUrl] = useState<string | null>(null);
@@ -290,6 +291,34 @@ export const PDFViewer = () => {
           )}
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use the PDF Viewer">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the PDF Viewer</h4>
+      <p>The PDF Viewer allows you to open, view, and interact with PDF documents easily.</p>
+
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Click "Open PDF" to select a PDF file from your device.</li>
+        <li>Drag and drop a PDF file into the upload area for quick access.</li>
+        <li>Alternatively, enter a PDF URL and click "Load" to view an online document.</li>
+        <li>Once loaded, use navigation tools to scroll through pages, zoom in/out, or search within the document.</li>
+      </ol>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Features</h4>
+      <ul className="list-disc pl-5">
+        <li>Supports viewing PDFs directly in your browser.</li>
+        <li>Drag-and-drop functionality for easy access.</li>
+        <li>Enter a PDF URL to load online documents.</li>
+        <li>Zoom, scroll, and search within the PDF.</li>
+        <li>Note: Some PDFs from URLs might be blocked due to cross-origin restrictions.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
     </div>
   );
 };

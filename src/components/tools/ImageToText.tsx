@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Progress } from "@/components/ui/progress";
+import { GuidanceSection } from "../GuidanceSection";
+
 
 // Define interface for OCR results
 interface OCRResult {
@@ -320,6 +322,35 @@ For production use, you would integrate with:
           </div>
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use the OCR - Image to Text Tool">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the OCR Tool</h4>
+      <p>The OCR (Optical Character Recognition) tool allows you to extract text from images quickly and accurately.</p>
+
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Click "Select Image" to upload an image from your device.</li>
+        <li>Alternatively, drag and drop an image file into the upload area.</li>
+        <li>Supported formats: PNG, JPG, JPEG, GIF, BMP.</li>
+        <li>For best results, use high-contrast images with at least 300 DPI resolution.</li>
+        <li>Once uploaded, the tool will extract and display the text from the image.</li>
+        <li>Copy or download the extracted text for further use.</li>
+      </ol>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Features</h4>
+      <ul className="list-disc pl-5">
+        <li>Extracts text from images with high accuracy.</li>
+        <li>Supports multiple image formats (PNG, JPG, GIF, BMP, etc.).</li>
+        <li>Fast processing with an easy-to-use interface.</li>
+        <li>Copy or download extracted text instantly.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
     </div>
   );
 };

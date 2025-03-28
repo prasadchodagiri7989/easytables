@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
+import { GuidanceSection } from "../GuidanceSection";
 
 interface GroceryItem {
   id: string;
@@ -339,6 +340,40 @@ export const GroceryList = () => {
           </div>
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use the Grocery List Tool">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Creating Your Grocery List</h4>
+      <p>The Grocery List tool helps you organize and track your shopping items efficiently.</p>
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Enter the name of the grocery item in the input field.</li>
+        <li>Specify the quantity needed.</li>
+        <li>Click "Add" to add the item to your list.</li>
+        <li>Check off items as you purchase them.</li>
+      </ol>
+    </div>
+    
+    <div>
+      <h4 className="font-medium mb-1">Managing Your List</h4>
+      <ul className="list-disc pl-5">
+        <li>Remove items from the list once purchased.</li>
+        <li>Modify quantities as needed.</li>
+        <li>Use the list as a reference while shopping to ensure you don't forget anything.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Benefits of Using This Tool</h4>
+      <ul className="list-disc pl-5">
+        <li>Stay organized and avoid missing essential items.</li>
+        <li>Reduce impulse buying by sticking to a planned list.</li>
+        <li>Save time and effort by checking off purchased items.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
     </div>
   );
 };

@@ -6,6 +6,7 @@ import { Card } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { GuidanceSection } from "../GuidanceSection";
 
 interface MortgageResults {
   monthlyPayment: number;
@@ -348,6 +349,34 @@ export const MortgageCalculator = () => {
           </Card>
         </TabsContent>
       </Tabs>
+      <GuidanceSection title="How to Use the Mortgage Calculator">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Understanding the Mortgage Calculator</h4>
+      <p>The Mortgage Calculator helps you estimate your monthly loan payments based on house price, down payment, interest rate, and loan term.</p>
+
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Enter the house price in the input field.</li>
+        <li>Adjust the down payment percentage or enter a custom amount.</li>
+        <li>Select the loan term (15, 20, or 30 years).</li>
+        <li>Enter the interest rate percentage.</li>
+        <li>Click "Calculate Mortgage" to get estimated monthly payments.</li>
+      </ol>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Features</h4>
+      <ul className="list-disc pl-5">
+        <li>Calculates monthly mortgage payments instantly.</li>
+        <li>Supports adjustable down payments and loan terms.</li>
+        <li>Simple and easy-to-use interface.</li>
+        <li>Provides an amortization schedule for better loan tracking.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
     </div>
   );
 };

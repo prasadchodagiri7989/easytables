@@ -4,6 +4,7 @@ import { Copy, Check } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import ToolLayout from "@/components/ui/ToolLayout";
+import { GuidanceSection } from "../GuidanceSection";
 
 const HtmlLinkGenerator = () => {
   const [url, setUrl] = useState("");
@@ -51,6 +52,7 @@ const HtmlLinkGenerator = () => {
   };
 
   return (
+    <>
     <ToolLayout
       title="HTML Link Code Generator"
       description="Generate HTML link code with custom attributes and styling."
@@ -217,6 +219,44 @@ const HtmlLinkGenerator = () => {
         </div>
       </div>
     </ToolLayout>
+    <GuidanceSection title="How to Use the HTML Link Code Generator">
+        <div className="space-y-4">
+          <div>
+            <h4 className="font-medium mb-1">Generating an HTML Link</h4>
+            <p>
+              The HTML Link Code Generator allows you to create customized anchor 
+              <span className="font-mono">{'<a>'}</span> tags with various attributes.
+            </p>
+
+            <p className="mt-2"><strong>How to Use:</strong></p>
+            <ol className="list-decimal pl-5 space-y-2">
+              <li>Enter the <strong>URL</strong> you want the link to point to.</li>
+              <li>Provide <strong>Link Text</strong> (optional). If left empty, the URL will be used as the text.</li>
+              <li>Set a <strong>Title Attribute</strong> (optional) for a tooltip on hover.</li>
+              <li>
+                Select a <strong>Target</strong> to specify where the link should open:
+                <ul className="list-disc pl-5">
+                  <li><code>_self</code> (default) – Opens in the same tab</li>
+                  <li><code>_blank</code> – Opens in a new tab</li>
+                </ul>
+              </li>
+              <li>
+                Choose <strong>Rel Attributes</strong> (optional) for SEO and security:
+                <ul className="list-disc pl-5">
+                  <li><strong>nofollow</strong> – Tells search engines not to follow the link</li>
+                  <li><strong>noopener</strong> – Prevents security risks when opening in a new tab</li>
+                  <li><strong>noreferrer</strong> – Prevents passing referrer information</li>
+                </ul>
+              </li>
+              <li>Add optional <strong>CSS Class</strong> and <strong>ID Attribute</strong> for styling.</li>
+              <li>Click <strong>Generate Link Code</strong> to get your custom HTML link.</li>
+            </ol>
+          </div>
+        </div>
+      </GuidanceSection>
+
+
+    </>
   );
 };
 

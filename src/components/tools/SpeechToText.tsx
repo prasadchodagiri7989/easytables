@@ -13,6 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { GuidanceSection } from "../GuidanceSection";
 
 interface SpeechRecognitionConstructor {
   new (): SpeechRecognition;
@@ -445,6 +446,41 @@ export const SpeechToText = () => {
           )}
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use Speech-to-Text Tool">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the Speech-to-Text Tool</h4>
+      <p>The Speech-to-Text Tool allows you to convert spoken words into written text effortlessly.</p>
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Ensure your microphone is connected and working.</li>
+        <li>Allow microphone access when prompted by your browser.</li>
+        <li>Start speaking clearly, and your words will be transcribed in real time.</li>
+        <li>Copy or save the text as needed.</li>
+      </ol>
+    </div>
+    
+    <div>
+      <h4 className="font-medium mb-1">Features</h4>
+      <ul className="list-disc pl-5">
+        <li>Real-time speech recognition and conversion.</li>
+        <li>Supports multiple languages and accents.</li>
+        <li>Easy-to-use interface with instant transcription.</li>
+        <li>Privacy-focused—your speech is not stored or shared.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Why Use This Tool?</h4>
+      <ul className="list-disc pl-5">
+        <li>Helps in quickly transcribing notes, interviews, and meetings.</li>
+        <li>Useful for accessibility and hands-free typing.</li>
+        <li>Enhances productivity by eliminating the need for manual typing.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
     </div>
   );
 };

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { Label } from "@/components/ui/label";
+import { GuidanceSection } from "../GuidanceSection";
 
 interface Team {
   id: string;
@@ -348,6 +349,41 @@ export const Scoreboard = () => {
           </div>
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use Scoreboard">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the Scoreboard</h4>
+      <p>The Scoreboard tool helps you track scores for games and competitions effortlessly.</p>
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Add teams by entering a name and selecting a team color.</li>
+        <li>Adjust scores for each team using the score buttons.</li>
+        <li>Click "Reset Scores" to reset all scores to zero.</li>
+        <li>Click "Reset All" to clear all teams and start fresh.</li>
+      </ol>
+    </div>
+    
+    <div>
+      <h4 className="font-medium mb-1">Features</h4>
+      <ul className="list-disc pl-5">
+        <li>Add multiple teams with unique names and colors.</li>
+        <li>Easily increase or decrease scores in real time.</li>
+        <li>Reset scores for a fresh game session.</li>
+        <li>Simple and user-friendly interface.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Why Use This Tool?</h4>
+      <ul className="list-disc pl-5">
+        <li>Perfect for tracking game scores in sports, competitions, and classroom activities.</li>
+        <li>Easy to manage and update scores on the go.</li>
+        <li>Customizable with team names and colors for better organization.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
     </div>
   );
 };

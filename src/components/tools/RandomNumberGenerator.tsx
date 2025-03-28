@@ -8,6 +8,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
+import { GuidanceSection } from "../GuidanceSection";
 
 export const RandomNumberGenerator = () => {
   const [min, setMin] = useState(1);
@@ -252,6 +253,41 @@ export const RandomNumberGenerator = () => {
           </Tabs>
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use Random Number Generator">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the Random Number Generator</h4>
+      <p>The Random Number Generator allows you to generate random numbers within a specified range.</p>
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Enter the minimum and maximum values.</li>
+        <li>Specify how many random numbers you want to generate.</li>
+        <li>Check or uncheck "Allow duplicate numbers" based on your preference.</li>
+        <li>Click "Generate" to get random numbers instantly.</li>
+      </ol>
+    </div>
+    
+    <div>
+      <h4 className="font-medium mb-1">Features</h4>
+      <ul className="list-disc pl-5">
+        <li>Generate single or multiple random numbers.</li>
+        <li>Choose a range to control number selection.</li>
+        <li>Option to allow or prevent duplicate numbers.</li>
+        <li>Reset the generator to start fresh.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Why Use This Tool?</h4>
+      <ul className="list-disc pl-5">
+        <li>Quickly generate random numbers for various needs.</li>
+        <li>Useful for lotteries, simulations, and testing scenarios.</li>
+        <li>Ensures fair and unbiased number selection.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
     </div>
   );
 };

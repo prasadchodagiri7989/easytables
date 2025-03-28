@@ -14,6 +14,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { GuidanceSection } from "../GuidanceSection";
 
 export const TextToSpeech = () => {
   const [text, setText] = useState("");
@@ -453,6 +454,24 @@ export const TextToSpeech = () => {
           </div>
         </CardContent>
       </Card>
+
+<GuidanceSection title="How to Use the Text to Speech Tool">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the Text to Speech Tool</h4>
+      <p>The Text to Speech tool allows you to convert text into spoken audio.</p>
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Enter or paste text into the input box.</li>
+        <li>Click "Speak" to hear the text read aloud.</li>
+        <li>Adjust settings like speed, pitch, and volume for customization.</li>
+        <li>Click "Download Audio" to save the spoken text as an audio file.</li>
+        <li>Use punctuation for natural pauses in speech.</li>
+      </ol>
+    </div>
+  </div>
+</GuidanceSection>
+
     </div>
   );
 };

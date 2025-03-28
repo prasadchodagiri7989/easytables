@@ -4,6 +4,7 @@ import { Copy, Check, Maximize2 } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import ToolLayout from "@/components/ui/ToolLayout";
+import { GuidanceSection } from "../GuidanceSection";
 
 const ScreenResolution = () => {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
@@ -86,6 +87,7 @@ Color Depth: ${colorDepth} bits`;
   };
 
   return (
+    <>
     <ToolLayout
       title="Screen Resolution"
       description="Check your screen and viewport resolution, device type, and other display properties."
@@ -198,6 +200,33 @@ Color Depth: ${colorDepth} bits`;
         </div>
       </div>
     </ToolLayout>
+    <GuidanceSection title="How to Use the Screen Resolution Checker">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Understanding Your Screen Resolution</h4>
+      <p>The Screen Resolution Checker provides detailed information about your display settings, including resolution, pixel density, and orientation.</p>
+
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>View your current screen resolution and device type at a glance.</li>
+        <li>Compare your resolution with common device resolutions.</li>
+        <li>Use the "Copy Info" button to copy resolution details for reference.</li>
+        <li>Toggle "Fullscreen" to check changes in display dimensions.</li>
+      </ol>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Why This Tool is Useful?</h4>
+      <ul className="list-disc pl-5">
+        <li>Helps developers test responsive web designs across different screen sizes.</li>
+        <li>Provides quick access to pixel ratio and color depth for media professionals.</li>
+        <li>Identifies whether the current screen matches standard device resolutions.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
+    </>
   );
 };
 

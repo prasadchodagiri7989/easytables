@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { GuidanceSection } from "../GuidanceSection";
 
 export const PDFReader = () => {
   const [pdfUrl, setPdfUrl] = useState<string | null>(null);
@@ -314,6 +315,36 @@ export const PDFReader = () => {
           )}
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use the PDF Reader">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the PDF Reader</h4>
+      <p>The PDF Reader allows you to view and interact with PDF documents directly in your browser.</p>
+
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Click "Select PDF File" to upload a PDF from your device.</li>
+        <li>Alternatively, enter a PDF URL to load an online document.</li>
+        <li>Drag and drop a PDF file into the upload area for quick access.</li>
+        <li>Navigate through the pages using built-in controls.</li>
+        <li>Zoom in/out for better readability.</li>
+        <li>Some PDFs from URLs may be restricted due to cross-origin policies.</li>
+      </ol>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Features</h4>
+      <ul className="list-disc pl-5">
+        <li>View PDF files without additional software.</li>
+        <li>Supports both local file uploads and online PDFs via URLs.</li>
+        <li>Drag-and-drop functionality for quick access.</li>
+        <li>Basic navigation and zoom controls.</li>
+        <li>Fast and lightweight PDF rendering.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
     </div>
   );
 };

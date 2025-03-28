@@ -4,6 +4,7 @@ import { Copy, Check, Plus, X } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import ToolLayout from "@/components/ui/ToolLayout";
+import { GuidanceSection } from "../GuidanceSection";
 
 interface ColorItem {
   id: string;
@@ -86,6 +87,7 @@ const ColorTester = () => {
   };
 
   return (
+    <>
     <ToolLayout
       title="Color Tester"
       description="Test color combinations for contrast and accessibility."
@@ -318,6 +320,34 @@ const ColorTester = () => {
         </div>
       </div>
     </ToolLayout>
+    <GuidanceSection title="How to Use the Color Tester">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the Color Tester</h4>
+      <p>The Color Tester allows you to test color combinations for contrast and accessibility.</p>
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Select a background color using the color picker or enter a hex code.</li>
+        <li>Select a text color to test its contrast against the background.</li>
+        <li>Optionally, add additional colors for testing and comparison.</li>
+        <li>Use the preview section to see how the text appears with your chosen colors.</li>
+        <li>Check the contrast analysis to ensure readability and accessibility.</li>
+      </ol>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Features</h4>
+      <ul className="list-disc pl-5">
+        <li>Instant preview of color combinations.</li>
+        <li>Supports both manual hex code entry and color pickers.</li>
+        <li>Contrast analysis to ensure accessibility compliance.</li>
+        <li>Option to add multiple colors for easy comparison.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
+    </>
   );
 };
 

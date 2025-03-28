@@ -4,6 +4,7 @@ import { Copy, Check } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import ToolLayout from "@/components/ui/ToolLayout";
+import { GuidanceSection } from "../GuidanceSection";
 
 const WindowSize = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -71,6 +72,7 @@ Current Breakpoint: ${getCurrentBreakpoint()}`;
   };
 
   return (
+    <>
     <ToolLayout
       title="Window Size"
       description="View your current window and viewport dimensions. Useful for responsive design testing."
@@ -178,6 +180,43 @@ Current Breakpoint: ${getCurrentBreakpoint()}`;
         </div>
       </div>
     </ToolLayout>
+    <GuidanceSection title="How to Use the Window Size Tool">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Understanding Window and Viewport Dimensions</h4>
+      <p>The Window Size Tool helps you analyze your current browser window and viewport dimensions, making it useful for responsive web design testing.</p>
+      
+      <p className="mt-2"><strong>Key Metrics:</strong></p>
+      <ul className="list-disc pl-5">
+        <li><strong>Window Size:</strong> 1536 × 776 pixels</li>
+        <li><strong>Viewport Size:</strong> 1536 × 776 pixels (excludes browser UI elements)</li>
+        <li><strong>Device Screen Size:</strong> 1536 × 864 pixels</li>
+        <li><strong>Pixel Ratio:</strong> 1.25x (High DPI Display)</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Responsive Breakpoints</h4>
+      <p>These breakpoints help developers design layouts for different screen sizes:</p>
+      <ul className="list-disc pl-5">
+        <li><strong>xs (Extra Small):</strong> 320px (Active) – Small mobile devices</li>
+        <li><strong>sm (Small):</strong> 640px (Active) – Mobile devices</li>
+        <li><strong>md (Medium):</strong> 768px (Active) – Tablets</li>
+        <li><strong>lg (Large):</strong> 1024px (Active) – Laptops/Desktops</li>
+        <li><strong>xl (Extra Large):</strong> 1280px (Active) – Large desktops</li>
+        <li><strong>2xl (2X Large):</strong> 1536px (Active) – Very large screens</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Did You Know?</h4>
+      <p>The window size might differ from the viewport size due to browser chrome (e.g., toolbars and scrollbars). For web development, the viewport size is what matters most for responsive design.</p>
+      <p>Your device has a <strong>1.25x pixel ratio</strong>, meaning each CSS pixel is displayed using 1.25 physical pixels.</p>
+    </div>
+  </div>
+</GuidanceSection>
+
+    </>
   );
 };
 

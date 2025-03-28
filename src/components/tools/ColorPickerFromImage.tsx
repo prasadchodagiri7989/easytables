@@ -4,6 +4,7 @@ import { Upload, Pipette, Copy, Check, X, Trash2, Maximize2, Minimize2 } from "l
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import ToolLayout from "@/components/ui/ToolLayout";
+import { GuidanceSection } from "../GuidanceSection";
 
 interface PickedColor {
   id: string;
@@ -166,6 +167,7 @@ const ColorPickerFromImage = () => {
   };
 
   return (
+    <>
     <ToolLayout
       title="Color Picker from Image"
       description="Upload an image and pick colors from it. Perfect for finding color codes from design mockups."
@@ -255,6 +257,7 @@ const ColorPickerFromImage = () => {
                   style={{
                     width: canvasSize.width * zoomLevel,
                     height: canvasSize.height * zoomLevel,
+                    maxWidth: "100vw",
                   }}
                 />
                 {pickedColors.map((color) => (
@@ -357,6 +360,33 @@ const ColorPickerFromImage = () => {
         </div>
       </div>
     </ToolLayout>
+    <GuidanceSection title="How to Use the Color Picker from Image">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the Color Picker from Image</h4>
+      <p>The Color Picker from Image allows you to extract color codes from any uploaded image.</p>
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Click "Upload Image" and select an image file.</li>
+        <li>Once uploaded, click on the image to pick colors.</li>
+        <li>The extracted colors will be displayed with their hex codes.</li>
+        <li>Use the selected colors for design projects or reference.</li>
+      </ol>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Features</h4>
+      <ul className="list-disc pl-5">
+        <li>Supports multiple image formats (PNG, JPG, JPEG, GIF, WebP).</li>
+        <li>Extracts accurate hex codes from any image.</li>
+        <li>Easy-to-use interface for selecting colors.</li>
+        <li>Ideal for designers and developers working with color palettes.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
+    </>
   );
 };
 

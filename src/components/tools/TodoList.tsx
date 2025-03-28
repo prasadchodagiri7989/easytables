@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { Checkbox } from "@/components/ui/checkbox";
+import { GuidanceSection } from "../GuidanceSection";
 
 interface Todo {
   id: string;
@@ -268,6 +269,31 @@ export const TodoList = () => {
           </div>
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use the Todo List">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the Todo List</h4>
+      <p>The Todo List allows you to add, track, and manage tasks efficiently.</p>
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Type a task in the input field and click "Add" to save it.</li>
+        <li>Click on a task to mark it as completed.</li>
+        <li>Use the delete button to remove tasks you no longer need.</li>
+        <li>Your list will be saved automatically for later access.</li>
+      </ol>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Features</h4>
+      <ul className="list-disc pl-5">
+        <li>Simple and intuitive task management.</li>
+        <li>Ability to mark tasks as complete.</li>
+        <li>Automatic saving of tasks for future reference.</li>
+        <li>Lightweight and fast interface.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
     </div>
   );
 };

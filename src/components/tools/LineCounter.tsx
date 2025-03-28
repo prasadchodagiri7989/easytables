@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { GuidanceSection } from "../GuidanceSection";
 
 export const LineCounter = () => {
   const [text, setText] = useState("");
@@ -232,6 +233,36 @@ Shortest line: Line ${shortestLine.lineNumber} (${shortestLine.length} character
           </div>
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use the Line Counter">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the Line Counter</h4>
+      <p>The Line Counter tool helps analyze text by providing statistics about the total lines, empty lines, and average line length.</p>
+
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Type or paste text into the input area to analyze line statistics instantly.</li>
+        <li>View real-time data, including total lines, empty lines, and non-empty lines.</li>
+        <li>Check the average line length and identify the longest and shortest lines.</li>
+        <li>Click "Paste from Clipboard" to quickly insert copied text.</li>
+        <li>Use "Clear" to remove the text and start fresh.</li>
+        <li>Click "Copy Statistics" to copy the analysis results for easy sharing.</li>
+      </ol>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Features</h4>
+      <ul className="list-disc pl-5">
+        <li>Instant analysis of total, empty, and non-empty lines.</li>
+        <li>Calculates the average line length.</li>
+        <li>Identifies the longest and shortest lines in the text.</li>
+        <li>Quick shortcuts: Ctrl+V (Cmd+V on Mac) to paste text.</li>
+        <li>Easy-to-use buttons for clearing and copying statistics.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
     </div>
   );
 };

@@ -4,6 +4,7 @@ import { ExternalLink, ArrowRight, Copy, Check } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import ToolLayout from "@/components/ui/ToolLayout";
+import { GuidanceSection } from "../GuidanceSection";
 
 interface Header {
   name: string;
@@ -76,6 +77,7 @@ const HttpHeaderChecker = () => {
   };
 
   return (
+    <>
     <ToolLayout
       title="HTTP Header Checker"
       description="Check HTTP headers for any website. Useful for debugging, security analysis and SEO."
@@ -220,6 +222,33 @@ const HttpHeaderChecker = () => {
         )}
       </div>
     </ToolLayout>
+    <GuidanceSection title="How to Use the HTTP Header Checker">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the HTTP Header Checker</h4>
+      <p>The HTTP Header Checker allows you to inspect HTTP headers for any website, helping with debugging, security analysis, and SEO.</p>
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Enter a domain name or full URL (e.g., example.com or https://example.com/path).</li>
+        <li>Click "Check Headers" to fetch the HTTP headers.</li>
+        <li>Review the response headers, including status codes, content type, caching policies, and security settings.</li>
+        <li>Use the information to analyze SEO, troubleshoot issues, or check for security vulnerabilities.</li>
+      </ol>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Features</h4>
+      <ul className="list-disc pl-5">
+        <li>Fetches and displays HTTP response headers.</li>
+        <li>Helps with debugging and troubleshooting web requests.</li>
+        <li>Useful for analyzing SEO and security configurations.</li>
+        <li>Supports both domain names and full URLs.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
+    </>
   );
 };
 

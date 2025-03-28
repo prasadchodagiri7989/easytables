@@ -4,6 +4,7 @@ import { Phone, Play, Square, Mic, Download } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import { GuidanceSection } from "../GuidanceSection";
 
 export const CallRecorder = () => {
   const [isRecording, setIsRecording] = useState(false);
@@ -246,6 +247,54 @@ export const CallRecorder = () => {
           )}
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use the Call Recorder">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Recording Calls</h4>
+      <p>The call recorder allows you to record audio calls and conversations.</p>
+      <p className="mt-2"><strong>Steps to Start Recording:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Ensure your microphone is connected and working.</li>
+        <li>Allow microphone access when prompted by your browser.</li>
+        <li>Click the "Start Recording" button to begin recording your call.</li>
+        <li>Click "Stop Recording" when you are done.</li>
+      </ol>
+    </div>
+    
+    <div>
+      <h4 className="font-medium mb-1">Managing Permissions</h4>
+      <p>Microphone access is required for this tool to function properly.</p>
+      <p className="mt-2"><strong>How to Allow Microphone Access:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Click on the microphone permission request in your browser.</li>
+        <li>Select "Allow" to enable recording.</li>
+        <li>If access is denied, go to your browser settings and enable microphone permissions manually.</li>
+        <li>Click "Try Again" to refresh the page and start recording.</li>
+      </ol>
+    </div>
+    
+    <div>
+      <h4 className="font-medium mb-1">Saving and Managing Recordings</h4>
+      <p>Once your recording is complete, you can save and manage it.</p>
+      <p className="mt-2"><strong>Options after Recording:</strong></p>
+      <ul className="list-disc pl-5">
+        <li>Play the recording to review it.</li>
+        <li>Download the recording for offline storage.</li>
+        <li>Delete unwanted recordings to free up space.</li>
+      </ul>
+    </div>
+    
+    <div>
+      <h4 className="font-medium">Best Practices for Recording Calls</h4>
+      <ul className="list-disc pl-5">
+        <li>Ensure you have consent before recording calls.</li>
+        <li>Use a high-quality microphone for better clarity.</li>
+        <li>Keep background noise minimal for better audio quality.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
     </div>
   );
 };

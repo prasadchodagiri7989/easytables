@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { GuidanceSection } from "../GuidanceSection";
 
 interface Note {
   id: string;
@@ -382,6 +383,42 @@ export const OnlineNotes = () => {
           </div>
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use Online Notes">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using Online Notes</h4>
+      <p>The Online Notes tool allows you to create, edit, and organize multiple notes efficiently.</p>
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Click "Create New Note" to start a new note.</li>
+        <li>Type your content in the note editor.</li>
+        <li>Your notes are automatically saved to your browser's local storage.</li>
+        <li>Select a note from the list to view or edit it.</li>
+        <li>Use the delete option to remove unnecessary notes.</li>
+      </ol>
+    </div>
+    
+    <div>
+      <h4 className="font-medium mb-1">Features</h4>
+      <ul className="list-disc pl-5">
+        <li>Create and manage multiple notes easily.</li>
+        <li>Auto-save functionality to prevent data loss.</li>
+        <li>Quickly switch between different notes.</li>
+        <li>Delete notes when no longer needed.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Why Use This Tool?</h4>
+      <ul className="list-disc pl-5">
+        <li>Organize your notes efficiently.</li>
+        <li>No login required—notes are stored locally.</li>
+        <li>Access your notes from any browser without installation.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
     </div>
   );
 };

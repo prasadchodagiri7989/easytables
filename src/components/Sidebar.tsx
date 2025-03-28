@@ -3,33 +3,34 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { 
-  Calculator, Percent, DivideSquare, BarChart2, GraduationCap, 
+  Calculator, Percent, DivideSquare, BarChart2, GraduationCap, Package, Activity,
   Award, Home, DollarSign, TrendingUp, Weight, ChevronLeft, ArrowRightLeft, ChevronDown,
   Clock, BarChart, Calendar, Phone, Camera, FileText, MousePointer, Timer, Mic,
-  Monitor, Lock, PieChart, Shuffle, Activity, Film, Smartphone, MessageSquare, Edit,
+  Monitor, Lock, PieChart, Shuffle, Film, Smartphone, MessageSquare, Edit,
   Table, Volume2, CalendarDays, CheckSquare, Music, Ruler, Video, Wrench, Hash,
   AlignJustify, FileImage, Type, FileIcon, ImageIcon, Image, Code
 } from "lucide-react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { toolsData } from "@/data/tools-data";
+import { Thermometer, Square, Gauge, Wind, Bolt, Zap, Database, Compass, Fuel, BatteryCharging, Plug } from "lucide-react";
 
 export const unitCategories = [ 
-  { label: "Length", value: "length", path: "/convertor/length" },
-  { label: "Mass", value: "mass", path: "/convertor/mass" },
-  { label: "Temperature", value: "temperature", path: "/convertor/temperature" },
-  { label: "Area", value: "area", path: "/convertor/area" },
-  { label: "Volume", value: "volume", path: "/convertor/volume" },
-  { label: "Time", value: "time", path: "/convertor/time" },
-  { label: "Speed", value: "speed", path: "/convertor/speed" },
-  { label: "Pressure", value: "pressure", path: "/convertor/pressure" },
-  { label: "Energy", value: "energy", path: "/convertor/energy" },
-  { label: "Power", value: "power", path: "/convertor/power" },
-  { label: "Data", value: "data", path: "/convertor/data" },
-  { label: "Angle", value: "angle", path: "/convertor/angle" },
-  { label: "Frequency", value: "frequency", path: "/convertor/frequency" },
-  { label: "Fuel Economy", value: "fuel_economy", path: "/convertor/fuel_economy" },
-  { label: "Voltage", value: "voltage", path: "/convertor/voltage" },
-  { label: "Current", value: "current", path: "/convertor/current" }
+  { label: "Length", value: "length", path: "/convertor/length", icon: Ruler },
+  { label: "Mass", value: "mass", path: "/convertor/mass", icon: Weight },
+  { label: "Temperature", value: "temperature", path: "/convertor/temperature", icon: Thermometer },
+  { label: "Area", value: "area", path: "/convertor/area", icon: Square },
+  { label: "Volume", value: "volume", path: "/convertor/volume", icon: Package },
+  { label: "Time", value: "time", path: "/convertor/time", icon: Clock },
+  { label: "Speed", value: "speed", path: "/convertor/speed", icon: Gauge },
+  { label: "Pressure", value: "pressure", path: "/convertor/pressure", icon: Wind },
+  { label: "Energy", value: "energy", path: "/convertor/energy", icon: Bolt },
+  { label: "Power", value: "power", path: "/convertor/power", icon: Zap },
+  { label: "Data", value: "data", path: "/convertor/data", icon: Database },
+  { label: "Angle", value: "angle", path: "/convertor/angle", icon: Compass },
+  { label: "Frequency", value: "frequency", path: "/convertor/frequency", icon: Activity },
+  { label: "Fuel Economy", value: "fuel_economy", path: "/convertor/fuel_economy", icon: Fuel },
+  { label: "Voltage", value: "voltage", path: "/convertor/voltage", icon: BatteryCharging },
+  { label: "Current", value: "current", path: "/convertor/current", icon: Plug }
 ];
 
 interface SidebarProps {
@@ -72,6 +73,7 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
   const [textToolsOpen, setTextToolsOpen] = useState(false);
   const [pdfToolsOpen, setPdfToolsOpen] = useState(false);
   const [HtmltoolsOpen, setHtmltoolsOpen] = useState(false);
+  const [convertorToolsOpen, setConvertorToolsOpen] = useState(false);
 
   return (
     <aside className={cn(
@@ -127,7 +129,7 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
           </Collapsible>
           
           <SidebarLink to="/unit-converter" icon={ArrowRightLeft} label="Unit Converter" onClose={onClose} />
-          <Collapsible open={toolsOpen} onOpenChange={setToolsOpen} className="w-full mt-2">
+          <Collapsible open={convertorToolsOpen} onOpenChange={setConvertorToolsOpen} className="w-full mt-2">
             <CollapsibleTrigger className="flex items-center justify-between w-full px-4 py-2 rounded-md hover:bg-gray-100 text-left">
               <div className="flex items-center">
                 <Code size={18} className="mr-2" />
@@ -135,12 +137,12 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
               </div>
               <ChevronDown 
                 size={16} 
-                className={cn("transition-transform duration-200", toolsOpen ? "rotate-180" : "")} 
+                className={cn("transition-transform duration-200", convertorToolsOpen ? "rotate-180" : "")} 
               />
             </CollapsibleTrigger>
             <CollapsibleContent className="pl-6 space-y-1 mt-1">
               {unitCategories.map((category) => (
-                <SidebarLink key={category.value} icon={Hash} to={category.path} label={category.label} onClose={onClose} />
+                <SidebarLink key={category.value} icon={category.icon} to={category.path} label={category.label} onClose={onClose} />
               ))}
             </CollapsibleContent>
           </Collapsible>

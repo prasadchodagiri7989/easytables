@@ -12,6 +12,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { GuidanceSection } from "../GuidanceSection";
 
 export const Screenshot = () => {
   const [capturedImage, setCapturedImage] = useState<string | null>(null);
@@ -309,6 +310,41 @@ export const Screenshot = () => {
           </div>
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use Screenshot Tool">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the Screenshot Tool</h4>
+      <p>The Screenshot Tool allows you to capture images of your screen or specific applications.</p>
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Click the "Capture Screenshot" button to start.</li>
+        <li>Select the screen or application window you want to capture.</li>
+        <li>Use the countdown timer for better preparation if needed.</li>
+        <li>The captured screenshot will be processed locally for privacy.</li>
+      </ol>
+    </div>
+    
+    <div>
+      <h4 className="font-medium mb-1">Features</h4>
+      <ul className="list-disc pl-5">
+        <li>Capture full screen, specific windows, or application screens.</li>
+        <li>Optional countdown timer to set up the desired screen.</li>
+        <li>Local processing ensures privacy and security.</li>
+        <li>Easy to use with a simple and intuitive interface.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Why Use This Tool?</h4>
+      <ul className="list-disc pl-5">
+        <li>Useful for capturing important moments on your screen.</li>
+        <li>Great for creating tutorials, reports, or saving references.</li>
+        <li>Ensures privacy by keeping all screenshots locally processed.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
     </div>
   );
 };

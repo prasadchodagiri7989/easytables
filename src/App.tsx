@@ -91,6 +91,24 @@ import { JPGtoPDF } from "./components/tools/JPGtoPDF";
 import { PNGtoPDF } from "./components/tools/PNGtoPDF";
 import { PDFViewer } from "./components/tools/PDFViewer";
 
+// Import Convertors
+import { LengthConverter } from "./components/convertors/LengthConverter";
+import { MassConverter } from "./components/convertors/MassConverter";
+import { TemperatureConverter } from "./components/convertors/TemparatureConverter";
+import { AreaConverter } from "./components/convertors/AreaConverter";
+import { VolumeConverter } from "./components/convertors/VolumeConverter";
+import { TimeConverter } from "./components/convertors/TimeConverter";
+import { SpeedConverter } from "./components/convertors/SpeedConverter";
+import { PressureConverter } from "./components/convertors/PressureConverter";
+import { EnergyConverter } from "./components/convertors/EnergyConverter";
+import { PowerConverter } from "./components/convertors/PowerConverter";
+import { DataConverter } from "./components/convertors/DataConverter";
+import { AngleConverter } from "./components/convertors/AngleConverter";
+import { FrequencyConverter } from "./components/convertors/FrequencyConverter";
+import { FuelEconomyConverter } from "./components/convertors/FuelEconomyConverter";
+import { VoltageConverter } from "./components/convertors/VoltageConverter";
+import { CurrentConverter } from "./components/convertors/CurrentConverter";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -115,6 +133,27 @@ const App = () => (
           <Route path="/bmi" element={<Layout><BMICalculator /></Layout>} />
           <Route path="/unit-converter" element={<Layout><UnitConverter /></Layout>} />
           
+          {/*Convertors Routes */}
+          <Route path="/convertor/length" element={<Layout><LengthConverter /></Layout>} />
+          <Route path="/convertor/mass" element={<Layout><MassConverter /></Layout>} />
+          <Route path="/convertor/temperature" element={<Layout><TemperatureConverter /></Layout>} />
+          <Route path="/convertor/area" element={<Layout><AreaConverter /></Layout>} />
+          <Route path="/convertor/volume" element={<Layout><VolumeConverter /></Layout>} />
+          <Route path="/convertor/time" element={<Layout><TimeConverter /></Layout>} />
+          <Route path="/convertor/speed" element={<Layout><SpeedConverter /></Layout>} />
+          <Route path="/convertor/pressure" element={<Layout><PressureConverter /></Layout>} />
+          <Route path="/convertor/energy" element={<Layout><EnergyConverter /></Layout>} />
+          <Route path="/convertor/power" element={<Layout><PowerConverter /></Layout>} />
+          <Route path="/convertor/data" element={<Layout><DataConverter /></Layout>} />
+          <Route path="/convertor/angle" element={<Layout><AngleConverter /></Layout>} />
+          <Route path="/convertor/frequency" element={<Layout><FrequencyConverter /></Layout>} />
+          <Route path="/convertor/fuel_economy" element={<Layout><FuelEconomyConverter /></Layout>} />
+          <Route path="/convertor/voltage" element={<Layout><VoltageConverter /></Layout>} />
+          <Route path="/convertor/current" element={<Layout><CurrentConverter /></Layout>} />
+
+          
+
+
           {/* Text Tools Routes */}
           <Route path="/word-counter" element={<Layout><WordCounter /></Layout>} />
           <Route path="/character-counter" element={<Layout><CharacterCounter /></Layout>} />

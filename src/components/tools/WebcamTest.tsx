@@ -14,6 +14,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { GuidanceSection } from "../GuidanceSection";
 
 export const WebcamTest = () => {
   const [stream, setStream] = useState<MediaStream | null>(null);
@@ -589,6 +590,34 @@ export const WebcamTest = () => {
           )}
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use the Webcam Test">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the Webcam Test</h4>
+      <p>The Webcam Test allows you to check your camera, microphone, and speakers directly in your browser.</p>
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Ensure your browser has access to your camera and microphone.</li>
+        <li>Click "Start Test" to begin checking your webcam.</li>
+        <li>If prompted, grant permission for camera and microphone access.</li>
+        <li>Check the preview window to see if your webcam is working properly.</li>
+        <li>Use the microphone and speaker test options to ensure audio functionality.</li>
+      </ol>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Permission Issues</h4>
+      <p>If you see a permission error:</p>
+      <ul className="list-disc pl-5">
+        <li>Go to your browser settings and allow access to the camera and microphone.</li>
+        <li>Refresh the page and try again.</li>
+        <li>Ensure no other applications are using the camera or microphone.</li>
+        <li>Try a different browser if the issue persists.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
     </div>
   );
 };

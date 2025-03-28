@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { useToast } from "@/hooks/use-toast";
 import { Input } from "@/components/ui/input";
+import { GuidanceSection } from "../GuidanceSection";
 
 interface WordFrequencyItem {
   word: string;
@@ -245,6 +246,38 @@ export const WordFrequency = () => {
           </div>
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use the Word Frequency Analyzer">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the Word Frequency Analyzer</h4>
+      <p>The Word Frequency Analyzer helps you identify the most common words in your text, providing insights into word usage patterns.</p>
+
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Type or paste text into the input area to analyze word frequency instantly.</li>
+        <li>View real-time data, including total words, unique words, and repetition index.</li>
+        <li>Use the search box to find specific words in the analysis.</li>
+        <li>Sort words by frequency to identify commonly repeated words.</li>
+        <li>Click "Paste from Clipboard" to quickly insert copied text.</li>
+        <li>Use "Clear" to remove the text and start fresh.</li>
+        <li>Click "Copy Results" to save and share the analysis.</li>
+      </ol>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Features</h4>
+      <ul className="list-disc pl-5">
+        <li>Instant word frequency analysis.</li>
+        <li>Calculates total and unique words.</li>
+        <li>Includes a repetition index to measure word recurrence.</li>
+        <li>Search and sort functionality for better insights.</li>
+        <li>Quick shortcuts: Ctrl+V (Cmd+V on Mac) to paste text.</li>
+        <li>Easy-to-use buttons for clearing and copying results.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
     </div>
   );
 };

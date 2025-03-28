@@ -4,6 +4,7 @@ import { Upload, Copy, Check, X } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import ToolLayout from "@/components/ui/ToolLayout";
+import { GuidanceSection } from "../GuidanceSection";
 
 const ImageToBase64 = () => {
   const [base64Output, setBase64Output] = useState("");
@@ -77,6 +78,7 @@ const ImageToBase64 = () => {
   };
 
   return (
+    <>
     <ToolLayout
       title="Image to Base64 Converter"
       description="Convert images to Base64 encoded strings for use in CSS, HTML, or data storage."
@@ -180,6 +182,33 @@ const ImageToBase64 = () => {
         )}
       </div>
     </ToolLayout>
+    <GuidanceSection title="How to Use the Image to Base64 Converter">
+    <div className="space-y-4">
+      <div>
+        <h4 className="font-medium mb-1">Using the Image to Base64 Converter</h4>
+        <p>The Image to Base64 Converter allows you to convert images into Base64 encoded strings for use in CSS, HTML, or data storage.</p>
+        <p className="mt-2"><strong>How to Use:</strong></p>
+        <ol className="list-decimal pl-5">
+          <li>Click "Choose File" to select an image from your device.</li>
+          <li>Ensure the image format is supported (PNG, JPEG, GIF, SVG, WebP).</li>
+          <li>Make sure the file size does not exceed 5MB.</li>
+          <li>Once uploaded, the tool will generate a Base64 encoded string.</li>
+          <li>Copy the generated Base64 string for use in your projects.</li>
+        </ol>
+      </div>
+  
+      <div>
+        <h4 className="font-medium mb-1">Features</h4>
+        <ul className="list-disc pl-5">
+          <li>Converts images into Base64 encoded strings instantly.</li>
+          <li>Supports multiple image formats, including PNG, JPEG, GIF, SVG, and WebP.</li>
+          <li>File size support up to 5MB.</li>
+          <li>Easy-to-use interface for quick conversions.</li>
+        </ul>
+      </div>
+    </div>
+  </GuidanceSection>
+  </>
   );
 };
 

@@ -4,6 +4,7 @@ import { Copy, Check, ArrowDownUp } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import ToolLayout from "@/components/ui/ToolLayout";
+import { GuidanceSection } from "../GuidanceSection";
 
 const UrlEncode = () => {
   const [input, setInput] = useState("");
@@ -40,6 +41,7 @@ const UrlEncode = () => {
   };
 
   return (
+    <>
     <ToolLayout
       title="URL Encode"
       description="Encode text for use in URLs by replacing characters that are not allowed in URLs."
@@ -110,6 +112,33 @@ const UrlEncode = () => {
         )}
       </div>
     </ToolLayout>
+    <GuidanceSection title="How to Use the URL Encoder">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the URL Encoder</h4>
+      <p>The URL Encoder helps you convert text into a safe format for use in URLs by replacing special characters with their encoded equivalents.</p>
+
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Enter the text you want to encode in the input field.</li>
+        <li>Click "Encode for URL" to convert special characters into URL-safe encoding.</li>
+        <li>Copy the encoded URL for use in links, APIs, or web applications.</li>
+        <li>Use the "Switch to Decode" option to revert encoded text back to its original form.</li>
+      </ol>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Why Use This Tool?</h4>
+      <ul className="list-disc pl-5">
+        <li>Ensures special characters in URLs do not break links.</li>
+        <li>Prevents errors when passing data through query parameters.</li>
+        <li>Useful for web development, APIs, and SEO-friendly URLs.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
+    </>
   );
 };
 

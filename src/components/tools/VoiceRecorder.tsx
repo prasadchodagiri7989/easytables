@@ -6,6 +6,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Slider } from "@/components/ui/slider";
 import { Progress } from "@/components/ui/progress";
 import { Label } from "@/components/ui/label";
+import { GuidanceSection } from "../GuidanceSection";
 
 export const VoiceRecorder = () => {
   const [isRecording, setIsRecording] = useState(false);
@@ -481,6 +482,33 @@ export const VoiceRecorder = () => {
           )}
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use the Voice Recorder">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the Voice Recorder</h4>
+      <p>The Voice Recorder allows you to record, play, and save your voice recordings directly in your browser.</p>
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Ensure your browser has microphone access enabled.</li>
+        <li>Click the "Record" button to start recording your voice.</li>
+        <li>Click "Stop" to end the recording.</li>
+        <li>Use the "Play" button to listen to your recorded audio.</li>
+        <li>Click "Save" to download your recording for offline use.</li>
+      </ol>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Microphone Access</h4>
+      <p>Microphone access is required for recording. If access is denied:</p>
+      <ul className="list-disc pl-5">
+        <li>Check your browser settings to allow microphone permissions.</li>
+        <li>Reload the page and grant access when prompted.</li>
+        <li>Try using a different browser if issues persist.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
     </div>
   );
 };

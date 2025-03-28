@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Bell, Clock, Volume2, VolumeX } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { GuidanceSection } from "../GuidanceSection";
 
 export const AlarmClock = () => {
   const [alarmTime, setAlarmTime] = useState("");
@@ -220,6 +221,34 @@ export const AlarmClock = () => {
           </div>
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use the Alarm Clock">
+        <div className="space-y-4">
+          <div>
+            <h4 className="font-medium mb-1">What is an Alarm Clock?</h4>
+            <p>An alarm clock lets you set a time for a notification sound to remind you of important events.</p>
+          </div>
+
+          <div>
+            <h4 className="font-medium mb-1">How to Use:</h4>
+            <ol className="list-decimal pl-5">
+              <li>Enter the time you want the alarm to ring.</li>
+              <li>Click "Set Alarm" to activate it.</li>
+              <li>If the alarm is ringing, you can mute or stop it.</li>
+              <li>Keep the page open for the alarm to work.</li>
+            </ol>
+          </div>
+
+          <div>
+            <h4 className="font-medium">Features</h4>
+            <ul className="list-disc pl-5">
+              <li><strong>Time Display</strong>: Shows the current time.</li>
+              <li><strong>Set Alarm</strong>: Allows users to set an alarm time.</li>
+              <li><strong>Sound Notification</strong>: Plays an alert sound when the set time is reached.</li>
+              <li><strong>Mute Option</strong>: Users can mute or unmute the alarm.</li>
+            </ul>
+          </div>
+        </div>
+      </GuidanceSection>
     </div>
   );
 };

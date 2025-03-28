@@ -4,6 +4,7 @@ import { Timer, Play, Pause, RotateCcw, Clock, Save } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import { GuidanceSection } from "../GuidanceSection";
 
 export const Stopwatch = () => {
   const [isRunning, setIsRunning] = useState(false);
@@ -148,6 +149,40 @@ export const Stopwatch = () => {
           </div>
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use the Stopwatch Tool">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the Stopwatch Tool</h4>
+      <p>The Stopwatch Tool allows you to measure elapsed time with precision.</p>
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Click the "Start" button to begin timing.</li>
+        <li>Click "Lap" to record split times while the stopwatch is running.</li>
+        <li>Click "Reset" to clear the timer and lap records.</li>
+      </ol>
+    </div>
+    
+    <div>
+      <h4 className="font-medium mb-1">Features</h4>
+      <ul className="list-disc pl-5">
+        <li>Accurate time tracking down to milliseconds.</li>
+        <li>Lap functionality to record intermediate times.</li>
+        <li>Simple and easy-to-use interface.</li>
+        <li>Works entirely in your browser with no downloads required.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Why Use This Tool?</h4>
+      <ul className="list-disc pl-5">
+        <li>Ideal for timing workouts, experiments, or any timed activities.</li>
+        <li>Useful for competitive sports and speed-based tasks.</li>
+        <li>No internet connection required—works offline.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
     </div>
   );
 };

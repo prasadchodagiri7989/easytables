@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { Label } from "@/components/ui/label";
+import { GuidanceSection } from "../GuidanceSection";
 
 export const CountdownTimer = () => {
   const [hours, setHours] = useState("00");
@@ -262,6 +263,30 @@ export const CountdownTimer = () => {
           )}
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use the Countdown Timer">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Setting a Countdown Timer</h4>
+      <p>The Countdown Timer allows you to set a timer with hours, minutes, and seconds, and receive an alert when the time is up.</p>
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Enter the desired hours, minutes, and seconds for your countdown.</li>
+        <li>Click the "Start Timer" button to begin the countdown.</li>
+        <li>The timer will count down to zero and trigger an alarm when time is up.</li>
+      </ol>
+    </div>
+    
+    <div>
+      <h4 className="font-medium mb-1">Use Cases for the Countdown Timer</h4>
+      <ul className="list-disc pl-5">
+        <li>Time management for study sessions or work intervals.</li>
+        <li>Cooking or baking to track preparation times.</li>
+        <li>Workout and exercise routines.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
     </div>
   );
 };

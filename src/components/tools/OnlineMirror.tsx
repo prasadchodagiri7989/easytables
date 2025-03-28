@@ -14,6 +14,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { GuidanceSection } from "../GuidanceSection";
+
 
 export const OnlineMirror = () => {
   const [stream, setStream] = useState<MediaStream | null>(null);
@@ -340,6 +342,40 @@ export const OnlineMirror = () => {
           )}
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use the Online Mirror Tool">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the Online Mirror</h4>
+      <p>The Online Mirror tool allows you to use your device's camera as a digital mirror.</p>
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Open the Online Mirror tool.</li>
+        <li>Grant camera access when prompted.</li>
+        <li>Use the mirror to check your appearance in real-time.</li>
+        <li>Click the fullscreen button for a better experience.</li>
+      </ol>
+    </div>
+    
+    <div>
+      <h4 className="font-medium mb-1">Features</h4>
+      <ul className="list-disc pl-5">
+        <li>Real-time camera feed for a clear reflection.</li>
+        <li>Fullscreen mode for a larger mirror view.</li>
+        <li>No data is stored or transmitted, ensuring privacy.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Why Use This Tool?</h4>
+      <ul className="list-disc pl-5">
+        <li>Convenient for checking your appearance anytime.</li>
+        <li>No need for a physical mirror.</li>
+        <li>Works on any device with a camera.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
     </div>
   );
 };

@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { Label } from "@/components/ui/label";
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ZAxis } from "recharts";
+import { GuidanceSection } from "../GuidanceSection";
 
 interface DataPoint {
   x: number;
@@ -276,6 +277,43 @@ export const ScatterPlot = () => {
           </div>
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use XY Scatter Plot Maker">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the XY Scatter Plot Maker</h4>
+      <p>The XY Scatter Plot Maker helps you visualize relationships between two numerical variables.</p>
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Enter a title for your scatter plot.</li>
+        <li>Set labels for the X and Y axes.</li>
+        <li>Input values for the X and Y axes.</li>
+        <li>Optionally, specify a point size (1-10) for better visualization.</li>
+        <li>Click "Add Data Point" to add the values to the chart.</li>
+        <li>Download the scatter plot when you're satisfied with the visualization.</li>
+      </ol>
+    </div>
+    
+    <div>
+      <h4 className="font-medium mb-1">Features</h4>
+      <ul className="list-disc pl-5">
+        <li>Customize chart titles and axis labels.</li>
+        <li>Add multiple data points with adjustable sizes.</li>
+        <li>Visualize trends and correlations between variables.</li>
+        <li>Download the generated scatter plot for presentations or reports.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Why Use This Tool?</h4>
+      <ul className="list-disc pl-5">
+        <li>Ideal for analyzing relationships between numerical values.</li>
+        <li>Great for scientific research, business analytics, and educational purposes.</li>
+        <li>Provides a clear and concise visual representation of data trends.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
     </div>
   );
 };

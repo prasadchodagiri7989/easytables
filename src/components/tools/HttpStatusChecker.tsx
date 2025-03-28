@@ -4,6 +4,7 @@ import { ExternalLink, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import ToolLayout from "@/components/ui/ToolLayout";
+import { GuidanceSection } from "../GuidanceSection";
 
 interface StatusResult {
   url: string;
@@ -158,6 +159,7 @@ const HttpStatusChecker = () => {
   };
 
   return (
+    <>
     <ToolLayout
       title="HTTP Status Checker"
       description="Check the HTTP status of any URL. Useful for debugging website issues, checking redirects and SEO analysis."
@@ -324,6 +326,34 @@ const HttpStatusChecker = () => {
         )}
       </div>
     </ToolLayout>
+    <GuidanceSection title="How to Use the HTTP Status Checker">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the HTTP Status Checker</h4>
+      <p>The HTTP Status Checker helps you analyze the status of any URL, making it useful for debugging website issues, tracking redirects, and conducting SEO analysis.</p>
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Enter a domain name or full URL (e.g., example.com or https://example.com/path).</li>
+        <li>Click "Check Status" to retrieve the HTTP response code.</li>
+        <li>Review the status code to understand if the request was successful, redirected, or encountered an error.</li>
+        <li>Use this information to troubleshoot website issues, track redirects, or optimize SEO.</li>
+      </ol>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Common HTTP Status Codes</h4>
+      <ul className="list-disc pl-5">
+        <li><strong>200 OK</strong> – The request was successful.</li>
+        <li><strong>301 Moved Permanently</strong> – The URL has been permanently redirected.</li>
+        <li><strong>302 Found</strong> – A temporary redirect is in place.</li>
+        <li><strong>404 Not Found</strong> – The requested page does not exist.</li>
+        <li><strong>500 Internal Server Error</strong> – A server-side issue occurred.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
+    </>
   );
 };
 

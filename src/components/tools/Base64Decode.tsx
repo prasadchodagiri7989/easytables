@@ -4,6 +4,8 @@ import { Copy, Check, ArrowDownUp } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import ToolLayout from "@/components/ui/ToolLayout";
+import { GuidanceSection } from "../GuidanceSection";
+
 
 const Base64Decode = () => {
   const [input, setInput] = useState("");
@@ -40,6 +42,7 @@ const Base64Decode = () => {
   };
 
   return (
+    <>
     <ToolLayout
       title="Base64 Decode"
       description="Convert Base64 encoded strings back to plain text."
@@ -110,6 +113,32 @@ const Base64Decode = () => {
         )}
       </div>
     </ToolLayout>
+    <GuidanceSection title="How to Use the Base64 Decoder">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the Base64 Decoder</h4>
+      <p>The Base64 Decoder allows you to convert Base64 encoded strings back to plain text.</p>
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Enter the Base64 encoded string in the input field.</li>
+        <li>Click "Decode Base64" to convert it back to plain text.</li>
+        <li>Copy the decoded result for further use.</li>
+        <li>To encode text into Base64 format, switch to the "Encode" option.</li>
+      </ol>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Features</h4>
+      <ul className="list-disc pl-5">
+        <li>Quickly decode Base64 strings into readable text.</li>
+        <li>Easy switching between encode and decode modes.</li>
+        <li>Supports safe data conversion for various applications.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
+    </>
   );
 };
 

@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { Label } from "@/components/ui/label";
 import { PieChart, Pie, Cell, Legend, ResponsiveContainer, Tooltip } from "recharts";
+import { GuidanceSection } from "../GuidanceSection";
 
 interface DataItem {
   name: string;
@@ -253,6 +254,41 @@ export const PieChartMaker = () => {
           </div>
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use Pie Chart Maker">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the Pie Chart Maker</h4>
+      <p>The Pie Chart Maker allows you to create and customize pie charts easily.</p>
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Enter a title for your pie chart.</li>
+        <li>Add categories and corresponding values.</li>
+        <li>Click "Add Data Point" to include more categories.</li>
+        <li>The pie chart updates automatically based on the data entered.</li>
+      </ol>
+    </div>
+    
+    <div>
+      <h4 className="font-medium mb-1">Features</h4>
+      <ul className="list-disc pl-5">
+        <li>Customize chart title and data points.</li>
+        <li>Real-time preview of your pie chart.</li>
+        <li>Easy-to-use interface for quick chart creation.</li>
+        <li>Downloadable chart for use in reports and presentations.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Why Use This Tool?</h4>
+      <ul className="list-disc pl-5">
+        <li>Visualize data effectively with pie charts.</li>
+        <li>Quickly compare proportions and distributions.</li>
+        <li>Perfect for reports, presentations, and analysis.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
     </div>
   );
 };

@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { GuidanceSection } from "../GuidanceSection";
 
 export const OnlineNotepad = () => {
   const [text, setText] = useState<string>(() => {
@@ -280,6 +281,41 @@ export const OnlineNotepad = () => {
           </div>
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use the Online Notepad">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the Online Notepad</h4>
+      <p>The Online Notepad tool allows you to take and save notes directly in your browser.</p>
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Start typing your notes in the text area.</li>
+        <li>Your notes are automatically saved to your browser's local storage.</li>
+        <li>Use the buttons to save, copy, download, or clear your notes.</li>
+        <li>Keyboard shortcuts: Ctrl+S to save, Ctrl+Z to undo, Ctrl+Y to redo.</li>
+      </ol>
+    </div>
+    
+    <div>
+      <h4 className="font-medium mb-1">Features</h4>
+      <ul className="list-disc pl-5">
+        <li>Auto-save functionality to prevent data loss.</li>
+        <li>Undo and redo options for easy editing.</li>
+        <li>Download notes as a text file.</li>
+        <li>Supports keyboard shortcuts for efficiency.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Why Use This Tool?</h4>
+      <ul className="list-disc pl-5">
+        <li>Quick and easy way to jot down notes.</li>
+        <li>No login required—notes are stored locally.</li>
+        <li>Accessible from any browser without installation.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
     </div>
   );
 };

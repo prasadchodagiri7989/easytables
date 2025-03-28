@@ -4,6 +4,7 @@ import { Camera, X, Image, RotateCcw, Download } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import { GuidanceSection } from "../GuidanceSection";
 
 export const CameraOnline = () => {
   const [stream, setStream] = useState<MediaStream | null>(null);
@@ -182,6 +183,54 @@ export const CameraOnline = () => {
           )}
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use the Camera Online Tool">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Taking Photos</h4>
+      <p>The Camera Online tool allows you to take photos using your device camera.</p>
+      <p className="mt-2"><strong>Steps to Capture a Photo:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Ensure your camera is connected and functioning properly.</li>
+        <li>Allow camera access when prompted by your browser.</li>
+        <li>Click the "Take Photo" button to capture an image.</li>
+        <li>Review the photo and save it if needed.</li>
+      </ol>
+    </div>
+    
+    <div>
+      <h4 className="font-medium mb-1">Managing Permissions</h4>
+      <p>Camera access is required for this tool to function properly.</p>
+      <p className="mt-2"><strong>How to Allow Camera Access:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Click on the camera permission request in your browser.</li>
+        <li>Select "Allow" to enable photo capturing.</li>
+        <li>If access is denied, go to your browser settings and enable camera permissions manually.</li>
+        <li>Refresh the page and try again if permission issues persist.</li>
+      </ol>
+    </div>
+    
+    <div>
+      <h4 className="font-medium mb-1">Saving and Managing Photos</h4>
+      <p>Once you take a photo, you can save and manage it.</p>
+      <p className="mt-2"><strong>Options after Capturing:</strong></p>
+      <ul className="list-disc pl-5">
+        <li>Review the photo before saving.</li>
+        <li>Download the photo to your device for storage.</li>
+        <li>Retake the photo if you need a better shot.</li>
+      </ul>
+    </div>
+    
+    <div>
+      <h4 className="font-medium">Best Practices for Taking Photos</h4>
+      <ul className="list-disc pl-5">
+        <li>Ensure good lighting for clear images.</li>
+        <li>Keep your camera lens clean for the best quality.</li>
+        <li>Hold your device steady to avoid blurry photos.</li>
+      </ul>
+    </div>
+  </div>
+      </GuidanceSection>
+
     </div>
   );
 };

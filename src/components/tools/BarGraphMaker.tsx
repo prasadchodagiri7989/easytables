@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { BarChart2, Trash2, Plus, Download } from "lucide-react";
 import { Label } from "@/components/ui/label";
+import { GuidanceSection } from "../GuidanceSection";
 
 interface DataItem {
   name: string;
@@ -213,6 +214,43 @@ export const BarGraphMaker = () => {
           </div>
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use the Bar Graph Maker">
+        <div className="space-y-4">
+          <div>
+            <h4 className="font-medium mb-1">Creating a Bar Graph</h4>
+            <p>Bar graphs are useful for visualizing data by representing categories with rectangular bars.</p>
+            <p className="mt-2"><strong>Steps to create a bar graph:</strong></p>
+            
+            <ol className="list-decimal pl-5">
+              <li>Enter a title for your bar graph.</li>
+              <li>Add data points by entering names and values in the respective fields.</li>
+              <li>Click "Add Data Point" to include more values.</li>
+              <li>The graph updates automatically as you add data.</li>
+            </ol>
+          </div>
+          
+          <div>
+            <h4 className="font-medium mb-1">Customizing Your Graph</h4>
+            <p>You can customize your bar graph by:</p>
+            <ul className="list-disc pl-5">
+              <li>Editing the chart title.</li>
+              <li>Modifying existing data points.</li>
+              <li>Removing data points if needed.</li>
+              <li>Adjusting value ranges for better visualization.</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 className="font-medium">Downloading Your Bar Graph</h4>
+            <p>Once your graph is complete, you can download it as an image:</p>
+            <ol className="list-decimal pl-5">
+              <li>Click the "Download Graph" button.</li>
+              <li>Save the image to your device for presentations or reports.</li>
+            </ol>
+          </div>
+        </div>
+      </GuidanceSection>
+
     </div>
   );
 };

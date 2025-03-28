@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import html2canvas from "html2canvas";
+import { GuidanceSection } from "../GuidanceSection";
 
 export const RulerInch = () => {
   const [dpi, setDpi] = useState<number | null>(null);
@@ -291,6 +292,25 @@ export const RulerInch = () => {
           </div>
         </CardContent>
       </Card>
+
+<GuidanceSection title="How to Use the Ruler Tool">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the Ruler Tool</h4>
+      <p>The Ruler Tool allows you to measure objects directly on your screen.</p>
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Place the object against your screen to measure it.</li>
+        <li>For best accuracy, calibrate the ruler before use.</li>
+        <li>Switch between horizontal and vertical orientation as needed.</li>
+        <li>Use the markings to measure in millimeters, centimeters, or inches.</li>
+        <li>For the inch-based ruler, the largest marks represent inches, medium marks are 1/2", smaller marks are 1/4" and 1/8", and the smallest marks are 1/16".</li>
+        <li>Click "Download Ruler" to save and print it for offline use.</li>
+      </ol>
+    </div>
+  </div>
+</GuidanceSection>
+
     </div>
   );
 };

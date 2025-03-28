@@ -3,6 +3,7 @@ import { Copy, Check, Plus, Minus, Download, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import ToolLayout from "@/components/ui/ToolLayout";
+import { GuidanceSection } from "../GuidanceSection";
 
 const HtmlTableGenerator = () => {
   const [rows, setRows] = useState(3);
@@ -151,6 +152,7 @@ ${code}
   };
 
   return (
+    <>
     <ToolLayout
       title="HTML Table Generator"
       description="Generate HTML tables with custom rows, columns, and styling."
@@ -460,6 +462,37 @@ ${code}
         </div>
       </div>
     </ToolLayout>
+    <GuidanceSection title="How to Use the HTML Table Generator">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the HTML Table Generator</h4>
+      <p>The HTML Table Generator allows you to create customizable tables quickly.</p>
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Enter the number of rows and columns you need.</li>
+        <li>Optionally include a header row and a table caption.</li>
+        <li>Customize table attributes like border size, padding, spacing, and width.</li>
+        <li>Apply a CSS class and ID for styling purposes.</li>
+        <li>Click "Generate Table Code" to get the HTML table.</li>
+        <li>Copy and paste the generated code into your project.</li>
+      </ol>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Features</h4>
+      <ul className="list-disc pl-5">
+        <li>Create tables with customizable rows and columns.</li>
+        <li>Includes options for headers and captions.</li>
+        <li>Allows adjusting border, padding, spacing, and width.</li>
+        <li>Supports custom CSS classes and IDs for styling.</li>
+        <li>Instantly generates clean and structured HTML table code.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
+
+</>
   );
 };
 

@@ -4,6 +4,7 @@ import { Code, Play, Copy, Check, Download } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import ToolLayout from "@/components/ui/ToolLayout";
+import { GuidanceSection } from "../GuidanceSection";
 
 const HtmlEditor = () => {
   const [html, setHtml] = useState("");
@@ -80,6 +81,7 @@ const HtmlEditor = () => {
   };
 
   return (
+    <>
     <ToolLayout
       title="HTML Editor"
       description="Write and preview HTML code in real time."
@@ -167,6 +169,34 @@ const HtmlEditor = () => {
         </div>
       </div>
     </ToolLayout>
+    <GuidanceSection title="How to Use the HTML Editor">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Using the HTML Editor</h4>
+      <p>The HTML Editor allows you to write, edit, and preview HTML code in real time.</p>
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Enter your HTML code in the editor.</li>
+        <li>Click "Run" to render the HTML output.</li>
+        <li>Enable "Auto Preview" to see changes live as you type.</li>
+        <li>Click "Copy HTML" to copy your code to the clipboard.</li>
+        <li>Click "Download" to save your HTML file.</li>
+      </ol>
+    </div>
+
+    <div>
+      <h4 className="font-medium mb-1">Features</h4>
+      <ul className="list-disc pl-5">
+        <li>Live preview for instant feedback.</li>
+        <li>Auto-preview mode for real-time updates.</li>
+        <li>Easy copy and download options.</li>
+        <li>Simple and beginner-friendly interface.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
+    </>
   );
 };
 

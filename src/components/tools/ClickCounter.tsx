@@ -4,6 +4,7 @@ import { MousePointer, RotateCcw, Clock } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import { GuidanceSection } from "../GuidanceSection";
 
 export const ClickCounter = () => {
   const [count, setCount] = useState(0);
@@ -116,6 +117,41 @@ export const ClickCounter = () => {
           </div>
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use the Click Counter Tool">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Counting Clicks</h4>
+      <p>The Click Counter tool allows you to count your clicks and measure your clicking speed.</p>
+      <p className="mt-2"><strong>How to Use:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Click the "CLICK" button to start counting.</li>
+        <li>The counter will increment with each click.</li>
+        <li>Your time and clicks per second (CPS) will be displayed.</li>
+      </ol>
+    </div>
+    
+    <div>
+      <h4 className="font-medium mb-1">Resetting the Counter</h4>
+      <p>You can reset the counter at any time.</p>
+      <p className="mt-2"><strong>Steps to Reset:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Click the "Reset" button.</li>
+        <li>The counter, time, and CPS will reset to zero.</li>
+        <li>Start clicking again to track a new session.</li>
+      </ol>
+    </div>
+    
+    <div>
+      <h4 className="font-medium">Tips for Better Clicking Speed</h4>
+      <ul className="list-disc pl-5">
+        <li>Use a mouse instead of a trackpad for faster clicking.</li>
+        <li>Try different clicking techniques like jitter clicking or butterfly clicking.</li>
+        <li>Practice regularly to improve your speed.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
     </div>
   );
 };

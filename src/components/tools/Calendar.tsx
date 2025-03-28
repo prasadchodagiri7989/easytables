@@ -4,6 +4,7 @@ import { Calendar as CalendarIcon, ChevronLeft, ChevronRight } from "lucide-reac
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Calendar as CalendarUI } from "@/components/ui/calendar";
+import { GuidanceSection } from "../GuidanceSection";
 
 export const Calendar = () => {
   const [date, setDate] = useState<Date | undefined>(new Date());
@@ -82,6 +83,52 @@ export const Calendar = () => {
           )}
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use the Calendar Tool">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Viewing the Calendar</h4>
+      <p>The calendar tool allows you to view and interact with dates easily.</p>
+      <p className="mt-2"><strong>Navigation:</strong></p>
+      <ul className="list-disc pl-5">
+        <li>Use the arrow buttons to navigate between months.</li>
+        <li>Click on a specific date to select it.</li>
+        <li>The "Today" button quickly moves to the current date.</li>
+      </ul>
+    </div>
+    
+    <div>
+      <h4 className="font-medium mb-1">Selecting and Interacting with Dates</h4>
+      <p>You can select a date to view details or add events.</p>
+      <p className="mt-2"><strong>How to Select a Date:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Click on any date in the calendar to highlight it.</li>
+        <li>The selected date will be displayed at the top.</li>
+        <li>Use this selection to create reminders or view existing events.</li>
+      </ol>
+    </div>
+    
+    <div>
+      <h4 className="font-medium mb-1">Adding and Managing Events</h4>
+      <p>The calendar allows you to add events, meetings, or tasks to specific dates.</p>
+      <p className="mt-2"><strong>Steps to Add an Event:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Click on a date to select it.</li>
+        <li>Click the "Add Event" button.</li>
+        <li>Enter the event title, description, and time.</li>
+        <li>Click "Save" to add the event to your calendar.</li>
+      </ol>
+    </div>
+    
+    <div>
+      <h4 className="font-medium">Using the Calendar Efficiently</h4>
+      <ul className="list-disc pl-5">
+        <li>Use color coding to differentiate event types.</li>
+        <li>Set reminders for important deadlines.</li>
+        <li>Sync with other calendar apps to keep everything in one place.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
     </div>
   );
 };

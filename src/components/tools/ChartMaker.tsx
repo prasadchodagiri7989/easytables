@@ -11,6 +11,7 @@ import {
   BarChart, Bar, LineChart, Line, PieChart, Pie, Cell,
   XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer 
 } from "recharts";
+import { GuidanceSection } from "../GuidanceSection";
 
 interface DataItem {
   name: string;
@@ -317,6 +318,55 @@ export const ChartMaker = () => {
           </div>
         </CardContent>
       </Card>
+      <GuidanceSection title="How to Use the Chart Maker Tool">
+  <div className="space-y-4">
+    <div>
+      <h4 className="font-medium mb-1">Creating Charts</h4>
+      <p>The Chart Maker tool allows you to create various types of charts and graphs.</p>
+      <p className="mt-2"><strong>Steps to Create a Chart:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Enter a title for your chart.</li>
+        <li>Select the type of chart (Bar, Line, Pie, etc.).</li>
+        <li>Add data points by entering names and values.</li>
+        <li>Click "Add Data Point" to include additional values.</li>
+        <li>Review the generated chart.</li>
+      </ol>
+    </div>
+    
+    <div>
+      <h4 className="font-medium mb-1">Modifying Chart Data</h4>
+      <p>You can modify the chart data dynamically.</p>
+      <p className="mt-2"><strong>How to Edit Chart Data:</strong></p>
+      <ol className="list-decimal pl-5">
+        <li>Update the values in the data table.</li>
+        <li>Click on the chart type dropdown to switch between chart formats.</li>
+        <li>Rearrange data points as needed.</li>
+      </ol>
+    </div>
+    
+    <div>
+      <h4 className="font-medium mb-1">Downloading the Chart</h4>
+      <p>Once you have finalized your chart, you can download it.</p>
+      <p className="mt-2"><strong>How to Download:</strong></p>
+      <ul className="list-disc pl-5">
+        <li>Click the "Download Chart" button.</li>
+        <li>Choose the format you wish to save the chart in (PNG, JPG, etc.).</li>
+        <li>Save the file to your device.</li>
+      </ul>
+    </div>
+    
+    <div>
+      <h4 className="font-medium">Best Practices for Data Visualization</h4>
+      <ul className="list-disc pl-5">
+        <li>Use Bar Charts for comparing discrete categories.</li>
+        <li>Use Line Charts for trends over time.</li>
+        <li>Use Pie Charts for showing proportions.</li>
+        <li>Ensure labels and values are clear and readable.</li>
+      </ul>
+    </div>
+  </div>
+</GuidanceSection>
+
     </div>
   );
 };
