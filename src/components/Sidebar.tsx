@@ -128,7 +128,6 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
             </CollapsibleContent>
           </Collapsible>
           
-          <SidebarLink to="/unit-converter" icon={ArrowRightLeft} label="Unit Converter" onClose={onClose} />
           <Collapsible open={convertorToolsOpen} onOpenChange={setConvertorToolsOpen} className="w-full mt-2">
             <CollapsibleTrigger className="flex items-center justify-between w-full px-4 py-2 rounded-md hover:bg-gray-100 text-left">
               <div className="flex items-center">
