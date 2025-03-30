@@ -1,4 +1,3 @@
-
 import React from "react";
 import { 
   Accordion,
@@ -15,10 +14,11 @@ interface GuidanceSectionProps {
 
 export const GuidanceSection = ({ title, children }: GuidanceSectionProps) => {
   return (
-    <Card className="mt-6 p-4 bg-muted/50" style={{textWrap: "wrap"}}>
-      <Accordion type="single" collapsible>
+    <Card className="mt-6 p-4 bg-muted/50" style={{ textWrap: "wrap" }}>
+      {/* Force the accordion to stay open */}
+      <Accordion type="single" value="guidance">
         <AccordionItem value="guidance" className="border-none">
-          <AccordionTrigger className="py-1 text-lg font-medium">
+          <AccordionTrigger className="py-1 text-lg font-medium cursor-default relative [&>svg]:hidden no-underline hover:no-underline">
             {title}
           </AccordionTrigger>
           <AccordionContent>
