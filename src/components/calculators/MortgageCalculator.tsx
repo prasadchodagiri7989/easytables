@@ -194,36 +194,27 @@ export const MortgageCalculator = () => {
                     </div>
                   </div>
                 </div>
-                
                 <div className="form-group">
-                  <Label htmlFor="loan-term" className="form-label">Loan Term (years)</Label>
-                  <div className="grid grid-cols-3 gap-2">
-                    <Button
-                      type="button"
-                      variant={loanTerm === "15" ? "default" : "outline"}
-                      onClick={() => setLoanTerm("15")}
-                      className="w-full"
-                    >
-                      15
-                    </Button>
-                    <Button
-                      type="button"
-                      variant={loanTerm === "20" ? "default" : "outline"}
-                      onClick={() => setLoanTerm("20")}
-                      className="w-full"
-                    >
-                      20
-                    </Button>
-                    <Button
-                      type="button"
-                      variant={loanTerm === "30" ? "default" : "outline"}
-                      onClick={() => setLoanTerm("30")}
-                      className="w-full"
-                    >
-                      30
-                    </Button>
-                  </div>
-                </div>
+  <div className="flex justify-between">
+    <Label htmlFor="loan-term" className="form-label">Loan Term (years)</Label>
+    <span className="text-sm text-gray-600">{((loanTerm / 30)* 100).toFixed(0)}%</span>
+  </div>
+  <div className="mt-2">
+    <Slider 
+      value={[loanTerm]} 
+      onValueChange={(value) => setLoanTerm(value[0])}
+      min={0}
+      max={30}
+      step={1}
+    />
+    <div className="flex justify-between text-xs text-gray-600 mt-1">
+      <span>0</span>
+      <span>30</span>
+    </div>
+  </div>
+</div>
+
+
                 
                 <div className="form-group">
                   <Label htmlFor="interest-rate" className="form-label">Interest Rate (%)</Label>
