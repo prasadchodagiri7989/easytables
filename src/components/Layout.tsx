@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Sidebar } from "./Sidebar";
 import { Menu } from "lucide-react";
@@ -20,14 +19,16 @@ export const Layout = ({ children }: LayoutProps) => {
       {/* Sidebar with fixed positioning */}
       <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       
-      {/* Menu button for mobile */}
-      <button
-        onClick={toggleSidebar}
-        className="sidebar-trigger-button md:hidden"
-        aria-label="Toggle Sidebar"
-      >
-        <Menu size={20} className="text-gray-700" />
-      </button>
+      {/* Menu button for mobile, hidden when sidebar is open */}
+      {!sidebarOpen && (
+        <button
+          onClick={toggleSidebar}
+          className="sidebar-trigger-button md:hidden"
+          aria-label="Toggle Sidebar"
+        >
+          <Menu size={20} className="text-gray-700" />
+        </button>
+      )}
       
       {/* Main content with proper left margin to avoid overlap */}
       <main className={cn(

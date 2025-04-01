@@ -121,61 +121,51 @@ export const PNGtoPDF = () => {
       });
       return;
     }
-    
+  
     setIsGenerating(true);
-    
+  
     try {
       const doc = new jsPDF({
         orientation: "portrait",
         unit: "px",
       });
-      
-      // Process each image
+  
       for (let i = 0; i < images.length; i++) {
         const img = images[i];
-        
-        // Create an image element to get dimensions
-        const imgElement = new Image();
+  
+        // Fix: Create image correctly
+        const imgElement = new window.Image(); // or document.createElement("img");
         imgElement.src = img.preview;
-        
-        // Wait for image to load
-        await new Promise(resolve => {
+  
+        await new Promise((resolve) => {
           imgElement.onload = resolve;
         });
-        
-        // If not the first page, add a new page
+  
+        const pageWidth = doc.internal.pageSize.getWidth();
+        const pageHeight = doc.internal.pageSize.getHeight();
+  
+        let imgWidth = imgElement.width;
+        let imgHeight = imgElement.height;
+  
+        const ratio = Math.min(pageWidth / imgWidth, pageHeight / imgHeight);
+        imgWidth *= ratio;
+        imgHeight *= ratio;
+  
+        const x = (pageWidth - imgWidth) / 2;
+        const y = (pageHeight - imgHeight) / 2;
+  
         if (i > 0) {
           doc.addPage();
         }
-        
-        // Calculate dimensions to fit the page
-        const pageWidth = doc.internal.pageSize.getWidth();
-        const pageHeight = doc.internal.pageSize.getHeight();
-        
-        let imgWidth = imgElement.width;
-        let imgHeight = imgElement.height;
-        
-        // Scale image to fit the page
-        if (imgWidth > pageWidth || imgHeight > pageHeight) {
-          const ratio = Math.min(pageWidth / imgWidth, pageHeight / imgHeight);
-          imgWidth *= ratio;
-          imgHeight *= ratio;
-        }
-        
-        // Center image on page
-        const x = (pageWidth - imgWidth) / 2;
-        const y = (pageHeight - imgHeight) / 2;
-        
-        // Add image to PDF
-        doc.addImage(img.preview, 'PNG', x, y, imgWidth, imgHeight);
+  
+        doc.addImage(img.preview, "PNG", x, y, imgWidth, imgHeight);
       }
-      
-      // Save the PDF
+  
       doc.save("converted-png.pdf");
-      
+  
       toast({
         title: "PDF generated successfully",
-        description: `${images.length} PNG file${images.length > 1 ? 's' : ''} converted to PDF`
+        description: `${images.length} PNG file${images.length > 1 ? "s" : ""} converted to PDF`,
       });
     } catch (error) {
       console.error("Error generating PDF:", error);
@@ -188,6 +178,7 @@ export const PNGtoPDF = () => {
       setIsGenerating(false);
     }
   };
+  
 
   const viewImage = (index: number) => {
     window.open(images[index].preview, '_blank');
