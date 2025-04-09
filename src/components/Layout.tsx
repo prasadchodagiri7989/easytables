@@ -4,7 +4,6 @@ import { Sidebar } from "./Sidebar";
 import { Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { SearchBar } from "./SearchBar";
-import { ThemeToggle } from "./ThemeToggle";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -39,10 +38,9 @@ export const Layout = ({ children }: LayoutProps) => {
         "md:ml-64" // Always keep space for sidebar on desktop
       )}>
         <div className="max-w-7xl mx-auto p-4 sm:p-6 md:p-8">
-          {/* Top bar with search and theme toggle */}
-          <div className="mb-6 flex items-center justify-between">
+          {/* Search bar component */}
+          <div className="mb-6">
             <SearchBar />
-            <ThemeToggle />
           </div>
           {children}
         </div>
