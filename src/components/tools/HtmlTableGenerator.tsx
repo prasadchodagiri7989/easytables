@@ -1,25 +1,30 @@
-import React, { useState } from "react";
-import { Copy, Check, Plus, Minus, Download, Trash2 } from "lucide-react";
-import { toast } from "sonner";
+import React, { useState, useEffect } from "react";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import ToolLayout from "@/components/ui/ToolLayout";
-import { GuidanceSection } from "../GuidanceSection";
+import { Textarea } from "@/components/ui/textarea";
+import { 
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { toast } from "sonner";
+import { Clipboard, Download, Table } from "lucide-react";
 
 const HtmlTableGenerator = () => {
   const [rows, setRows] = useState(3);
   const [cols, setCols] = useState(3);
-  const [includeHeader, setIncludeHeader] = useState(true);
-  const [includeCaption, setIncludeCaption] = useState(false);
-  const [caption, setCaption] = useState("Table Caption");
-  const [border, setBorder] = useState(1);
-  const [cellpadding, setCellpadding] = useState(5);
-  const [cellspacing, setCellspacing] = useState(0);
-  const [width, setWidth] = useState(100);
-  const [widthUnit, setWidthUnit] = useState("%");
-  const [cssClass, setCssClass] = useState("");
-  const [id, setId] = useState("");
-  const [tableData, setTableData] = useState(Array(3).fill().map(() => Array(3).fill("")));
-  const [headerData, setHeaderData] = useState(Array(3).fill("Header"));
+  const [tableData, setTableData] = useState<string[][]>([["", "", ""], ["", "", ""], ["", "", ""]]);
+  const [border, setBorder] = useState("1");
+  const [width, setWidth] = useState("100%");
+  const [cellPadding, setCellPadding] = useState("5");
+  const [cellSpacing, setCellSpacing] = useState("0");
+  const [align, setAlign] = useState("center");
+  const [caption, setCaption] = useState("");
   const [copied, setCopied] = useState(false);
   const [tableCode, setTableCode] = useState("");
 
@@ -27,70 +32,45 @@ const HtmlTableGenerator = () => {
     if (newRows > rows) {
       const additionalRows = Array(newRows - rows).fill().map(() => Array(cols).fill(""));
       setTableData([...tableData, ...additionalRows]);
-    } else if (newRows < rows) {
+    } else {
       setTableData(tableData.slice(0, newRows));
     }
     
     if (newCols > cols) {
       const newTableData = tableData.map(row => [...row, ...Array(newCols - cols).fill("")]);
       setTableData(newTableData);
-      setHeaderData([...headerData, ...Array(newCols - cols).fill("Header")]);
-    } else if (newCols < cols) {
-      const newTableData = tableData.map(row => row.slice(0, newCols));
-      setTableData(newTableData);
-      setHeaderData(headerData.slice(0, newCols));
+    } else {
+      setTableData(tableData.map(row => row.slice(0, newCols)));
     }
     
     setRows(newRows);
     setCols(newCols);
   };
 
-  const handleCellChange = (rowIndex: number, colIndex: number, value: string) => {
+  const handleInputChange = (rowIndex: number, colIndex: number, value: string) => {
     const newTableData = [...tableData];
     newTableData[rowIndex][colIndex] = value;
     setTableData(newTableData);
   };
 
-  const handleHeaderChange = (colIndex: number, value: string) => {
-    const newHeaderData = [...headerData];
-    newHeaderData[colIndex] = value;
-    setHeaderData(newHeaderData);
-  };
-
   const generateTableCode = () => {
-    let code = '<table';
+    let code = `<table border="${border}" width="${width}" cellpadding="${cellPadding}" cellspacing="${cellSpacing}" align="${align}">\n`;
     
-    if (border > 0) code += ` border="${border}"`;
-    if (cellpadding > 0) code += ` cellpadding="${cellpadding}"`;
-    if (cellspacing > 0) code += ` cellspacing="${cellspacing}"`;
-    if (width > 0) code += ` width="${width}${widthUnit}"`;
-    if (cssClass) code += ` class="${cssClass}"`;
-    if (id) code += ` id="${id}"`;
-    
-    code += '>\n';
-    
-    if (includeCaption && caption.trim()) {
+    if (caption) {
       code += `  <caption>${caption}</caption>\n`;
     }
     
-    if (includeHeader) {
-      code += '  <thead>\n    <tr>\n';
-      for (let j = 0; j < cols; j++) {
-        code += `      <th>${headerData[j] || `Header ${j+1}`}</th>\n`;
-      }
-      code += '    </tr>\n  </thead>\n';
-    }
-    
-    code += '  <tbody>\n';
     for (let i = 0; i < rows; i++) {
-      code += '    <tr>\n';
+      code += "  <tr>\n";
       for (let j = 0; j < cols; j++) {
-        code += `      <td>${tableData[i][j] || `Cell ${i+1},${j+1}`}</td>\n`;
+        const cellContent = tableData[i][j] || "&nbsp;";
+        const tag = i === 0 ? "th" : "td";
+        code += `    <${tag}>${cellContent}</${tag}>\n`;
       }
-      code += '    </tr>\n';
+      code += "  </tr>\n";
     }
-    code += '  </tbody>\n</table>';
     
+    code += "</table>";
     setTableCode(code);
     return code;
   };
@@ -103,32 +83,32 @@ const HtmlTableGenerator = () => {
       description: "You can now paste it into your HTML document"
     });
     
-    setTimeout(() => {
-      setCopied(false);
-    }, 1500);
+    setTimeout(() => setCopied(false), 2000);
   };
 
-  const downloadHtml = () => {
-    const code = generateTableCode();
-    const fullHtml = `<!DOCTYPE html>
+  const generateHtmlFile = () => {
+    const tableCode = generateTableCode();
+    const htmlContent = `
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Generated HTML Table</title>
+  <title>HTML Table</title>
   <style>
     body { font-family: Arial, sans-serif; padding: 20px; }
     table { border-collapse: collapse; }
-    th, td { padding: 8px; text-align: left; }
+    th, td { padding: 8px; }
     th { background-color: #f2f2f2; }
   </style>
 </head>
 <body>
-${code}
+  ${tableCode}
 </body>
-</html>`;
-
-    const blob = new Blob([fullHtml], { type: "text/html" });
+</html>
+    `;
+    
+    const blob = new Blob([htmlContent], { type: "text/html" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
@@ -150,264 +130,113 @@ ${code}
   };
 
   return (
-    <>
-    <ToolLayout
-      title="HTML Table Generator"
-      description="Generate HTML tables with custom rows, columns, and styling."
-      className="max-w-5xl"
-    >
-      <div className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="space-y-4">
-            <h3 className="text-sm font-medium text-gray-700">Table Structure</h3>
-            
-            <div className="flex items-center justify-between">
-              <div className="space-y-1">
-                <label htmlFor="rows" className="block text-xs font-medium text-gray-600">
-                  Rows
-                </label>
-                <div className="flex items-center">
-                  <button
-                    onClick={() => updateTableSize(Math.max(1, rows - 1), cols)}
-                    className="px-2 py-1 border border-gray-200 rounded-l-md bg-gray-50 hover:bg-gray-100"
-                    disabled={rows <= 1}
-                  >
-                    <Minus size={14} />
-                  </button>
-                  <input
-                    id="rows"
-                    type="number"
-                    min="1"
-                    max="20"
-                    value={rows}
-                    onChange={(e) => updateTableSize(Math.max(1, Math.min(20, parseInt(e.target.value) || 1)), cols)}
-                    className="w-16 py-1 px-2 text-center border-y border-gray-200"
-                  />
-                  <button
-                    onClick={() => updateTableSize(Math.min(20, rows + 1), cols)}
-                    className="px-2 py-1 border border-gray-200 rounded-r-md bg-gray-50 hover:bg-gray-100"
-                    disabled={rows >= 20}
-                  >
-                    <Plus size={14} />
-                  </button>
-                </div>
-              </div>
-              
-              <div className="space-y-1">
-                <label htmlFor="cols" className="block text-xs font-medium text-gray-600">
-                  Columns
-                </label>
-                <div className="flex items-center">
-                  <button
-                    onClick={() => updateTableSize(rows, Math.max(1, cols - 1))}
-                    className="px-2 py-1 border border-gray-200 rounded-l-md bg-gray-50 hover:bg-gray-100"
-                    disabled={cols <= 1}
-                  >
-                    <Minus size={14} />
-                  </button>
-                  <input
-                    id="cols"
-                    type="number"
-                    min="1"
-                    max="10"
-                    value={cols}
-                    onChange={(e) => updateTableSize(rows, Math.max(1, Math.min(10, parseInt(e.target.value) || 1)))}
-                    className="w-16 py-1 px-2 text-center border-y border-gray-200"
-                  />
-                  <button
-                    onClick={() => updateTableSize(rows, Math.min(10, cols + 1))}
-                    className="px-2 py-1 border border-gray-200 rounded-r-md bg-gray-50 hover:bg-gray-100"
-                    disabled={cols >= 10}
-                  >
-                    <Plus size={14} />
-                  </button>
-                </div>
-              </div>
-            </div>
-            
-            <div className="flex space-x-4">
-              <label className="flex items-center cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={includeHeader}
-                  onChange={() => setIncludeHeader(!includeHeader)}
-                  className="rounded border-gray-300 text-primary focus:ring-primary/30 mr-1.5"
+    <Card className="w-full">
+      <CardHeader>
+        <CardTitle>HTML Table Generator</CardTitle>
+      </CardHeader>
+      <CardContent className="grid gap-4">
+        <Tabs defaultValue="customize" className="w-full">
+          <TabsList>
+            <TabsTrigger value="customize">Customize</TabsTrigger>
+            <TabsTrigger value="code">Code</TabsTrigger>
+          </TabsList>
+          <TabsContent value="customize">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <Label htmlFor="rows">Rows</Label>
+                <Input
+                  type="number"
+                  id="rows"
+                  value={rows}
+                  onChange={(e) => {
+                    const newRows = parseInt(e.target.value, 10) || 1;
+                    updateTableSize(newRows, cols);
+                  }}
                 />
-                <span className="text-sm text-gray-600">Include header</span>
-              </label>
-              <label className="flex items-center cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={includeCaption}
-                  onChange={() => setIncludeCaption(!includeCaption)}
-                  className="rounded border-gray-300 text-primary focus:ring-primary/30 mr-1.5"
+              </div>
+              <div>
+                <Label htmlFor="cols">Columns</Label>
+                <Input
+                  type="number"
+                  id="cols"
+                  value={cols}
+                  onChange={(e) => {
+                    const newCols = parseInt(e.target.value, 10) || 1;
+                    updateTableSize(rows, newCols);
+                  }}
                 />
-                <span className="text-sm text-gray-600">Include caption</span>
-              </label>
-            </div>
-            
-            {includeCaption && (
-              <div className="space-y-1">
-                <label htmlFor="caption" className="block text-xs font-medium text-gray-600">
-                  Caption
-                </label>
-                <input
-                  id="caption"
+              </div>
+              <div>
+                <Label htmlFor="border">Border</Label>
+                <Input
+                  type="number"
+                  id="border"
+                  value={border}
+                  onChange={(e) => setBorder(e.target.value)}
+                />
+              </div>
+              <div>
+                <Label htmlFor="width">Width</Label>
+                <Input
                   type="text"
+                  id="width"
+                  value={width}
+                  onChange={(e) => setWidth(e.target.value)}
+                />
+              </div>
+              <div>
+                <Label htmlFor="cellPadding">Cell Padding</Label>
+                <Input
+                  type="number"
+                  id="cellPadding"
+                  value={cellPadding}
+                  onChange={(e) => setCellPadding(e.target.value)}
+                />
+              </div>
+              <div>
+                <Label htmlFor="cellSpacing">Cell Spacing</Label>
+                <Input
+                  type="number"
+                  id="cellSpacing"
+                  value={cellSpacing}
+                  onChange={(e) => setCellSpacing(e.target.value)}
+                />
+              </div>
+              <div>
+                <Label htmlFor="align">Align</Label>
+                <Select value={align} onValueChange={setAlign}>
+                  <SelectTrigger id="align">
+                    <SelectValue placeholder="Alignment" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="left">Left</SelectItem>
+                    <SelectItem value="center">Center</SelectItem>
+                    <SelectItem value="right">Right</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div>
+                <Label htmlFor="caption">Caption</Label>
+                <Input
+                  type="text"
+                  id="caption"
                   value={caption}
                   onChange={(e) => setCaption(e.target.value)}
-                  className="w-full px-3 py-1.5 border border-gray-200 rounded-md focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all"
-                />
-              </div>
-            )}
-            
-            <h3 className="text-sm font-medium text-gray-700 mt-6">Table Attributes</h3>
-            
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-1">
-                <label htmlFor="border" className="block text-xs font-medium text-gray-600">
-                  Border
-                </label>
-                <input
-                  id="border"
-                  type="number"
-                  min="0"
-                  max="10"
-                  value={border}
-                  onChange={(e) => setBorder(Math.max(0, Math.min(10, parseInt(e.target.value) || 0)))}
-                  className="w-full px-3 py-1.5 border border-gray-200 rounded-md focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all"
-                />
-              </div>
-              
-              <div className="space-y-1">
-                <label htmlFor="cellpadding" className="block text-xs font-medium text-gray-600">
-                  Cell Padding
-                </label>
-                <input
-                  id="cellpadding"
-                  type="number"
-                  min="0"
-                  max="20"
-                  value={cellpadding}
-                  onChange={(e) => setCellpadding(Math.max(0, Math.min(20, parseInt(e.target.value) || 0)))}
-                  className="w-full px-3 py-1.5 border border-gray-200 rounded-md focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all"
-                />
-              </div>
-              
-              <div className="space-y-1">
-                <label htmlFor="cellspacing" className="block text-xs font-medium text-gray-600">
-                  Cell Spacing
-                </label>
-                <input
-                  id="cellspacing"
-                  type="number"
-                  min="0"
-                  max="20"
-                  value={cellspacing}
-                  onChange={(e) => setCellspacing(Math.max(0, Math.min(20, parseInt(e.target.value) || 0)))}
-                  className="w-full px-3 py-1.5 border border-gray-200 rounded-md focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all"
-                />
-              </div>
-              
-              <div className="space-y-1 flex items-end">
-                <div className="flex-1">
-                  <label htmlFor="width" className="block text-xs font-medium text-gray-600">
-                    Width
-                  </label>
-                  <input
-                    id="width"
-                    type="number"
-                    min="0"
-                    max="1000"
-                    value={width}
-                    onChange={(e) => setWidth(Math.max(0, Math.min(1000, parseInt(e.target.value) || 0)))}
-                    className="w-full px-3 py-1.5 border border-gray-200 rounded-l-md focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all"
-                  />
-                </div>
-                <select
-                  value={widthUnit}
-                  onChange={(e) => setWidthUnit(e.target.value)}
-                  className="px-2 py-1.5 border border-gray-200 rounded-r-md focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all"
-                >
-                  <option value="%">%</option>
-                  <option value="px">px</option>
-                </select>
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-1">
-                <label htmlFor="class" className="block text-xs font-medium text-gray-600">
-                  CSS Class
-                </label>
-                <input
-                  id="class"
-                  type="text"
-                  value={cssClass}
-                  onChange={(e) => setCssClass(e.target.value)}
-                  placeholder="table table-striped"
-                  className="w-full px-3 py-1.5 border border-gray-200 rounded-md focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all"
-                />
-              </div>
-              
-              <div className="space-y-1">
-                <label htmlFor="tableId" className="block text-xs font-medium text-gray-600">
-                  ID
-                </label>
-                <input
-                  id="tableId"
-                  type="text"
-                  value={id}
-                  onChange={(e) => setId(e.target.value)}
-                  placeholder="my-table"
-                  className="w-full px-3 py-1.5 border border-gray-200 rounded-md focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all"
                 />
               </div>
             </div>
-            
-            <div className="pt-4">
-              <Button
-                onClick={handleGenerateTable}
-                className="w-full"
-              >
-                Generate Table Code
-              </Button>
-            </div>
-          </div>
-          
-          <div className="space-y-4">
-            <h3 className="text-sm font-medium text-gray-700">Table Content</h3>
-            
-            <div className="overflow-x-auto border border-gray-200 rounded-lg">
-              <table className="min-w-full">
-                {includeHeader && (
-                  <thead>
-                    <tr className="bg-gray-50 border-b border-gray-200">
-                      {Array(cols).fill(0).map((_, colIndex) => (
-                        <th key={`header-${colIndex}`} className="p-2 border-r border-gray-200 last:border-r-0">
-                          <input
-                            type="text"
-                            value={headerData[colIndex]}
-                            onChange={(e) => handleHeaderChange(colIndex, e.target.value)}
-                            className="w-full px-2 py-1 text-sm border border-gray-200 rounded focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all"
-                            placeholder={`Header ${colIndex+1}`}
-                          />
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
-                )}
+            <div className="overflow-x-auto">
+              <table border={parseInt(border, 10)} width={width} cellPadding={parseInt(cellPadding, 10)} cellSpacing={parseInt(cellSpacing, 10)} align={align}>
+                <caption>{caption}</caption>
                 <tbody>
-                  {Array(rows).fill(0).map((_, rowIndex) => (
-                    <tr key={`row-${rowIndex}`} className="border-b border-gray-200 last:border-b-0">
-                      {Array(cols).fill(0).map((_, colIndex) => (
-                        <td key={`cell-${rowIndex}-${colIndex}`} className="p-2 border-r border-gray-200 last:border-r-0">
-                          <input
+                  {tableData.map((row, rowIndex) => (
+                    <tr key={rowIndex}>
+                      {row.map((col, colIndex) => (
+                        <td key={colIndex}>
+                          <Input
                             type="text"
-                            value={tableData[rowIndex][colIndex]}
-                            onChange={(e) => handleCellChange(rowIndex, colIndex, e.target.value)}
-                            className="w-full px-2 py-1 text-sm border border-gray-200 rounded focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all"
-                            placeholder={`Cell ${rowIndex+1},${colIndex+1}`}
+                            value={col}
+                            onChange={(e) => handleInputChange(rowIndex, colIndex, e.target.value)}
                           />
                         </td>
                       ))}
@@ -416,81 +245,39 @@ ${code}
                 </tbody>
               </table>
             </div>
-            
-            {tableCode && (
-              <div className="space-y-3 mt-4">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-sm font-medium text-gray-700">Generated HTML</h3>
-                  <div className="flex items-center space-x-2">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={copyToClipboard}
-                      className="flex items-center text-xs"
-                    >
-                      {copied ? (
-                        <>
-                          <Check size={14} className="mr-1.5" />
-                          Copied
-                        </>
-                      ) : (
-                        <>
-                          <Copy size={14} className="mr-1.5" />
-                          Copy Code
-                        </>
-                      )}
-                    </Button>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={downloadHtml}
-                      className="flex items-center text-xs"
-                    >
-                      <Download size={14} className="mr-1.5" />
-                      Download
-                    </Button>
-                  </div>
-                </div>
-                <pre className="p-3 bg-gray-50 border border-gray-200 rounded-lg overflow-x-auto text-xs font-mono whitespace-pre-wrap max-h-[200px] overflow-y-auto">
-                  {tableCode}
-                </pre>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-    </ToolLayout>
-    <GuidanceSection title="How to Use the HTML Table Generator">
-  <div className="space-y-4">
-    <div>
-      <h4 className="font-medium mb-1">Using the HTML Table Generator</h4>
-      <p>The HTML Table Generator allows you to create customizable tables quickly.</p>
-      <p className="mt-2"><strong>How to Use:</strong></p>
-      <ol className="list-decimal pl-5">
-        <li>Enter the number of rows and columns you need.</li>
-        <li>Optionally include a header row and a table caption.</li>
-        <li>Customize table attributes like border size, padding, spacing, and width.</li>
-        <li>Apply a CSS class and ID for styling purposes.</li>
-        <li>Click "Generate Table Code" to get the HTML table.</li>
-        <li>Copy and paste the generated code into your project.</li>
-      </ol>
-    </div>
-
-    <div>
-      <h4 className="font-medium mb-1">Features</h4>
-      <ul className="list-disc pl-5">
-        <li>Create tables with customizable rows and columns.</li>
-        <li>Includes options for headers and captions.</li>
-        <li>Allows adjusting border, padding, spacing, and width.</li>
-        <li>Supports custom CSS classes and IDs for styling.</li>
-        <li>Instantly generates clean and structured HTML table code.</li>
-      </ul>
-    </div>
-  </div>
-</GuidanceSection>
-
-
-</>
+          </TabsContent>
+          <TabsContent value="code">
+            <Textarea
+              readOnly
+              value={tableCode || generateTableCode()}
+              className="min-h-[200px] font-mono text-sm"
+            />
+            <div className="flex justify-end space-x-2 mt-2">
+              <Button variant="secondary" onClick={copyToClipboard} disabled={copied}>
+                {copied ? (
+                  <>
+                    <Clipboard className="h-4 w-4 mr-2" />
+                    Copied!
+                  </>
+                ) : (
+                  <>
+                    <Clipboard className="h-4 w-4 mr-2" />
+                    Copy Code
+                  </>
+                )}
+              </Button>
+              <Button onClick={generateHtmlFile}>
+                <Download className="h-4 w-4 mr-2" />
+                Download HTML
+              </Button>
+            </div>
+          </TabsContent>
+        </Tabs>
+        <Button className="w-full" onClick={handleGenerateTable}>
+          Generate Table Code
+        </Button>
+      </CardContent>
+    </Card>
   );
 };
 

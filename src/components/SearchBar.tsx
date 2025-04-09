@@ -29,7 +29,7 @@ export const SearchBar = () => {
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const navigate = useNavigate();
   
-  // Close with escape key
+  // Close with escape key or cmd+k / ctrl+k
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
       if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
@@ -56,7 +56,7 @@ export const SearchBar = () => {
     const toolResults = tools
       .filter(tool => 
         tool.title.toLowerCase().includes(query) || 
-        tool.description.toLowerCase().includes(query)
+        (tool.description && tool.description.toLowerCase().includes(query))
       )
       .map(tool => ({
         id: tool.id,
@@ -73,6 +73,17 @@ export const SearchBar = () => {
     unitCategories.forEach(category => {
       const units = getUnitsForCategory(category.value);
       
+      // First check if the category name matches
+      if (category.label.toLowerCase().includes(query)) {
+        unitResults.push({
+          id: `category-${category.value}`,
+          title: `${category.label} Converter`,
+          path: `/convertor/${category.value}`,
+          type: 'unit-converter',
+          description: `Convert between ${category.label.toLowerCase()} units`
+        });
+      }
+      
       // Check all possible combinations of from/to units
       for (let i = 0; i < units.length; i++) {
         for (let j = 0; j < units.length; j++) {
@@ -84,7 +95,8 @@ export const SearchBar = () => {
             const searchString = `${fromUnit.label} to ${toUnit.label}`.toLowerCase();
             const searchString2 = `convert ${fromUnit.label} to ${toUnit.label}`.toLowerCase();
             
-            if (searchString.includes(query) || searchString2.includes(query)) {
+            if (searchString.includes(query) || searchString2.includes(query) || 
+                fromUnit.label.toLowerCase().includes(query) || toUnit.label.toLowerCase().includes(query)) {
               unitResults.push({
                 id: `${category.value}-${fromUnit.value}-${toUnit.value}`,
                 title: `Convert ${fromUnit.label} to ${toUnit.label}`,
@@ -98,8 +110,10 @@ export const SearchBar = () => {
       }
     });
     
-    // Combine and limit results
-    setSearchResults([...toolResults, ...unitResults].slice(0, 10));
+    // Combine, deduplicate and limit results
+    const combined = [...toolResults, ...unitResults];
+    const unique = combined.filter((v, i, a) => a.findIndex(t => t.id === v.id) === i);
+    setSearchResults(unique.slice(0, 10));
   }, [searchQuery]);
   
   const handleResultClick = (result: SearchResult) => {
@@ -114,6 +128,7 @@ export const SearchBar = () => {
         className="relative h-9 w-full justify-start rounded-md text-sm text-muted-foreground sm:pr-12 md:w-40 lg:w-64"
         onClick={() => setOpen(true)}
       >
+        <Search className="mr-2 h-4 w-4 shrink-0 opacity-50" />
         <span className="hidden lg:inline-flex">Search tools...</span>
         <span className="inline-flex lg:hidden">Search...</span>
         <kbd className="pointer-events-none absolute right-1.5 top-1.5 hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
@@ -148,10 +163,15 @@ export const SearchBar = () => {
             </CommandGroup>
           )}
           
-          <CommandGroup heading="Tip">
-            <CommandItem>
+          <CommandGroup heading="Tips">
+            <CommandItem disabled>
               <span className="text-xs text-muted-foreground">
-                Search for tools or specific unit conversions like "amp to kamp"
+                Search for tools by name or description
+              </span>
+            </CommandItem>
+            <CommandItem disabled>
+              <span className="text-xs text-muted-foreground">
+                Try unit conversions like "meter to foot" or "amp to kamp"
               </span>
             </CommandItem>
           </CommandGroup>
