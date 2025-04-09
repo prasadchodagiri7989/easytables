@@ -24,7 +24,6 @@ const HtmlTableGenerator = () => {
   const [tableCode, setTableCode] = useState("");
 
   const updateTableSize = (newRows: number, newCols: number) => {
-    // Update rows
     if (newRows > rows) {
       const additionalRows = Array(newRows - rows).fill().map(() => Array(cols).fill(""));
       setTableData([...tableData, ...additionalRows]);
@@ -32,7 +31,6 @@ const HtmlTableGenerator = () => {
       setTableData(tableData.slice(0, newRows));
     }
     
-    // Update columns
     if (newCols > cols) {
       const newTableData = tableData.map(row => [...row, ...Array(newCols - cols).fill("")]);
       setTableData(newTableData);
@@ -101,7 +99,7 @@ const HtmlTableGenerator = () => {
     const code = generateTableCode();
     navigator.clipboard.writeText(code);
     setCopied(true);
-    toast("Table code copied to clipboard", {
+    toast.success("Table code copied to clipboard", {
       description: "You can now paste it into your HTML document"
     });
     
@@ -139,14 +137,14 @@ ${code}
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
-    toast("HTML file downloaded", {
+    toast.success("HTML file downloaded", {
       description: "Your table has been saved as HTML"
     });
   };
 
   const handleGenerateTable = () => {
     generateTableCode();
-    toast("Table code generated", {
+    toast.success("Table code generated", {
       description: "You can now copy or download the HTML"
     });
   };
