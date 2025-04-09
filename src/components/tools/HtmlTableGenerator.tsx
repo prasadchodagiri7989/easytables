@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
@@ -23,7 +24,7 @@ const HtmlTableGenerator = () => {
   const [width, setWidth] = useState("100%");
   const [cellPadding, setCellPadding] = useState("5");
   const [cellSpacing, setCellSpacing] = useState("0");
-  const [align, setAlign] = useState("center");
+  const [align, setAlign] = useState<"left" | "center" | "right">("center");
   const [caption, setCaption] = useState("");
   const [copied, setCopied] = useState(false);
   const [tableCode, setTableCode] = useState("");
@@ -204,7 +205,7 @@ const HtmlTableGenerator = () => {
               </div>
               <div>
                 <Label htmlFor="align">Align</Label>
-                <Select value={align} onValueChange={setAlign}>
+                <Select value={align} onValueChange={(value: "left" | "center" | "right") => setAlign(value)}>
                   <SelectTrigger id="align">
                     <SelectValue placeholder="Alignment" />
                   </SelectTrigger>
