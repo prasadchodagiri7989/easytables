@@ -1,4 +1,3 @@
-
 import React, { useState, useRef } from "react";
 import { Image, Download, Trash2, Plus, Eye } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -44,7 +43,6 @@ export const PNGtoPDF = () => {
         description: "PNG files have been added to the queue"
       });
       
-      // Reset file input
       if (fileInputRef.current) {
         fileInputRef.current.value = "";
       }
@@ -125,16 +123,12 @@ export const PNGtoPDF = () => {
     setIsGenerating(true);
   
     try {
-      const doc = new jsPDF({
-        orientation: "portrait",
-        unit: "px",
-      });
+      const doc = new jsPDF('portrait', 'px');
   
       for (let i = 0; i < images.length; i++) {
         const img = images[i];
   
-        // Fix: Create image correctly
-        const imgElement = new window.Image(); // or document.createElement("img");
+        const imgElement = document.createElement("img");
         imgElement.src = img.preview;
   
         await new Promise((resolve) => {

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -14,9 +13,10 @@ import { Label } from "@/components/ui/label";
 import { ArrowRightLeft } from "lucide-react";
 import { unitCategories, getUnitsForCategory, convert } from "@/lib/unit-conversions";
 import { GuidanceSection } from "@/components/GuidanceSection";
+import { useSearchParams } from "react-router-dom";
 
 export const CurrentConverter = () => {
-  const [category, setCategory] = useState(unitCategories[15].value);
+  const [category] = useState(unitCategories[15].value);
   const [fromUnit, setFromUnit] = useState("");
   const [toUnit, setToUnit] = useState("");
   const [value, setValue] = useState<string>("");
@@ -24,15 +24,30 @@ export const CurrentConverter = () => {
   const [availableUnits, setAvailableUnits] = useState<Array<{ label: string; value: string }>>(
     []
   );
+  const [searchParams] = useSearchParams();
 
   // Update available units when category changes
   useEffect(() => {
     const units = getUnitsForCategory(category);
     setAvailableUnits(units);
-    setFromUnit(units[0]?.value || "");
-    setToUnit(units[1]?.value || "");
+    
+    // Check for URL params
+    const fromParam = searchParams.get("from");
+    const toParam = searchParams.get("to");
+    
+    // Set defaults or use params
+    const defaultFromUnit = fromParam && units.some(u => u.value === fromParam) 
+      ? fromParam 
+      : units[0]?.value || "";
+      
+    const defaultToUnit = toParam && units.some(u => u.value === toParam) 
+      ? toParam 
+      : units[1]?.value || "";
+    
+    setFromUnit(defaultFromUnit);
+    setToUnit(defaultToUnit);
     setResult(null);
-  }, [category]);
+  }, [category, searchParams]);
 
   const handleValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);

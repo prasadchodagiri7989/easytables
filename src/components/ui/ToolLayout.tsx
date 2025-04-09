@@ -3,17 +3,30 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { SearchBar } from "@/components/SearchBar";
 
 interface ToolLayoutProps {
   children: React.ReactNode;
   title: string;
   description?: string;
   className?: string;
+  showSearch?: boolean;
 }
 
-const ToolLayout = ({ children, title, description, className }: ToolLayoutProps) => {
+const ToolLayout = ({ 
+  children, 
+  title, 
+  description, 
+  className,
+  showSearch = true
+}: ToolLayoutProps) => {
   return (
     <div className="container mx-auto px-4 py-8 animate-fadeIn">
+      {showSearch && (
+        <div className="mb-6 max-w-lg">
+          <SearchBar />
+        </div>
+      )}
       
       <div className="mb-8">
         <h1 className="text-3xl font-semibold text-primary mb-3">
