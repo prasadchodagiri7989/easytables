@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -11,25 +10,131 @@ import {
   CommandItem,
   CommandList
 } from "@/components/ui/command";
-import { getAllTools } from "@/data/tools-data";
 import { useNavigate } from "react-router-dom";
-import { unitCategories, getUnitsForCategory } from "@/lib/unit-conversions";
 
 type SearchResult = {
   id: string;
   title: string;
   path: string;
-  type: 'tool' | 'unit-converter';
   description?: string;
 };
+
+const staticRoutes: SearchResult[] = [
+  // Calculator
+  { id: "scientific", title: "Scientific Calculator", path: "/scientific" },
+  { id: "percentage", title: "Percentage Calculator", path: "/percentage" },
+  { id: "fraction", title: "Fraction Calculator", path: "/fraction" },
+  { id: "average", title: "Average Calculator", path: "/average" },
+  { id: "grade", title: "Grade Calculator", path: "/grade" },
+  { id: "gpa", title: "GPA Calculator", path: "/gpa" },
+  { id: "final-grade", title: "Final Grade Calculator", path: "/final-grade" },
+  { id: "mortgage", title: "Mortgage Calculator", path: "/mortgage" },
+  { id: "compound-interest", title: "Compound Interest Calculator", path: "/compound-interest" },
+  { id: "bmi", title: "BMI Calculator", path: "/bmi" },
+  { id: "unit-converter", title: "All Unit Converters", path: "/unit-converter" },
+
+  // Unit Converters
+  { id: "length", title: "Length Converter", path: "/convertor/length" },
+  { id: "mass", title: "Mass Converter", path: "/convertor/mass" },
+  { id: "temperature", title: "Temperature Converter", path: "/convertor/temperature" },
+  { id: "area", title: "Area Converter", path: "/convertor/area" },
+  { id: "volume", title: "Volume Converter", path: "/convertor/volume" },
+  { id: "time", title: "Time Converter", path: "/convertor/time" },
+  { id: "speed", title: "Speed Converter", path: "/convertor/speed" },
+  { id: "pressure", title: "Pressure Converter", path: "/convertor/pressure" },
+  { id: "energy", title: "Energy Converter", path: "/convertor/energy" },
+  { id: "power", title: "Power Converter", path: "/convertor/power" },
+  { id: "data", title: "Data Converter", path: "/convertor/data" },
+  { id: "angle", title: "Angle Converter", path: "/convertor/angle" },
+  { id: "frequency", title: "Frequency Converter", path: "/convertor/frequency" },
+  { id: "fuel", title: "Fuel Economy Converter", path: "/convertor/fuel_economy" },
+  { id: "voltage", title: "Voltage Converter", path: "/convertor/voltage" },
+  { id: "current", title: "Current Converter", path: "/convertor/current" },
+
+  // Text Tools
+  { id: "word-counter", title: "Word Counter", path: "/word-counter" },
+  { id: "character-counter", title: "Character Counter", path: "/character-counter" },
+  { id: "line-counter", title: "Line Counter", path: "/line-counter" },
+  { id: "word-frequency", title: "Word Frequency", path: "/word-frequency" },
+  { id: "pdf-reader", title: "PDF Reader", path: "/pdf-reader" },
+  { id: "image-to-text", title: "Image to Text", path: "/image-to-text" },
+
+  // PDF Tools
+  { id: "image-to-pdf", title: "Image to PDF", path: "/image-to-pdf" },
+  { id: "jpg-to-pdf", title: "JPG to PDF", path: "/jpg-to-pdf" },
+  { id: "png-to-pdf", title: "PNG to PDF", path: "/png-to-pdf" },
+  { id: "pdf-viewer", title: "PDF Viewer", path: "/pdf-viewer" },
+
+  // Online Tools (add more as needed)
+  { id: "current-time", title: "Current Time", path: "/current-time" },
+  { id: "stopwatch", title: "Stopwatch", path: "/stopwatch" },
+  { id: "alarm-clock", title: "Alarm Clock", path: "/alarm-clock" },
+  { id: "todo-list", title: "Todo List", path: "/todo-list" },
+  { id: "random-number", title: "Random Number Generator", path: "/random-number" },
+
+  // Tools
+  { id: "base64-encode", title: "Base64 Encode", path: "/tools/base64-encode" },
+  { id: "base64-decode", title: "Base64 Decode", path: "/tools/base64-decode" },
+  { id: "image-to-base64", title: "Image to Base64", path: "/tools/image-to-base64" },
+  { id: "html-editor", title: "HTML Editor", path: "/tools/html-editor" },
+  { id: "http-header-checker", title: "HTTP Header Checker", path: "/tools/http-header-checker" },
+  { id: "url-encode", title: "URL Encode", path: "/tools/url-encode" },
+  { id: "url-decode", title: "URL Decode", path: "/tools/url-decode" },
+  // Add more tools from your route list
+
+  // Auto-generated Current Conversions
+{ id: "a-to-ma", title: "Ampere to Milliampere", path: "/convertor/current?from=a&to=ma" },
+{ id: "a-to-ka", title: "Ampere to Kiloampere", path: "/convertor/current?from=a&to=ka" },
+{ id: "ma-to-a", title: "Milliampere to Ampere", path: "/convertor/current?from=ma&to=a" },
+{ id: "ma-to-ka", title: "Milliampere to Kiloampere", path: "/convertor/current?from=ma&to=ka" },
+{ id: "ka-to-a", title: "Kiloampere to Ampere", path: "/convertor/current?from=ka&to=a" },
+{ id: "ka-to-ma", title: "Kiloampere to Milliampere", path: "/convertor/current?from=ka&to=ma" },
+
+// Power Conversions
+{ id: "w-to-kw", title: "Watt to Kilowatt", path: "/convertor/power?from=w&to=kw" },
+{ id: "w-to-hp", title: "Watt to Horsepower", path: "/convertor/power?from=w&to=hp" },
+{ id: "kw-to-w", title: "Kilowatt to Watt", path: "/convertor/power?from=kw&to=w" },
+{ id: "kw-to-hp", title: "Kilowatt to Horsepower", path: "/convertor/power?from=kw&to=hp" },
+{ id: "hp-to-w", title: "Horsepower to Watt", path: "/convertor/power?from=hp&to=w" },
+{ id: "hp-to-kw", title: "Horsepower to Kilowatt", path: "/convertor/power?from=hp&to=kw" },
+
+// Voltage Conversions
+{ id: "v-to-mv", title: "Volt to Millivolt", path: "/convertor/voltage?from=v&to=mv" },
+{ id: "v-to-kv", title: "Volt to Kilovolt", path: "/convertor/voltage?from=v&to=kv" },
+{ id: "mv-to-v", title: "Millivolt to Volt", path: "/convertor/voltage?from=mv&to=v" },
+{ id: "mv-to-kv", title: "Millivolt to Kilovolt", path: "/convertor/voltage?from=mv&to=kv" },
+{ id: "kv-to-v", title: "Kilovolt to Volt", path: "/convertor/voltage?from=kv&to=v" },
+{ id: "kv-to-mv", title: "Kilovolt to Millivolt", path: "/convertor/voltage?from=kv&to=mv" },
+
+// Length Conversions (only a subset due to size)
+{ id: "m-to-cm", title: "Meter to Centimeter", path: "/convertor/length?from=m&to=cm" },
+{ id: "m-to-km", title: "Meter to Kilometer", path: "/convertor/length?from=m&to=km" },
+{ id: "cm-to-mm", title: "Centimeter to Millimeter", path: "/convertor/length?from=cm&to=mm" },
+{ id: "km-to-mi", title: "Kilometer to Mile", path: "/convertor/length?from=km&to=mi" },
+{ id: "ft-to-in", title: "Foot to Inch", path: "/convertor/length?from=ft&to=in" },
+// (you can request full length combinations if needed)
+
+// Mass Conversions (subset)
+{ id: "g-to-kg", title: "Gram to Kilogram", path: "/convertor/mass?from=g&to=kg" },
+{ id: "kg-to-mg", title: "Kilogram to Milligram", path: "/convertor/mass?from=kg&to=mg" },
+{ id: "lb-to-oz", title: "Pound to Ounce", path: "/convertor/mass?from=lb&to=oz" },
+{ id: "oz-to-g", title: "Ounce to Gram", path: "/convertor/mass?from=oz&to=g" },
+
+// Time Conversions (subset)
+{ id: "s-to-ms", title: "Second to Millisecond", path: "/convertor/time?from=s&to=ms" },
+{ id: "min-to-s", title: "Minute to Second", path: "/convertor/time?from=min&to=s" },
+{ id: "h-to-min", title: "Hour to Minute", path: "/convertor/time?from=h&to=min" },
+{ id: "d-to-h", title: "Day to Hour", path: "/convertor/time?from=d&to=h" },
+{ id: "ms-to-s", title: "Millisecond to Second", path: "/convertor/time?from=ms&to=s" },
+
+];
 
 export const SearchBar = () => {
   const [open, setOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const navigate = useNavigate();
-  
-  // Close with escape key or cmd+k / ctrl+k
+
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
       if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
@@ -37,90 +142,23 @@ export const SearchBar = () => {
         setOpen((open) => !open);
       }
     };
-    
     document.addEventListener("keydown", down);
     return () => document.removeEventListener("keydown", down);
   }, []);
-  
-  // Generate search results from tools and unit conversions
+
   useEffect(() => {
-    if (!searchQuery) {
-      setSearchResults([]);
-      return;
-    }
-    
     const query = searchQuery.toLowerCase();
-    const tools = getAllTools();
-    
-    // Search through tools
-    const toolResults = tools
-      .filter(tool => 
-        tool.title.toLowerCase().includes(query) || 
-        (tool.description && tool.description.toLowerCase().includes(query))
-      )
-      .map(tool => ({
-        id: tool.id,
-        title: tool.title,
-        path: tool.path,
-        type: 'tool' as const,
-        description: tool.description
-      }));
-    
-    // Search through unit converters for specific unit pairs
-    const unitResults: SearchResult[] = [];
-    
-    // For each unit category
-    unitCategories.forEach(category => {
-      const units = getUnitsForCategory(category.value);
-      
-      // First check if the category name matches
-      if (category.label.toLowerCase().includes(query)) {
-        unitResults.push({
-          id: `category-${category.value}`,
-          title: `${category.label} Converter`,
-          path: `/convertor/${category.value}`,
-          type: 'unit-converter',
-          description: `Convert between ${category.label.toLowerCase()} units`
-        });
-      }
-      
-      // Check all possible combinations of from/to units
-      for (let i = 0; i < units.length; i++) {
-        for (let j = 0; j < units.length; j++) {
-          if (i !== j) {
-            const fromUnit = units[i];
-            const toUnit = units[j];
-            
-            // Create search strings for this unit conversion
-            const searchString = `${fromUnit.label} to ${toUnit.label}`.toLowerCase();
-            const searchString2 = `convert ${fromUnit.label} to ${toUnit.label}`.toLowerCase();
-            
-            if (searchString.includes(query) || searchString2.includes(query) || 
-                fromUnit.label.toLowerCase().includes(query) || toUnit.label.toLowerCase().includes(query)) {
-              unitResults.push({
-                id: `${category.value}-${fromUnit.value}-${toUnit.value}`,
-                title: `Convert ${fromUnit.label} to ${toUnit.label}`,
-                path: `/convertor/${category.value}?from=${fromUnit.value}&to=${toUnit.value}`,
-                type: 'unit-converter',
-                description: `${category.label} conversion`
-              });
-            }
-          }
-        }
-      }
-    });
-    
-    // Combine, deduplicate and limit results
-    const combined = [...toolResults, ...unitResults];
-    const unique = combined.filter((v, i, a) => a.findIndex(t => t.id === v.id) === i);
-    setSearchResults(unique.slice(0, 10));
+    const filtered = staticRoutes.filter(route =>
+      route.title.toLowerCase().includes(query)
+    );
+    setSearchResults(filtered.slice(0, 10));
   }, [searchQuery]);
-  
+
   const handleResultClick = (result: SearchResult) => {
     setOpen(false);
     navigate(result.path);
   };
-  
+
   return (
     <>
       <Button 
@@ -138,13 +176,12 @@ export const SearchBar = () => {
       
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput
-          placeholder="Search tools and conversions..." 
+          placeholder="Search tools..." 
           value={searchQuery}
           onValueChange={setSearchQuery}
         />
         <CommandList>
           <CommandEmpty>No results found</CommandEmpty>
-          
           {searchResults.length > 0 && (
             <CommandGroup heading="Results">
               {searchResults.map((result) => (
@@ -152,29 +189,11 @@ export const SearchBar = () => {
                   key={result.id}
                   onSelect={() => handleResultClick(result)}
                 >
-                  <div className="flex flex-col">
-                    <span>{result.title}</span>
-                    {result.description && (
-                      <span className="text-xs text-muted-foreground">{result.description}</span>
-                    )}
-                  </div>
+                  {result.title}
                 </CommandItem>
               ))}
             </CommandGroup>
           )}
-          
-          <CommandGroup heading="Tips">
-            <CommandItem disabled>
-              <span className="text-xs text-muted-foreground">
-                Search for tools by name or description
-              </span>
-            </CommandItem>
-            <CommandItem disabled>
-              <span className="text-xs text-muted-foreground">
-                Try unit conversions like "meter to foot" or "amp to kamp"
-              </span>
-            </CommandItem>
-          </CommandGroup>
         </CommandList>
       </CommandDialog>
     </>

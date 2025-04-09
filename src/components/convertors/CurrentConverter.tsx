@@ -14,8 +14,15 @@ import { ArrowRightLeft } from "lucide-react";
 import { unitCategories, getUnitsForCategory, convert } from "@/lib/unit-conversions";
 import { GuidanceSection } from "@/components/GuidanceSection";
 import { useSearchParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
+
 
 export const CurrentConverter = () => {
+  const location = useLocation();
   const [category] = useState(unitCategories[15].value);
   const [fromUnit, setFromUnit] = useState("");
   const [toUnit, setToUnit] = useState("");
@@ -25,6 +32,15 @@ export const CurrentConverter = () => {
     []
   );
   const [searchParams] = useSearchParams();
+  const query = useQuery();
+
+  useEffect(() => {
+    const from = query.get("from");
+    const to = query.get("to");
+
+    if (from) setFromUnit(from);
+    if (to) setToUnit(to);
+  }, [query]);
 
   // Update available units when category changes
   useEffect(() => {
