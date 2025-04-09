@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
@@ -28,6 +27,7 @@ const HtmlTableGenerator = () => {
   const [caption, setCaption] = useState("");
   const [copied, setCopied] = useState(false);
   const [tableCode, setTableCode] = useState("");
+  const [code, setCode] = useState("");
 
   const updateTableSize = (newRows: number, newCols: number) => {
     if (newRows > rows) {
@@ -78,12 +78,13 @@ const HtmlTableGenerator = () => {
 
   const copyToClipboard = () => {
     const code = generateTableCode();
-    navigator.clipboard.writeText(code);
+    setCode(tableCode);
     setCopied(true);
-    toast.success("Table code copied to clipboard", {
-      description: "You can now paste it into your HTML document"
+    toast({
+      title: "Copied!",
+      description: "HTML table code copied to clipboard",
     });
-    
+    navigator.clipboard.writeText(tableCode);
     setTimeout(() => setCopied(false), 2000);
   };
 
@@ -254,7 +255,16 @@ const HtmlTableGenerator = () => {
               className="min-h-[200px] font-mono text-sm"
             />
             <div className="flex justify-end space-x-2 mt-2">
-              <Button variant="secondary" onClick={copyToClipboard} disabled={copied}>
+              <Button variant="secondary" onClick={() => {
+                setCode(tableCode);
+                setCopied(true);
+                toast({
+                  title: "Copied!",
+                  description: "HTML table code copied to clipboard",
+                });
+                navigator.clipboard.writeText(tableCode);
+                setTimeout(() => setCopied(false), 2000);
+              }}>
                 {copied ? (
                   <>
                     <Clipboard className="h-4 w-4 mr-2" />
