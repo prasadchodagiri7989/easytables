@@ -1,202 +1,255 @@
 
 import React, { useState } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { toast } from "sonner";
-import { Zap, Activity, Gauge } from "lucide-react";
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { GuidanceSection } from "@/components/GuidanceSection";
 
 const OhmsLawCalculator = () => {
-  const [voltage, setVoltage] = useState<number | "">("");
-  const [current, setCurrent] = useState<number | "">("");
-  const [resistance, setResistance] = useState<number | "">("");
-  const [power, setPower] = useState<number | "">("");
-  const [calcMode, setCalcMode] = useState<'voltage' | 'current' | 'resistance' | 'power'>('voltage');
+  const [voltage, setVoltage] = useState<string>('');
+  const [current, setCurrent] = useState<string>('');
+  const [resistance, setResistance] = useState<string>('');
+  const [power, setPower] = useState<string>('');
+  const [solveFor, setSolveFor] = useState<string>('voltage');
+  const [error, setError] = useState<string>('');
 
-  const calculateOhmsLaw = () => {
+  const calculate = () => {
+    setError('');
+    
     try {
-      if (calcMode === 'voltage') {
-        if (typeof current === 'number' && typeof resistance === 'number') {
-          const result = current * resistance;
-          setVoltage(parseFloat(result.toFixed(4)));
-          setPower(parseFloat((current * current * resistance).toFixed(4)));
-          toast.success("Voltage calculated", {
-            description: `V = I × R = ${current} × ${resistance} = ${result.toFixed(4)} V`
-          });
-        } else {
-          toast.error("Please enter valid current and resistance values");
-        }
-      } 
-      else if (calcMode === 'current') {
-        if (typeof voltage === 'number' && typeof resistance === 'number' && resistance !== 0) {
-          const result = voltage / resistance;
-          setCurrent(parseFloat(result.toFixed(4)));
-          setPower(parseFloat((voltage * voltage / resistance).toFixed(4)));
-          toast.success("Current calculated", {
-            description: `I = V / R = ${voltage} / ${resistance} = ${result.toFixed(4)} A`
-          });
-        } else {
-          toast.error("Please enter valid voltage and non-zero resistance values");
-        }
-      } 
-      else if (calcMode === 'resistance') {
-        if (typeof voltage === 'number' && typeof current === 'number' && current !== 0) {
-          const result = voltage / current;
-          setResistance(parseFloat(result.toFixed(4)));
-          setPower(parseFloat((voltage * current).toFixed(4)));
-          toast.success("Resistance calculated", {
-            description: `R = V / I = ${voltage} / ${current} = ${result.toFixed(4)} Ω`
-          });
-        } else {
-          toast.error("Please enter valid voltage and non-zero current values");
-        }
-      } 
-      else if (calcMode === 'power') {
-        if (typeof voltage === 'number' && typeof current === 'number') {
-          const result = voltage * current;
-          setPower(parseFloat(result.toFixed(4)));
-          setResistance(parseFloat((voltage / current).toFixed(4)));
-          toast.success("Power calculated", {
-            description: `P = V × I = ${voltage} × ${current} = ${result.toFixed(4)} W`
-          });
-        } else if (typeof current === 'number' && typeof resistance === 'number') {
-          const result = current * current * resistance;
-          setPower(parseFloat(result.toFixed(4)));
-          setVoltage(parseFloat((current * resistance).toFixed(4)));
-          toast.success("Power calculated", {
-            description: `P = I² × R = ${current}² × ${resistance} = ${result.toFixed(4)} W`
-          });
-        } else if (typeof voltage === 'number' && typeof resistance === 'number' && resistance !== 0) {
-          const result = voltage * voltage / resistance;
-          setPower(parseFloat(result.toFixed(4)));
-          setCurrent(parseFloat((voltage / resistance).toFixed(4)));
-          toast.success("Power calculated", {
-            description: `P = V² / R = ${voltage}² / ${resistance} = ${result.toFixed(4)} W`
-          });
-        } else {
-          toast.error("Please enter either voltage and current, current and resistance, or voltage and resistance");
-        }
+      const V = parseFloat(voltage);
+      const I = parseFloat(current);
+      const R = parseFloat(resistance);
+      const P = parseFloat(power);
+      
+      switch (solveFor) {
+        case 'voltage':
+          if (!isNaN(I) && !isNaN(R)) {
+            // V = I * R
+            setVoltage((I * R).toFixed(2));
+            setPower((I * I * R).toFixed(2));
+          } else if (!isNaN(P) && !isNaN(I)) {
+            // V = P / I
+            setVoltage((P / I).toFixed(2));
+            setResistance((P / (I * I)).toFixed(2));
+          } else if (!isNaN(P) && !isNaN(R)) {
+            // V = sqrt(P * R)
+            setVoltage(Math.sqrt(P * R).toFixed(2));
+            setCurrent(Math.sqrt(P / R).toFixed(2));
+          } else {
+            setError('Please enter at least two values (Current and Resistance, Power and Current, or Power and Resistance)');
+          }
+          break;
+          
+        case 'current':
+          if (!isNaN(V) && !isNaN(R)) {
+            // I = V / R
+            setCurrent((V / R).toFixed(2));
+            setPower((V * V / R).toFixed(2));
+          } else if (!isNaN(P) && !isNaN(V)) {
+            // I = P / V
+            setCurrent((P / V).toFixed(2));
+            setResistance((V * V / P).toFixed(2));
+          } else if (!isNaN(P) && !isNaN(R)) {
+            // I = sqrt(P / R)
+            setCurrent(Math.sqrt(P / R).toFixed(2));
+            setVoltage(Math.sqrt(P * R).toFixed(2));
+          } else {
+            setError('Please enter at least two values (Voltage and Resistance, Power and Voltage, or Power and Resistance)');
+          }
+          break;
+          
+        case 'resistance':
+          if (!isNaN(V) && !isNaN(I)) {
+            // R = V / I
+            setResistance((V / I).toFixed(2));
+            setPower((V * I).toFixed(2));
+          } else if (!isNaN(P) && !isNaN(I)) {
+            // R = P / I²
+            setResistance((P / (I * I)).toFixed(2));
+            setVoltage((P / I).toFixed(2));
+          } else if (!isNaN(P) && !isNaN(V)) {
+            // R = V² / P
+            setResistance((V * V / P).toFixed(2));
+            setCurrent((P / V).toFixed(2));
+          } else {
+            setError('Please enter at least two values (Voltage and Current, Power and Current, or Power and Voltage)');
+          }
+          break;
+          
+        case 'power':
+          if (!isNaN(V) && !isNaN(I)) {
+            // P = V * I
+            setPower((V * I).toFixed(2));
+            setResistance((V / I).toFixed(2));
+          } else if (!isNaN(V) && !isNaN(R)) {
+            // P = V² / R
+            setPower((V * V / R).toFixed(2));
+            setCurrent((V / R).toFixed(2));
+          } else if (!isNaN(I) && !isNaN(R)) {
+            // P = I² * R
+            setPower((I * I * R).toFixed(2));
+            setVoltage((I * R).toFixed(2));
+          } else {
+            setError('Please enter at least two values (Voltage and Current, Voltage and Resistance, or Current and Resistance)');
+          }
+          break;
       }
-    } catch (error) {
-      toast.error("Calculation error", {
-        description: "Please check your input values and try again"
-      });
+    } catch (err) {
+      setError('Invalid input. Please check your values.');
     }
   };
 
-  const resetValues = () => {
-    setVoltage("");
-    setCurrent("");
-    setResistance("");
-    setPower("");
-    toast.info("Calculator reset", {
-      description: "All values have been cleared"
-    });
+  const reset = () => {
+    setVoltage('');
+    setCurrent('');
+    setResistance('');
+    setPower('');
+    setError('');
+  };
+
+  const handleSolveForChange = (value: string) => {
+    setSolveFor(value);
+    reset();
   };
 
   return (
-    <Card className="w-full">
-      <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <Zap className="h-5 w-5" /> Ohm's Law Calculator
-        </CardTitle>
-        <CardDescription>
-          Calculate voltage, current, resistance and power using Ohm's Law
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <Tabs value={calcMode} onValueChange={(value) => setCalcMode(value as any)} className="w-full">
-          <TabsList className="grid grid-cols-4 mb-4">
-            <TabsTrigger value="voltage">Voltage</TabsTrigger>
-            <TabsTrigger value="current">Current</TabsTrigger>
-            <TabsTrigger value="resistance">Resistance</TabsTrigger>
-            <TabsTrigger value="power">Power</TabsTrigger>
-          </TabsList>
+    <div className="container mx-auto p-4">
+      <Card className="mb-8">
+        <CardHeader>
+          <CardTitle>Ohm's Law Calculator</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <Label htmlFor="solveFor">Solve For</Label>
+                <Select value={solveFor} onValueChange={handleSolveForChange}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select what to solve for" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="voltage">Voltage (V)</SelectItem>
+                    <SelectItem value="current">Current (I)</SelectItem>
+                    <SelectItem value="resistance">Resistance (R)</SelectItem>
+                    <SelectItem value="power">Power (P)</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <Label htmlFor="voltage">Voltage (V) in Volts</Label>
+                <Input
+                  id="voltage"
+                  type="number"
+                  placeholder="Enter voltage"
+                  value={voltage}
+                  onChange={e => setVoltage(e.target.value)}
+                  disabled={solveFor === 'voltage'}
+                />
+              </div>
+              <div>
+                <Label htmlFor="current">Current (I) in Amperes</Label>
+                <Input
+                  id="current"
+                  type="number"
+                  placeholder="Enter current"
+                  value={current}
+                  onChange={e => setCurrent(e.target.value)}
+                  disabled={solveFor === 'current'}
+                />
+              </div>
+              <div>
+                <Label htmlFor="resistance">Resistance (R) in Ohms</Label>
+                <Input
+                  id="resistance"
+                  type="number"
+                  placeholder="Enter resistance"
+                  value={resistance}
+                  onChange={e => setResistance(e.target.value)}
+                  disabled={solveFor === 'resistance'}
+                />
+              </div>
+              <div>
+                <Label htmlFor="power">Power (P) in Watts</Label>
+                <Input
+                  id="power"
+                  type="number"
+                  placeholder="Enter power"
+                  value={power}
+                  onChange={e => setPower(e.target.value)}
+                  disabled={solveFor === 'power'}
+                />
+              </div>
+            </div>
+            
+            {error && (
+              <div className="bg-red-50 text-red-600 p-3 rounded-md text-sm">
+                {error}
+              </div>
+            )}
+            
+            <div className="flex gap-3">
+              <Button onClick={calculate}>Calculate</Button>
+              <Button variant="outline" onClick={reset}>Reset</Button>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+      
+      <GuidanceSection title="About Ohm's Law">
+        <div className="space-y-4">
+          <div>
+            <h3 className="font-medium mb-1">Ohm's Law Explained</h3>
+            <p>Ohm's Law states that the current through a conductor between two points is directly proportional to the voltage across the two points, and inversely proportional to the resistance between them.</p>
+            <p className="mt-2 font-medium">The basic formula is: V = I × R</p>
+            <p>Where:</p>
+            <ul className="list-disc pl-5">
+              <li>V = Voltage in volts (V)</li>
+              <li>I = Current in amperes (A)</li>
+              <li>R = Resistance in ohms (Ω)</li>
+            </ul>
+          </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-            <div>
-              <Label htmlFor="voltage" className="flex items-center gap-1">
-                <Zap className="h-4 w-4" /> Voltage (V)
-              </Label>
-              <Input
-                id="voltage"
-                type="number"
-                value={voltage}
-                onChange={(e) => setVoltage(e.target.value ? parseFloat(e.target.value) : "")}
-                placeholder="Enter voltage in volts"
-                disabled={calcMode === 'voltage'}
-                className={calcMode === 'voltage' ? 'bg-gray-100 dark:bg-gray-800' : ''}
-              />
-            </div>
-            <div>
-              <Label htmlFor="current" className="flex items-center gap-1">
-                <Activity className="h-4 w-4" /> Current (A)
-              </Label>
-              <Input
-                id="current"
-                type="number"
-                value={current}
-                onChange={(e) => setCurrent(e.target.value ? parseFloat(e.target.value) : "")}
-                placeholder="Enter current in amperes"
-                disabled={calcMode === 'current'}
-                className={calcMode === 'current' ? 'bg-gray-100 dark:bg-gray-800' : ''}
-              />
-            </div>
-            <div>
-              <Label htmlFor="resistance" className="flex items-center gap-1">
-                <Gauge className="h-4 w-4" /> Resistance (Ω)
-              </Label>
-              <Input
-                id="resistance"
-                type="number"
-                value={resistance}
-                onChange={(e) => setResistance(e.target.value ? parseFloat(e.target.value) : "")}
-                placeholder="Enter resistance in ohms"
-                disabled={calcMode === 'resistance'}
-                className={calcMode === 'resistance' ? 'bg-gray-100 dark:bg-gray-800' : ''}
-              />
-            </div>
-            <div>
-              <Label htmlFor="power" className="flex items-center gap-1">
-                <Zap className="h-4 w-4" /> Power (W)
-              </Label>
-              <Input
-                id="power"
-                type="number"
-                value={power}
-                onChange={(e) => setPower(e.target.value ? parseFloat(e.target.value) : "")}
-                placeholder="Enter power in watts"
-                disabled={calcMode === 'power'}
-                className={calcMode === 'power' ? 'bg-gray-100 dark:bg-gray-800' : ''}
-              />
-            </div>
+          <div>
+            <h3 className="font-medium mb-1">Power Relationship</h3>
+            <p>Power is related to Ohm's Law through these formulas:</p>
+            <ul className="list-disc pl-5">
+              <li>P = V × I (Power equals voltage times current)</li>
+              <li>P = I² × R (Power equals current squared times resistance)</li>
+              <li>P = V² / R (Power equals voltage squared divided by resistance)</li>
+            </ul>
+            <p className="mt-2">Where P = Power in watts (W)</p>
           </div>
-
-          <div className="flex flex-col sm:flex-row gap-2 mt-6">
-            <Button className="flex-1" onClick={calculateOhmsLaw}>
-              Calculate
-            </Button>
-            <Button variant="outline" onClick={resetValues}>
-              Reset
-            </Button>
+          
+          <div>
+            <h3 className="font-medium mb-1">How to Use This Calculator</h3>
+            <ol className="list-decimal pl-5">
+              <li>Select what you want to solve for (Voltage, Current, Resistance, or Power).</li>
+              <li>Enter any two of the remaining three values.</li>
+              <li>Click "Calculate" to find the unknown value.</li>
+              <li>The calculator will also determine the fourth value based on the power relationships.</li>
+            </ol>
           </div>
-
-          <div className="mt-6 p-4 bg-gray-50 dark:bg-gray-800 rounded-md">
-            <h3 className="font-medium mb-2">Ohm's Law Formulas:</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
-              <div>• Voltage (V) = Current (I) × Resistance (R)</div>
-              <div>• Current (I) = Voltage (V) ÷ Resistance (R)</div>
-              <div>• Resistance (R) = Voltage (V) ÷ Current (I)</div>
-              <div>• Power (P) = Voltage (V) × Current (I)</div>
-              <div>• Power (P) = Current² (I²) × Resistance (R)</div>
-              <div>• Power (P) = Voltage² (V²) ÷ Resistance (R)</div>
-            </div>
+          
+          <div>
+            <h3 className="font-medium mb-1">Practical Applications</h3>
+            <p>Ohm's Law is fundamental to analyzing and designing electrical circuits. Some common applications include:</p>
+            <ul className="list-disc pl-5">
+              <li>Designing power supplies</li>
+              <li>Selecting proper wire gauges</li>
+              <li>Sizing fuses and circuit breakers</li>
+              <li>Calculating power consumption</li>
+              <li>Troubleshooting electrical circuits</li>
+            </ul>
           </div>
-        </Tabs>
-      </CardContent>
-    </Card>
+        </div>
+      </GuidanceSection>
+    </div>
   );
 };
 

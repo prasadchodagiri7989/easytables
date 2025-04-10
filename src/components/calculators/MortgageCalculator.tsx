@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -34,10 +33,8 @@ export const MortgageCalculator = () => {
   const [loanAmount, setLoanAmount] = useState("");
   const [results, setResults] = useState<MortgageResults | null>(null);
 
-  // Derived state for sliders
   const [downPaymentPercent, setDownPaymentPercent] = useState<number[]>([20]);
 
-  // Update downPayment when downPaymentPercent changes
   const handleDownPaymentPercentChange = (value: number[]) => {
     setDownPaymentPercent(value);
     if (housePrice) {
@@ -48,7 +45,6 @@ export const MortgageCalculator = () => {
     }
   };
 
-  // Update downPaymentPercent when downPayment changes
   const handleDownPaymentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDownPayment(e.target.value);
     if (housePrice) {
@@ -60,7 +56,6 @@ export const MortgageCalculator = () => {
     }
   };
 
-  // Update downPayment when housePrice changes
   const handleHousePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setHousePrice(e.target.value);
     if (downPaymentPercent[0]) {
@@ -87,7 +82,7 @@ export const MortgageCalculator = () => {
     const house = parseFloat(housePrice);
     const down = parseFloat(downPayment);
     const term = parseFloat(loanTerm);
-    const rate = parseFloat(interestRate) / 100 / 12; // Monthly interest rate
+    const rate = parseFloat(interestRate) / 100 / 12;
 
     if (isNaN(house) || isNaN(down) || isNaN(term) || isNaN(rate) || rate <= 0) {
       return;
@@ -96,7 +91,6 @@ export const MortgageCalculator = () => {
     const loanAmount = house - down;
     const numberOfPayments = term * 12;
 
-    // Calculate monthly payment
     const monthlyPayment = (loanAmount * rate * Math.pow(1 + rate, numberOfPayments)) / 
                          (Math.pow(1 + rate, numberOfPayments) - 1);
 
@@ -109,15 +103,14 @@ export const MortgageCalculator = () => {
   const calculateLoanTerm = () => {
     const loan = parseFloat(loanAmount);
     const payment = parseFloat(monthlyPayment);
-    const rate = parseFloat(interestRate) / 100 / 12; // Monthly interest rate
+    const rate = parseFloat(interestRate) / 100 / 12;
 
     if (isNaN(loan) || isNaN(payment) || isNaN(rate) || rate <= 0 || payment <= 0 || loan <= 0) {
       return;
     }
 
-    // Calculate term using numerical method (approximation)
-    let t = 1; // Start with 1 month
-    const maxIterations = 600; // Max 50 years (600 months)
+    let t = 1;
+    const maxIterations = 600;
     let found = false;
 
     for (let i = 1; i <= maxIterations; i++) {
@@ -132,13 +125,12 @@ export const MortgageCalculator = () => {
     }
 
     if (!found) {
-      return; // Could not find a solution
+      return;
     }
 
     const termInYears = t / 12;
     setLoanTerm(termInYears.toFixed(1));
 
-    // Generate results for display
     const totalPayment = payment * t;
     const totalInterest = totalPayment - loan;
 
@@ -148,7 +140,7 @@ export const MortgageCalculator = () => {
   const calculateLoanAmount = () => {
     const payment = parseFloat(monthlyPayment);
     const term = parseFloat(loanTerm);
-    const rate = parseFloat(interestRate) / 100 / 12; // Monthly interest rate
+    const rate = parseFloat(interestRate) / 100 / 12;
 
     if (isNaN(payment) || isNaN(term) || isNaN(rate) || rate <= 0 || payment <= 0) {
       return;
@@ -156,13 +148,11 @@ export const MortgageCalculator = () => {
 
     const numberOfPayments = term * 12;
     
-    // Calculate loan amount
     const loanAmount = payment * ((Math.pow(1 + rate, numberOfPayments) - 1) / 
                       (rate * Math.pow(1 + rate, numberOfPayments)));
 
     setLoanAmount(loanAmount.toFixed(0));
     
-    // Generate results for display
     const totalPayment = payment * numberOfPayments;
     const totalInterest = totalPayment - loanAmount;
 
@@ -172,7 +162,7 @@ export const MortgageCalculator = () => {
   const calculateMonthlyPayment = () => {
     const loan = parseFloat(loanAmount);
     const term = parseFloat(loanTerm);
-    const rate = parseFloat(interestRate) / 100 / 12; // Monthly interest rate
+    const rate = parseFloat(interestRate) / 100 / 12;
 
     if (isNaN(loan) || isNaN(term) || isNaN(rate) || rate <= 0) {
       return;
@@ -180,13 +170,11 @@ export const MortgageCalculator = () => {
 
     const numberOfPayments = term * 12;
     
-    // Calculate monthly payment
     const monthlyPayment = (loan * rate * Math.pow(1 + rate, numberOfPayments)) / 
                          (Math.pow(1 + rate, numberOfPayments) - 1);
 
     setMonthlyPayment(monthlyPayment.toFixed(2));
     
-    // Generate results for display
     const totalPayment = monthlyPayment * numberOfPayments;
     const totalInterest = totalPayment - loan;
 
@@ -201,7 +189,6 @@ export const MortgageCalculator = () => {
     totalPayment: number,
     totalInterest: number
   ) => {
-    // Generate amortization schedule by year
     const amortizationSchedule = [];
     let remainingBalance = loanAmount;
     let yearlyInterestPaid = 0;
@@ -240,7 +227,6 @@ export const MortgageCalculator = () => {
     });
   };
 
-  // Formatter for currency
   const formatCurrency = (value: number) => {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',

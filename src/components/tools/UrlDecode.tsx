@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Copy, Check, ArrowDownUp } from "lucide-react";
 import { toast } from "sonner";
@@ -113,31 +112,30 @@ const UrlDecode = () => {
       </div>
     </ToolLayout>
     <GuidanceSection title="How to Use the URL Decoder">
-  <div className="space-y-4">
-    <div>
-      <h4 className="font-medium mb-1">Using the URL Decoder</h4>
-      <p>The URL Decoder allows you to convert encoded URLs back to their original readable format by replacing encoded characters with their actual representations.</p>
+      <div className="space-y-4">
+        <div>
+          <h4 className="font-medium mb-1">Using the URL Decoder</h4>
+          <p>The URL Decoder allows you to convert encoded URLs back to their original readable format by replacing encoded characters with their actual representations.</p>
 
-      <p className="mt-2"><strong>How to Use:</strong></p>
-      <ol className="list-decimal pl-5">
-        <li>Enter the encoded URL string in the input field.</li>
-        <li>Click "Decode URL String" to convert it back to normal text.</li>
-        <li>Copy the decoded text for use in applications, links, or APIs.</li>
-        <li>Use the "Switch to Encode" option to encode text into a URL-safe format.</li>
-      </ol>
-    </div>
+          <p className="mt-2"><strong>How to Use:</strong></p>
+          <ol className="list-decimal pl-5">
+            <li>Enter the encoded URL string in the input field.</li>
+            <li>Click "Decode URL String" to convert it back to normal text.</li>
+            <li>Copy the decoded text for use in applications, links, or APIs.</li>
+            <li>Use the "Switch to Encode" option to encode text into a URL-safe format.</li>
+          </ol>
+        </div>
 
-    <div>
-      <h4 className="font-medium mb-1">Why Use This Tool?</h4>
-      <ul className="list-disc pl-5">
-        <li>Helps decode URL parameters for debugging or analysis.</li>
-        <li>Restores readable text from encoded web links.</li>
-        <li>Useful for developers working with APIs, redirects, or SEO optimization.</li>
-      </ul>
-    </div>
-  </div>
-</GuidanceSection>
-
+        <div>
+          <h4 className="font-medium mb-1">Why Use This Tool?</h4>
+          <ul className="list-disc pl-5">
+            <li>Helps decode URL parameters for debugging or analysis.</li>
+            <li>Restores readable text from encoded web links.</li>
+            <li>Useful for developers working with APIs, redirects, or SEO optimization.</li>
+          </ul>
+        </div>
+      </div>
+    </GuidanceSection>
     </>
   );
 };

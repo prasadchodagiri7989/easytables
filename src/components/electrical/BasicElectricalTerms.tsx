@@ -1,85 +1,209 @@
 
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const BasicElectricalTerms = () => {
   return (
-    <div className="space-y-6">
-      <Card>
-        <CardHeader>
-          <CardTitle>Basic Electrical Terms</CardTitle>
-          <CardDescription>Essential terminology for understanding electrical concepts</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <Accordion type="single" collapsible className="w-full">
-            <AccordionItem value="voltage">
-              <AccordionTrigger>Voltage (V)</AccordionTrigger>
-              <AccordionContent>
-                <p>Voltage is the electrical pressure or potential difference that causes current to flow in a circuit. It's measured in volts (V) and represents the energy per unit charge.</p>
-                <p className="mt-2"><strong>Formula:</strong> V = IR (Voltage = Current × Resistance)</p>
-              </AccordionContent>
-            </AccordionItem>
+    <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-6">Basic Electrical Terms and Concepts</h1>
+      
+      <Tabs defaultValue="fundamentals" className="w-full">
+        <TabsList className="grid grid-cols-4 mb-4">
+          <TabsTrigger value="fundamentals">Fundamentals</TabsTrigger>
+          <TabsTrigger value="components">Components</TabsTrigger>
+          <TabsTrigger value="measurements">Measurements</TabsTrigger>
+          <TabsTrigger value="circuits">Circuits</TabsTrigger>
+        </TabsList>
+        
+        <TabsContent value="fundamentals">
+          <div className="grid gap-4 md:grid-cols-2">
+            <Card>
+              <CardHeader>
+                <CardTitle>Current (I)</CardTitle>
+                <CardDescription>Measured in Amperes (A)</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p>The flow of electric charge through a conductor. Current is measured in amperes (A) and represents the rate at which charge flows.</p>
+                <p className="mt-2 text-sm">Formula: I = Q/t, where Q is charge and t is time.</p>
+              </CardContent>
+            </Card>
             
-            <AccordionItem value="current">
-              <AccordionTrigger>Current (I)</AccordionTrigger>
-              <AccordionContent>
-                <p>Current is the flow of electric charge through a conductor. It's measured in amperes (A) and represents the rate at which charge flows.</p>
-                <p className="mt-2"><strong>Formula:</strong> I = V/R (Current = Voltage ÷ Resistance)</p>
-              </AccordionContent>
-            </AccordionItem>
+            <Card>
+              <CardHeader>
+                <CardTitle>Voltage (V)</CardTitle>
+                <CardDescription>Measured in Volts (V)</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p>The electric potential difference between two points in a circuit. Voltage is the "pressure" that pushes electric current through a circuit.</p>
+                <p className="mt-2 text-sm">Formula: V = W/Q, where W is work done and Q is charge.</p>
+              </CardContent>
+            </Card>
             
-            <AccordionItem value="resistance">
-              <AccordionTrigger>Resistance (R)</AccordionTrigger>
-              <AccordionContent>
-                <p>Resistance is the opposition to the flow of electric current. It's measured in ohms (Ω) and depends on the material, length, and cross-sectional area of a conductor.</p>
-                <p className="mt-2"><strong>Formula:</strong> R = V/I (Resistance = Voltage ÷ Current)</p>
-              </AccordionContent>
-            </AccordionItem>
+            <Card>
+              <CardHeader>
+                <CardTitle>Resistance (R)</CardTitle>
+                <CardDescription>Measured in Ohms (Ω)</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p>The opposition to the flow of electric current in a conductor. Materials with high resistance impede current flow.</p>
+                <p className="mt-2 text-sm">Formula: R = V/I (Ohm's Law).</p>
+              </CardContent>
+            </Card>
             
-            <AccordionItem value="power">
-              <AccordionTrigger>Power (P)</AccordionTrigger>
-              <AccordionContent>
-                <p>Power is the rate at which electrical energy is transferred or converted. It's measured in watts (W).</p>
-                <p className="mt-2"><strong>Formula:</strong> P = VI (Power = Voltage × Current)</p>
-                <p className="mt-1">Alternative formulas: P = I²R or P = V²/R</p>
-              </AccordionContent>
-            </AccordionItem>
+            <Card>
+              <CardHeader>
+                <CardTitle>Power (P)</CardTitle>
+                <CardDescription>Measured in Watts (W)</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p>The rate at which electrical energy is transferred or converted in a circuit.</p>
+                <p className="mt-2 text-sm">Formula: P = VI or P = I²R or P = V²/R.</p>
+              </CardContent>
+            </Card>
+          </div>
+        </TabsContent>
+        
+        <TabsContent value="components">
+          <div className="grid gap-4 md:grid-cols-2">
+            <Card>
+              <CardHeader>
+                <CardTitle>Resistor</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p>A passive component that implements electrical resistance in a circuit. Used to reduce current flow, adjust signal levels, divide voltages, and more.</p>
+              </CardContent>
+            </Card>
             
-            <AccordionItem value="energy">
-              <AccordionTrigger>Energy (E)</AccordionTrigger>
-              <AccordionContent>
-                <p>Electrical energy is the energy derived from electric potential energy or kinetic energy. It's measured in joules (J) or kilowatt-hours (kWh).</p>
-                <p className="mt-2"><strong>Formula:</strong> E = P × t (Energy = Power × time)</p>
-              </AccordionContent>
-            </AccordionItem>
+            <Card>
+              <CardHeader>
+                <CardTitle>Capacitor</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p>A component that stores electrical energy in an electric field. Used for filtering, coupling/decoupling, timing, and energy storage.</p>
+              </CardContent>
+            </Card>
             
-            <AccordionItem value="capacitance">
-              <AccordionTrigger>Capacitance (C)</AccordionTrigger>
-              <AccordionContent>
-                <p>Capacitance is the ability of a body to store an electrical charge. It's measured in farads (F).</p>
-                <p className="mt-2"><strong>Formula:</strong> C = Q/V (Capacitance = Charge ÷ Voltage)</p>
-              </AccordionContent>
-            </AccordionItem>
+            <Card>
+              <CardHeader>
+                <CardTitle>Inductor</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p>A component that stores energy in a magnetic field when electric current flows through it. Used in filters, oscillators, and energy storage.</p>
+              </CardContent>
+            </Card>
             
-            <AccordionItem value="inductance">
-              <AccordionTrigger>Inductance (L)</AccordionTrigger>
-              <AccordionContent>
-                <p>Inductance is the property of an electrical conductor by which a change in current through it induces an electromotive force. It's measured in henries (H).</p>
-                <p className="mt-2"><strong>Formula:</strong> V = L × (dI/dt)</p>
-              </AccordionContent>
-            </AccordionItem>
+            <Card>
+              <CardHeader>
+                <CardTitle>Diode</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p>A semiconductor device that allows current to flow in one direction only. Used for rectification, signal demodulation, and voltage regulation.</p>
+              </CardContent>
+            </Card>
             
-            <AccordionItem value="frequency">
-              <AccordionTrigger>Frequency (f)</AccordionTrigger>
-              <AccordionContent>
-                <p>Frequency is the number of occurrences of a repeating event per unit of time. In electricity, it refers to the number of cycles per second in an AC signal. It's measured in hertz (Hz).</p>
-                <p className="mt-2"><strong>Formula:</strong> f = 1/T (Frequency = 1 ÷ Period)</p>
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-        </CardContent>
-      </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>Transistor</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p>A semiconductor device used to amplify or switch electronic signals. The fundamental building block of modern electronic devices.</p>
+              </CardContent>
+            </Card>
+            
+            <Card>
+              <CardHeader>
+                <CardTitle>Integrated Circuit (IC)</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p>A set of electronic circuits on a small flat piece of semiconductor material, typically silicon. Can contain millions of transistors, resistors, capacitors, etc.</p>
+              </CardContent>
+            </Card>
+          </div>
+        </TabsContent>
+        
+        <TabsContent value="measurements">
+          <div className="grid gap-4 md:grid-cols-2">
+            <Card>
+              <CardHeader>
+                <CardTitle>Multimeter</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p>A measuring instrument that combines several measurement functions in one unit. It can measure voltage, current, resistance, and more.</p>
+              </CardContent>
+            </Card>
+            
+            <Card>
+              <CardHeader>
+                <CardTitle>Oscilloscope</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p>A device that graphically displays varying signal voltages as a function of time. Essential for analyzing waveforms and troubleshooting electronic circuits.</p>
+              </CardContent>
+            </Card>
+            
+            <Card>
+              <CardHeader>
+                <CardTitle>Frequency</CardTitle>
+                <CardDescription>Measured in Hertz (Hz)</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p>The number of complete cycles per second in an alternating current. The standard unit is hertz (Hz).</p>
+              </CardContent>
+            </Card>
+            
+            <Card>
+              <CardHeader>
+                <CardTitle>Impedance</CardTitle>
+                <CardDescription>Measured in Ohms (Ω)</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p>The measure of opposition to alternating current. It combines resistance and reactance (inductive and capacitive).</p>
+              </CardContent>
+            </Card>
+          </div>
+        </TabsContent>
+        
+        <TabsContent value="circuits">
+          <div className="grid gap-4 md:grid-cols-2">
+            <Card>
+              <CardHeader>
+                <CardTitle>Series Circuit</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p>A circuit where components are connected end-to-end, forming a single path for current. The current is the same through all components, but the voltage is divided.</p>
+              </CardContent>
+            </Card>
+            
+            <Card>
+              <CardHeader>
+                <CardTitle>Parallel Circuit</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p>A circuit where components are connected across the same two nodes, forming multiple paths for current. The voltage is the same across all components, but the current is divided.</p>
+              </CardContent>
+            </Card>
+            
+            <Card>
+              <CardHeader>
+                <CardTitle>Kirchhoff's Current Law (KCL)</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p>The sum of all currents entering a node equals the sum of all currents leaving that node. In other words, the total current in a closed system is conserved.</p>
+              </CardContent>
+            </Card>
+            
+            <Card>
+              <CardHeader>
+                <CardTitle>Kirchhoff's Voltage Law (KVL)</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p>The sum of all voltages around any closed loop in a circuit is zero. In other words, the total voltage in a closed loop is conserved.</p>
+              </CardContent>
+            </Card>
+          </div>
+        </TabsContent>
+      </Tabs>
     </div>
   );
 };
