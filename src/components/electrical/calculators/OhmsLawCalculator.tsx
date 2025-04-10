@@ -8,7 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { toast } from "sonner";
 import { Zap, Activity, Gauge } from "lucide-react";
 
-const OhmsLawCalculator = () => {
+export const OhmsLawCalculator = () => {
   const [voltage, setVoltage] = useState<number | "">("");
   const [current, setCurrent] = useState<number | "">("");
   const [resistance, setResistance] = useState<number | "">("");
@@ -199,5 +199,3 @@ const OhmsLawCalculator = () => {
     </Card>
   );
 };
-
-export default OhmsLawCalculator;
