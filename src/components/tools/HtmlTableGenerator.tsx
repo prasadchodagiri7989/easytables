@@ -228,7 +228,7 @@ const HtmlTableGenerator = () => {
             </div>
             <div className="overflow-x-auto">
               <table border={parseInt(border, 10)} width={width} cellPadding={parseInt(cellPadding, 10)} cellSpacing={parseInt(cellSpacing, 10)} align={align}>
-                <caption>{caption}</caption>
+                {caption && <caption>{caption}</caption>}
                 <tbody>
                   {tableData.map((row, rowIndex) => (
                     <tr key={rowIndex}>

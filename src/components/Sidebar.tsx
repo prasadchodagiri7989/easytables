@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { cn } from "@/lib/utils";
@@ -8,11 +7,13 @@ import {
   Clock, BarChart, Calendar, Phone, Camera, FileText, MousePointer, Timer, Mic,
   Monitor, Lock, PieChart, Shuffle, Film, Smartphone, MessageSquare, Edit,
   Table, Volume2, CalendarDays, CheckSquare, Music, Ruler, Video, Wrench, Hash,
-  AlignJustify, FileImage, Type, FileIcon, ImageIcon, Image, Code
+  AlignJustify, FileImage, Type, FileIcon, ImageIcon, Image, Code,
+  Zap, CircuitBoard, Lightbulb, Battery, Feather, BookOpen, Workflow, Info,
+  Gauge, Droplet, Flame, X
 } from "lucide-react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { toolsData } from "@/data/tools-data";
-import { Thermometer, Square, Gauge, Wind, Bolt, Zap, Database, Compass, Fuel, BatteryCharging, Plug } from "lucide-react";
+import { Thermometer, Square, Wind, Bolt, Database, Compass, Fuel, BatteryCharging, Plug } from "lucide-react";
 
 export const unitCategories = [ 
   { label: "Length", value: "length", path: "/convertor/length", icon: Ruler },
@@ -47,7 +48,6 @@ interface SidebarLinkProps {
 
 const SidebarLink = ({ to, icon: Icon, label, onClose }: SidebarLinkProps) => {
   const handleClick = () => {
-    // Close sidebar on mobile when a link is clicked
     if (window.innerWidth < 768) {
       onClose();
     }
@@ -74,21 +74,24 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
   const [pdfToolsOpen, setPdfToolsOpen] = useState(false);
   const [HtmltoolsOpen, setHtmltoolsOpen] = useState(false);
   const [convertorToolsOpen, setConvertorToolsOpen] = useState(false);
+  const [electricalOpen, setElectricalOpen] = useState(false);
+  const [electricalCalculatorsOpen, setElectricalCalculatorsOpen] = useState(false);
+  const [lightingCalculatorsOpen, setLightingCalculatorsOpen] = useState(false);
 
   return (
     <aside className={cn(
-      "fixed top-0 left-0 h-full w-64 bg-white z-30 border-r border-gray-200/50 shadow-sm",
+      "fixed top-0 left-0 h-full w-64 bg-white z-30 border-r border-gray-200/50 shadow-sm dark:bg-gray-900 dark:border-gray-800/50",
       "transition-transform duration-300 ease-in-out",
       open ? "translate-x-0" : "-translate-x-full md:translate-x-0",
       "flex flex-col"
     )}>
-      <div className="p-4 border-b border-gray-200/50 flex items-center justify-between">
-        <h2 className="text-lg font-medium">Math Tools</h2>
+      <div className="p-4 border-b border-gray-200/50 dark:border-gray-800/50 flex items-center justify-between">
+        <h2 className="text-lg font-medium dark:text-white">Math Tools</h2>
         <button 
           onClick={onClose}
-          className="p-1 rounded-full hover:bg-gray-100 md:hidden"
+          className="p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 md:hidden"
         >
-          <ChevronLeft size={20} />
+          <ChevronLeft size={20} className="dark:text-gray-300" />
         </button>
       </div>
 
@@ -101,15 +104,15 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
             onOpenChange={setCalculatorsOpen}
             className="w-full"
           >
-            <CollapsibleTrigger className="flex items-center justify-between w-full px-4 py-2 rounded-md hover:bg-gray-100 text-left">
+            <CollapsibleTrigger className="flex items-center justify-between w-full px-4 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 text-left">
               <div className="flex items-center">
-                <Calculator size={18} className="mr-2" />
-                <span className="text-sm font-medium">Calculators</span>
+                <Calculator size={18} className="mr-2 dark:text-gray-300" />
+                <span className="text-sm font-medium dark:text-gray-300">Calculators</span>
               </div>
               <ChevronDown 
                 size={16} 
                 className={cn(
-                  "transition-transform duration-200",
+                  "transition-transform duration-200 dark:text-gray-300",
                   calculatorsOpen ? "rotate-180" : ""
                 )} 
               />
@@ -129,14 +132,14 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
           </Collapsible>
           
           <Collapsible open={convertorToolsOpen} onOpenChange={setConvertorToolsOpen} className="w-full mt-2">
-            <CollapsibleTrigger className="flex items-center justify-between w-full px-4 py-2 rounded-md hover:bg-gray-100 text-left">
+            <CollapsibleTrigger className="flex items-center justify-between w-full px-4 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 text-left">
               <div className="flex items-center">
-                <Code size={18} className="mr-2" />
-                <span className="text-sm font-medium">Converter Tools</span>
+                <Code size={18} className="mr-2 dark:text-gray-300" />
+                <span className="text-sm font-medium dark:text-gray-300">Converter Tools</span>
               </div>
               <ChevronDown 
                 size={16} 
-                className={cn("transition-transform duration-200", convertorToolsOpen ? "rotate-180" : "")} 
+                className={cn("transition-transform duration-200 dark:text-gray-300", convertorToolsOpen ? "rotate-180" : "")} 
               />
             </CollapsibleTrigger>
             <CollapsibleContent className="pl-6 space-y-1 mt-1">
@@ -145,20 +148,105 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
               ))}
             </CollapsibleContent>
           </Collapsible>
+
+          <Collapsible
+            open={electricalOpen}
+            onOpenChange={setElectricalOpen}
+            className="w-full mt-2"
+          >
+            <CollapsibleTrigger className="flex items-center justify-between w-full px-4 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 text-left">
+              <div className="flex items-center">
+                <Zap size={18} className="mr-2 dark:text-gray-300" />
+                <span className="text-sm font-medium dark:text-gray-300">Electrical & Electronic</span>
+              </div>
+              <ChevronDown 
+                size={16} 
+                className={cn(
+                  "transition-transform duration-200 dark:text-gray-300",
+                  electricalOpen ? "rotate-180" : ""
+                )} 
+              />
+            </CollapsibleTrigger>
+            <CollapsibleContent className="pl-6 space-y-1 mt-1">
+              <SidebarLink to="/electrical/basic-terms" icon={BookOpen} label="Basic Electrical Terms" onClose={onClose} />
+              <SidebarLink to="/electrical/units" icon={Info} label="Electrical & Electronic Units" onClose={onClose} />
+              <SidebarLink to="/electrical/components" icon={CircuitBoard} label="Electronic Components" onClose={onClose} />
+              <SidebarLink to="/electrical/symbols" icon={Feather} label="Electrical & Electronic Symbols" onClose={onClose} />
+              <SidebarLink to="/electrical/laws" icon={Workflow} label="Electronic Circuit Laws" onClose={onClose} />
+              <SidebarLink to="/electrical/save-electricity" icon={Lightbulb} label="How to Save Electricity" onClose={onClose} />
+              <SidebarLink to="/electrical/save-energy" icon={Battery} label="How to Save Energy" onClose={onClose} />
+              
+              <Collapsible
+                open={electricalCalculatorsOpen}
+                onOpenChange={setElectricalCalculatorsOpen}
+                className="w-full mt-2"
+              >
+                <CollapsibleTrigger className="flex items-center justify-between w-full px-4 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 text-left">
+                  <div className="flex items-center">
+                    <Calculator size={18} className="mr-2 dark:text-gray-300" />
+                    <span className="text-sm font-medium dark:text-gray-300">Electrical Calculators</span>
+                  </div>
+                  <ChevronDown 
+                    size={16} 
+                    className={cn(
+                      "transition-transform duration-200 dark:text-gray-300",
+                      electricalCalculatorsOpen ? "rotate-180" : ""
+                    )} 
+                  />
+                </CollapsibleTrigger>
+                <CollapsibleContent className="pl-6 space-y-1 mt-1">
+                  <SidebarLink to="/electrical/calculators/ohms-law" icon={Zap} label="Ohm's Law" onClose={onClose} />
+                  <SidebarLink to="/electrical/calculators/power" icon={Bolt} label="Power Calculator" onClose={onClose} />
+                  <SidebarLink to="/electrical/calculators/voltage-divider" icon={Gauge} label="Voltage Divider" onClose={onClose} />
+                  <SidebarLink to="/electrical/calculators/capacitance" icon={Battery} label="Capacitance" onClose={onClose} />
+                  <SidebarLink to="/electrical/calculators/resistance" icon={Activity} label="Resistance" onClose={onClose} />
+                  <SidebarLink to="/electrical/calculators/frequency" icon={Activity} label="Frequency" onClose={onClose} />
+                </CollapsibleContent>
+              </Collapsible>
+              
+              <Collapsible
+                open={lightingCalculatorsOpen}
+                onOpenChange={setLightingCalculatorsOpen}
+                className="w-full mt-2"
+              >
+                <CollapsibleTrigger className="flex items-center justify-between w-full px-4 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 text-left">
+                  <div className="flex items-center">
+                    <Lightbulb size={18} className="mr-2 dark:text-gray-300" />
+                    <span className="text-sm font-medium dark:text-gray-300">Lighting Calculators</span>
+                  </div>
+                  <ChevronDown 
+                    size={16} 
+                    className={cn(
+                      "transition-transform duration-200 dark:text-gray-300",
+                      lightingCalculatorsOpen ? "rotate-180" : ""
+                    )} 
+                  />
+                </CollapsibleTrigger>
+                <CollapsibleContent className="pl-6 space-y-1 mt-1">
+                  <SidebarLink to="/electrical/lighting/lumens" icon={Lightbulb} label="Lumens Calculator" onClose={onClose} />
+                  <SidebarLink to="/electrical/lighting/led-savings" icon={DollarSign} label="LED Savings" onClose={onClose} />
+                  <SidebarLink to="/electrical/lighting/wattage" icon={Zap} label="Wattage Converter" onClose={onClose} />
+                  <SidebarLink to="/electrical/lighting/color-temp" icon={Droplet} label="Color Temperature" onClose={onClose} />
+                  <SidebarLink to="/electrical/lighting/energy-usage" icon={Flame} label="Energy Usage" onClose={onClose} />
+                </CollapsibleContent>
+              </Collapsible>
+            </CollapsibleContent>
+          </Collapsible>
+
           <Collapsible
             open={textToolsOpen}
             onOpenChange={setTextToolsOpen}
             className="w-full mt-2"
           >
-            <CollapsibleTrigger className="flex items-center justify-between w-full px-4 py-2 rounded-md hover:bg-gray-100 text-left">
+            <CollapsibleTrigger className="flex items-center justify-between w-full px-4 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 text-left">
               <div className="flex items-center">
-                <Type size={18} className="mr-2" />
-                <span className="text-sm font-medium">Text Tools</span>
+                <Type size={18} className="mr-2 dark:text-gray-300" />
+                <span className="text-sm font-medium dark:text-gray-300">Text Tools</span>
               </div>
               <ChevronDown 
                 size={16} 
                 className={cn(
-                  "transition-transform duration-200",
+                  "transition-transform duration-200 dark:text-gray-300",
                   textToolsOpen ? "rotate-180" : ""
                 )} 
               />
@@ -178,15 +266,15 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
             onOpenChange={setPdfToolsOpen}
             className="w-full mt-2"
           >
-            <CollapsibleTrigger className="flex items-center justify-between w-full px-4 py-2 rounded-md hover:bg-gray-100 text-left">
+            <CollapsibleTrigger className="flex items-center justify-between w-full px-4 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 text-left">
               <div className="flex items-center">
-                <FileIcon size={18} className="mr-2" />
-                <span className="text-sm font-medium">PDF Tools</span>
+                <FileIcon size={18} className="mr-2 dark:text-gray-300" />
+                <span className="text-sm font-medium dark:text-gray-300">PDF Tools</span>
               </div>
               <ChevronDown 
                 size={16} 
                 className={cn(
-                  "transition-transform duration-200",
+                  "transition-transform duration-200 dark:text-gray-300",
                   pdfToolsOpen ? "rotate-180" : ""
                 )} 
               />
@@ -204,15 +292,15 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
             onOpenChange={setToolsOpen}
             className="w-full mt-2"
           >
-            <CollapsibleTrigger className="flex items-center justify-between w-full px-4 py-2 rounded-md hover:bg-gray-100 text-left">
+            <CollapsibleTrigger className="flex items-center justify-between w-full px-4 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 text-left">
               <div className="flex items-center">
-                <Wrench size={18} className="mr-2" />
-                <span className="text-sm font-medium">Online Tools</span>
+                <Wrench size={18} className="mr-2 dark:text-gray-300" />
+                <span className="text-sm font-medium dark:text-gray-300">Online Tools</span>
               </div>
               <ChevronDown 
                 size={16} 
                 className={cn(
-                  "transition-transform duration-200",
+                  "transition-transform duration-200 dark:text-gray-300",
                   toolsOpen ? "rotate-180" : ""
                 )} 
               />
@@ -257,19 +345,15 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
             </CollapsibleContent>
           </Collapsible>
 
-
-
-
-
           <Collapsible open={HtmltoolsOpen} onOpenChange={setHtmltoolsOpen} className="w-full mt-2">
-            <CollapsibleTrigger className="flex items-center justify-between w-full px-4 py-2 rounded-md hover:bg-gray-100 text-left">
+            <CollapsibleTrigger className="flex items-center justify-between w-full px-4 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 text-left">
               <div className="flex items-center">
-                <Code size={18} className="mr-2" />
-                <span className="text-sm font-medium">HTML Tools</span>
+                <Code size={18} className="mr-2 dark:text-gray-300" />
+                <span className="text-sm font-medium dark:text-gray-300">HTML Tools</span>
               </div>
               <ChevronDown 
                 size={16} 
-                className={cn("transition-transform duration-200", toolsOpen ? "rotate-180" : "")} 
+                className={cn("transition-transform duration-200 dark:text-gray-300", toolsOpen ? "rotate-180" : "")} 
               />
             </CollapsibleTrigger>
             <CollapsibleContent className="pl-6 space-y-1 mt-1">
@@ -278,13 +362,11 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
               ))}
             </CollapsibleContent>
           </Collapsible>
-
-
         </div>
       </div>
 
-      <div className="p-4 border-t border-gray-200/50 text-center">
-        <p className="text-xs text-gray-500">© 2025 Easy Tables</p>
+      <div className="p-4 border-t border-gray-200/50 dark:border-gray-800/50 text-center">
+        <p className="text-xs text-gray-500 dark:text-gray-400">© 2025 Easy Tables</p>
       </div>
     </aside>
   );
