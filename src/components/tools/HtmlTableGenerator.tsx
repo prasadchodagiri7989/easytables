@@ -29,7 +29,6 @@ const HtmlTableGenerator = () => {
 
   const generateHtml = () => {
     if (tableData.length === 0) {
-      // Fixed the toast call to include the required message parameter
       toast.error("Please generate a table first");
       return;
     }
