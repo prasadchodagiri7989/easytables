@@ -86,24 +86,24 @@ import { RulerInch } from "./components/tools/RulerInch";
 import { VoiceRecorder } from "./components/tools/VoiceRecorder";
 import { WebcamTest } from "./components/tools/WebcamTest";
 
-// HTML Tools
-import { HtmlEditor } from "./components/tools/HtmlEditor";
-import { HtmlLinkGenerator } from "./components/tools/HtmlLinkGenerator";
-import { HttpHeaderChecker } from "./components/tools/HttpHeaderChecker";
-import { HttpStatusChecker } from "./components/tools/HttpStatusChecker";
-import { Base64Encode } from "./components/tools/Base64Encode";
-import { Base64Decode } from "./components/tools/Base64Decode";
-import { ImageToBase64 } from "./components/tools/ImageToBase64";
-import { Base64ToImage } from "./components/tools/Base64ToImage";
-import { UrlEncode } from "./components/tools/UrlEncode";
-import { UrlDecode } from "./components/tools/UrlDecode";
-import { ColorTester } from "./components/tools/ColorTester";
-import { ColorPickerFromImage } from "./components/tools/ColorPickerFromImage";
-import { SvgViewer } from "./components/tools/SvgViewer";
-import { ScreenResolution } from "./components/tools/ScreenResolution";
-import { WindowSize } from "./components/tools/WindowSize";
-import { RedirectGenerator } from "./components/tools/RedirectGenerator";
-import { PixelRuler } from "./components/tools/PixelRuler";
+// HTML Tools - Fixed import syntax for default exports
+import HtmlEditor from "./components/tools/HtmlEditor";
+import HtmlLinkGenerator from "./components/tools/HtmlLinkGenerator";
+import HttpHeaderChecker from "./components/tools/HttpHeaderChecker";
+import HttpStatusChecker from "./components/tools/HttpStatusChecker";
+import Base64Encode from "./components/tools/Base64Encode";
+import Base64Decode from "./components/tools/Base64Decode";
+import ImageToBase64 from "./components/tools/ImageToBase64";
+import Base64ToImage from "./components/tools/Base64ToImage";
+import UrlEncode from "./components/tools/UrlEncode";
+import UrlDecode from "./components/tools/UrlDecode";
+import ColorTester from "./components/tools/ColorTester";
+import ColorPickerFromImage from "./components/tools/ColorPickerFromImage";
+import SvgViewer from "./components/tools/SvgViewer";
+import ScreenResolution from "./components/tools/ScreenResolution";
+import WindowSize from "./components/tools/WindowSize";
+import RedirectGenerator from "./components/tools/RedirectGenerator";
+import PixelRuler from "./components/tools/PixelRuler";
 
 function App() {
   return (

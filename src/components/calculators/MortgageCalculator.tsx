@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -22,10 +21,10 @@ interface MortgageResults {
   }[];
 }
 
-type CalculationMode = "standard" | "findTerm" | "findLoanAmount" | "findPayment";
+type CalcType = 'standard' | 'findLoanAmount' | 'findPayment' | 'findTerm';
 
 export const MortgageCalculator = () => {
-  const [calculationMode, setCalculationMode] = useState<CalculationMode>("standard");
+  const [calcType, setCalcType] = useState<CalcType>('standard');
   const [housePrice, setHousePrice] = useState("");
   const [downPayment, setDownPayment] = useState("");
   const [loanTerm, setLoanTerm] = useState("30");
@@ -72,13 +71,13 @@ export const MortgageCalculator = () => {
   };
 
   const calculateMortgage = () => {
-    if (calculationMode === "standard") {
+    if (calcType === "standard") {
       calculateStandardMortgage();
-    } else if (calculationMode === "findTerm") {
+    } else if (calcType === "findTerm") {
       calculateLoanTerm();
-    } else if (calculationMode === "findLoanAmount") {
+    } else if (calcType === "findLoanAmount") {
       calculateLoanAmount();
-    } else if (calculationMode === "findPayment") {
+    } else if (calcType === "findPayment") {
       calculateMonthlyPayment();
     }
   };
@@ -251,21 +250,21 @@ export const MortgageCalculator = () => {
   };
 
   const resetFields = () => {
-    if (calculationMode === "standard") {
+    if (calcType === "standard") {
       setHousePrice("");
       setDownPayment("");
       setLoanTerm("30");
       setInterestRate("");
       setDownPaymentPercent([20]);
-    } else if (calculationMode === "findTerm") {
+    } else if (calcType === "findTerm") {
       setLoanAmount("");
       setMonthlyPayment("");
       setInterestRate("");
-    } else if (calculationMode === "findLoanAmount") {
+    } else if (calcType === "findLoanAmount") {
       setMonthlyPayment("");
       setLoanTerm("30");
       setInterestRate("");
-    } else if (calculationMode === "findPayment") {
+    } else if (calcType === "findPayment") {
       setLoanAmount("");
       setLoanTerm("30");
       setInterestRate("");
@@ -274,7 +273,7 @@ export const MortgageCalculator = () => {
   };
 
   const handleModeChange = (value: string) => {
-    setCalculationMode(value as CalculationMode);
+    setCalcType(value as CalcType);
     resetFields();
   };
 
@@ -293,7 +292,7 @@ export const MortgageCalculator = () => {
             <div className="space-y-6">
               <div className="form-group">
                 <Label htmlFor="calculation-mode" className="form-label">Calculation Mode</Label>
-                <Select value={calculationMode} onValueChange={handleModeChange}>
+                <Select value={calcType} onValueChange={handleModeChange}>
                   <SelectTrigger id="calculation-mode">
                     <SelectValue placeholder="Select mode" />
                   </SelectTrigger>
@@ -307,7 +306,7 @@ export const MortgageCalculator = () => {
               </div>
               
               <div className="space-y-4">
-                {calculationMode === "standard" && (
+                {calcType === "standard" && (
                   <>
                     <div className="form-group">
                       <Label htmlFor="house-price" className="form-label">House Price</Label>
@@ -358,7 +357,7 @@ export const MortgageCalculator = () => {
                   </>
                 )}
 
-                {(calculationMode === "findTerm" || calculationMode === "findPayment") && (
+                {(calcType === "findTerm" || calcType === "findPayment") && (
                   <div className="form-group">
                     <Label htmlFor="loan-amount" className="form-label">Loan Amount</Label>
                     <div className="relative">
@@ -375,7 +374,7 @@ export const MortgageCalculator = () => {
                   </div>
                 )}
                 
-                {(calculationMode === "findTerm" || calculationMode === "findLoanAmount") && (
+                {(calcType === "findTerm" || calcType === "findLoanAmount") && (
                   <div className="form-group">
                     <Label htmlFor="monthly-payment" className="form-label">Monthly Payment</Label>
                     <div className="relative">
@@ -392,15 +391,15 @@ export const MortgageCalculator = () => {
                   </div>
                 )}
                 
-                {(calculationMode === "standard" || calculationMode === "findLoanAmount" || calculationMode === "findPayment") && (
+                {(calcType === "standard" || calcType === "findLoanAmount" || calcType === "findPayment") && (
                   <div className="form-group">
                     <div className="flex justify-between">
                       <Label htmlFor="loan-term" className="form-label">Loan Term (years)</Label>
-                      {calculationMode !== "findTerm" && (
+                      {calcType !== "findTerm" && (
                         <span className="text-sm text-gray-600">{(parseFloat(loanTerm) / 30 * 100).toFixed(0)}%</span>
                       )}
                     </div>
-                    {calculationMode !== "findTerm" && (
+                    {calcType !== "findTerm" && (
                       <div className="mt-2">
                         <Slider 
                           value={[parseFloat(loanTerm)]} 
@@ -415,7 +414,7 @@ export const MortgageCalculator = () => {
                         </div>
                       </div>
                     )}
-                    {calculationMode === "findTerm" && loanTerm && (
+                    {calcType === "findTerm" && loanTerm && (
                       <div className="bg-blue-50 p-3 rounded-md mt-2">
                         <div className="font-medium text-blue-800">Calculated Term: {loanTerm} years</div>
                       </div>
@@ -459,15 +458,15 @@ export const MortgageCalculator = () => {
                       <div className="grid grid-cols-2 gap-4 pt-3 border-t border-gray-200">
                         <div>
                           <div className="text-sm text-gray-600">
-                            {calculationMode === "findLoanAmount" ? "Calculated Loan Amount" : "Loan Amount"}
+                            {calcType === "findLoanAmount" ? "Calculated Loan Amount" : "Loan Amount"}
                           </div>
                           <div className="text-lg font-semibold">
-                            {calculationMode === "standard" 
+                            {calcType === "standard" 
                               ? formatCurrency(parseFloat(housePrice) - parseFloat(downPayment))
                               : formatCurrency(parseFloat(loanAmount))}
                           </div>
                         </div>
-                        {calculationMode === "standard" && (
+                        {calcType === "standard" && (
                           <div>
                             <div className="text-sm text-gray-600">Down Payment</div>
                             <div className="text-lg font-semibold">
@@ -475,7 +474,7 @@ export const MortgageCalculator = () => {
                             </div>
                           </div>
                         )}
-                        {calculationMode !== "standard" && (
+                        {calcType !== "standard" && (
                           <div>
                             <div className="text-sm text-gray-600">Loan Term</div>
                             <div className="text-lg font-semibold">
@@ -489,7 +488,7 @@ export const MortgageCalculator = () => {
                         <div>
                           <div className="text-sm text-gray-600">Total Principal</div>
                           <div className="text-lg font-semibold">
-                            {calculationMode === "standard" 
+                            {calcType === "standard" 
                               ? formatCurrency(parseFloat(housePrice) - parseFloat(downPayment))
                               : formatCurrency(parseFloat(loanAmount))}
                           </div>
@@ -569,7 +568,7 @@ export const MortgageCalculator = () => {
       <h4 className="font-medium mb-1">Understanding the Mortgage Calculator</h4>
       <p>The Mortgage Calculator helps you estimate mortgage details based on different scenarios:</p>
 
-      <p className="mt-2"><strong>Calculator Modes:</strong></p>
+      <p className="mt-2"><strong>Calculation Modes:</strong></p>
       <ul className="list-disc pl-5">
         <li><strong>Standard Mortgage Calculation:</strong> Calculate monthly payments based on house price, down payment, term, and interest rate.</li>
         <li><strong>Find Loan Term:</strong> Determine how long it will take to pay off a loan amount with a specific monthly payment.</li>
