@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -25,7 +24,6 @@ export const AngleConverter = () => {
     []
   );
 
-  // Update available units when category changes
   useEffect(() => {
     const units = getUnitsForCategory(category);
     setAvailableUnits(units);
@@ -63,7 +61,6 @@ export const AngleConverter = () => {
     }
   };
 
-  // Get the display names of the units for the guidance section
   const fromUnitName = availableUnits.find(u => u.value === fromUnit)?.label || "";
   const toUnitName = availableUnits.find(u => u.value === toUnit)?.label || "";
   const categoryName = unitCategories.find(c => c.value === category)?.label || "";
@@ -196,3 +193,5 @@ export const AngleConverter = () => {
     </div>
   );
 };
+
+export default AngleConverter;
