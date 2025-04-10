@@ -109,9 +109,6 @@ import { FuelEconomyConverter } from "./components/convertors/FuelEconomyConvert
 import { VoltageConverter } from "./components/convertors/VoltageConverter";
 import { CurrentConverter } from "./components/convertors/CurrentConverter";
 
-import { BasicElectricalTerms } from "./components/electrical/BasicElectricalTerms";
-import { OhmsLawCalculator } from "./components/electrical/calculators/OhmsLawCalculator";
-
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -121,7 +118,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={ <Layout ><Index /> </Layout >} />
+          <Route path="/" element={<Index />} />
           
           {/* Calculator Routes */}
           <Route path="/scientific" element={<Layout><ScientificCalculator /></Layout>} />
@@ -135,10 +132,6 @@ const App = () => (
           <Route path="/compound-interest" element={<Layout><CompoundInterestCalculator /></Layout>} />
           <Route path="/bmi" element={<Layout><BMICalculator /></Layout>} />
           <Route path="/unit-converter" element={<Layout><UnitConverter /></Layout>} />
-
-
-          <Route path="/electrical/basic-terms" element={<Layout> <BasicElectricalTerms/>  </Layout >} />
-          <Route path="/electrical/calculators/ohms-law" element={<Layout><OhmsLawCalculator /></Layout>} />
           
           {/*Convertors Routes */}
           <Route path="/convertor/length" element={<Layout><LengthConverter /></Layout>} />
