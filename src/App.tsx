@@ -122,7 +122,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
+          <Route path="/" element={<Layout><Index /></Layout>} />
           
           {/* Calculator Routes */}
           <Route path="/scientific" element={<Layout><ScientificCalculator /></Layout>} />

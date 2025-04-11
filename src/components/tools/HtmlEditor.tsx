@@ -147,7 +147,7 @@ const HtmlEditor = () => {
             <textarea
               value={html}
               onChange={(e) => setHtml(e.target.value)}
-              className="flex-1 p-4 font-mono text-sm resize-none border-0 focus:ring-0 outline-none"
+              className="flex-1 p-4 font-mono text-sm resize-none border-0 focus:ring-0 outline-none dark:text-black"
               spellCheck="false"
             ></textarea>
           </div>

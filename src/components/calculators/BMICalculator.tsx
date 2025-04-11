@@ -43,7 +43,7 @@ export const BMICalculator = () => {
   };
 
   return (
-    <div className="calculator-container">
+    <div className="calculator-container bg-white/40 dark:bg-transparent">
       <h2 className="calculator-header">BMI Calculator</h2>
       
       <Card className="p-6 glass-card">

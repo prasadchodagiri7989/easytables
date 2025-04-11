@@ -69,7 +69,7 @@ export const UnitConverter = () => {
   const categoryName = unitCategories.find(c => c.value === category)?.label || "";
 
   return (
-    <div className="w-full max-w-4xl mx-auto">
+    <div className="w-full max-w-4xl mx-auto bg-white/40 dark:bg-transparent">
       <Card className="w-full max-w-lg mx-auto">
         <CardHeader>
           <CardTitle className="text-2xl">Unit Converter</CardTitle>

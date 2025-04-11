@@ -54,7 +54,7 @@ export const PercentageCalculator = () => {
   };
 
   return (
-    <div className="calculator-container">
+    <div className="calculator-container bg-white/40 dark:bg-transparent">
       <h2 className="calculator-header">Percentage Calculator</h2>
       
       <Tabs defaultValue="percentage-of" className="w-full">

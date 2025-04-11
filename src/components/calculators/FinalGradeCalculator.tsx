@@ -61,7 +61,7 @@ export const FinalGradeCalculator = () => {
   };
 
   return (
-    <div className="calculator-container">
+    <div className="calculator-container bg-white/40 dark:bg-transparent">
       <h2 className="calculator-header">Final Grade Calculator</h2>
       
       <Tabs defaultValue="needed" className="w-full">

@@ -265,7 +265,7 @@ export const MortgageCalculator = () => {
   };
 
   return (
-    <div className="calculator-container">
+    <div className="calculator-container bg-white/40 dark:bg-transparent">
       <h2 className="calculator-header">Mortgage Calculator</h2>
       
       <Tabs defaultValue="calculator" className="w-full">
