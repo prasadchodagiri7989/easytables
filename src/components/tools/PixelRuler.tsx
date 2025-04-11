@@ -190,6 +190,19 @@ const PixelRuler = () => {
 
   return (
     <>
+              <Breadcrumb className="mb-4">
+                 <BreadcrumbList>
+                     <BreadcrumbItem>
+                        <BreadcrumbLink asChild>
+                           <Link to="/">Home</Link>
+                        </BreadcrumbLink>
+                     </BreadcrumbItem>
+                      <BreadcrumbSeparator />
+                      <BreadcrumbItem>
+                       <BreadcrumbPage>Average Calculator</BreadcrumbPage>
+                        </BreadcrumbItem>
+                  </BreadcrumbList>
+               </Breadcrumb>
     <ToolLayout
       title="Online Pixel Ruler"
       description="Measure elements on your screen in pixels. Useful for web designers and developers."

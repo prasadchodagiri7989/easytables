@@ -168,8 +168,8 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
               />
             </CollapsibleTrigger>
             <CollapsibleContent className="pl-6 space-y-1 mt-1">
-              <SidebarLink to="/electrical/basic-terms" icon={BookOpen} label="Basic Electrical Terms" onClose={onClose} />
               <SidebarLink to="/electrical/units" icon={Info} label="Electrical & Electronic Units" onClose={onClose} />
+              <SidebarLink to="/electrical/basic-terms" icon={BookOpen} label="Basic Electrical Terms" onClose={onClose} />
               <SidebarLink to="/electrical/components" icon={CircuitBoard} label="Electronic Components" onClose={onClose} />
               <SidebarLink to="/electrical/symbols" icon={Feather} label="Electrical & Electronic Symbols" onClose={onClose} />
               <SidebarLink to="/electrical/laws" icon={Workflow} label="Electronic Circuit Laws" onClose={onClose} />

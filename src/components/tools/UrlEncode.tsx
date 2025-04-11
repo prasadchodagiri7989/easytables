@@ -44,6 +44,19 @@ const UrlEncode = () => {
 
   return (
     <>
+              <Breadcrumb className="mb-4">
+                 <BreadcrumbList>
+                     <BreadcrumbItem>
+                        <BreadcrumbLink asChild>
+                           <Link to="/">Home</Link>
+                        </BreadcrumbLink>
+                     </BreadcrumbItem>
+                      <BreadcrumbSeparator />
+                      <BreadcrumbItem>
+                       <BreadcrumbPage>Average Calculator</BreadcrumbPage>
+                        </BreadcrumbItem>
+                  </BreadcrumbList>
+               </Breadcrumb>
     <ToolLayout
       title="URL Encode"
       description="Encode text for use in URLs by replacing characters that are not allowed in URLs."

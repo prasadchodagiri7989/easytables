@@ -397,6 +397,20 @@ export const WebcamTest = () => {
   };
 
   return (
+     <>
+              <Breadcrumb className="mb-4">
+                 <BreadcrumbList>
+                     <BreadcrumbItem>
+                        <BreadcrumbLink asChild>
+                           <Link to="/">Home</Link>
+                        </BreadcrumbLink>
+                     </BreadcrumbItem>
+                      <BreadcrumbSeparator />
+                      <BreadcrumbItem>
+                       <BreadcrumbPage>Average Calculator</BreadcrumbPage>
+                        </BreadcrumbItem>
+                  </BreadcrumbList>
+               </Breadcrumb>
     <div className="max-w-2xl mx-auto">
       <Card className="shadow-md">
         <CardHeader className="bg-primary/5">
@@ -622,5 +636,6 @@ export const WebcamTest = () => {
 </GuidanceSection>
 
     </div>
+    </>
   );
 };

@@ -50,6 +50,19 @@ const RedirectGenerator = () => {
 
   return (
     <>
+              <Breadcrumb className="mb-4">
+                 <BreadcrumbList>
+                     <BreadcrumbItem>
+                        <BreadcrumbLink asChild>
+                           <Link to="/">Home</Link>
+                        </BreadcrumbLink>
+                     </BreadcrumbItem>
+                      <BreadcrumbSeparator />
+                      <BreadcrumbItem>
+                       <BreadcrumbPage>Average Calculator</BreadcrumbPage>
+                        </BreadcrumbItem>
+                  </BreadcrumbList>
+               </Breadcrumb>
     <ToolLayout
       title="301 Redirect Generator"
       description="Generate code for permanent 301 redirects using htaccess, meta tags, or JavaScript."

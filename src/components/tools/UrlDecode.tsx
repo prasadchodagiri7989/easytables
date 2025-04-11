@@ -44,6 +44,19 @@ const UrlDecode = () => {
 
   return (
     <>
+              <Breadcrumb className="mb-4">
+                 <BreadcrumbList>
+                     <BreadcrumbItem>
+                        <BreadcrumbLink asChild>
+                           <Link to="/">Home</Link>
+                        </BreadcrumbLink>
+                     </BreadcrumbItem>
+                      <BreadcrumbSeparator />
+                      <BreadcrumbItem>
+                       <BreadcrumbPage>Average Calculator</BreadcrumbPage>
+                        </BreadcrumbItem>
+                  </BreadcrumbList>
+               </Breadcrumb>
     <ToolLayout
       title="URL Decode"
       description="Decode URL encoded strings back to normal text."

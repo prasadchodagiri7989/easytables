@@ -131,6 +131,10 @@ import ColorTemperatureConverter from "./components/lighting/calculators/colorTe
 import EnergyUsageCalculator from "./components/lighting/calculators/energyUsage";
 
 import AmpereInfo from "./components/electrical/content/Ampere";
+import DbmInfo from "./components/electrical/content/DBmilli";
+import DbmilliInfo from "./components/electrical/content/DBmilli";
+import DecibelInfo from "./components/electrical/content/Decibel";
+import FaradInfo from "./components/electrical/content/Farad";
 
 const queryClient = new QueryClient();
 
@@ -195,6 +199,10 @@ const App = () => (
           <Route path="/electrical/lighting/energy-usage" element={<Layout><EnergyUsageCalculator /></Layout>} />
           
           <Route path="/electrical/units/ampere" element={<Layout><AmpereInfo /></Layout>} />
+          <Route path="/electrical/units/dbm" element={<Layout><DbmilliInfo /></Layout>} />
+          <Route path="/electrical/units/dbw" element={<Layout><DbmInfo /></Layout>} />
+          <Route path="/electrical/units/decibel" element={<Layout><DecibelInfo /></Layout>} />
+          <Route path="/electrical/units/farad" element={<Layout><FaradInfo /></Layout>} />
 
 
 
