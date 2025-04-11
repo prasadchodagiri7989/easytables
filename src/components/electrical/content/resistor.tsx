@@ -1,75 +1,71 @@
 import React from "react";
 
-export default function ResistorChart() {
+const ResistorChart = () => {
   return (
-    <div className="p-6 max-w-4xl mx-auto bg-white rounded-2xl shadow-md space-y-6">
-      <h1 className="text-3xl font-bold text-center">What is a Resistor</h1>
-      <p>
-        A resistor is an electrical component that reduces the electric current.
-        The resistor's ability to reduce the current is called <strong>resistance</strong>
-        and is measured in units of ohms (symbol: Ω). Think of it like a thin pipe
-        that limits water flow.
+    <div className="p-6 text-gray-800 dark:text-white">
+      <h1 className="text-3xl font-bold mb-4">What is a Resistor?</h1>
+      <p className="mb-4">
+        A <strong>resistor</strong> is an electrical component that reduces electric current. This ability is called <strong>resistance</strong> and is measured in <strong>ohms (Ω)</strong>.
+      </p>
+      <p className="mb-6">
+        In water flow analogy, a resistor is like a thin pipe restricting water flow.
       </p>
 
-      <h2 className="text-2xl font-semibold">Ohm's Law</h2>
-      <ul className="list-disc pl-5">
-        <li>I = V / R</li>
-        <li>P = I × V</li>
-        <li>P = I² × R</li>
-        <li>P = V² / R</li>
+      <h2 className="text-2xl font-semibold mb-2">Ohm's Law</h2>
+      <p className="mb-2">
+        The current through a resistor is defined by:
+      </p>
+      <pre className="bg-gray-100 p-3 rounded mb-4 dark:text-black">I = V / R</pre>
+      <p className="mb-2">Power formulas:</p>
+      <pre className="bg-gray-100 p-3 rounded mb-2 dark:text-black">P = I × V</pre>
+      <pre className="bg-gray-100 p-3 rounded mb-2 dark:text-black">P = I² × R</pre>
+      <pre className="bg-gray-100 p-3 rounded mb-6 dark:text-black">P = V² / R</pre>
+
+      <h2 className="text-2xl font-semibold mb-2">Resistors in Parallel</h2>
+      <pre className="bg-gray-100 p-3 rounded mb-4 dark:text-black">
+        1 / R<sub>total</sub> = 1 / R₁ + 1 / R₂ + ...
+      </pre>
+      <p className="mb-6">Total resistance decreases when added in parallel.</p>
+
+      <h2 className="text-2xl font-semibold mb-2">Resistors in Series</h2>
+      <pre className="bg-gray-100 p-3 rounded mb-4 dark:text-black">
+        R<sub>total</sub> = R₁ + R₂ + R₃ + ...
+      </pre>
+      <p className="mb-6">Total resistance increases when added in series.</p>
+
+      <h2 className="text-2xl font-semibold mb-2">Material and Dimension Effects</h2>
+      <pre className="bg-gray-100 p-3 rounded mb-4 dark:text-black">
+        R = ρ × (l / A)
+      </pre>
+      <p className="mb-6">Where ρ is resistivity, l is length, and A is cross-sectional area.</p>
+
+      <h2 className="text-2xl font-semibold mb-2">Resistor Color Code</h2>
+      <p className="mb-2">4-band: R = (10×digit₁ + digit₂) × multiplier</p>
+      <p className="mb-2">5/6-band: R = (100×digit₁ + 10×digit₂ + digit₃) × multiplier</p>
+
+      <h2 className="text-2xl font-semibold mb-2">Types of Resistors</h2>
+      <ul className="list-disc pl-6 mb-6">
+        <li>Variable Resistor (2 terminals)</li>
+        <li>Potentiometer (3 terminals)</li>
+        <li>Photoresistor (light sensitive)</li>
+        <li>Power Resistor (high power)</li>
+        <li>SMT/SMD Resistor (surface mount)</li>
+        <li>Resistor Network</li>
+        <li>Carbon, Chip, Metal-oxide, Ceramic Resistors</li>
       </ul>
 
-      <h2 className="text-2xl font-semibold">Resistors in Parallel</h2>
-      <p>1 / RTotal = 1 / R1 + 1 / R2 + 1 / R3 + ...</p>
-
-      <h2 className="text-2xl font-semibold">Resistors in Series</h2>
-      <p>RTotal = R1 + R2 + R3 + ...</p>
-
-      <h2 className="text-2xl font-semibold">Dimensions and Material Affects</h2>
-      <p>
-        R = ρ × (l / A) where ρ is resistivity, l is length, and A is cross-sectional area.
+      <h2 className="text-2xl font-semibold mb-2">Special Resistor Uses</h2>
+      <h3 className="text-xl font-medium mt-4 mb-1">Pull-up Resistor</h3>
+      <p className="mb-4">
+        Connected to high voltage (+5V or +12V). Sets digital pin to logical '1' when disconnected.
       </p>
 
-      <h2 className="text-2xl font-semibold">Resistor Symbols</h2>
-      <ul className="list-disc pl-5">
-        <li>Resistor (IEEE/IEC)</li>
-        <li>Potentiometer</li>
-        <li>Variable Resistor / Rheostat</li>
-        <li>Trimmer, Thermistor, Photoresistor (LDR)</li>
-      </ul>
-
-      <h2 className="text-2xl font-semibold">Resistor Color Code</h2>
-      <p>4 bands: (10 × digit1 + digit2) × multiplier</p>
-      <p>5/6 bands: (100 × digit1 + 10 × digit2 + digit3) × multiplier</p>
-
-      <h2 className="text-2xl font-semibold">Resistor Types</h2>
-      <ul className="list-disc pl-5">
-        <li>Variable resistor</li>
-        <li>Potentiometer</li>
-        <li>Photo-resistor</li>
-        <li>Power resistor</li>
-        <li>Surface mount (SMT/SMD)</li>
-        <li>Resistor network</li>
-        <li>Carbon, Chip, Metal-oxide, Ceramic resistors</li>
-      </ul>
-
-      <h2 className="text-2xl font-semibold">Pull-up & Pull-down Resistors</h2>
+      <h3 className="text-xl font-medium mb-1">Pull-down Resistor</h3>
       <p>
-        <strong>Pull-up</strong>: Connected to high voltage (e.g., +5V) to default a line to '1'.
+        Connected to ground (0V). Sets digital pin to logical '0' when disconnected.
       </p>
-      <p>
-        <strong>Pull-down</strong>: Connected to ground (0V) to default a line to '0'.
-      </p>
-
-      <h2 className="text-xl font-medium">See also</h2>
-      <ul className="list-disc pl-5">
-        <li>Electrical Resistance</li>
-        <li>Resistor Symbols</li>
-        <li>Ohm</li>
-        <li>Ohm's Law</li>
-        <li>Capacitor</li>
-        <li>Inductor</li>
-      </ul>
     </div>
   );
-}
+};
+
+export default ResistorChart;

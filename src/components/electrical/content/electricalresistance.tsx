@@ -15,7 +15,7 @@ const Section = ({ title, children }) => (
 
 const ElectricalResistance = () => {
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white/40 dark:bg-transparent dark:text-white rounded-xl shadow-md">
+    <div className="max-w-3xl p-6 bg-white/40 dark:bg-transparent dark:text-white rounded-xl shadow-md">
       <h1 className="text-3xl font-bold mb-6">Electrical Resistance</h1>
 
       <Section title="Definition">

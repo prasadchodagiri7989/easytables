@@ -153,7 +153,9 @@ import ElectricCurrent from "./components/electrical/content/electricalcurrent";
 import ElectricPower from "./components/electrical/content/electricpower";
 import ElectricalVoltage from "./components/electrical/content/electricalvoltage";
 import ElectricalResistance from "./components/electrical/content/electricalresistance";
-
+import ElectricCharge from "./components/electrical/content/electricalCharge";
+import PowerEfficiency from "./components/electrical/content/powerefficiency";
+import PowerFactor from "./components/electrical/content/powerfactor";
 
 
 const queryClient = new QueryClient();
@@ -238,6 +240,12 @@ const App = () => (
 
           <Route path="/electrical/content/voltage" element={<Layout><ElectricalVoltage /></Layout>} />
           <Route path="/electrical/content/resistance" element={<Layout><ElectricalResistance /></Layout>} />
+          <Route path="/electrical/content/current" element={<Layout><ElectricCurrent /></Layout>} />
+          <Route path="/electrical/content/power" element={<Layout><ElectricPower /></Layout>} />
+          <Route path="/electrical/content/charge" element={<Layout><ElectricCharge /></Layout>} />
+          <Route path="/electrical/content/efficiency" element={<Layout><PowerEfficiency /></Layout>} />
+          <Route path="/electrical/content/factor" element={<Layout><PowerFactor /></Layout>} />
+
           
 
 
