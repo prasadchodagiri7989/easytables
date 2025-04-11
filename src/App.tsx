@@ -112,6 +112,23 @@ import { CurrentConverter } from "./components/convertors/CurrentConverter";
 // Import Electrical & Electronics
 import BasicElectricalTerms from "./components/electrical/BasicElectricalTerms";
 import OhmsLawCalculator from "./components/electrical/calculators/OhmsLawCalculator";
+import ElectricalUnits from "./components/electrical/ElectricalUnits";
+import ElectronicComponents from "./components/electrical/ElectricalComponents";
+import ElectricalSymbols from "./components/electrical/ElectricalSymbols";
+import ElectronicCircuit from "./components/electrical/ElectronicCircuit";
+import HowTo from "./components/electrical/HowTo";
+
+import PowerCalculator from "./components/electrical/calculators/PowerCalculator";
+import VoltageDividerCalculator from "./components/electrical/calculators/VoltageDivider";
+import CapacitanceCalculator from "./components/electrical/calculators/Capacitance";
+import ResistanceCalculator from "./components/electrical/calculators/Resistence";
+import FrequencyCalculator from "./components/electrical/calculators/Frequency";
+
+import LumensCalculator from "./components/lighting/calculators/lumensCalculator";
+import LEDSavingsCalculator from "./components/lighting/calculators/ledsavings";
+import WattageConverter from "./components/lighting/calculators/wattageConvertor";
+import ColorTemperatureConverter from "./components/lighting/calculators/colorTemperature";
+import EnergyUsageCalculator from "./components/lighting/calculators/energyUsage";
 
 const queryClient = new QueryClient();
 
@@ -158,6 +175,33 @@ const App = () => (
           {/* Electrical & Electronic Routes */}
           <Route path="/electrical/basic-terms" element={<Layout><BasicElectricalTerms /></Layout>} />
           <Route path="/electrical/calculators/ohms-law" element={<Layout><OhmsLawCalculator /></Layout>} />
+          <Route path="/electrical/units" element={<Layout><ElectricalUnits /></Layout>} />
+          <Route path="/electrical/components" element={<Layout><ElectronicComponents /></Layout>} />
+          <Route path="/electrical/symbols" element={<Layout><ElectricalSymbols /></Layout>} />
+          <Route path="/electrical/laws" element={<Layout><ElectronicCircuit /></Layout>} />
+          <Route path="/electrical/save-electricity" element={<Layout><HowTo /></Layout>} />
+          <Route path="/electrical/calculators/power" element={<Layout><PowerCalculator /></Layout>} />
+          <Route path="/electrical/calculators/voltage-divider" element={<Layout><VoltageDividerCalculator /></Layout>} />
+          <Route path="/electrical/calculators/capacitance" element={<Layout><CapacitanceCalculator /></Layout>} />
+          <Route path="/electrical/calculators/resistance" element={<Layout><ResistanceCalculator /></Layout>} />
+          <Route path="/electrical/calculators/frequency" element={<Layout><FrequencyCalculator /></Layout>} />
+
+          <Route path="/electrical/lighting/lumens" element={<Layout><LumensCalculator /></Layout>} />
+          <Route path="/electrical/lighting/led-savings" element={<Layout><LEDSavingsCalculator /></Layout>} />
+          <Route path="/electrical/lighting/wattage" element={<Layout><WattageConverter /></Layout>} />
+          <Route path="/electrical/lighting/color-temp" element={<Layout><ColorTemperatureConverter /></Layout>} />
+          <Route path="/electrical/lighting/energy-usage" element={<Layout><EnergyUsageCalculator /></Layout>} />
+          
+
+
+
+          
+
+
+
+
+
+          
 
           {/* Text Tools Routes */}
           <Route path="/word-counter" element={<Layout><WordCounter /></Layout>} />

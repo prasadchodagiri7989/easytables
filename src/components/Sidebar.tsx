@@ -173,10 +173,15 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
               <SidebarLink to="/electrical/components" icon={CircuitBoard} label="Electronic Components" onClose={onClose} />
               <SidebarLink to="/electrical/symbols" icon={Feather} label="Electrical & Electronic Symbols" onClose={onClose} />
               <SidebarLink to="/electrical/laws" icon={Workflow} label="Electronic Circuit Laws" onClose={onClose} />
-              <SidebarLink to="/electrical/save-electricity" icon={Lightbulb} label="How to Save Electricity" onClose={onClose} />
-              <SidebarLink to="/electrical/save-energy" icon={Battery} label="How to Save Energy" onClose={onClose} />
+              <SidebarLink to="/electrical/save-electricity" icon={Lightbulb} label="How to Save Electricity & Energy" onClose={onClose} />
               
-              <Collapsible
+              
+              
+            </CollapsibleContent>
+          </Collapsible>
+
+
+          <Collapsible
                 open={electricalCalculatorsOpen}
                 onOpenChange={setElectricalCalculatorsOpen}
                 className="w-full mt-2"
@@ -230,8 +235,7 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
                   <SidebarLink to="/electrical/lighting/energy-usage" icon={Flame} label="Energy Usage" onClose={onClose} />
                 </CollapsibleContent>
               </Collapsible>
-            </CollapsibleContent>
-          </Collapsible>
+
 
           <Collapsible
             open={textToolsOpen}
@@ -353,7 +357,7 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
               </div>
               <ChevronDown 
                 size={16} 
-                className={cn("transition-transform duration-200 dark:text-gray-300", toolsOpen ? "rotate-180" : "")} 
+                className={cn("transition-transform duration-200 dark:text-gray-300", HtmltoolsOpen ? "rotate-180" : "")} 
               />
             </CollapsibleTrigger>
             <CollapsibleContent className="pl-6 space-y-1 mt-1">
