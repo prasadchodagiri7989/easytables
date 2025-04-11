@@ -17,10 +17,10 @@ export default function FaradInfo() {
       <table className="w-full table-auto border border-gray-300">
         <thead className="bg-gray-100">
           <tr>
-            <th className="border px-4 py-2">Name</th>
-            <th className="border px-4 py-2">Symbol</th>
-            <th className="border px-4 py-2">Conversion</th>
-            <th className="border px-4 py-2">Example</th>
+            <th className="border px-4 py-2 dark:text-black">Name</th>
+            <th className="border px-4 py-2 dark:text-black">Symbol</th>
+            <th className="border px-4 py-2 dark:text-black">Conversion</th>
+            <th className="border px-4 py-2 dark:text-black">Example</th>
           </tr>
         </thead>
         <tbody>

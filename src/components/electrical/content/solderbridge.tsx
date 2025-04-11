@@ -28,7 +28,7 @@ export default function SolderBridge() {
       <div className="mb-6">
         {/* You can insert an image or SVG here */}
         <div className="border border-gray-300 rounded-lg p-4 text-center text-sm text-gray-600">
-          [Insert solder bridge circuit symbol image here]
+          image
         </div>
       </div>
 

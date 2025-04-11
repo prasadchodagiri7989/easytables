@@ -141,7 +141,19 @@ import KilowattInfo from "./components/electrical/content/Kilowatt";
 import OhmLaw from "./components/electrical/content/Ohm";
 import VoltInfo from "./components/electrical/content/Volt";
 import WattInfo from "./components/electrical/content/Watt";
+
 import OhmsLaw from "./components/electrical/content/ohmslaw";
+import ResistorChart from "./components/electrical/content/resistor";
+import CapacitorChart from "./components/electrical/content/capacitor";
+import InductorChart from "./components/electrical/content/inductor";
+import DIPSwitchChart from "./components/electrical/content/dipswitch";
+import SolderBridge from "./components/electrical/content/solderbridge";
+
+import ElectricCurrent from "./components/electrical/content/electricalcurrent";
+import ElectricPower from "./components/electrical/content/electricpower";
+import ElectricalVoltage from "./components/electrical/content/electricalvoltage";
+import ElectricalResistance from "./components/electrical/content/electricalresistance";
+
 
 
 const queryClient = new QueryClient();
@@ -218,9 +230,15 @@ const App = () => (
           <Route path="/electrical/units/volt" element={<Layout><VoltInfo /></Layout>} />
           <Route path="/electrical/units/watt" element={<Layout><WattInfo /></Layout>} />
 
-          <Route path="/electrical/content/c" element={<Layout><WattInfo /></Layout>} />
+          <Route path="/electrical/components/resistor" element={<Layout><ResistorChart /></Layout>} />
+          <Route path="/electrical/components/capacitor" element={<Layout><CapacitorChart /></Layout>} />
+          <Route path="/electrical/components/inductor" element={<Layout><InductorChart /></Layout>} />
+          <Route path="/electrical/components/dip-switch" element={<Layout><DIPSwitchChart /></Layout>} />
+          <Route path="/electrical/components/solder-bridge" element={<Layout><SolderBridge /></Layout>} />
 
-
+          <Route path="/electrical/content/voltage" element={<Layout><ElectricalVoltage /></Layout>} />
+          <Route path="/electrical/content/resistance" element={<Layout><ElectricalResistance /></Layout>} />
+          
 
 
 
