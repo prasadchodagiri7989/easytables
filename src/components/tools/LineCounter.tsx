@@ -6,6 +6,9 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { GuidanceSection } from "../GuidanceSection";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
+
 
 export const LineCounter = () => {
   const [text, setText] = useState("");
@@ -135,6 +138,20 @@ Shortest line: Line ${shortestLine.lineNumber} (${shortestLine.length} character
   };
 
   return (
+    <>
+              <Breadcrumb className="mb-4">
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/">Home</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbPage>Average Calculator</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
     <div className="max-w-4xl mx-auto">
       <Card className="shadow-md">
         <CardHeader className="bg-primary/5">
@@ -264,5 +281,6 @@ Shortest line: Line ${shortestLine.lineNumber} (${shortestLine.length} character
 </GuidanceSection>
 
     </div>
+    </>
   );
 };

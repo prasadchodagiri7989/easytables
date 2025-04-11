@@ -7,6 +7,8 @@ import { Slider } from "@/components/ui/slider";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { GuidanceSection } from "../GuidanceSection";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
 
 interface MortgageResults {
   monthlyPayment: number;
@@ -265,6 +267,20 @@ export const MortgageCalculator = () => {
   };
 
   return (
+    <>
+        <Breadcrumb className="mb-4">
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link to="/">Home</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>Mortgage Calculator</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
     <div className="calculator-container bg-white/40 dark:bg-transparent">
       <h2 className="calculator-header">Mortgage Calculator</h2>
       
@@ -587,5 +603,6 @@ export const MortgageCalculator = () => {
 </GuidanceSection>
 
     </div>
+    </>
   );
 };

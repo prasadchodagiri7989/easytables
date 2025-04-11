@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { GuidanceSection } from "@/components/GuidanceSection";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
 
 export const ScientificCalculator = () => {
   const [display, setDisplay] = useState("0");
@@ -154,6 +156,20 @@ export const ScientificCalculator = () => {
   };
 
   return (
+    <>
+        <Breadcrumb className="mb-4">
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link to="/">Home</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>Scientific Calculator</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
     <div className="calculator-container bg-white/40 dark:bg-transparent">
       <h2 className="calculator-header">Scientific Calculator</h2>
       
@@ -457,5 +473,6 @@ export const ScientificCalculator = () => {
         </div>
       </GuidanceSection>
     </div>
+    </>
   );
 };

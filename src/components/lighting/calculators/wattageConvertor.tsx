@@ -4,6 +4,9 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { GuidanceSection } from "@/components/GuidanceSection";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
+
 
 const WattageConverter = () => {
   const [watts, setWatts] = useState('');
@@ -32,6 +35,20 @@ const WattageConverter = () => {
   };
 
   return (
+    <>
+              <Breadcrumb className="mb-4">
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/">Home</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbPage>Average Calculator</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
     <div className="container mx-auto p-4">
       <Card className="mb-8">
         <CardHeader>
@@ -116,6 +133,7 @@ const WattageConverter = () => {
         </div>
       </GuidanceSection>
     </div>
+    </>
   );
 };
 

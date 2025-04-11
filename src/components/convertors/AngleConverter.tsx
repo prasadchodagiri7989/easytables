@@ -13,6 +13,9 @@ import { Label } from "@/components/ui/label";
 import { ArrowRightLeft } from "lucide-react";
 import { unitCategories, getUnitsForCategory, convert } from "@/lib/unit-conversions";
 import { GuidanceSection } from "@/components/GuidanceSection";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
+
 
 export const AngleConverter = () => {
   const [category, setCategory] = useState(unitCategories[11].value);
@@ -66,6 +69,20 @@ export const AngleConverter = () => {
   const categoryName = unitCategories.find(c => c.value === category)?.label || "";
 
   return (
+    <>
+              <Breadcrumb className="mb-4">
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/">Home</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbPage>Average Calculator</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
     <div className="w-full max-w-4xl mx-auto">
       <Card className="w-full max-w-lg mx-auto">
         <CardHeader>
@@ -191,6 +208,7 @@ export const AngleConverter = () => {
         </div>
       </GuidanceSection>
     </div>
+    </>
   );
 };
 

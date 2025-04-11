@@ -15,6 +15,9 @@ import { unitCategories, getUnitsForCategory, convert } from "@/lib/unit-convers
 import { GuidanceSection } from "@/components/GuidanceSection";
 import { useSearchParams } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
+
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -100,6 +103,20 @@ export const CurrentConverter = () => {
   const categoryName = unitCategories.find(c => c.value === category)?.label || "";
 
   return (
+    <>
+              <Breadcrumb className="mb-4">
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/">Home</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbPage>Average Calculator</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
     <div className="w-full max-w-4xl mx-auto">
       <Card className="w-full max-w-lg mx-auto">
         <CardHeader>
@@ -225,5 +242,6 @@ export const CurrentConverter = () => {
         </div>
       </GuidanceSection>
     </div>
+    </>
   );
 };

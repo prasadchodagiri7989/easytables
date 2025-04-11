@@ -7,6 +7,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Progress } from "@/components/ui/progress";
 import { GuidanceSection } from "../GuidanceSection";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
+
 
 export const ImageToText = () => {
   const [image, setImage] = useState<string | null>(null);
@@ -90,6 +93,20 @@ export const ImageToText = () => {
   };
 
   return (
+    <>
+              <Breadcrumb className="mb-4">
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/">Home</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbPage>Average Calculator</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
     <div className="max-w-4xl mx-auto">
       <Card className="shadow-md">
         <CardHeader className="bg-primary/5">
@@ -209,5 +226,6 @@ export const ImageToText = () => {
 
 
     </div>
+    </>
   );
 };

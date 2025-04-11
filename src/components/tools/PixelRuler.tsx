@@ -4,6 +4,9 @@ import { MoveHorizontal, MoveVertical, Maximize2, Minimize2 } from "lucide-react
 import { Button } from "@/components/ui/button";
 import ToolLayout from "@/components/ui/ToolLayout";
 import { GuidanceSection } from "../GuidanceSection";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
+
 
 const PixelRuler = () => {
   const [orientation, setOrientation] = useState<"horizontal" | "vertical">("horizontal");

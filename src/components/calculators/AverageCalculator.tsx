@@ -8,6 +8,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { X } from "lucide-react";
 import { GuidanceSection } from "@/components/GuidanceSection";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
+
 
 export const AverageCalculator = () => {
   // For "Simple Average" calculator
@@ -93,7 +96,22 @@ export const AverageCalculator = () => {
   };
 
   return (
+        <>
+          <Breadcrumb className="mb-4">
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link to="/">Home</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>Average Calculator</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
     <div className="calculator-container bg-white/40 dark:bg-transparent">
+
       <h2 className="calculator-header">Average Calculator</h2>
       
       <Tabs defaultValue="simple" className="w-full">
@@ -284,5 +302,6 @@ export const AverageCalculator = () => {
         </div>
       </GuidanceSection>
     </div>
+    </>
   );
 };

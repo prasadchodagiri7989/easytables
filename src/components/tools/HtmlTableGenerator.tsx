@@ -14,6 +14,9 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { toast } from "sonner";
 import { Clipboard, Download, Table } from "lucide-react";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
+
 
 const HtmlTableGenerator = () => {
   const [rows, setRows] = useState(3);
@@ -130,6 +133,20 @@ const HtmlTableGenerator = () => {
   };
 
   return (
+    <>
+              <Breadcrumb className="mb-4">
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/">Home</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbPage>Average Calculator</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
     <Card className="w-full">
       <CardHeader>
         <CardTitle>HTML Table Generator</CardTitle>
@@ -278,6 +295,7 @@ const HtmlTableGenerator = () => {
         </Button>
       </CardContent>
     </Card>
+    </>
   );
 };
 

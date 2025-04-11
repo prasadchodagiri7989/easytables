@@ -7,6 +7,8 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { GuidanceSection } from "@/components/GuidanceSection";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
 
 export const BMICalculator = () => {
   const [height, setHeight] = useState<number>(170);
@@ -43,6 +45,20 @@ export const BMICalculator = () => {
   };
 
   return (
+    <>
+    <Breadcrumb className="mb-4">
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbLink asChild>
+            <Link to="/">Home</Link>
+          </BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbPage>BMI Calculator</BreadcrumbPage>
+        </BreadcrumbItem>
+      </BreadcrumbList>
+    </Breadcrumb>
     <div className="calculator-container bg-white/40 dark:bg-transparent">
       <h2 className="calculator-header">BMI Calculator</h2>
       
@@ -220,5 +236,6 @@ export const BMICalculator = () => {
         <p className="mt-2 text-sm text-muted-foreground">Always consult with a healthcare provider for a comprehensive health assessment.</p>
       </GuidanceSection>
     </div>
+    </>
   );
 };

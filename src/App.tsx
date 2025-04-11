@@ -130,6 +130,8 @@ import WattageConverter from "./components/lighting/calculators/wattageConvertor
 import ColorTemperatureConverter from "./components/lighting/calculators/colorTemperature";
 import EnergyUsageCalculator from "./components/lighting/calculators/energyUsage";
 
+import AmpereInfo from "./components/electrical/content/Ampere";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -192,6 +194,7 @@ const App = () => (
           <Route path="/electrical/lighting/color-temp" element={<Layout><ColorTemperatureConverter /></Layout>} />
           <Route path="/electrical/lighting/energy-usage" element={<Layout><EnergyUsageCalculator /></Layout>} />
           
+          <Route path="/electrical/units/ampere" element={<Layout><AmpereInfo /></Layout>} />
 
 
 

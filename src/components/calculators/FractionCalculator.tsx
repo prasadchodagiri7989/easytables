@@ -6,6 +6,8 @@ import { Card } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { GuidanceSection } from "@/components/GuidanceSection";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
 
 export const FractionCalculator = () => {
   const [numerator1, setNumerator1] = useState("");
@@ -73,6 +75,20 @@ export const FractionCalculator = () => {
   };
 
   return (
+    <>
+        <Breadcrumb className="mb-4">
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link to="/">Home</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>Fraction Calculator</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
     <div className="calculator-container bg-white/40 dark:bg-transparent">
       <h2 className="calculator-header">Fraction Calculator</h2>
       
@@ -233,5 +249,6 @@ export const FractionCalculator = () => {
         <p><strong>Example:</strong> 5/2 is shown as 2 1/2</p>
       </GuidanceSection>
     </div>
+    </>
   );
 };

@@ -1,5 +1,13 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { Card, CardContent } from "@/components/ui/card";
 
 const howToItems = [
   { name: "How to Save Electricity", path: "/howto/save-electricity" },
@@ -8,20 +16,38 @@ const howToItems = [
 
 const HowTo = () => {
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-6">How To Guides</h1>
-      <ul className="space-y-3">
+    <div className="container mx-auto px-4 py-8">
+      {/* Breadcrumb */}
+      <Breadcrumb>
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/">Home</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>How To Guides</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+
+      <h1 className="text-3xl font-bold mt-6 mb-4">How To Guides</h1>
+
+      <div className="grid md:grid-cols-2 gap-4">
         {howToItems.map((item) => (
-          <li key={item.path}>
-            <Link
-              to={item.path}
-              className="block text-blue-600 hover:underline text-lg"
-            >
-              {item.name}
-            </Link>
-          </li>
+          <Card key={item.path}>
+            <CardContent className="p-4">
+              <Link
+                to={item.path}
+                className="text-blue-600 hover:underline text-lg font-medium"
+              >
+                {item.name}
+              </Link>
+            </CardContent>
+          </Card>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
