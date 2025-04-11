@@ -135,6 +135,14 @@ import DbmInfo from "./components/electrical/content/DBmilli";
 import DbmilliInfo from "./components/electrical/content/DBmilli";
 import DecibelInfo from "./components/electrical/content/Decibel";
 import FaradInfo from "./components/electrical/content/Farad";
+import KvaInfo from "./components/electrical/content/Kilovolt-amp";
+import KwhInfo from "./components/electrical/content/Kilowatt-hour";
+import KilowattInfo from "./components/electrical/content/Kilowatt";
+import OhmLaw from "./components/electrical/content/Ohm";
+import VoltInfo from "./components/electrical/content/Volt";
+import WattInfo from "./components/electrical/content/Watt";
+import OhmsLaw from "./components/electrical/content/ohmslaw";
+
 
 const queryClient = new QueryClient();
 
@@ -203,6 +211,21 @@ const App = () => (
           <Route path="/electrical/units/dbw" element={<Layout><DbmInfo /></Layout>} />
           <Route path="/electrical/units/decibel" element={<Layout><DecibelInfo /></Layout>} />
           <Route path="/electrical/units/farad" element={<Layout><FaradInfo /></Layout>} />
+          <Route path="/electrical/units/kva" element={<Layout><KvaInfo /></Layout>} />
+          <Route path="/electrical/units/kw" element={<Layout><KilowattInfo /></Layout>} />
+          <Route path="/electrical/units/kwh" element={<Layout><KwhInfo /></Layout>} />
+          <Route path="/electrical/units/ohm" element={<Layout><OhmLaw /></Layout>} />
+          <Route path="/electrical/units/volt" element={<Layout><VoltInfo /></Layout>} />
+          <Route path="/electrical/units/watt" element={<Layout><WattInfo /></Layout>} />
+
+          <Route path="/electrical/content/c" element={<Layout><WattInfo /></Layout>} />
+
+
+
+
+
+
+
 
 
 
