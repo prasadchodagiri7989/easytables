@@ -144,10 +144,10 @@ import WattInfo from "./components/electrical/content/Watt";
 
 import OhmsLaw from "./components/electrical/content/ohmslaw";
 import ResistorChart from "./components/electrical/content/resistor";
-import CapacitorChart from "./components/electrical/content/capacitor";
-import InductorChart from "./components/electrical/content/inductor";
-import DIPSwitchChart from "./components/electrical/content/dipswitch";
-import SolderBridge from "./components/electrical/content/solderbridge";
+import CapacitorInfo from "./components/electrical/content/CapacitorInfo";
+import InductorInfo from "./components/electrical/content/InductorInfo";
+import DipSwitchInfo from "./components/electrical/content/DIPSwitchInfo";
+import SolderBridgeInfo from "./components/electrical/content/SolderBridgeInfo";
 
 import ElectricCurrent from "./components/electrical/content/electricalcurrent";
 import ElectricPower from "./components/electrical/content/electricpower";
@@ -156,6 +156,8 @@ import ElectricalResistance from "./components/electrical/content/electricalresi
 import ElectricCharge from "./components/electrical/content/electricalCharge";
 import PowerEfficiency from "./components/electrical/content/powerefficiency";
 import PowerFactor from "./components/electrical/content/powerfactor";
+
+import SwitchSymbolsTable from "./components/electrical/content/switchsymbols";
 
 
 const queryClient = new QueryClient();
@@ -233,10 +235,10 @@ const App = () => (
           <Route path="/electrical/units/watt" element={<Layout><WattInfo /></Layout>} />
 
           <Route path="/electrical/components/resistor" element={<Layout><ResistorChart /></Layout>} />
-          <Route path="/electrical/components/capacitor" element={<Layout><CapacitorChart /></Layout>} />
-          <Route path="/electrical/components/inductor" element={<Layout><InductorChart /></Layout>} />
-          <Route path="/electrical/components/dip-switch" element={<Layout><DIPSwitchChart /></Layout>} />
-          <Route path="/electrical/components/solder-bridge" element={<Layout><SolderBridge /></Layout>} />
+          <Route path="/electrical/components/capacitor" element={<Layout><CapacitorInfo /></Layout>} />
+          <Route path="/electrical/components/inductor" element={<Layout><InductorInfo /></Layout>} />
+          <Route path="/electrical/components/dip-switch" element={<Layout><DipSwitchInfo /></Layout>} />
+          <Route path="/electrical/components/solder-bridge" element={<Layout><SolderBridgeInfo /></Layout>} />
 
           <Route path="/electrical/content/voltage" element={<Layout><ElectricalVoltage /></Layout>} />
           <Route path="/electrical/content/resistance" element={<Layout><ElectricalResistance /></Layout>} />
@@ -246,6 +248,7 @@ const App = () => (
           <Route path="/electrical/content/efficiency" element={<Layout><PowerEfficiency /></Layout>} />
           <Route path="/electrical/content/factor" element={<Layout><PowerFactor /></Layout>} />
 
+          <Route path="/electrical/symbols/switch" element={<Layout><SwitchSymbolsTable /></Layout>} />
           
 
 

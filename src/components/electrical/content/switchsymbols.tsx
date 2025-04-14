@@ -1,89 +1,107 @@
-import React from 'react';
+import React from "react";
 
-const SwitchSymbols = () => {
-  const symbols = [
-    {
-      name: "SPST Toggle Switch",
-      symbol: "SPST switch symbol",
-      description: "Disconnects current when open",
-    },
-    {
-      name: "SPDT Toggle Switch",
-      symbol: "SPDT switch symbol",
-      description: "Selects between two connections",
-    },
-    {
-      name: "Pushbutton Switch (N.O)",
-      symbol: "push button symbol",
-      description: "Momentary switch - normally open",
-    },
-    {
-      name: "Pushbutton Switch (N.C)",
-      symbol: "push button symbol",
-      description: "Momentary switch - normally closed",
-    },
-    {
-      name: "DIP Switch",
-      symbol: "dip switch symbol",
-      description: "DIP switch is used for onboard configuration",
-    },
-    {
-      name: "SPST Relay",
-      symbol: "spst relay symbol",
-      description: "Relay open / close connection by an electromagnet",
-    },
-    {
-      name: "SPDT Relay",
-      symbol: "spdt relay symbol",
-      description: "Single pole double throw relay",
-    },
-    {
-      name: "Jumper",
-      symbol: "jumper symbol",
-      description: "Close connection by jumper insertion on pins.",
-    },
-    {
-      name: "Solder Bridge",
-      symbol: "solder bridge symbol",
-      description: "Solder to close connection",
-    },
-  ];
-
+const SwitchSymbolsTable = () => {
   return (
-    <div className="p-4 max-w-4xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Electronic Switch Symbols</h1>
-      <p className="mb-6 text-gray-700">Electrical & electronic switch symbols of schematic diagram - toggle switch, pushbutton switch, DIP switch, relay, jumper, solder bridge.</p>
-      <table className="w-full border border-gray-300">
-        <thead>
-          <tr className="bg-gray-100">
-            <th className="border p-2">Symbol</th>
-            <th className="border p-2">Name</th>
-            <th className="border p-2">Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          {symbols.map((item, index) => (
-            <tr key={index} className="text-center">
-              <td className="border p-2">{item.symbol}</td>
-              <td className="border p-2 font-semibold">{item.name}</td>
-              <td className="border p-2 text-gray-700">{item.description}</td>
+    <div className="p-6 text-gray-800 dark:text-white">
+      <h1 className="text-3xl font-bold mb-4">Electronic Switch Symbols</h1>
+      <p className="mb-6">
+        Below is a table of common electronic switch symbols used in schematic diagrams, along with their names and descriptions.
+      </p>
+      <div className="overflow-x-auto">
+        <table className="min-w-full table-auto border border-gray-300 dark:border-gray-600">
+          <thead>
+            <tr className="bg-gray-200 dark:bg-gray-700">
+              <th className="px-4 py-2 border border-gray-300 dark:border-gray-600">Symbol</th>
+              <th className="px-4 py-2 border border-gray-300 dark:border-gray-600">Name</th>
+              <th className="px-4 py-2 border border-gray-300 dark:border-gray-600">Description</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {/* SPST Toggle Switch */}
+            <tr>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">
+                <img src="https://www.rapidtables.com/electric/images/SPST_switch_symbol.png" alt="SPST Toggle Switch" className="h-12 mx-auto" />
+              </td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">SPST Toggle Switch</td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Disconnects current when open.</td>
+            </tr>
 
-      <div className="mt-6 text-sm text-gray-600">
-        <p><strong>See also:</strong></p>
-        <ul className="list-disc list-inside">
-          <li>Electronic symbols</li>
-          <li>Resistor symbols</li>
-          <li>Capacitor symbols</li>
-          <li>Diode symbols</li>
-          <li>Transistor symbols</li>
-        </ul>
+            {/* SPDT Toggle Switch */}
+            <tr>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">
+                <img src="https://www.rapidtables.com/electric/images/SPDT_switch_symbol.png" alt="SPDT Toggle Switch" className="h-12 mx-auto" />
+              </td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">SPDT Toggle Switch</td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Selects between two connections.</td>
+            </tr>
+
+            {/* Pushbutton Switch (N.O) */}
+            <tr>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">
+                <img src="https://www.rapidtables.com/electric/images/push_button_symbol_NO.png" alt="Pushbutton N.O." className="h-12 mx-auto" />
+              </td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Pushbutton Switch (N.O)</td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Momentary switch - normally open.</td>
+            </tr>
+
+            {/* Pushbutton Switch (N.C) */}
+            <tr>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">
+                <img src="https://www.rapidtables.com/electric/images/push_button_symbol_NC.png" alt="Pushbutton N.C." className="h-12 mx-auto" />
+              </td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Pushbutton Switch (N.C)</td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Momentary switch - normally closed.</td>
+            </tr>
+
+            {/* DIP Switch */}
+            <tr>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">
+                <img src="https://www.rapidtables.com/electric/images/dip_switch_symbol.png" alt="DIP Switch" className="h-12 mx-auto" />
+              </td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">DIP Switch</td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Used for onboard configuration.</td>
+            </tr>
+
+            {/* SPST Relay */}
+            <tr>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">
+                <img src="https://www.rapidtables.com/electric/images/SPST_relay_symbol.png" alt="SPST Relay" className="h-12 mx-auto" />
+              </td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">SPST Relay</td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Relay opens/closes connection by electromagnet.</td>
+            </tr>
+
+            {/* SPDT Relay */}
+            <tr>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">
+                <img src="https://www.rapidtables.com/electric/images/SPDT_relay_symbol.png" alt="SPDT Relay" className="h-12 mx-auto" />
+              </td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">SPDT Relay</td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Selects between two circuits using a relay.</td>
+            </tr>
+
+            {/* Jumper */}
+            <tr>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">
+                <img src="https://www.rapidtables.com/electric/images/jumper_symbol.png" alt="Jumper" className="h-12 mx-auto" />
+              </td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Jumper</td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Closes connection by jumper insertion on pins.</td>
+            </tr>
+
+            {/* Solder Bridge */}
+            <tr>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">
+                <img src="https://www.rapidtables.com/electric/images/solder_bridge_symbol.png" alt="Solder Bridge" className="h-12 mx-auto" />
+              </td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Solder Bridge</td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Solder to close a permanent connection on PCB.</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   );
 };
 
-export default SwitchSymbols;
+export default SwitchSymbolsTable;
