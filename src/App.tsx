@@ -219,6 +219,11 @@ import WhTomAhCalculator from "./components/conversion-calculators/WhTomAhCalcul
 import WireGaugeCalculator from "./components/conversion-calculators/WireGaugeCalculator";
 import ElectricalCalculators from "./components/conversion-calculators/ElectricalCalculators";
 
+import CandelaToLumensCalculator from "./components/lighting/calculators/CandelaToLumensCalculator";
+import CandelaToLuxCalculator from "./components/lighting/calculators/CandelaToLuxCalculator";
+import FootcandlesToLuxCalculator from "./components/lighting/calculators/FootCandlesToLuxCalculator";
+import LumensToCandelaCalculator from "./components/lighting/calculators/LumensToCandelaCalculator";
+import LumensToLuxCalculator from "./components/lighting/calculators/LumensToLuxCalculator";
 
 
 
