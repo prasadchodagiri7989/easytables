@@ -63,7 +63,7 @@ export default function ElectricalCalculators() {
         {calculators.map((item, i) => (
           <Link
             key={i}
-            to={`/calculations/${slugify(item)}`}
+            to={`/electrical-calculators/${slugify(item)}`}
             className="block bg-white hover:bg-gray-100 p-4 rounded-xl shadow-md transition duration-200 dark:bg-transparent border"
           >
             {item.charAt(0).toUpperCase() + item.slice(1)}
