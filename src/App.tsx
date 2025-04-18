@@ -398,6 +398,20 @@ const App = () => (
           <Route path="/electrical-calculators/wire-gauge-calculator" element={<Layout><WireGaugeCalculator /></Layout>} />
 
           <Route path="/lighting-calculators" element={<Layout><LightingCalculators /></Layout>} />
+          <Route path="/lighting-calculators/candela-to-lumens-calculator" element={<Layout><CandelaToLumensCalculator /></Layout>} />
+          <Route path="/lighting-calculators/candela-to-lux-calculator" element={<Layout><CandelaToLuxCalculator /></Layout>} />
+          <Route path="/lighting-calculators/footcandles-to-lux-calculator" element={<Layout><FootcandlesToLuxCalculator /></Layout>} />
+          <Route path="/lighting-calculators/lumens-to-candela-calculator" element={<Layout><LumensToCandelaCalculator /></Layout>} />
+          <Route path="/lighting-calculators/lumens-to-lux-calculator" element={<Layout><LumensToLuxCalculator /></Layout>} />
+          <Route path="/lighting-calculators/lumens-to-millicandela-calculator" element={<Layout><LumensToMillicandelaCalculator /></Layout>} />
+          <Route path="/lighting-calculators/lumens-to-watts-calculator" element={<Layout><LumensToWattsCalculator /></Layout>} />
+          <Route path="/lighting-calculators/lux-to-candela-calculator" element={<Layout><LuxToCandelaCalculator /></Layout>} />
+          <Route path="/lighting-calculators/lux-to-footcandles-calculator" element={<Layout><LuxToFootcandlesCalculator /></Layout>} />
+          <Route path="/lighting-calculators/lux-to-lumens-calculator" element={<Layout><LuxToLumensCalculator /></Layout>} />
+          <Route path="/lighting-calculators/lux-to-watts-calculator" element={<Layout><LuxToWattsCalculator /></Layout>} />
+          <Route path="/lighting-calculators/millicandela-to-lumens-calculator" element={<Layout><MillicandelaToLumensCalculator /></Layout>} />
+          <Route path="/lighting-calculators/watts-to-lumens-calculator" element={<Layout><WattsToLumensCalculator /></Layout>} />
+          <Route path="/lighting-calculators/watts-to-lux-calculator" element={<Layout><WattsToLuxCalculator /></Layout>} />
 
 
 
