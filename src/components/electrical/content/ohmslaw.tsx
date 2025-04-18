@@ -69,7 +69,7 @@ const OhmsLaw = () => {
               value={voltage}
               onChange={(e) => setVoltage(e.target.value)}
               placeholder="Voltage in Volts"
-              className="p-2 border rounded"
+              className="p-2 border rounded dark:text-black"
             />
           </div>
 
@@ -80,7 +80,7 @@ const OhmsLaw = () => {
               value={current}
               onChange={(e) => setCurrent(e.target.value)}
               placeholder="Current in Amps"
-              className="p-2 border rounded"
+              className="p-2 border rounded dark:text-black"
             />
           </div>
 
@@ -91,7 +91,7 @@ const OhmsLaw = () => {
               value={resistance}
               onChange={(e) => setResistance(e.target.value)}
               placeholder="Resistance in Ohms"
-              className="p-2 border rounded"
+              className="p-2 border rounded dark:text-black"
             />
           </div>
         </div>

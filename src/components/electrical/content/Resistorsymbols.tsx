@@ -1,79 +1,104 @@
-// ResistorSymbols.jsx
 import React from "react";
-
-const resistorSymbols = [
-  {
-    name: "Resistor (IEEE)",
-    description: "Resistor reduces the current flow.",
-    image: "/symbols/resistor-ieee.png",
-  },
-  {
-    name: "Resistor (IEC)",
-    description: "Resistor reduces the current flow.",
-    image: "/symbols/resistor-iec.png",
-  },
-  {
-    name: "Potentiometer (IEEE)",
-    description: "Adjustable resistor - has 3 terminals.",
-    image: "/symbols/potentiometer-ieee.png",
-  },
-  {
-    name: "Potentiometer (IEC)",
-    description: "Adjustable resistor - has 3 terminals.",
-    image: "/symbols/potentiometer-iec.png",
-  },
-  {
-    name: "Variable Resistor / Rheostat (IEEE)",
-    description: "Adjustable resistor - has 2 terminals.",
-    image: "/symbols/variable-resistor-ieee.png",
-  },
-  {
-    name: "Variable Resistor / Rheostat (IEC)",
-    description: "Adjustable resistor - has 2 terminals.",
-    image: "/symbols/variable-resistor-iec.png",
-  },
-  {
-    name: "Trimmer Resistor",
-    description: "Preset resistor",
-    image: "/symbols/trimmer-resistor.png",
-  },
-  {
-    name: "Thermistor",
-    description: "Thermal resistor - change resistance when temperature changes",
-    image: "/symbols/thermistor.png",
-  },
-  {
-    name: "Photoresistor / LDR",
-    description: "Photo-resistor - change resistance with light intensity change",
-    image: "/symbols/photoresistor.png",
-  },
-];
 
 const ResistorSymbols = () => {
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Resistor Symbols</h1>
+    <div className="p-6 text-gray-800 dark:text-white">
+      <h1 className="text-3xl font-bold mb-4">Resistor Symbols</h1>
       <p className="mb-6">
-        Resistor symbols of electrical & electronic circuit diagram - resistor,
-        potentiometer, variable resistor.
+        Below is a table of resistor symbols commonly used in electrical and electronic circuit diagrams, including fixed, variable, and special-purpose resistors.
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {resistorSymbols.map((symbol, index) => (
-          <div
-            key={index}
-            className="border rounded-2xl shadow-md p-4 flex items-center gap-4"
-          >
-            <img
-              src={symbol.image}
-              alt={symbol.name}
-              className="w-16 h-16 object-contain"
-            />
-            <div>
-              <h2 className="text-xl font-semibold">{symbol.name}</h2>
-              <p className="text-gray-700 text-sm">{symbol.description}</p>
-            </div>
-          </div>
-        ))}
+      <div className="overflow-x-auto">
+        <table className="min-w-full table-auto border border-gray-300 dark:border-gray-600">
+          <thead>
+            <tr className="bg-gray-200 dark:bg-gray-700">
+              <th className="px-4 py-2 border border-gray-300 dark:border-gray-600">Symbol</th>
+              <th className="px-4 py-2 border border-gray-300 dark:border-gray-600">Name</th>
+              <th className="px-4 py-2 border border-gray-300 dark:border-gray-600">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            {/* Resistor (IEEE) */}
+            <tr>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">
+                <img src="https://www.rapidtables.com/electric/images/resistor_symbol.png" alt="Resistor IEEE" className="h-12 mx-auto" />
+              </td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Resistor (IEEE)</td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Resistor reduces the current flow.</td>
+            </tr>
+
+            {/* Resistor (IEC) */}
+            <tr>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">
+                <img src="https://www.rapidtables.com/electric/images/resistor_symbol_IEC.png" alt="Resistor IEC" className="h-12 mx-auto" />
+              </td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Resistor (IEC)</td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Resistor reduces the current flow.</td>
+            </tr>
+
+            {/* Potentiometer (IEEE) */}
+            <tr>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">
+                <img src="https://www.rapidtables.com/electric/images/potentiometer_symbol.png" alt="Potentiometer IEEE" className="h-12 mx-auto" />
+              </td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Potentiometer (IEEE)</td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Adjustable resistor - has 3 terminals.</td>
+            </tr>
+
+            {/* Potentiometer (IEC) */}
+            <tr>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">
+                <img src="https://www.rapidtables.com/electric/images/potentiometer_symbol_IEC.png" alt="Potentiometer IEC" className="h-12 mx-auto" />
+              </td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Potentiometer (IEC)</td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Adjustable resistor - has 3 terminals.</td>
+            </tr>
+
+            {/* Variable Resistor / Rheostat (IEEE) */}
+            <tr>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">
+                <img src="https://www.rapidtables.com/electric/images/rheostat_symbol.png" alt="Rheostat IEEE" className="h-12 mx-auto" />
+              </td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Variable Resistor / Rheostat (IEEE)</td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Adjustable resistor - has 2 terminals.</td>
+            </tr>
+
+            {/* Variable Resistor / Rheostat (IEC) */}
+            <tr>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">
+                <img src="https://www.rapidtables.com/electric/images/rheostat_symbol_IEC.png" alt="Rheostat IEC" className="h-12 mx-auto" />
+              </td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Variable Resistor / Rheostat (IEC)</td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Adjustable resistor - has 2 terminals.</td>
+            </tr>
+
+            {/* Trimmer Resistor */}
+            <tr>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">
+                <img src="https://www.rapidtables.com/electric/images/trimmer_resistor_symbol.png" alt="Trimmer Resistor" className="h-12 mx-auto" />
+              </td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Trimmer Resistor</td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Preset resistor for fine-tuning circuit parameters.</td>
+            </tr>
+
+            {/* Thermistor */}
+            <tr>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">
+                <img src="https://www.rapidtables.com/electric/images/thermistor_symbol.png" alt="Thermistor" className="h-12 mx-auto" />
+              </td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Thermistor</td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Changes resistance with temperature variation.</td>
+            </tr>
+
+            {/* Photoresistor / LDR */}
+            <tr>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">
+                <img src="https://www.rapidtables.com/electric/images/photoresistor_symbol.png" alt="Photoresistor / LDR" className="h-12 mx-auto" />
+              </td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Photoresistor / Light Dependent Resistor (LDR)</td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Changes resistance with light intensity.</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   );

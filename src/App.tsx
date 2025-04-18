@@ -142,7 +142,6 @@ import OhmLaw from "./components/electrical/content/Ohm";
 import VoltInfo from "./components/electrical/content/Volt";
 import WattInfo from "./components/electrical/content/Watt";
 
-import OhmsLaw from "./components/electrical/content/ohmslaw";
 import ResistorChart from "./components/electrical/content/resistor";
 import CapacitorInfo from "./components/electrical/content/CapacitorInfo";
 import InductorInfo from "./components/electrical/content/InductorInfo";
@@ -157,7 +156,24 @@ import ElectricCharge from "./components/electrical/content/electricalCharge";
 import PowerEfficiency from "./components/electrical/content/powerefficiency";
 import PowerFactor from "./components/electrical/content/powerfactor";
 
-import SwitchSymbolsTable from "./components/electrical/content/switchsymbols";
+import SwitchSymbolsTable from "./components/electrical/content/SwitchSymbols";
+import GroundSymbolsTable from "./components/electrical/content/GroundSymbols";
+import ResistorSymbols from "./components/electrical/content/ResistorSymbols";
+import DiodeSymbols from "./components/electrical/content/DiodeSymbols";
+import CapacitorSymbols from "./components/electrical/content/CapacitorSymbols";
+import TransistorSymbols from "./components/electrical/content/Transistorsymbols";
+
+import OhmsLaw from "./components/electrical/content/ohmslaw";
+import VoltageDivider from "./components/electrical/content/voltagedriver";
+import KirchhoffLaws from "./components/electrical/content/Kirchhoffslaws";
+import CoulombsLaw from "./components/electrical/content/Coulombslaw";
+
+import SaveElectricityTips from "./components/electrical/content/SaveElectricity";
+import HowToSaveEnergy from "./components/electrical/content/SaveEnergy";
+
+import ElectricalCalculations from "./components/electrical/calculations/ElectricalCalculations";
+import ConversionPage from "./components/conversions/ConversionPage";
+import CalculatorTool from "./components/conversions/ConversionsElectrical";
 
 
 const queryClient = new QueryClient();
@@ -249,11 +265,26 @@ const App = () => (
           <Route path="/electrical/content/factor" element={<Layout><PowerFactor /></Layout>} />
 
           <Route path="/electrical/symbols/switch" element={<Layout><SwitchSymbolsTable /></Layout>} />
+          <Route path="/electrical/symbols/ground" element={<Layout><GroundSymbolsTable /></Layout>} />
+          <Route path="/electrical/symbols/resistor" element={<Layout><ResistorSymbols /></Layout>} />
+          <Route path="/electrical/symbols/capacitor" element={<Layout><CapacitorSymbols /></Layout>} />
+          <Route path="/electrical/symbols/diode" element={<Layout><DiodeSymbols /></Layout>} />
+          <Route path="/electrical/symbols/transistor" element={<Layout><TransistorSymbols /></Layout>} />
+
+          <Route path="/electrical/circuit-laws/ohm" element={<Layout><OhmsLaw /></Layout>} />
+          <Route path="/electrical/circuit-laws/voltage-divider" element={<Layout><VoltageDivider /></Layout>} />
+          <Route path="/electrical/circuit-laws/kirchhoff" element={<Layout><KirchhoffLaws /></Layout>} />
+          <Route path="/electrical/circuit-laws/coulomb" element={<Layout><CoulombsLaw /></Layout>} />
           
+          <Route path="/howto/save-electricity" element={<Layout><SaveElectricityTips /></Layout>} />
+          <Route path="/howto/save-energy" element={<Layout><HowToSaveEnergy /></Layout>} />
 
+          {/* Electrical Calculations */}
 
+          <Route path="/electrical-calculations" element={<Layout><ElectricalCalculations /></Layout>} />
+          <Route path="/conversions/:slug" element={<Layout><ConversionPage /></Layout>} />
 
-
+          <Route path="/convertor-electrical/:slug" element={<Layout><ConversionPage /></Layout>} />
 
 
 

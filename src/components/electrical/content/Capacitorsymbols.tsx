@@ -1,50 +1,59 @@
-// CapacitorSymbols.jsx
 import React from "react";
-
-const capacitorSymbols = [
-  {
-    name: "Capacitor",
-    description:
-      "Capacitor is used to store electric charge. It acts as short circuit with AC and open circuit with DC.",
-    image: "/symbols/capacitor.png",
-  },
-  {
-    name: "Polarized Capacitor",
-    description: "Electrolytic capacitor",
-    image: "/symbols/polarized-capacitor.png",
-  },
-  {
-    name: "Variable Capacitor",
-    description: "Adjustable capacitance",
-    image: "/symbols/variable-capacitor.png",
-  },
-];
 
 const CapacitorSymbols = () => {
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Capacitor Symbols</h1>
+    <div className="p-6 text-gray-800 dark:text-white">
+      <h1 className="text-3xl font-bold mb-4">Capacitor Symbols</h1>
       <p className="mb-6">
-        Capacitor schematic symbols - capacitor, polarized capacitor, variable
-        capacitor.
+        The following table lists commonly used capacitor symbols in electrical and electronic circuit diagrams. Capacitors store electrical charge and behave differently in AC and DC circuits.
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {capacitorSymbols.map((symbol, index) => (
-          <div
-            key={index}
-            className="border rounded-2xl shadow-md p-4 flex items-center gap-4"
-          >
-            <img
-              src={symbol.image}
-              alt={symbol.name}
-              className="w-16 h-16 object-contain"
-            />
-            <div>
-              <h2 className="text-xl font-semibold">{symbol.name}</h2>
-              <p className="text-gray-700 text-sm">{symbol.description}</p>
-            </div>
-          </div>
-        ))}
+      <div className="overflow-x-auto">
+        <table className="min-w-full table-auto border border-gray-300 dark:border-gray-600">
+          <thead>
+            <tr className="bg-gray-200 dark:bg-gray-700">
+              <th className="px-4 py-2 border border-gray-300 dark:border-gray-600">Symbol</th>
+              <th className="px-4 py-2 border border-gray-300 dark:border-gray-600">Name</th>
+              <th className="px-4 py-2 border border-gray-300 dark:border-gray-600">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            {/* Capacitor */}
+            <tr>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">
+                <img src="https://www.rapidtables.com/electric/images/capacitor_symbol.png" alt="Capacitor Symbol" className="h-12 mx-auto" />
+              </td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Capacitor</td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Stores electric charge. Acts as a short circuit for AC and open circuit for DC.</td>
+            </tr>
+
+            {/* Polarized Capacitor */}
+            <tr>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">
+                <img src="https://www.rapidtables.com/electric/images/polarized_capacitor_symbol.png" alt="Polarized Capacitor" className="h-12 mx-auto" />
+              </td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Polarized Capacitor</td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Electrolytic capacitor with polarity sensitivity.</td>
+            </tr>
+
+            {/* Duplicate Polarized Capacitor (optional to keep for completeness) */}
+            <tr>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">
+                <img src="https://www.rapidtables.com/electric/images/polarized_capacitor_symbol.png" alt="Polarized Capacitor" className="h-12 mx-auto" />
+              </td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Polarized Capacitor</td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Electrolytic capacitor with polarity sensitivity.</td>
+            </tr>
+
+            {/* Variable Capacitor */}
+            <tr>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">
+                <img src="https://www.rapidtables.com/electric/images/variable_capacitor_symbol.png" alt="Variable Capacitor" className="h-12 mx-auto" />
+              </td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Variable Capacitor</td>
+              <td className="px-4 py-2 border border-gray-300 dark:border-gray-600">Adjustable capacitance used in tuning circuits.</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   );
