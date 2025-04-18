@@ -224,6 +224,15 @@ import CandelaToLuxCalculator from "./components/lighting/calculators/CandelaToL
 import FootcandlesToLuxCalculator from "./components/lighting/calculators/FootCandlesToLuxCalculator";
 import LumensToCandelaCalculator from "./components/lighting/calculators/LumensToCandelaCalculator";
 import LumensToLuxCalculator from "./components/lighting/calculators/LumensToLuxCalculator";
+import LumensToMillicandelaCalculator from "./components/lighting/calculators/LumensToMillicandelaCalculator";
+import LumensToWattsCalculator from "./components/lighting/calculators/LumensToWattsCalculator";
+import LuxToCandelaCalculator from "./components/lighting/calculators/LuxToCandelaCalculator";
+import LuxToFootcandlesCalculator from "./components/lighting/calculators/LuxToFootcandlesCalculator";
+import LuxToLumensCalculator from "./components/lighting/calculators/LuxToLumensCalculator";
+import LuxToWattsCalculator from "./components/lighting/calculators/LuxToWattsCalculator";
+import MillicandelaToLumensCalculator from "./components/lighting/calculators/MillicandelaToLumensCalculator";
+import WattsToLumensCalculator from "./components/lighting/calculators/WattsToLumensCalculator";
+import WattsToLuxCalculator from "./components/lighting/calculators/WattsToLuxCalculator";
 
 
 
