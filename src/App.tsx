@@ -282,7 +282,7 @@ const App = () => (
           {/* Electrical Calculations */}
 
           <Route path="/electrical-calculations" element={<Layout><ElectricalCalculations /></Layout>} />
-          <Route path="/conversions/:slug" element={<Layout><ConversionPage /></Layout>} />
+          <Route path="/calculations/:slug" element={<Layout><ConversionPage /></Layout>} />
 
           <Route path="/convertor-electrical/:slug" element={<Layout><ConversionPage /></Layout>} />
 
