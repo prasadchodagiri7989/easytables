@@ -174,6 +174,10 @@ import HowToSaveEnergy from "./components/electrical/content/SaveEnergy";
 import ElectricalCalculations from "./components/electrical/calculations/ElectricalCalculations";
 import ConversionPage from "./components/conversions/ConversionPage";
 import CalculatorTool from "./components/conversions/ConversionsElectrical";
+import AmpsToKVACalculator from "./components/conversion-calculators/AmpsToKVACalculator";
+import AmpsToKWCalculator from "./components/conversion-calculators/AmpsToKwCalculator";
+import WireGaugeCalculator from "./components/conversion-calculators/WireGaugeCalculator";
+
 
 
 const queryClient = new QueryClient();
@@ -285,6 +289,8 @@ const App = () => (
           <Route path="/calculations/:slug" element={<Layout><ConversionPage /></Layout>} />
 
           <Route path="/convertor-electrical/:slug" element={<Layout><ConversionPage /></Layout>} />
+          <Route path="/electrical-calculator/amp-kva" element={<Layout><AmpsToKVACalculator /></Layout>} />
+
 
 
 
