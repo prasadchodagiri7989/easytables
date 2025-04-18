@@ -32,7 +32,7 @@ export default function LightingCalculators() {
         {calculators.map((item, i) => (
           <Link
             key={i}
-            to={`/electrical-calculators/${slugify(item)}`}
+            to={`/lighting-calculators/${slugify(item)}`}
             className="block bg-white hover:bg-gray-100 p-4 rounded-xl shadow-md transition duration-200 dark:bg-transparent border"
           >
             {item.charAt(0).toUpperCase() + item.slice(1)}
