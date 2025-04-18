@@ -13,7 +13,7 @@ export interface Conversion {
 
 export const conversions: Conversion[] = [
   {
-    slug: "1-amp-to-watts",
+    slug: "1-amps-to-watts",
     title: "How to convert 1 amp to watts",
     description: "Convert electric current of 1 amp (A) to electric power in watts (W).",
     formulas: [
@@ -52,7 +52,7 @@ export const conversions: Conversion[] = [
     ]
   },
   {
-    slug: "2-amps-to-watts",
+    slug: "2-amps-to-watt",
     title: "How to convert 2 amps to watts",
     description: "Convert electric current of 2 amps (A) to electric power in watts (W).",
     formulas: [
@@ -74,7 +74,7 @@ export const conversions: Conversion[] = [
     ]
   },
   {
-    slug: "3-amps-to-watts",
+    slug: "3-amps-to-watt",
     title: "How to convert 3 amps to watts",
     description: "Convert electric current of 3 amps (A) to electric power in watts (W).",
     formulas: [
@@ -96,7 +96,7 @@ export const conversions: Conversion[] = [
     ]
   },
   {
-    slug: "10-amps-to-watts",
+    slug: "10-amps-to-watt",
     title: "How to convert 10 amps to watts",
     description: "Convert electric current of 10 amps (A) to electric power in watts (W).",
     formulas: [
@@ -118,7 +118,7 @@ export const conversions: Conversion[] = [
     ]
   },
   {
-    slug: "15-amps-to-watts",
+    slug: "15-amps-to-watt",
     title: "How to convert 15 amps to watts",
     description: "Convert electric current of 15 amps (A) to electric power in watts (W).",
     formulas: [
@@ -140,7 +140,7 @@ export const conversions: Conversion[] = [
     ]
   },
   {
-    slug: "100-amps-to-watts",
+    slug: "100-amps-to-watt",
     title: "How to convert 100 amps to watts",
     description: "Convert electric current of 100 amps (A) to electric power in watts (W).",
     formulas: [
