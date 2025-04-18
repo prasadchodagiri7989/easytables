@@ -5,25 +5,25 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { GuidanceSection } from "@/components/GuidanceSection";
 
-const WattsToKVACalculator = () => {
+const WattsToVoltsCalculator = () => {
   const [watts, setWatts] = useState('');
-  const [powerFactor, setPowerFactor] = useState('1');
-  const [kva, setKva] = useState('');
+  const [amps, setAmps] = useState('');
+  const [volts, setVolts] = useState('');
   const [error, setError] = useState('');
 
-  const calculateKVA = () => {
+  const calculateVolts = () => {
     setError('');
     try {
       const W = parseFloat(watts);
-      const PF = parseFloat(powerFactor);
+      const I = parseFloat(amps);
 
-      if (isNaN(W) || isNaN(PF) || PF <= 0) {
-        setError('Please enter valid numeric values. Power factor must be greater than 0.');
+      if (isNaN(W) || isNaN(I) || I <= 0) {
+        setError('Please enter valid numeric values. Current must be greater than 0.');
         return;
       }
 
-      const result = W / (PF * 1000);
-      setKva(result.toFixed(4));
+      const V = W / I;
+      setVolts(V.toFixed(2));
     } catch {
       setError('Something went wrong with the calculation.');
     }
@@ -31,8 +31,8 @@ const WattsToKVACalculator = () => {
 
   const reset = () => {
     setWatts('');
-    setPowerFactor('1');
-    setKva('');
+    setAmps('');
+    setVolts('');
     setError('');
   };
 
@@ -40,7 +40,7 @@ const WattsToKVACalculator = () => {
     <div className="container mx-auto p-4">
       <Card className="mb-8">
         <CardHeader>
-          <CardTitle>Watts to kVA Calculator</CardTitle>
+          <CardTitle>Watts to Volts Calculator</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
@@ -56,23 +56,22 @@ const WattsToKVACalculator = () => {
                 />
               </div>
               <div>
-                <Label htmlFor="powerFactor">Power Factor</Label>
+                <Label htmlFor="amps">Current (A)</Label>
                 <Input
-                  id="powerFactor"
+                  id="amps"
                   type="number"
-                  step="0.01"
-                  placeholder="Enter power factor (0 to 1)"
-                  value={powerFactor}
-                  onChange={(e) => setPowerFactor(e.target.value)}
+                  placeholder="Enter current in Amps"
+                  value={amps}
+                  onChange={(e) => setAmps(e.target.value)}
                 />
               </div>
               <div>
-                <Label htmlFor="kva">Apparent Power (kVA)</Label>
+                <Label htmlFor="volts">Voltage (V)</Label>
                 <Input
-                  id="kva"
+                  id="volts"
                   type="number"
-                  placeholder="Calculated kVA"
-                  value={kva}
+                  placeholder="Calculated Volts"
+                  value={volts}
                   disabled
                 />
               </div>
@@ -85,33 +84,33 @@ const WattsToKVACalculator = () => {
             )}
 
             <div className="flex gap-3">
-              <Button onClick={calculateKVA}>Calculate</Button>
+              <Button onClick={calculateVolts}>Calculate</Button>
               <Button variant="outline" onClick={reset}>Reset</Button>
             </div>
           </div>
         </CardContent>
       </Card>
 
-      <GuidanceSection title="Watts to kVA Conversion Guide">
+      <GuidanceSection title="Watts to Volts Conversion Guide">
         <div className="space-y-4">
-          <p>This calculator converts real power in Watts (W) to apparent power in kilovolt-amperes (kVA), using the power factor of the system.</p>
+          <p>This calculator converts power in Watts (W) to voltage in Volts (V), using the current in Amps (A).</p>
           <div>
             <h3 className="font-medium">Formula:</h3>
             <ul className="list-disc pl-5">
-              <li><b>kVA = Watts / (Power Factor × 1000)</b></li>
+              <li><b>Volts = Watts / Amps</b></li>
             </ul>
             <p className="mt-2">
               Where:
-              <br />Watts = Real Power (W)
-              <br />Power Factor = Ratio between real and apparent power (usually between 0.8 and 1)
+              <br />Watts = Power (W)
+              <br />Amps = Current (A)
             </p>
           </div>
           <div>
             <h3 className="font-medium">Tips:</h3>
             <ul className="list-disc pl-5">
-              <li>Use PF = 1 for purely resistive loads.</li>
-              <li>Typical PF for inductive loads like motors is around 0.8.</li>
-              <li>Always double-check unit consistency before conversion.</li>
+              <li>Ensure the current is not zero to avoid divide-by-zero errors.</li>
+              <li>Use consistent units (Watts and Amps).</li>
+              <li>This formula assumes a resistive (non-reactive) load.</li>
             </ul>
           </div>
         </div>
@@ -120,4 +119,4 @@ const WattsToKVACalculator = () => {
   );
 };
 
-export default WattsToKVACalculator;
+export default WattsToVoltsCalculator;
