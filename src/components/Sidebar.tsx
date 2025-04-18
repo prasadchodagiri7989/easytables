@@ -230,6 +230,7 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
                   />
                 </CollapsibleTrigger>
                 <CollapsibleContent className="pl-6 space-y-1 mt-1">
+                  <SidebarLink to="/lighting-calculators" icon={Lightbulb} label="Lighting Calculators" onClose={onClose} />
                   <SidebarLink to="/electrical/lighting/lumens" icon={Lightbulb} label="Lumens Calculator" onClose={onClose} />
                   <SidebarLink to="/electrical/lighting/led-savings" icon={DollarSign} label="LED Savings" onClose={onClose} />
                   <SidebarLink to="/electrical/lighting/wattage" icon={Zap} label="Wattage Converter" onClose={onClose} />

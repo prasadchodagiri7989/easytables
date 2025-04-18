@@ -219,6 +219,8 @@ import WhTomAhCalculator from "./components/conversion-calculators/WhTomAhCalcul
 import WireGaugeCalculator from "./components/conversion-calculators/WireGaugeCalculator";
 import ElectricalCalculators from "./components/conversion-calculators/ElectricalCalculators";
 
+import LightingCalculators from "./components/lighting/calculators/LightingCalculators";
+
 import CandelaToLumensCalculator from "./components/lighting/calculators/CandelaToLumensCalculator";
 import CandelaToLuxCalculator from "./components/lighting/calculators/CandelaToLuxCalculator";
 import FootcandlesToLuxCalculator from "./components/lighting/calculators/FootCandlesToLuxCalculator";
@@ -394,6 +396,9 @@ const App = () => (
           
           <Route path="/electrical-calculators/wh-to-mah-calculator" element={<Layout><WhTomAhCalculator /></Layout>} />
           <Route path="/electrical-calculators/wire-gauge-calculator" element={<Layout><WireGaugeCalculator /></Layout>} />
+
+          <Route path="/lighting-calculators" element={<Layout><LightingCalculators /></Layout>} />
+
 
 
 
