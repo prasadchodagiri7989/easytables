@@ -108,6 +108,7 @@ import { FrequencyConverter } from "./components/convertors/FrequencyConverter";
 import { FuelEconomyConverter } from "./components/convertors/FuelEconomyConverter";
 import { VoltageConverter } from "./components/convertors/VoltageConverter";
 import { CurrentConverter } from "./components/convertors/CurrentConverter";
+import ColorConverter from "./components/convertors/ColorConverter";
 
 // Import Electrical & Electronics
 import BasicElectricalTerms from "./components/electrical/BasicElectricalTerms";
@@ -280,6 +281,8 @@ const App = () => (
           <Route path="/convertor/fuel_economy" element={<Layout><FuelEconomyConverter /></Layout>} />
           <Route path="/convertor/voltage" element={<Layout><VoltageConverter /></Layout>} />
           <Route path="/convertor/current" element={<Layout><CurrentConverter /></Layout>} />
+          <Route path="/convertor/" element={<Layout><ColorConverter /></Layout>} />
+
 
           {/* Electrical & Electronic Routes */}
           <Route path="/electrical/basic-terms" element={<Layout><BasicElectricalTerms /></Layout>} />
