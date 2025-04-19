@@ -17,6 +17,13 @@ import { GuidanceSection } from "@/components/GuidanceSection";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
 
+import { useSearchParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
+
 export const DataConverter = () => {
   const [category, setCategory] = useState(unitCategories[10].value);
   const [fromUnit, setFromUnit] = useState("");
@@ -26,6 +33,41 @@ export const DataConverter = () => {
   const [availableUnits, setAvailableUnits] = useState<Array<{ label: string; value: string }>>(
     []
   );
+
+    const location = useLocation();
+    const [searchParams] = useSearchParams();
+    const query = useQuery();
+  
+    useEffect(() => {
+      const from = query.get("from");
+      const to = query.get("to");
+  
+      if (from) setFromUnit(from);
+      if (to) setToUnit(to);
+    }, [query]);
+  
+    // Update available units when category changes
+    useEffect(() => {
+      const units = getUnitsForCategory(category);
+      setAvailableUnits(units);
+      
+      // Check for URL params
+      const fromParam = searchParams.get("from");
+      const toParam = searchParams.get("to");
+      
+      // Set defaults or use params
+      const defaultFromUnit = fromParam && units.some(u => u.value === fromParam) 
+        ? fromParam 
+        : units[0]?.value || "";
+        
+      const defaultToUnit = toParam && units.some(u => u.value === toParam) 
+        ? toParam 
+        : units[1]?.value || "";
+      
+      setFromUnit(defaultFromUnit);
+      setToUnit(defaultToUnit);
+      setResult(null);
+    }, [category, searchParams]);
 
   // Update available units when category changes
   useEffect(() => {
