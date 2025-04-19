@@ -1,10 +1,5 @@
-import React, { useState } from "react";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import React, { useState, useEffect } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
@@ -25,32 +20,36 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
+// Hook to parse query parameters
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
+
+// Available color formats
 const colorFormats = [
   { label: "HEX", value: "hex" },
   { label: "RGB", value: "rgb" },
   { label: "HSL", value: "hsl" },
 ];
 
+// Utility function to convert color
 const convertColor = (value: string, from: string, to: string): string => {
   const parseHex = (hex: string) => {
     let cleaned = hex.replace("#", "");
-    if (cleaned.length === 3)
-      cleaned = cleaned.split("").map((c) => c + c).join("");
+    if (cleaned.length === 3) cleaned = cleaned.split("").map(c => c + c).join("");
     const bigint = parseInt(cleaned, 16);
-    return {
-      r: (bigint >> 16) & 255,
-      g: (bigint >> 8) & 255,
-      b: bigint & 255,
-    };
+    return { r: (bigint >> 16) & 255, g: (bigint >> 8) & 255, b: bigint & 255 };
   };
 
   const rgbToHex = (r: number, g: number, b: number) =>
-    `#${[r, g, b].map((x) => x.toString(16).padStart(2, "0")).join("")}`;
+    `#${[r, g, b].map(x => x.toString(16).padStart(2, "0")).join("")}`;
 
   const rgbToHsl = (r: number, g: number, b: number) => {
-    r /= 255; g /= 255; b /= 255;
+    r /= 255;
+    g /= 255;
+    b /= 255;
     const max = Math.max(r, g, b), min = Math.min(r, g, b);
     let h = 0, s = 0, l = (max + min) / 2;
     if (max !== min) {
@@ -81,23 +80,16 @@ const convertColor = (value: string, from: string, to: string): string => {
   };
 
   const parseRGB = (input: string) => {
-    const [r, g, b] = input
-      .replace(/[^\d,]/g, "")
-      .split(",")
-      .map(Number);
+    const [r, g, b] = input.replace(/[^\d,]/g, "").split(",").map(Number);
     return { r, g, b };
   };
 
   const parseHSL = (input: string) => {
-    const [h, s, l] = input
-      .replace(/[^\d,]/g, "")
-      .split(",")
-      .map(Number);
+    const [h, s, l] = input.replace(/[^\d,]/g, "").split(",").map(Number);
     return { h, s, l };
   };
 
   let rgb;
-
   if (from === "hex") {
     rgb = parseHex(value);
   } else if (from === "rgb") {
@@ -117,15 +109,25 @@ const convertColor = (value: string, from: string, to: string): string => {
 };
 
 export const ColorConverter = () => {
+  const query = useQuery();
   const [fromFormat, setFromFormat] = useState("hex");
   const [toFormat, setToFormat] = useState("rgb");
   const [value, setValue] = useState("");
   const [result, setResult] = useState<string | null>(null);
 
+  useEffect(() => {
+    const from = query.get("from");
+    const to = query.get("to");
+    if (from && to && colorFormats.some(f => f.value === from) && colorFormats.some(f => f.value === to)) {
+      setFromFormat(from);
+      setToFormat(to);
+    }
+  }, [query]);
+
   const handleConvert = () => {
     try {
-      const res = convertColor(value, fromFormat, toFormat);
-      setResult(res);
+      const output = convertColor(value, fromFormat, toFormat);
+      setResult(output);
     } catch {
       setResult("Invalid input");
     }
@@ -176,11 +178,7 @@ export const ColorConverter = () => {
                 </Select>
               </div>
 
-              <Button
-                variant="ghost"
-                className="self-center ml-1 px-2"
-                onClick={handleSwap}
-              >
+              <Button variant="ghost" className="self-center ml-1 px-2" onClick={handleSwap}>
                 <ArrowRightLeft className="h-4 w-4" />
               </Button>
 
@@ -225,10 +223,7 @@ export const ColorConverter = () => {
               <div className="mt-4 p-4 rounded-md bg-muted">
                 <p className="text-sm font-medium mb-1">Result:</p>
                 <p className="text-lg font-bold break-words">{result}</p>
-                <div
-                  className="mt-2 h-10 w-full rounded"
-                  style={{ backgroundColor: result }}
-                ></div>
+                <div className="mt-2 h-10 w-full rounded" style={{ backgroundColor: result }}></div>
               </div>
             )}
           </CardContent>
@@ -244,9 +239,7 @@ export const ColorConverter = () => {
           </ol>
 
           <h4 className="font-medium mt-4 mb-1">Example</h4>
-          <p>
-            Convert <code>#ff5733</code> (HEX) to RGB:
-          </p>
+          <p>Convert <code>#ff5733</code> (HEX) to RGB:</p>
           <div className="bg-background p-2 rounded my-2">
             <p>#ff5733 = rgb(255, 87, 51)</p>
           </div>
@@ -255,5 +248,3 @@ export const ColorConverter = () => {
     </>
   );
 };
-
-export default ColorConverter;

@@ -31,7 +31,9 @@ export const unitCategories = [
   { label: "Frequency", value: "frequency", path: "/convertor/frequency", icon: Activity },
   { label: "Fuel Economy", value: "fuel_economy", path: "/convertor/fuel_economy", icon: Fuel },
   { label: "Voltage", value: "voltage", path: "/convertor/voltage", icon: BatteryCharging },
-  { label: "Current", value: "current", path: "/convertor/current", icon: Plug }
+  { label: "Current", value: "current", path: "/convertor/current", icon: Plug },
+  { label: "Color", value: "color", path: "/convertor/color", icon: Plug }
+
 ];
 
 interface SidebarProps {

@@ -34,7 +34,7 @@ export const EnergyConverter = () => {
     []
   );
 
-const location = useLocation();
+  const location = useLocation();
   const [searchParams] = useSearchParams();
   const query = useQuery();
 
