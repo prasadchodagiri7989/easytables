@@ -237,6 +237,8 @@ import MillicandelaToLumensCalculator from "./components/lighting/calculators/Mi
 import WattsToLumensCalculator from "./components/lighting/calculators/WattsToLumensCalculator";
 import WattsToLuxCalculator from "./components/lighting/calculators/WattsToLuxCalculator";
 
+import AllConversions from "./components/conversions/AllConversions";
+
 
 
 
@@ -415,6 +417,9 @@ const App = () => (
           <Route path="/lighting-calculators/millicandela-to-lumens-calculator" element={<Layout><MillicandelaToLumensCalculator /></Layout>} />
           <Route path="/lighting-calculators/watts-to-lumens-calculator" element={<Layout><WattsToLumensCalculator /></Layout>} />
           <Route path="/lighting-calculators/watts-to-lux-calculator" element={<Layout><WattsToLuxCalculator /></Layout>} />
+
+          <Route path="/all-conversions" element={<Layout><AllConversions /></Layout>} />
+
 
 
 
