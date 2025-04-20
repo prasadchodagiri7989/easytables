@@ -159,10 +159,10 @@ import PowerFactor from "./components/electrical/content/powerfactor";
 
 import SwitchSymbols from "./components/electrical/content/SwitchSymbol";
 import GroundSymbols from "./components/electrical/content/GroundSymbol";
-import ResistorSymbols from "./components/electrical/content/ResistorSymbols";
-import DiodeSymbols from "./components/electrical/content/DiodeSymbols";
-import CapacitorSymbols from "./components/electrical/content/CapacitorSymbols";
-import TransistorSymbols from "./components/electrical/content/Transistorsymbols";
+import ResistorSymbols from "./components/electrical/content/ResistorSymbol";
+import DiodeSymbols from "./components/electrical/content/DiodeSymbol";
+import CapacitorSymbols from "./components/electrical/content/CapacitorSymbol";
+import TransistorSymbols from "./components/electrical/content/Transistorsymbol";
 
 import OhmsLaw from "./components/electrical/content/ohmslaw";
 import VoltageDivider from "./components/electrical/content/voltagedriver";
