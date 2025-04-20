@@ -1,75 +1,50 @@
 import { Link } from "react-router-dom";
 
-const powerCalculations = [
-  "BHP to kW conversion",
-  "BTU/hr to kW conversion",
-  "BTU/hr to tons conversion",
-  "BTU/hr to watts conversion",
-  "dBm converter",
-  "dBm to mW conversion",
-  "dBm to watts conversion",
-  "GW to watts conversion",
-  "hp to kW conversion",
-  "hp to watts conversion",
-  "kW to BHP conversion",
-  "kW to BTU/hr conversion",
-  "kW to hp conversion",
-  "kW to mW conversion",
-  "kW to MW conversion",
-  "kW to tons conversion",
-  "kW to watts conversion",
-  "mW to watts conversion",
-  "mW to kW conversion",
-  "mW to dBm conversion",
-  "MW to watts conversion",
-  "MW to kW conversion",
-  "Tons to BTU/hr conversion",
-  "Tons to kW conversion",
-  "Watts to mW conversion",
-  "Watts to kW conversion",
-  "Watts to MW conversion",
-  "Watts to GW conversion",
-  "Watts to dBm conversion",
-  "Watts to hp conversion",
-  "Watts to BTU/hr conversion",
-  "How to convert mW to watts",
-  "How to convert watts to mW",
-  "How to convert watts to kW",
-  "How to convert watts to hp",
-  "How to convert watt to BTU/hr",
-  "How to convert kW to watt",
-  "How to convert kW to hp",
-  "How to convert kW to BTU/hr",
-  "How to convert kW to BHP",
-  "How to convert kW to refrigeration tons",
-  "How to convert hp to watts",
-  "How to convert hp to kW",
-  "How to convert BTU/hr to watts",
-  "How to convert BTU/hr to kW",
-  "How to convert BTU/hr to refrigeration tons",
-  "How to convert refrigeration tons to BTU/hr",
-  "How to convert refrigeration tons to kW",
-  "How to convert BHP to kW"
+const powerConversions = [
+  { label: "Watt (W) to Kilowatt (kW)", path: "/convertor/power?from=w&to=kw" },
+  { label: "Watt (W) to Megawatt (MW)", path: "/convertor/power?from=w&to=mw" },
+  { label: "Watt (W) to Horsepower (hp)", path: "/convertor/power?from=w&to=hp" },
+  { label: "Watt (W) to Foot-pound per minute (ft⋅lb/min)", path: "/convertor/power?from=w&to=ftlbmin" },
+  { label: "Watt (W) to BTU per hour (BTU/h)", path: "/convertor/power?from=w&to=btuh" },
+  { label: "Kilowatt (kW) to Watt (W)", path: "/convertor/power?from=kw&to=w" },
+  { label: "Kilowatt (kW) to Megawatt (MW)", path: "/convertor/power?from=kw&to=mw" },
+  { label: "Kilowatt (kW) to Horsepower (hp)", path: "/convertor/power?from=kw&to=hp" },
+  { label: "Kilowatt (kW) to Foot-pound per minute (ft⋅lb/min)", path: "/convertor/power?from=kw&to=ftlbmin" },
+  { label: "Kilowatt (kW) to BTU per hour (BTU/h)", path: "/convertor/power?from=kw&to=btuh" },
+  { label: "Megawatt (MW) to Watt (W)", path: "/convertor/power?from=mw&to=w" },
+  { label: "Megawatt (MW) to Kilowatt (kW)", path: "/convertor/power?from=mw&to=kw" },
+  { label: "Megawatt (MW) to Horsepower (hp)", path: "/convertor/power?from=mw&to=hp" },
+  { label: "Megawatt (MW) to Foot-pound per minute (ft⋅lb/min)", path: "/convertor/power?from=mw&to=ftlbmin" },
+  { label: "Megawatt (MW) to BTU per hour (BTU/h)", path: "/convertor/power?from=mw&to=btuh" },
+  { label: "Horsepower (hp) to Watt (W)", path: "/convertor/power?from=hp&to=w" },
+  { label: "Horsepower (hp) to Kilowatt (kW)", path: "/convertor/power?from=hp&to=kw" },
+  { label: "Horsepower (hp) to Megawatt (MW)", path: "/convertor/power?from=hp&to=mw" },
+  { label: "Horsepower (hp) to Foot-pound per minute (ft⋅lb/min)", path: "/convertor/power?from=hp&to=ftlbmin" },
+  { label: "Horsepower (hp) to BTU per hour (BTU/h)", path: "/convertor/power?from=hp&to=btuh" },
+  { label: "Foot-pound per minute (ft⋅lb/min) to Watt (W)", path: "/convertor/power?from=ftlbmin&to=w" },
+  { label: "Foot-pound per minute (ft⋅lb/min) to Kilowatt (kW)", path: "/convertor/power?from=ftlbmin&to=kw" },
+  { label: "Foot-pound per minute (ft⋅lb/min) to Megawatt (MW)", path: "/convertor/power?from=ftlbmin&to=mw" },
+  { label: "Foot-pound per minute (ft⋅lb/min) to Horsepower (hp)", path: "/convertor/power?from=ftlbmin&to=hp" },
+  { label: "Foot-pound per minute (ft⋅lb/min) to BTU per hour (BTU/h)", path: "/convertor/power?from=ftlbmin&to=btuh" },
+  { label: "BTU per hour (BTU/h) to Watt (W)", path: "/convertor/power?from=btuh&to=w" },
+  { label: "BTU per hour (BTU/h) to Kilowatt (kW)", path: "/convertor/power?from=btuh&to=kw" },
+  { label: "BTU per hour (BTU/h) to Megawatt (MW)", path: "/convertor/power?from=btuh&to=mw" },
+  { label: "BTU per hour (BTU/h) to Horsepower (hp)", path: "/convertor/power?from=btuh&to=hp" },
+  { label: "BTU per hour (BTU/h) to Foot-pound per minute (ft⋅lb/min)", path: "/convertor/power?from=btuh&to=ftlbmin" },
 ];
-
-const slugify = (str: string) =>
-  str
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
 
 export default function PowerConversions() {
   return (
     <div className="p-6 max-w-4xl mx-auto">
       <h1 className="text-3xl font-bold mb-6 text-center">Power Conversions</h1>
       <div className="grid md:grid-cols-2 gap-4">
-        {powerCalculations.map((item, i) => (
+        {powerConversions.map((item, i) => (
           <Link
             key={i}
-            to={`/conversions/${slugify(item)}`}
+            to={item.path}
             className="block bg-white hover:bg-gray-100 p-4 rounded-xl shadow-md transition duration-200 dark:bg-transparent border"
           >
-            {item}
+            {item.label}
           </Link>
         ))}
       </div>

@@ -122,7 +122,7 @@ export const LengthConverter = () => {
     <div className="w-full max-w-4xl mx-auto">
       <Card className="w-full max-w-lg mx-auto">
         <CardHeader>
-          <CardTitle className="text-2xl">length Converter</CardTitle>
+          <CardTitle className="text-2xl">Length Converter</CardTitle>
         </CardHeader>
         <CardContent className="space-y-5">
 

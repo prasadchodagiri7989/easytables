@@ -16,7 +16,7 @@ import { toolsData } from "@/data/tools-data";
 import { Thermometer, Square, Wind, Bolt, Database, Compass, Fuel, BatteryCharging, Plug } from "lucide-react";
 
 export const unitCategories = [ 
-  { label: "allconversions", value: "allconversions", path: "/convertor/all-conversions", icon: Ruler },
+  { label: "All Convertors", value: "allconversions", path: "/all-conversions", icon: Code },
   { label: "Length", value: "length", path: "/convertor/length", icon: Ruler },
   { label: "Mass", value: "mass", path: "/convertor/mass", icon: Weight },
   { label: "Temperature", value: "temperature", path: "/convertor/temperature", icon: Thermometer },
