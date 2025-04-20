@@ -158,7 +158,7 @@ import PowerEfficiency from "./components/electrical/content/powerefficiency";
 import PowerFactor from "./components/electrical/content/powerfactor";
 
 import SwitchSymbols from "./components/electrical/content/SwitchSymbols";
-import GroundSymbols from "./components/electrical/content/GroundSymbols";
+import GroundSymbols from "./components/electrical/content/GroundSymbol";
 import ResistorSymbols from "./components/electrical/content/ResistorSymbols";
 import DiodeSymbols from "./components/electrical/content/DiodeSymbols";
 import CapacitorSymbols from "./components/electrical/content/CapacitorSymbols";
