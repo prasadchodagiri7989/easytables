@@ -16,7 +16,10 @@ export const unitCategories = [
   { label: "Frequency", value: "frequency" },
   { label: "Fuel Economy", value: "fuel_economy" },
   { label: "Voltage", value: "voltage" },
-  { label: "Current", value: "current" }
+  { label: "Current", value: "current" },
+  { label: "Color", value: "color" },
+
+
 ];
 
 // Units for each category with conversion factors to a base unit
@@ -44,6 +47,12 @@ export const units = {
     { label: "Ton (metric)", value: "ton", factor: 1000 },
     { label: "Stone (st)", value: "st", factor: 6.35029318 },
   ],
+  color: [
+    { label: "HEX (#RRGGBB)", value: "hex", factor: 1 },
+    { label: "RGB (rgb)", value: "rgb", factor: 1 },
+    { label: "HSL (hsl)", value: "hsl", factor: 1 },
+  ],
+  
   temperature: [
     { label: "Celsius (°C)", value: "c", factor: 1 },
     { label: "Fahrenheit (°F)", value: "f", factor: 1 },

@@ -1,40 +1,34 @@
 import { Link } from "react-router-dom";
 
 const temperatureConversions = [
-  "Fahrenheit to Celsius",
-  "Fahrenheit to Kelvin",
-  "Fahrenheit to Rankine",
-  "Celsius to Fahrenheit",
-  "Celsius to Kelvin",
-  "Celsius to Rankine",
-  "Kelvin to Fahrenheit",
-  "Kelvin to Celsius",
-  "Kelvin to Rankine",
-  "Rankine to Fahrenheit",
-  "Rankine to Celsius",
-  "Rankine to Kelvin",
-  "Celsius to Kelvin calculation",
-  "Celsius to Fahrenheit calculation",
-  "Fahrenheit to Celsius calculation",
-  "Fahrenheit to Kelvin calculation",
-  "Kelvin to Celsius calculation",
-  "Kelvin to Fahrenheit calculation",
-  "0 degrees Fahrenheit to Celsius",
-  "10 degrees Fahrenheit to Celsius",
-  "20 degrees Fahrenheit to Celsius",
-  "30 degrees Fahrenheit to Celsius",
-  "0 degrees Celsius to Fahrenheit",
-  "10 degrees Celsius to Fahrenheit",
-  "20 degrees Celsius to Fahrenheit",
-  "30 degrees Celsius to Fahrenheit",
-  "100 degrees Celsius to Fahrenheit"
+  { label: "Fahrenheit to Celsius", path: "/convertor/temperature?from=f&to=c" },
+  { label: "Fahrenheit to Kelvin", path: "/convertor/temperature?from=f&to=k" },
+  { label: "Fahrenheit to Rankine", path: "/convertor/temperature?from=f&to=rankine" },
+  { label: "Celsius to Fahrenheit", path: "/convertor/temperature?from=c&to=f" },
+  { label: "Celsius to Kelvin", path: "/convertor/temperature?from=c&to=k" },
+  { label: "Celsius to Rankine", path: "/convertor/temperature?from=c&to=rankine" },
+  { label: "Kelvin to Fahrenheit", path: "/convertor/temperature?from=k&to=f" },
+  { label: "Kelvin to Celsius", path: "/convertor/temperature?from=k&to=c" },
+  { label: "Kelvin to Rankine", path: "/convertor/temperature?from=k&to=rankine" },
+  { label: "Rankine to Fahrenheit", path: "/convertor/temperature?from=rankine&to=f" },
+  { label: "Rankine to Celsius", path: "/convertor/temperature?from=rankine&to=c" },
+  { label: "Rankine to Kelvin", path: "/convertor/temperature?from=rankine&to=k" },
+  { label: "Celsius to Kelvin Calculation", path: "/convertor/temperature?from=c&to=k" },
+  { label: "Celsius to Fahrenheit Calculation", path: "/convertor/temperature?from=c&to=f" },
+  { label: "Fahrenheit to Celsius Calculation", path: "/convertor/temperature?from=f&to=c" },
+  { label: "Fahrenheit to Kelvin Calculation", path: "/convertor/temperature?from=f&to=k" },
+  { label: "Kelvin to Celsius Calculation", path: "/convertor/temperature?from=k&to=c" },
+  { label: "Kelvin to Fahrenheit Calculation", path: "/convertor/temperature?from=k&to=f" },
+  { label: "0°F to Celsius", path: "/convertor/temperature?from=f&to=c&value=0" },
+  { label: "10°F to Celsius", path: "/convertor/temperature?from=f&to=c&value=10" },
+  { label: "20°F to Celsius", path: "/convertor/temperature?from=f&to=c&value=20" },
+  { label: "30°F to Celsius", path: "/convertor/temperature?from=f&to=c&value=30" },
+  { label: "0°C to Fahrenheit", path: "/convertor/temperature?from=c&to=f&value=0" },
+  { label: "10°C to Fahrenheit", path: "/convertor/temperature?from=c&to=f&value=10" },
+  { label: "20°C to Fahrenheit", path: "/convertor/temperature?from=c&to=f&value=20" },
+  { label: "30°C to Fahrenheit", path: "/convertor/temperature?from=c&to=f&value=30" },
+  { label: "100°C to Fahrenheit", path: "/convertor/temperature?from=c&to=f&value=100" }
 ];
-
-const slugify = (str: string) =>
-  str
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
 
 export default function TemperatureConversions() {
   return (
@@ -44,10 +38,10 @@ export default function TemperatureConversions() {
         {temperatureConversions.map((item, i) => (
           <Link
             key={i}
-            to={`/conversions/${slugify(item)}`}
+            to={item.path}
             className="block bg-white hover:bg-gray-100 p-4 rounded-xl shadow-md transition duration-200 dark:bg-transparent border"
           >
-            {item}
+            {item.label} Conversion
           </Link>
         ))}
       </div>
