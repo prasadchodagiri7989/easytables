@@ -1,6 +1,6 @@
 import React from "react";
 
-const SwitchSymbolsTable = () => {
+const SwitchSymbols = () => {
   return (
     <div className="p-6 text-gray-800 dark:text-white">
       <h1 className="text-3xl font-bold mb-4">Electronic Switch Symbols</h1>
@@ -104,4 +104,4 @@ const SwitchSymbolsTable = () => {
   );
 };
 
-export default SwitchSymbolsTable;
+export default SwitchSymbols;

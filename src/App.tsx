@@ -157,8 +157,8 @@ import ElectricCharge from "./components/electrical/content/electricalCharge";
 import PowerEfficiency from "./components/electrical/content/powerefficiency";
 import PowerFactor from "./components/electrical/content/powerfactor";
 
-import SwitchSymbolsTable from "./components/electrical/content/SwitchSymbols";
-import GroundSymbolsTable from "./components/electrical/content/GroundSymbols";
+import SwitchSymbols from "./components/electrical/content/SwitchSymbols";
+import GroundSymbols from "./components/electrical/content/GroundSymbols";
 import ResistorSymbols from "./components/electrical/content/ResistorSymbols";
 import DiodeSymbols from "./components/electrical/content/DiodeSymbols";
 import CapacitorSymbols from "./components/electrical/content/CapacitorSymbols";
@@ -332,8 +332,8 @@ const App = () => (
           <Route path="/electrical/content/efficiency" element={<Layout><PowerEfficiency /></Layout>} />
           <Route path="/electrical/content/factor" element={<Layout><PowerFactor /></Layout>} />
 
-          <Route path="/electrical/symbols/switch" element={<Layout><SwitchSymbolsTable /></Layout>} />
-          <Route path="/electrical/symbols/ground" element={<Layout><GroundSymbolsTable /></Layout>} />
+          <Route path="/electrical/symbols/switch" element={<Layout><SwitchSymbols /></Layout>} />
+          <Route path="/electrical/symbols/ground" element={<Layout><GroundSymbols /></Layout>} />
           <Route path="/electrical/symbols/resistor" element={<Layout><ResistorSymbols /></Layout>} />
           <Route path="/electrical/symbols/capacitor" element={<Layout><CapacitorSymbols /></Layout>} />
           <Route path="/electrical/symbols/diode" element={<Layout><DiodeSymbols /></Layout>} />

@@ -33,7 +33,6 @@ export const unitCategories = [
   { label: "Voltage", value: "voltage", path: "/convertor/voltage", icon: BatteryCharging },
   { label: "Current", value: "current", path: "/convertor/current", icon: Plug },
   { label: "Color", value: "color", path: "/convertor/color", icon: Plug }
-
 ];
 
 interface SidebarProps {

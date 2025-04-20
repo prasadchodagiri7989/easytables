@@ -1,6 +1,6 @@
 import React from "react";
 
-const GroundSymbolsTable = () => {
+const GroundSymbols = () => {
   return (
     <div className="p-6 text-gray-800 dark:text-white">
       <h1 className="text-3xl font-bold mb-4">Electrical Ground Symbols</h1>
@@ -50,4 +50,4 @@ const GroundSymbolsTable = () => {
   );
 };
 
-export default GroundSymbolsTable;
+export default GroundSymbols;
