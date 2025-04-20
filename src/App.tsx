@@ -157,7 +157,7 @@ import ElectricCharge from "./components/electrical/content/electricalCharge";
 import PowerEfficiency from "./components/electrical/content/powerefficiency";
 import PowerFactor from "./components/electrical/content/powerfactor";
 
-import SwitchSymbols from "./components/electrical/content/SwitchSymbols";
+import SwitchSymbols from "./components/electrical/content/SwitchSymbol";
 import GroundSymbols from "./components/electrical/content/GroundSymbol";
 import ResistorSymbols from "./components/electrical/content/ResistorSymbols";
 import DiodeSymbols from "./components/electrical/content/DiodeSymbols";
