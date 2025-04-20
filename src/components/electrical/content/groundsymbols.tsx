@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const GroundSymbols = () => {
   return (
     <div className="p-6 text-gray-800 dark:text-white">
