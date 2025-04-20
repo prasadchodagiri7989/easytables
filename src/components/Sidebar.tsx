@@ -17,7 +17,7 @@ import { Thermometer, Square, Wind, Bolt, Database, Compass, Fuel, BatteryChargi
 
 export const unitCategories = [ 
   { label: "allconversions", value: "allconversions", path: "/convertor/all-conversions", icon: Ruler },
-  { label: "Length", value: "length", path: "/convertor/length", icon: Ruler }
+  { label: "Length", value: "length", path: "/convertor/length", icon: Ruler },
   { label: "Mass", value: "mass", path: "/convertor/mass", icon: Weight },
   { label: "Temperature", value: "temperature", path: "/convertor/temperature", icon: Thermometer },
   { label: "Area", value: "area", path: "/convertor/area", icon: Square },
