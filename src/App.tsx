@@ -238,6 +238,7 @@ import WattsToLumensCalculator from "./components/lighting/calculators/WattsToLu
 import WattsToLuxCalculator from "./components/lighting/calculators/WattsToLuxCalculator";
 
 import AllConversions from "./components/conversions/AllConversions";
+import { NumberConverter } from "./components/convertors/NumberConverter";
 
 
 
@@ -419,6 +420,8 @@ const App = () => (
           <Route path="/lighting-calculators/watts-to-lux-calculator" element={<Layout><WattsToLuxCalculator /></Layout>} />
 
           <Route path="/all-conversions" element={<Layout><AllConversions /></Layout>} />
+          <Route path="/convertor/number" element={<Layout><NumberConverter /></Layout>} />
+
 
           
 
