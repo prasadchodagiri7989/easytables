@@ -120,6 +120,7 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
               />
             </CollapsibleTrigger>
             <CollapsibleContent className="pl-6 space-y-1 mt-1">
+              <SidebarLink to="/all-calculators" icon={Code} label="All Calculators" onClose={onClose} />
               <SidebarLink to="/scientific" icon={Calculator} label="Scientific" onClose={onClose} />
               <SidebarLink to="/percentage" icon={Percent} label="Percentage" onClose={onClose} />
               <SidebarLink to="/fraction" icon={DivideSquare} label="Fraction" onClose={onClose} />
