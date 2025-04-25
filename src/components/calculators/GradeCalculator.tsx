@@ -101,7 +101,7 @@ export const GradeCalculator = () => {
         <div className="space-y-6">
           <div className="space-y-4">
             {assignments.map((assignment, index) => (
-              <div key={index} className="p-4 border border-gray-200 rounded-lg bg-white/50">
+              <div key={index} className="p-4 border border-gray-200 rounded-lg bg-white/50 dark:bg-transparent">
                 <div className="flex justify-between items-center mb-3">
                   <div className="flex-1">
                     <Input

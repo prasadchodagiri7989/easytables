@@ -240,6 +240,72 @@ import WattsToLuxCalculator from "./components/lighting/calculators/WattsToLuxCa
 import AllConversions from "./components/conversions/AllConversions";
 import { NumberConverter } from "./components/convertors/NumberConverter";
 
+import { DiscountCalculator } from "./components/calculators/financial/DiscountCalculator";
+import TimeNow from "./components/calculators/time/TimeNow";
+import ColorInfoPage from "./components/color/ColorInfoPage";
+import AllCalculators from "./components/calculators/AllCalculators";
+import { EffectiveInterestRateCalculator } from "./components/calculators/financial/EffectiveInterestRateCalculator";
+import { GSTCalculator } from "./components/calculators/financial/GSTCalculator";
+import { SimpleInterestCalculator } from "./components/calculators/financial/SimpleInterestCalculator";
+import { VATCalculator } from "./components/calculators/financial/VATCalculator";
+
+
+import { AddingFractionsCalculator } from "./components/calculators/math/AddingFractionsCalculator";
+import { AdditionCalculator } from "./components/calculators/math/AdditionCalculator";
+import { AntilogCalculator } from "./components/calculators/math/AntilogCalculator";
+import { ArccosCalculator } from "./components/calculators/math/ArccosCalculator";
+import { ArcsinCalculator } from "./components/calculators/math/ArcsinCalculator";
+import { ArctanCalculator } from "./components/calculators/math/ArctanCalculator";
+import { BaseConverter } from "./components/calculators/math/BaseConverter";
+import { BinaryCalculator } from "./components/calculators/math/BinaryCalculator";
+import ComplexNumberCalculator from "./components/calculators/math/ComplexNumberCalculator";
+import ConvolutionCalculator from "./components/calculators/math/ConvolutionCalculator";
+import CosineCalculator from "./components/calculators/math/CosineCalculator";
+import DividingFractionsCalculator from "./components/calculators/math/DividingFractionsCalculator";
+import DivisionCalculator from "./components/calculators/math/DivisionCalculator";
+import ExponentialGrowthCalculator from "./components/calculators/math/ExponentialGrowthCalculator";
+import ExponentsCalculator from "./components/calculators/math/ExponentsCalculator";
+import FactorialCalculator from "./components/calculators/math/FactorialCalculator";
+import FractionsCalculator from "./components/calculators/math/FractionsCalculator";
+import FractionSimplifier from "./components/calculators/math/FractionSimplifier";
+import GCFCalculator from "./components/calculators/math/GCFCalculator";
+import HexCalculator from "./components/calculators/math/HexCalculator";
+import LCMCalculator from "./components/calculators/math/LCMCalculator";
+import LnCalculator from "./components/calculators/math/LnCalculator";
+import LogCalculator from "./components/calculators/math/LogCalculator";
+import MultiplicationCalculator from "./components/calculators/math/MultiplicationCalculator";
+import MultiplyFractionsCalculator from "./components/calculators/math/MultiplyFractionsCalculator";
+import PercentErrorCalculator from "./components/calculators/math/PercentErrorCalculator";
+import PercentageIncreaseCalculator from "./components/calculators/math/PercentageIncreaseCalculator";
+import PythagoreanCalculator from "./components/calculators/math/PythagoreanCalculator";
+import QuadraticEquationSolver from "./components/calculators/math/QuadraticEquationSolver";
+import RatioCalculator from "./components/calculators/math/RatioCalculator";
+import RemainderCalculator from "./components/calculators/math/RemainderCalculator";
+import RightTriangleCalculator from "./components/calculators/math/RightTriangleCalculator";
+import RootCalculator from "./components/calculators/math/RootCalculator";
+import ScientificNotationCalculator from "./components/calculators/math/ScientificNotationCalculator";
+import SimpleMathCalculator from "./components/calculators/math/SimpleMathCalculator";
+import SineCalculator from "./components/calculators/math/SineCalculator";
+import SquareRootCalculator from "./components/calculators/math/SquareRootCalculator";
+import StandardDeviationCalculator from "./components/calculators/math/StandardDeviationCalculator";
+import SubtractingFractionsCalculator from "./components/calculators/math/SubtractingFractionsCalculator";
+import SubtractionCalculator from "./components/calculators/math/SubtractionCalculator";
+import TangentCalculator from "./components/calculators/math/TangentCalculator";
+import TrigonometryCalculator from "./components/calculators/math/TrigonometryCalculator";
+import WeightedAverageCalculator from "./components/calculators/math/WeightedAverageCalculator";
+import VarianceCalculator from "./components/calculators/math/VarianceCalculator";
+
+
+import AWGToMmCalculator from "./components/calculators/wire/AWGToMmCalculator";
+import SWGToMmCalculator from "./components/calculators/wire/SWGToMmCalculator";
+import GaugeToMmCalculator from "./components/calculators/wire/GaugeToMmCalculator";
+
+import DateCalculator from "./components/calculators/time/DateCalculator";
+import TimeCalculator from "./components/calculators/time/TimeCalculator";
+import AgeCalculator from "./components/calculators/time/AgeCalculator";
+import BirthdayCalculator from "./components/calculators/time/BirthdayCalculator";
+
+
 
 
 
@@ -419,8 +485,88 @@ const App = () => (
           <Route path="/lighting-calculators/watts-to-lumens-calculator" element={<Layout><WattsToLumensCalculator /></Layout>} />
           <Route path="/lighting-calculators/watts-to-lux-calculator" element={<Layout><WattsToLuxCalculator /></Layout>} />
 
-          <Route path="/all-conversions" element={<Layout><AllConversions /></Layout>} />
+        {/* All Calculators */}
+          <Route path="/all-calculators" element={<Layout><AllCalculators /></Layout>} />
           <Route path="/convertor/number" element={<Layout><NumberConverter /></Layout>} />
+          <Route path="/calculator/discount" element={<Layout><DiscountCalculator /></Layout>} />
+          <Route path="/calculator/effective-interest-rate" element={<Layout><EffectiveInterestRateCalculator /></Layout>} />
+          <Route path="/calculator/gst" element={<Layout><GSTCalculator /></Layout>} />
+          <Route path="/calculator/simple-interest" element={<Layout><SimpleInterestCalculator /></Layout>} />
+          <Route path="/calculator/vat" element={<Layout><VATCalculator /></Layout>} />
+          <Route path="/calculators/Percentage-calculator" element={<Layout><PercentageCalculator /></Layout>}/>
+          <Route path="/calculator/percentage-change" element={<Layout><PercentageCalculator /></Layout>}/>
+          <Route path="/calculator/percentage-increase" element={<Layout><PercentageIncreaseCalculator /></Layout>}/>
+
+
+          <Route path="/tools/adding-fractions-calculator" element={<Layout><AddingFractionsCalculator /></Layout>} />
+          <Route path="/tools/addition-calculator" element={<Layout><AdditionCalculator /></Layout>} />
+          <Route path="/tools/antilog-calculator" element={<Layout><AntilogCalculator /></Layout>} />
+          <Route path="/tools/arccos-calculator" element={<Layout><ArccosCalculator /></Layout>} />
+          <Route path="/tools/arcsin-calculator" element={<Layout><ArcsinCalculator /></Layout>} />
+          <Route path="/tools/arctan-calculator" element={<Layout><ArctanCalculator /></Layout>} />
+          <Route path="/tools/base-calculator" element={<Layout><BaseConverter /></Layout>} />
+          <Route path="/tools/binary-calculator" element={<Layout><BinaryCalculator /></Layout>} />
+          <Route path="/tools/complex-numbers-calculator" element={<Layout><ComplexNumberCalculator /></Layout>} />
+          <Route path="/tools/convolution-calculator" element={<Layout><ConvolutionCalculator /></Layout>} />
+          <Route path="/tools/cosine-calculator" element={<Layout><CosineCalculator /></Layout>} />
+          <Route path="/tools/dividing-fractions-calculator" element={<Layout><DividingFractionsCalculator /></Layout>} />
+          <Route path="/tools/division-calculator" element={<Layout><DivisionCalculator /></Layout>} />
+          <Route path="/tools/exponential-growth-calculator" element={<Layout><ExponentialGrowthCalculator /></Layout>} />
+          <Route path="/tools/exponents-calculator" element={<Layout><ExponentsCalculator /></Layout>} />
+          <Route path="/tools/factorial-calculator" element={<Layout><FactorialCalculator /></Layout>} />
+          <Route path="/tools/fractions-calculator" element={<Layout><FractionsCalculator /></Layout>} />
+          <Route path="/tools/fraction-simplifier" element={<Layout><FractionSimplifier /></Layout>} />
+          <Route path="/tools/gcf-calculator" element={<Layout><GCFCalculator /></Layout>} />
+          <Route path="/tools/hex-calculator" element={<Layout><HexCalculator /></Layout>} />
+          <Route path="/tools/lcm-calculator" element={<Layout><LCMCalculator /></Layout>} />
+          <Route path="/tools/ln-calculator" element={<Layout><LnCalculator /></Layout>} />
+          <Route path="/tools/log-calculator" element={<Layout><LogCalculator /></Layout>} />
+          <Route path="/tools/multiplication-calculator" element={<Layout><MultiplicationCalculator /></Layout>} />
+          <Route path="/tools/multiplying-fractions-calculator" element={<Layout><MultiplyFractionsCalculator /></Layout>} />
+          <Route path="/tools/percent-error-calculator" element={<Layout><PercentErrorCalculator /></Layout>} />
+          <Route path="/tools/percentage-increase-calculator" element={<Layout><PercentageIncreaseCalculator /></Layout>} />
+          <Route path="/tools/pythagorean-theorem-calculator" element={<Layout><PythagoreanCalculator /></Layout>} />
+          <Route path="/tools/quadratic-equation-solver" element={<Layout><QuadraticEquationSolver /></Layout>} />
+          <Route path="/tools/ratio-calculator" element={<Layout><RatioCalculator /></Layout>} />
+          <Route path="/tools/remainder-calculator" element={<Layout><RemainderCalculator /></Layout>} />
+          <Route path="/tools/right-triangle-calculator" element={<Layout><RightTriangleCalculator /></Layout>} />
+          <Route path="/tools/root-calculator" element={<Layout><RootCalculator /></Layout>} />
+          <Route path="/tools/scientific-notation-calculator" element={<Layout><ScientificNotationCalculator /></Layout>} />
+          <Route path="/tools/simple-math-calculator" element={<Layout><SimpleMathCalculator /></Layout>} />
+          <Route path="/tools/sine-calculator" element={<Layout><SineCalculator /></Layout>} />
+          <Route path="/tools/square-root-calculator" element={<Layout><SquareRootCalculator /></Layout>} />
+          <Route path="/tools/standard-deviation-calculator" element={<Layout><StandardDeviationCalculator /></Layout>} />
+          <Route path="/tools/subtracting-fractions-calculator" element={<Layout><SubtractingFractionsCalculator /></Layout>} />
+          <Route path="/tools/subtraction-calculator" element={<Layout><SubtractionCalculator /></Layout>} />
+          <Route path="/tools/tangent-calculator" element={<Layout><TangentCalculator /></Layout>} />
+          <Route path="/tools/trigonometry-calculator" element={<Layout><TrigonometryCalculator /></Layout>} />
+          <Route path="/tools/weighted-average-calculator" element={<Layout><WeightedAverageCalculator /></Layout>} />
+          <Route path="/tools/variance-calculator" element={<Layout><VarianceCalculator /></Layout>} />
+
+          <Route path="/tools/wire-gauge-calculator" element={<Layout><WireGaugeCalculator /></Layout>} />
+          <Route path="/tools/awg-to-mm-calculator" element={<Layout><AWGToMmCalculator /></Layout>} />
+          <Route path="/tools/swg-to-mm-calculator" element={<Layout><SWGToMmCalculator /></Layout>} />
+          <Route path="/tools/voltage-drop-calculator" element={<Layout><VoltageDropCalculator /></Layout>} />
+          <Route path="/tools/2-gauge-wire-calculator" element={<Layout><GaugeToMmCalculator /></Layout>} />
+
+          <Route path="/tools/time-now" element={<Layout><TimeNow /></Layout>} />
+          <Route path="/tools/date-calculator" element={<Layout><DateCalculator /></Layout>} />
+          <Route path="/tools/time-calculator" element={<Layout><TimeCalculator /></Layout>} />
+          <Route path="/tools/age-calculator" element={<Layout><AgeCalculator /></Layout>} />
+          <Route path="/tools/birthday-calculator" element={<Layout><BirthdayCalculator /></Layout>} />
+
+
+
+
+
+
+
+
+          
+
+
+
+
 
 
           
