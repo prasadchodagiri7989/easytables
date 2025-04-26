@@ -58,7 +58,7 @@ const timeDateTools = [
     { label: "Calendar", path: "/calendar" },
     { label: "Countdown Timer", path: "/countdown" },
     { label: "Current Time", path: "/tools/current-time" },
-    { label: "Stopwatch", path: "stopwatch" },
+    { label: "Stopwatch", path: "/stopwatch" },
     { label: "Today's Date", path: "/tools/todays-date" },
   ];
   

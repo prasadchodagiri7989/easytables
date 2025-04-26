@@ -35,7 +35,7 @@ const htmlColors = [
   // Add more as needed
 ];
 
-const HtmlColorCodes = () => {
+const HtmlColorCode = () => {
   return (
     <div className="w-full max-w-6xl mx-auto px-4">
       <Breadcrumb className="mb-4">
@@ -79,4 +79,4 @@ const HtmlColorCodes = () => {
   );
 };
 
-export default HtmlColorCodes;
+export default HtmlColorCode;

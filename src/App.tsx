@@ -242,7 +242,7 @@ import { NumberConverter } from "./components/convertors/NumberConverter";
 
 import { DiscountCalculator } from "./components/calculators/financial/DiscountCalculator";
 import TimeNow from "./components/calculators/time/TimeNow";
-import ColorInfoPage from "./components/color/ColorInfoPage";
+import ColorInfoPage from "./components/webdesign/color/ColorInfoPage";
 import AllCalculators from "./components/calculators/AllCalculators";
 import { EffectiveInterestRateCalculator } from "./components/calculators/financial/EffectiveInterestRateCalculator";
 import { GSTCalculator } from "./components/calculators/financial/GSTCalculator";
@@ -304,6 +304,24 @@ import DateCalculator from "./components/calculators/time/DateCalculator";
 import TimeCalculator from "./components/calculators/time/TimeCalculator";
 import AgeCalculator from "./components/calculators/time/AgeCalculator";
 import BirthdayCalculator from "./components/calculators/time/BirthdayCalculator";
+import { DaysInYear } from "./components/calculators/time/DaysInYear";
+import { DSTChangeGuide } from "./components/calculators/time/DSTChangeGuide";
+import { DSTEndGuide } from "./components/calculators/time/DSTEndGuide";
+import { DSTStartGuide } from "./components/calculators/time/DSTStartGuide";
+import { HoursInWeek } from "./components/calculators/time/HoursInWeek";
+import { HoursInYear } from "./components/calculators/time/HoursInYear";
+import { MonthsOfYear } from "./components/calculators/time/MonthsOfYear";
+import { SecondsInDay } from "./components/calculators/time/SecondsInDay";
+import { SecondsInHour } from "./components/calculators/time/SecondsInHour";
+import { SecondsInYear } from "./components/calculators/time/SecondsInYear";
+import TodayDateNow from "./components/calculators/time/TodayDateNow";
+import { WeeksInMonth } from "./components/calculators/time/WeeksInMonth";
+import { WeeksInYear } from "./components/calculators/time/WeeksInYear";
+import WorldClock from "./components/calculators/time/WorldClock";
+
+
+
+
 
 import HowToReduceCarbonFootprint from "./components/ecology/HowToReduceCarbonFootprint";
 import HowToReducePlasticWaste from "./components/ecology/HowToReducePlasticWaste";
@@ -362,6 +380,30 @@ import { NumberSymbols } from "./components/mathematics/symbols/NumberSymbols";
 import { RomanNumerals } from "./components/mathematics/symbols/RomanNumerals";
 import { SetTheorySymbols } from "./components/mathematics/symbols/SetTheorySymbols";
 import { StatisticalSymbols } from "./components/mathematics/symbols/StatisticalSymbols";
+
+
+import ColorSchemeGenerator from "./components/webdesign/color/ColorSchemeGenerator";
+import HtmlColorCode from "./components/webdesign/color/HtmlColorCodes";
+import RGBColorPicker from "./components/webdesign/color/RGBColorPicker";
+import WebSafeColors from "./components/webdesign/color/WebSafeColors";
+
+import CanonicalURL from "./components/webdesign/development/CanonicalURL";
+import HTAccessRedirection from "./components/webdesign/development/HTAccessRedirection";
+import HTMLRedirection from "./components/webdesign/development/HTMLRedirection";
+import JavaScriptRedirection from "./components/webdesign/development/JavaScriptRedirection";
+import JQueryRedirection from "./components/webdesign/development/JQueryRedirection";
+import PHPRedirection from "./components/webdesign/development/PHPRedirection";
+import ScreenResolutionStatistics from "./components/webdesign/development/ScreenResolutionStatistics";
+import WebsiteTrafficDown from "./components/webdesign/development/WebsiteTrafficDown";
+
+import HTMLCharacterCodes from "./components/webdesign/html/HTMLCharacterCodes";
+import HTMLColorCodes from "./components/webdesign/html/HTMLColorCodes";
+import HTMLComments from "./components/webdesign/html/HTMLComments";
+import HTMLTables from "./components/webdesign/html/HTMLTables";
+import WebTools from "./components/webdesign/WebTools";
+import HtmlColorCodes from "./components/webdesign/color/HtmlColorCodes";
+
+
 
 
 
@@ -611,6 +653,21 @@ const App = () => (
           <Route path="/tools/time-calculator" element={<Layout><TimeCalculator /></Layout>} />
           <Route path="/tools/age-calculator" element={<Layout><AgeCalculator /></Layout>} />
           <Route path="/tools/birthday-calculator" element={<Layout><BirthdayCalculator /></Layout>} />
+          <Route path="/tools/days-in-year" element={<Layout><DaysInYear /></Layout>} />
+          <Route path="/tools/dst-change" element={<Layout><DSTChangeGuide /></Layout>} />
+          <Route path="/tools/dst-back" element={<Layout><DSTEndGuide /></Layout>} />
+          <Route path="/tools/dst-forward" element={<Layout><DSTStartGuide /></Layout>} />
+          <Route path="/tools/hours-in-week" element={<Layout><HoursInWeek /></Layout>} />
+          <Route path="/tools/hours-in-year" element={<Layout><HoursInYear /></Layout>} />
+          <Route path="/tools/months-of-year" element={<Layout><MonthsOfYear /></Layout>} />
+          <Route path="/tools/seconds-in-day" element={<Layout><SecondsInDay /></Layout>} />
+          <Route path="/tools/seconds-in-hour" element={<Layout><SecondsInHour /></Layout>} />
+          <Route path="/tools/seconds-in-year" element={<Layout><SecondsInYear /></Layout>} />
+          <Route path="/tools/todays-date" element={<Layout><TodayDateNow /></Layout>} />
+          <Route path="/tools/weeks-in-month" element={<Layout><WeeksInMonth /></Layout>} />
+          <Route path="/tools/weeks-in-year" element={<Layout><WeeksInYear /></Layout>} />
+          <Route path="/tools/current-time" element={<Layout><WorldClock /></Layout>} />
+
 
           <Route path="/eco/reduce-carbon-footprint" element={<Layout><HowToReduceCarbonFootprint /></Layout>} />
           <Route path="/eco/reduce-plastic-waste" element={<Layout><HowToReducePlasticWaste /></Layout>} />
@@ -677,7 +734,31 @@ const App = () => (
           <Route path="/symbols/numbers" element={<Layout><NumberSymbols /></Layout>} />
           <Route path="/symbols/greek" element={<Layout><GreekAlphabetSymbols /></Layout>} />
           <Route path="/symbols/roman-numerals" element={<Layout><RomanNumerals /></Layout>} />
-          
+
+
+          <Route path="/tools/web" element={<Layout><WebTools /></Layout>} />
+
+          <Route path="/tools/web-colors" element={<Layout><HtmlColorCodes /></Layout>} />
+          <Route path="/tools/color-scheme-generator" element={<Layout><ColorSchemeGenerator /></Layout>} />
+          <Route path="/tools/html-color-codes" element={<Layout><HtmlColorCode /></Layout>} />
+          <Route path="/tools/rgb-color-picker" element={<Layout><RGBColorPicker /></Layout>} />
+          <Route path="/tools/web-safe-colors" element={<Layout><WebSafeColors /></Layout>} />
+
+          <Route path="/tools/canonical-url-generator" element={<Layout><CanonicalURL /></Layout>} />
+          <Route path="/tools/htaccess-redirection" element={<Layout><HTAccessRedirection /></Layout>} />
+          <Route path="/tools/html-redirection" element={<Layout><HTMLRedirection /></Layout>} />
+          <Route path="/tools/javascript-redirection" element={<Layout><JavaScriptRedirection /></Layout>} />
+          <Route path="/tools/jquery-redirection" element={<Layout><JQueryRedirection /></Layout>} />
+          <Route path="/tools/php-redirection" element={<Layout><PHPRedirection /></Layout>} />
+          <Route path="/tools/screen-resolution-statistics" element={<Layout><ScreenResolutionStatistics /></Layout>} />
+          <Route path="/tools/website-traffic-down-checker" element={<Layout><WebsiteTrafficDown /></Layout>} />
+
+          <Route path="/tools/html-character-codes" element={<Layout><HTMLCharacterCodes /></Layout>} />
+          <Route path="/tools/html-comments-guide" element={<Layout><HTMLComments /></Layout>} />
+          <Route path="/tools/html-tables-generator" element={<Layout><HTMLTables /></Layout>} />
+
+
+                    
 
 
 
