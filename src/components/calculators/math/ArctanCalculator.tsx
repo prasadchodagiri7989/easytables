@@ -1,0 +1,100 @@
+import React, { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Card } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { GuidanceSection } from "@/components/GuidanceSection";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
+
+export const ArctanCalculator = () => {
+  const [value, setValue] = useState<number>(0);
+  const [result, setResult] = useState<number | null>(null);
+
+  const handleCalculate = () => {
+    const arctanValue = Math.atan(value); // Arctan function (inverse of tangent)
+    setResult(arctanValue);
+  };
+
+  return (
+    <>
+      <Breadcrumb className="mb-4">
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/">Home</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>Arctan Calculator</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+
+      <div className="calculator-container bg-white/40 dark:bg-transparent">
+        <h2 className="calculator-header">Arctan Calculator</h2>
+
+        <Card className="p-6 glass-card">
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="value">Tangent Value</Label>
+              <Input
+                id="value"
+                type="number"
+                value={value}
+                onChange={(e) => setValue(Number(e.target.value))}
+                step="0.01"
+              />
+            </div>
+
+            <Button variant="default" onClick={handleCalculate} className="w-full">
+              Calculate Arctan
+            </Button>
+
+            {result !== null && (
+              <div className="mt-4 p-4 bg-muted rounded-md">
+                <p className="text-sm text-muted-foreground">Arctan Value (radians):</p>
+                <p className="text-2xl font-semibold">{result.toFixed(4)} radians</p>
+                <p className="text-sm text-muted-foreground">Arctan Value (degrees):</p>
+                <p className="text-lg font-medium">{(result * (180 / Math.PI)).toFixed(2)}°</p>
+              </div>
+            )}
+          </div>
+        </Card>
+
+        <GuidanceSection title="How to Use the Arctan Calculator">
+          <p>This calculator helps you determine the angle whose tangent is a given value (inverse tangent).</p>
+
+          <h4 className="font-medium mt-3 mb-1">Steps to Calculate Arctan</h4>
+          <ol className="list-decimal pl-5 space-y-1">
+            <li>Enter a tangent value (no restrictions as tangent can take any real number).</li>
+            <li>Click "Calculate Arctan" to get the result in radians and degrees.</li>
+          </ol>
+
+          <h4 className="font-medium mt-3 mb-1">Arctan Formula</h4>
+          <p>Arctan(x) = θ, where tan(θ) = x</p>
+          <p>Where:</p>
+          <ul className="list-disc pl-5 my-1">
+            <li>x = Given value</li>
+            <li>θ = The angle whose tangent is x (in radians, or optionally converted to degrees)</li>
+          </ul>
+
+          <h4 className="font-medium mt-3 mb-1">Example Calculation</h4>
+          <div className="space-y-1">
+            <p><strong>Input Value:</strong></p>
+            <ul className="list-disc pl-5">
+              <li>Tangent Value: 1</li>
+            </ul>
+
+            <p className="mt-2"><strong>Calculation:</strong></p>
+            <p>Arctan(1) = 0.7854 radians (or 45°)</p>
+
+            <p className="mt-2"><strong>Result:</strong></p>
+            <p>The arctan of 1 is 0.7854 radians (or 45°).</p>
+          </div>
+        </GuidanceSection>
+      </div>
+    </>
+  );
+};

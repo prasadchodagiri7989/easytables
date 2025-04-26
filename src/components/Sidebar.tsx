@@ -11,6 +11,8 @@ import {
   Zap, CircuitBoard, Lightbulb, Battery, Feather, BookOpen, Workflow, Info,
   Gauge, Droplet, Flame, X
 } from "lucide-react";
+import { Recycle, Server, Leaf } from "lucide-react";
+
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { toolsData } from "@/data/tools-data";
 import { Thermometer, Square, Wind, Bolt, Database, Compass, Fuel, BatteryCharging, Plug } from "lucide-react";
@@ -79,6 +81,10 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
   const [electricalOpen, setElectricalOpen] = useState(false);
   const [electricalCalculatorsOpen, setElectricalCalculatorsOpen] = useState(false);
   const [lightingCalculatorsOpen, setLightingCalculatorsOpen] = useState(false);
+  const [ecoOpen, setEcoOpen] = useState(false);
+  const [mathsOpen, setMathsOpen] = useState(false);
+
+
 
   return (
     <aside className={cn(
@@ -120,6 +126,7 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
               />
             </CollapsibleTrigger>
             <CollapsibleContent className="pl-6 space-y-1 mt-1">
+              <SidebarLink to="/all-calculators" icon={Code} label="All Calculators" onClose={onClose} />
               <SidebarLink to="/scientific" icon={Calculator} label="Scientific" onClose={onClose} />
               <SidebarLink to="/percentage" icon={Percent} label="Percentage" onClose={onClose} />
               <SidebarLink to="/fraction" icon={DivideSquare} label="Fraction" onClose={onClose} />
@@ -371,6 +378,101 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
               ))}
             </CollapsibleContent>
           </Collapsible>
+
+          <Collapsible
+            open={ecoOpen}
+            onOpenChange={setEcoOpen}
+            className="w-full mt-2"
+          >
+            <CollapsibleTrigger className="flex items-center justify-between w-full px-4 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 text-left">
+              <div className="flex items-center">
+                <Zap size={18} className="mr-2 dark:text-gray-300" />
+                <span className="text-sm font-medium dark:text-gray-300">Eco-Friendly Guides</span>
+              </div>
+              <ChevronDown 
+                size={16} 
+                className={cn(
+                  "transition-transform duration-200 dark:text-gray-300",
+                  electricalOpen ? "rotate-180" : ""
+                )} 
+              />
+            </CollapsibleTrigger>
+            <CollapsibleContent className="pl-6 space-y-1 mt-1">
+              <SidebarLink 
+                to="/eco/reduce-carbon-footprint" 
+                icon={Feather} 
+                label="Reduce Carbon Footprint" 
+                onClose={onClose} 
+              />
+              <SidebarLink 
+                to="/eco/reduce-plastic-waste" 
+                icon={Recycle} 
+                label="Reduce Plastic Waste" 
+                onClose={onClose} 
+              />
+              <SidebarLink 
+                to="/eco/save-fuel" 
+                icon={Flame} 
+                label="How to Save Fuel" 
+                onClose={onClose} 
+              />
+              <SidebarLink 
+                to="/eco/save-energy" 
+                icon={Bolt} 
+                label="How to Save Energy" 
+                onClose={onClose} 
+              />
+              <SidebarLink 
+                to="/eco/green-hosting-comparison" 
+                icon={Server} 
+                label="Green Hosting Comparison" 
+                onClose={onClose} 
+              />
+              <SidebarLink 
+                to="/eco/plant-trees" 
+                icon={Leaf} 
+                label="Plant Trees" 
+                onClose={onClose} 
+              />
+              <SidebarLink 
+                to="/eco/save-electricity" 
+                icon={Lightbulb} 
+                label="How to Save Electricity" 
+                onClose={onClose} 
+              />
+            </CollapsibleContent>
+          </Collapsible>
+
+          <Collapsible
+            open={mathsOpen}
+            onOpenChange={setMathsOpen}
+            className="w-full mt-2"
+          >
+            <CollapsibleTrigger className="flex items-center justify-between w-full px-4 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 text-left">
+              <div className="flex items-center">
+                <FileIcon size={18} className="mr-2 dark:text-gray-300" />
+                <span className="text-sm font-medium dark:text-gray-300">Mathematics</span>
+              </div>
+              <ChevronDown 
+                size={16} 
+                className={cn(
+                  "transition-transform duration-200 dark:text-gray-300",
+                  pdfToolsOpen ? "rotate-180" : ""
+                )} 
+              />
+            </CollapsibleTrigger>
+            <CollapsibleContent className="pl-6 space-y-1 mt-1">
+              <SidebarLink to="/mathematics/all" icon={FileImage} label="All Maths" onClose={onClose} />
+              <SidebarLink to="/mathematics/numbers" icon={FileImage} label="Numbers" onClose={onClose} />
+              <SidebarLink to="/mathematics/algebra" icon={ImageIcon} label="Algebra" onClose={onClose} />
+              <SidebarLink to="/mathematics/calculus" icon={Image} label="Calculus" onClose={onClose} />
+              <SidebarLink to="/mathematics/probability" icon={FileText} label="Probability" onClose={onClose} />
+              <SidebarLink to="/mathematics/trigonometry" icon={FileText} label="Trignometry" onClose={onClose} />
+              <SidebarLink to="/mathematics/symbols" icon={FileText} label="Symbols" onClose={onClose} />
+
+            </CollapsibleContent>
+          </Collapsible>
+
         </div>
       </div>
 
