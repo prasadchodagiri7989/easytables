@@ -305,6 +305,63 @@ import TimeCalculator from "./components/calculators/time/TimeCalculator";
 import AgeCalculator from "./components/calculators/time/AgeCalculator";
 import BirthdayCalculator from "./components/calculators/time/BirthdayCalculator";
 
+import HowToReduceCarbonFootprint from "./components/ecology/HowToReduceCarbonFootprint";
+import HowToReducePlasticWaste from "./components/ecology/HowToReducePlasticWaste";
+import HowToSaveFuel from "./components/ecology/HowToSaveFuel";
+import GreenHostingComparison from "./components/ecology/GreenHostingComparison";
+import PlantTrees from "./components/ecology/PlantTrees";
+
+import AllMathematics from "./components/mathematics/AllMathematics";
+
+import NumberTools from "./components/mathematics/numbers/NumberTools";
+import { AdditionTable } from "./components/mathematics/numbers/AdditionTable";
+import { EConstantGuide } from "./components/mathematics/numbers/EConstantGuide";
+import { ExponentRules } from "./components/mathematics/numbers/ExponentRules";
+import { FibonacciNumbersGuide } from "./components/mathematics/numbers/FibonacciNumbersGuide";
+import { MultiplicationTable } from "./components/mathematics/numbers/MultiplicationTable";
+import { NumeralSystemsGuide } from "./components/mathematics/numbers/NumeralSystemsGuide";
+import { PercentageGuide } from "./components/mathematics/numbers/PercentageGuide";
+import { PerMilleGuide } from "./components/mathematics/numbers/PerMilleGuide";
+import { PPMGuide } from "./components/mathematics/numbers/PPMGuide";
+import { PrimeNumberGuide } from "./components/mathematics/numbers/PrimeNumberGuide";
+import { ZeroNumberGuide } from "./components/mathematics/numbers/ZeroNumberGuide";
+
+import AlgebraTools from "./components/mathematics/algebra/AlgebraTools";
+import { FactorialNumbersGuide } from "./components/mathematics/algebra/FactorialNumbersGuide";
+import { LogarithmGuide } from "./components/mathematics/algebra/LogarithmGuide";
+import { LogarithmRules } from "./components/mathematics/algebra/LogarithmRules";
+import { LogarithmTable } from "./components/mathematics/algebra/LogarithmTable";
+import { QuadraticEquationExplanation } from "./components/mathematics/algebra/QuadraticEquation";
+
+import TrigonometryTools from "./components/mathematics/trignometry/TrignometryTools";
+import { Arccos } from "./components/mathematics/trignometry/Arccos";
+import { Arcsin } from "./components/mathematics/trignometry/Arcsin";
+import { Arctan } from "./components/mathematics/trignometry/Arctan";
+
+import ProbabilityStatisticsTools from "./components/mathematics/probability/ProbabilityTools";
+import { Expectation } from "./components/mathematics/probability/Expectation";
+import { NormalDistribution } from "./components/mathematics/probability/NormalDistribution";
+import { Probability } from "./components/mathematics/probability/Probability";
+import { ProbabilityDistribution } from "./components/mathematics/probability/ProbabilityDistribution";
+import { StandardDeviation } from "./components/mathematics/probability/StandardDeviation";
+import { Variance } from "./components/mathematics/probability/Variance";
+
+import CalculusTools from "./components/mathematics/calculus/CalculusTools";
+import { Convolution } from "./components/mathematics/calculus/Convolution";
+import { Derivative } from "./components/mathematics/calculus/Derivative";
+import { LaplaceTransformExplanation } from "./components/mathematics/calculus/LaplaceTransform";
+
+import MathSymbolsTools from "./components/mathematics/symbols/SymbolTools";
+import { AlgebraSymbols } from "./components/mathematics/symbols/AlgebraSymbols";
+import { CalculusAnalysisSymbols } from "./components/mathematics/symbols/CalculusAnalysisSymbols";
+import { GeometrySymbols } from "./components/mathematics/symbols/GeometrySymbols";
+import { GreekAlphabetSymbols } from "./components/mathematics/symbols/GreekAlphabetSymbols";
+import { LogicSymbols } from "./components/mathematics/symbols/LogicSymbols";
+import { MathSymbols } from "./components/mathematics/symbols/MathSymbols";
+import { NumberSymbols } from "./components/mathematics/symbols/NumberSymbols";
+import { RomanNumerals } from "./components/mathematics/symbols/RomanNumerals";
+import { SetTheorySymbols } from "./components/mathematics/symbols/SetTheorySymbols";
+import { StatisticalSymbols } from "./components/mathematics/symbols/StatisticalSymbols";
 
 
 
@@ -555,6 +612,72 @@ const App = () => (
           <Route path="/tools/age-calculator" element={<Layout><AgeCalculator /></Layout>} />
           <Route path="/tools/birthday-calculator" element={<Layout><BirthdayCalculator /></Layout>} />
 
+          <Route path="/eco/reduce-carbon-footprint" element={<Layout><HowToReduceCarbonFootprint /></Layout>} />
+          <Route path="/eco/reduce-plastic-waste" element={<Layout><HowToReducePlasticWaste /></Layout>} />
+          <Route path="/eco/save-fuel" element={<Layout><HowToSaveFuel /></Layout>} />
+          <Route path="/eco/save-energy" element={<Layout><HowToSaveEnergy /></Layout>} />
+          <Route path="/eco/green-hosting-comparison" element={<Layout><GreenHostingComparison /></Layout>} />
+          <Route path="/eco/plant-trees" element={<Layout><PlantTrees /></Layout>} />
+          <Route path="/eco/save-electricity" element={<Layout><GreenHostingComparison /></Layout>} />
+
+          <Route path="/mathematics/all" element={<Layout><AllMathematics /></Layout>} />
+
+          {/* Numbers */}
+          <Route path="/mathematics/numbers" element={<Layout><NumberTools /></Layout>} />
+          <Route path="/numbers/addition-table" element={<Layout><AdditionTable /></Layout>} />
+          <Route path="/numbers/multiplication-table" element={<Layout><MultiplicationTable /></Layout>} />
+          <Route path="/numbers/exponents-rules" element={<Layout><ExponentRules /></Layout>} />
+          <Route path="/numbers/numeral-systems" element={<Layout><NumeralSystemsGuide /></Layout>} />
+          <Route path="/numbers/percentage" element={<Layout><PercentageGuide /></Layout>} />
+          <Route path="/numbers/per-mille" element={<Layout><PerMilleGuide /></Layout>} />
+          <Route path="/numbers/parts-per-million" element={<Layout><PPMGuide /></Layout>} />
+          <Route path="/numbers/zero" element={<Layout><ZeroNumberGuide /></Layout>} />
+          <Route path="/numbers/prime-number" element={<Layout><PrimeNumberGuide /></Layout>} />
+          <Route path="/numbers/e-constant" element={<Layout><EConstantGuide /></Layout>} />
+          <Route path="/numbers/fibonacci" element={<Layout><FibonacciNumbersGuide /></Layout>} />
+
+          {/* Algebra */}
+          <Route path="/mathematics/algebra" element={<Layout><AlgebraTools /></Layout>} />
+          <Route path="/algebra/factorial" element={<Layout><FactorialNumbersGuide /></Layout>} />
+          <Route path="/algebra/logarithm" element={<Layout><LogarithmGuide /></Layout>} />
+          <Route path="/algebra/logarithm-rules" element={<Layout><LogarithmRules /></Layout>} />
+          <Route path="/algebra/logarithm-table" element={<Layout><LogarithmTable /></Layout>} />
+          <Route path="/algebra/quadratic-equation" element={<Layout><QuadraticEquationExplanation /></Layout>} />
+
+          {/* Trigonometry */}
+          <Route path="/mathematics/trigonometry" element={<Layout><TrigonometryTools /></Layout>} />
+          <Route path="/trigonometry/arccos" element={<Layout><Arccos /></Layout>} />
+          <Route path="/trigonometry/arcsin" element={<Layout><Arcsin /></Layout>} />
+          <Route path="/trigonometry/arctan" element={<Layout><Arctan /></Layout>} />
+
+          {/* Probability & Statistics */}
+          <Route path="/mathematics/probability" element={<Layout><ProbabilityStatisticsTools /></Layout>} />
+          <Route path="/probability/basic" element={<Layout><Probability /></Layout>} />
+          <Route path="/probability/expectation" element={<Layout><Expectation /></Layout>} />
+          <Route path="/probability/variance" element={<Layout><Variance /></Layout>} />
+          <Route path="/probability/standard-deviation" element={<Layout><StandardDeviation /></Layout>} />
+          <Route path="/probability/distribution" element={<Layout><ProbabilityDistribution /></Layout>} />
+          <Route path="/probability/normal-distribution" element={<Layout><NormalDistribution /></Layout>} />
+
+          {/* Calculus & Analysis */}
+          <Route path="/mathematics/calculus" element={<Layout><CalculusTools /></Layout>} />
+          <Route path="/calculus/derivative" element={<Layout><Derivative /></Layout>} />
+          <Route path="/calculus/laplace-transform" element={<Layout><LaplaceTransformExplanation /></Layout>} />
+          <Route path="/calculus/convolution" element={<Layout><Convolution /></Layout>} />
+
+          {/* Symbols */}
+          <Route path="/mathematics/symbols" element={<Layout><MathSymbolsTools /></Layout>} />
+          <Route path="/symbols/math" element={<Layout><MathSymbols /></Layout>} />
+          <Route path="/symbols/algebra" element={<Layout><AlgebraSymbols /></Layout>} />
+          <Route path="/symbols/geometry" element={<Layout><GeometrySymbols /></Layout>} />
+          <Route path="/symbols/statistics" element={<Layout><StatisticalSymbols /></Layout>} />
+          <Route path="/symbols/logic" element={<Layout><LogicSymbols /></Layout>} />
+          <Route path="/symbols/set-theory" element={<Layout><SetTheorySymbols /></Layout>} />
+          <Route path="/symbols/calculus-analysis" element={<Layout><CalculusAnalysisSymbols /></Layout>} />
+          <Route path="/symbols/numbers" element={<Layout><NumberSymbols /></Layout>} />
+          <Route path="/symbols/greek" element={<Layout><GreekAlphabetSymbols /></Layout>} />
+          <Route path="/symbols/roman-numerals" element={<Layout><RomanNumerals /></Layout>} />
+          
 
 
 

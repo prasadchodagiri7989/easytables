@@ -1,6 +1,31 @@
 import React from "react";
 import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
 
+// You can include this in your <Helmet> component or similar in your app
+import { Helmet } from "react-helmet";
+
+<Helmet>
+  <title>Green Web Hosting Comparison | Eco-Friendly Hosting Providers</title>
+  <meta
+    name="description"
+    content="Compare top green web hosting providers like GreenGeeks, DreamHost, A2 Hosting, and HostPapa. Learn about their eco-friendly initiatives, features, and pricing."
+  />
+  <meta
+    name="keywords"
+    content="green hosting comparison, eco-friendly web hosting, sustainable hosting, green web hosts, renewable energy hosting, green geeks, hostpapa, dreamhost, carbon neutral hosting"
+  />
+  <meta property="og:title" content="Green Hosting Providers Comparison" />
+  <meta
+    property="og:description"
+    content="Find the best green hosting providers and compare their renewable energy efforts, features, and prices. Make your website more sustainable today."
+  />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://yourdomain.com/green-hosting-comparison" />
+  <meta property="og:image" content="https://yourdomain.com/images/green-hosting-cover.png" />
+  <link rel="canonical" href="https://yourdomain.com/green-hosting-comparison" />
+</Helmet>
+
+
 const GreenHostingComparison: React.FC = () => {
   return (
     <div className="w-full max-w-4xl mx-auto">
