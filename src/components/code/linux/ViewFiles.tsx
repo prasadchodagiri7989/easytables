@@ -1,145 +1,132 @@
 import React, { useState } from "react";
+import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
 
-const MoveFiles: React.FC = () => {
-  const [source, setSource] = useState("");
-  const [destination, setDestination] = useState("");
-  const [interactive, setInteractive] = useState(false);
-  const [verbose, setVerbose] = useState(false);
-  const [noClobber, setNoClobber] = useState(false);
-  const [backup, setBackup] = useState(false);
+const ViewFiles: React.FC = () => {
+  const [path, setPath] = useState("");
+  const [all, setAll] = useState(false);
+  const [longListing, setLongListing] = useState(false);
+  const [humanReadable, setHumanReadable] = useState(false);
+  const [recursive, setRecursive] = useState(false);
 
   const generateCommand = () => {
-    let cmd = "mv ";
-    if (interactive) cmd += "-i ";
-    if (verbose) cmd += "-v ";
-    if (noClobber) cmd += "-n ";
-    if (backup) cmd += "-b ";
+    let cmd = "ls ";
+    if (all) cmd += "-a ";
+    if (longListing) cmd += "-l ";
+    if (humanReadable) cmd += "-h ";
+    if (recursive) cmd += "-R ";
 
-    if (source.trim()) cmd += `${source} `;
-    if (destination.trim()) cmd += `${destination}`;
+    if (path.trim()) cmd += `${path}`;
 
     return cmd.trim();
   };
 
   return (
-    <div className="container mx-auto p-6">
-      <div className="mb-4">
-        <nav className="text-sm text-gray-500">
-          Home › Tools › <span className="text-black">Move Files</span>
-        </nav>
-      </div>
+    <div className="w-full max-w-3xl mx-auto">
+      <Card>
+        <CardHeader>
+          <CardTitle>ls Command in Linux/Unix</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed">
+          <p>
+            The <strong>ls</strong> command is used to <strong>list files and directories</strong> in Linux.
+          </p>
 
-      <h1 className="text-3xl font-bold mb-6">mv Command in Linux/Unix</h1>
-
-      <div className="bg-white rounded-lg shadow p-6 space-y-6">
-        <p>
-          The <strong>mv</strong> command is used to <strong>move or rename files and directories</strong> in Linux.
-        </p>
-
-        <div>
-          <h2 className="text-2xl font-semibold mb-2">Syntax</h2>
-          <pre className="bg-gray-100 p-4 rounded text-sm">
-            <code>$ mv [options] source target</code>
-          </pre>
-        </div>
-
-        <div>
-          <h2 className="text-2xl font-semibold mb-2">Options</h2>
-          <ul className="list-disc pl-6 space-y-1 text-sm">
-            <li><strong>-i</strong>: Prompt before overwrite</li>
-            <li><strong>-v</strong>: Verbose mode (show what’s happening)</li>
-            <li><strong>-n</strong>: Do not overwrite an existing file</li>
-            <li><strong>-b</strong>: Make a backup of each file that would be overwritten</li>
-          </ul>
-        </div>
-
-        <div>
-          <h2 className="text-2xl font-semibold mb-2">Examples</h2>
-
-          <div className="space-y-4">
-            <div>
-              <h3 className="text-lg font-semibold">Rename a file:</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm">
-                <code>$ mv oldname.txt newname.txt</code>
-              </pre>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold">Move file to a directory:</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm">
-                <code>$ mv file.txt /home/user/Documents</code>
-              </pre>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold">Prompt before overwriting:</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm">
-                <code>$ mv -i file.txt existing.txt</code>
-              </pre>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold">Backup before overwrite:</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm">
-                <code>$ mv -b file.txt backup.txt</code>
-              </pre>
-            </div>
+          {/* Syntax Section */}
+          <div>
+            <h2 className="text-lg font-semibold mb-2">Syntax</h2>
+            <pre className="bg-gray-100 p-4 rounded text-sm">
+              <code>$ ls [options] [path]</code>
+            </pre>
           </div>
-        </div>
 
-        <div>
-          <h2 className="text-2xl font-semibold mb-4">mv Code Generator</h2>
+          {/* Options Section */}
+          <div>
+            <h2 className="text-lg font-semibold mb-2">Options</h2>
+            <ul className="list-disc pl-6 space-y-1 text-sm">
+              <li><strong>-a</strong>: Show all files including hidden files</li>
+              <li><strong>-l</strong>: Use a long listing format</li>
+              <li><strong>-h</strong>: With -l, print sizes in human-readable format (e.g., 1K, 234M)</li>
+              <li><strong>-R</strong>: List subdirectories recursively</li>
+            </ul>
+          </div>
 
-          <div className="grid gap-4 mb-4">
-            <div className="space-y-2">
-              <label className="font-medium">Source File(s):</label>
-              <input
-                type="text"
-                placeholder="file1.txt"
-                value={source}
-                onChange={(e) => setSource(e.target.value)}
-                className="border rounded p-2 w-full text-sm"
-              />
-            </div>
+          {/* Examples Section */}
+          <div>
+            <h2 className="text-lg font-semibold mb-2">Examples</h2>
+            <div className="space-y-4">
+              <div>
+                <h3 className="text-sm font-semibold">List files in current directory:</h3>
+                <pre className="bg-gray-100 p-4 rounded text-sm">
+                  <code>$ ls</code>
+                </pre>
+              </div>
 
-            <div className="space-y-2">
-              <label className="font-medium">Destination:</label>
-              <input
-                type="text"
-                placeholder="folder/ or newname.txt"
-                value={destination}
-                onChange={(e) => setDestination(e.target.value)}
-                className="border rounded p-2 w-full text-sm"
-              />
-            </div>
+              <div>
+                <h3 className="text-sm font-semibold">List all files including hidden ones:</h3>
+                <pre className="bg-gray-100 p-4 rounded text-sm">
+                  <code>$ ls -a</code>
+                </pre>
+              </div>
 
-            <div className="flex flex-wrap gap-4 mt-4">
-              <label className="flex items-center space-x-1 text-sm">
-                <input type="checkbox" checked={interactive} onChange={() => setInteractive(!interactive)} />
-                <span>Interactive (-i)</span>
-              </label>
-              <label className="flex items-center space-x-1 text-sm">
-                <input type="checkbox" checked={verbose} onChange={() => setVerbose(!verbose)} />
-                <span>Verbose (-v)</span>
-              </label>
-              <label className="flex items-center space-x-1 text-sm">
-                <input type="checkbox" checked={noClobber} onChange={() => setNoClobber(!noClobber)} />
-                <span>No overwrite (-n)</span>
-              </label>
-              <label className="flex items-center space-x-1 text-sm">
-                <input type="checkbox" checked={backup} onChange={() => setBackup(!backup)} />
-                <span>Backup (-b)</span>
-              </label>
+              <div>
+                <h3 className="text-sm font-semibold">Long listing with human readable sizes:</h3>
+                <pre className="bg-gray-100 p-4 rounded text-sm">
+                  <code>$ ls -lh</code>
+                </pre>
+              </div>
+
+              <div>
+                <h3 className="text-sm font-semibold">Recursively list all files and directories:</h3>
+                <pre className="bg-gray-100 p-4 rounded text-sm">
+                  <code>$ ls -R</code>
+                </pre>
+              </div>
             </div>
           </div>
 
-          <div className="bg-gray-100 p-4 rounded text-sm mt-4">
-            <code>{generateCommand()}</code>
+          {/* ls Code Generator Section */}
+          <div>
+            <h2 className="text-lg font-semibold mb-4">ls Code Generator</h2>
+            <div className="grid gap-4 mb-4">
+              <div className="space-y-2">
+                <label className="font-medium">Path (optional):</label>
+                <input
+                  type="text"
+                  placeholder="/home/user/Documents"
+                  value={path}
+                  onChange={(e) => setPath(e.target.value)}
+                  className="border rounded p-2 w-full text-sm"
+                />
+              </div>
+
+              <div className="flex flex-wrap gap-4 mt-4">
+                <label className="flex items-center space-x-1 text-sm">
+                  <input type="checkbox" checked={all} onChange={() => setAll(!all)} />
+                  <span>Show all (-a)</span>
+                </label>
+                <label className="flex items-center space-x-1 text-sm">
+                  <input type="checkbox" checked={longListing} onChange={() => setLongListing(!longListing)} />
+                  <span>Long listing (-l)</span>
+                </label>
+                <label className="flex items-center space-x-1 text-sm">
+                  <input type="checkbox" checked={humanReadable} onChange={() => setHumanReadable(!humanReadable)} />
+                  <span>Human readable (-h)</span>
+                </label>
+                <label className="flex items-center space-x-1 text-sm">
+                  <input type="checkbox" checked={recursive} onChange={() => setRecursive(!recursive)} />
+                  <span>Recursive (-R)</span>
+                </label>
+              </div>
+            </div>
+
+            <div className="bg-gray-100 p-4 rounded text-sm mt-4">
+              <code>{generateCommand()}</code>
+            </div>
           </div>
-        </div>
-      </div>
+        </CardContent>
+      </Card>
     </div>
   );
 };
 
-export default MoveFiles;
+export default ViewFiles;

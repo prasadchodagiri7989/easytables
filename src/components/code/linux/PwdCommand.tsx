@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
 
 const PwdCommand: React.FC = () => {
   const [absolutePath, setAbsolutePath] = useState(true);
@@ -8,74 +9,75 @@ const PwdCommand: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto p-6">
-      <div className="mb-4">
-        <nav className="text-sm text-gray-500">
-          Home › Tools › <span className="text-black">pwd Command</span>
-        </nav>
-      </div>
+    <div className="w-full max-w-3xl mx-auto">
+      <Card>
+        <CardHeader>
+          <CardTitle>pwd Command in Linux/Unix</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed">
+          <p>
+            The <strong>pwd</strong> ("print working directory") command displays the current working directory path in your terminal session.
+          </p>
 
-      <h1 className="text-3xl font-bold mb-6">pwd Command in Linux/Unix</h1>
+          {/* Syntax Section */}
+          <div>
+            <h2 className="text-lg font-semibold mb-2">Syntax</h2>
+            <pre className="bg-gray-100 p-4 rounded text-sm">
+              <code>$ pwd [options]</code>
+            </pre>
+          </div>
 
-      <div className="bg-white rounded-lg shadow p-6 space-y-6">
-        <p>
-          <strong>pwd</strong> ("print working directory") displays the current working directory path in your terminal session.
-        </p>
+          {/* Options Section */}
+          <div>
+            <h2 className="text-lg font-semibold mb-2">Options</h2>
+            <ul className="list-disc pl-6 space-y-1 text-sm">
+              <li><strong>-L</strong>: Show logical path (default, can include symlinks)</li>
+              <li><strong>-P</strong>: Show physical path (resolves symlinks)</li>
+            </ul>
+          </div>
 
-        <div>
-          <h2 className="text-2xl font-semibold mb-2">Syntax</h2>
-          <pre className="bg-gray-100 p-4 rounded text-sm">
-            <code>$ pwd [options]</code>
-          </pre>
-        </div>
-
-        <div>
-          <h2 className="text-2xl font-semibold mb-2">Options</h2>
-          <ul className="list-disc pl-6 space-y-1 text-sm">
-            <li><strong>-L</strong>: Show logical path (default, can include symlinks)</li>
-            <li><strong>-P</strong>: Show physical path (resolves symlinks)</li>
-          </ul>
-        </div>
-
-        <div>
-          <h2 className="text-2xl font-semibold mb-2">Examples</h2>
-          <div className="space-y-4">
-            <div>
-              <h3 className="text-lg font-semibold">Current working directory:</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm">
-                <code>$ pwd</code>
-              </pre>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold">Physical path without symlinks:</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm">
-                <code>$ pwd -P</code>
-              </pre>
+          {/* Examples Section */}
+          <div>
+            <h2 className="text-lg font-semibold mb-2">Examples</h2>
+            <div className="space-y-4">
+              <Example title="Current working directory:" code={`$ pwd`} />
+              <Example title="Physical path without symlinks:" code={`$ pwd -P`} />
             </div>
           </div>
-        </div>
 
-        <div>
-          <h2 className="text-2xl font-semibold mb-4">pwd Code Generator</h2>
+          {/* Command Generator Section */}
+          <div>
+            <h2 className="text-lg font-semibold mb-4">pwd Command Generator</h2>
+            <div className="flex flex-wrap gap-4 mb-4">
+              <label className="flex items-center space-x-1 text-sm">
+                <input
+                  type="checkbox"
+                  checked={!absolutePath}
+                  onChange={() => setAbsolutePath(!absolutePath)}
+                />
+                <span>Physical path (-P)</span>
+              </label>
+            </div>
 
-          <div className="flex flex-wrap gap-4 mb-4">
-            <label className="flex items-center space-x-1 text-sm">
-              <input
-                type="checkbox"
-                checked={!absolutePath}
-                onChange={() => setAbsolutePath(!absolutePath)}
-              />
-              <span>Physical path (-P)</span>
-            </label>
+            {/* Command Output */}
+            <div className="bg-gray-100 p-4 rounded text-sm mt-4">
+              <code>{generateCommand()}</code>
+            </div>
           </div>
-
-          <div className="bg-gray-100 p-4 rounded text-sm mt-4">
-            <code>{generateCommand()}</code>
-          </div>
-        </div>
-      </div>
+        </CardContent>
+      </Card>
     </div>
   );
 };
 
-export default PwdCommand;
+// Example Component to handle repetitive example display
+const Example: React.FC<{ title: string; code: string }> = ({ title, code }) => (
+  <div>
+    <h3 className="text-lg font-semibold mb-2">{title}</h3>
+    <pre className="bg-gray-100 p-4 rounded text-sm whitespace-pre-wrap">
+      <code>{code}</code>
+    </pre>
+  </div>
+);
+
+export default PwdCommand;

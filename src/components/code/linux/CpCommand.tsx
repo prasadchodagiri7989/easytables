@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
 
-const CpCommand: React.FC = () => {
+const CpCommand = () => {
   const [options, setOptions] = useState<string[]>([]);
   const [source, setSource] = useState("");
   const [destination, setDestination] = useState("");
@@ -35,179 +36,123 @@ const CpCommand: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto p-6">
-      <div className="mb-4">
-        <nav className="text-sm text-gray-500">
-          Home › Tools › <span className="text-black">cp Command in Linux/Unix</span>
-        </nav>
-      </div>
+    <div className="w-full max-w-5xl mx-auto">
+      <Card>
+        <CardHeader>
+          <CardTitle>cp Command in Linux/Unix</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed">
+          <p>The <strong>cp</strong> command copies files and directories in Linux/Unix systems.</p>
 
-      <h1 className="text-3xl font-bold mb-6">cp Command in Linux/Unix</h1>
+          <section>
+            <h2 className="text-lg font-semibold mb-2">Syntax</h2>
+            <pre className="bg-gray-100 p-4 rounded text-sm">
+              <code>$ cp [options] source dest</code>
+            </pre>
+          </section>
 
-      <div className="bg-white rounded-lg shadow p-6 space-y-6">
-        <p>
-          The <strong>cp</strong> command copies files and directories in Linux/Unix systems.
-        </p>
+          <section>
+            <h2 className="text-lg font-semibold mb-2">Options</h2>
+            <ul className="list-disc pl-6 space-y-1 text-sm">
+              {[
+                { label: "-a", description: "archive files" },
+                { label: "-f", description: "force copy by removing destination if needed" },
+                { label: "-i", description: "interactive - ask before overwrite" },
+                { label: "-l", description: "link files instead of copy" },
+                { label: "-L", description: "follow symbolic links" },
+                { label: "-n", description: "no overwrite" },
+                { label: "-R", description: "recursive copy (include hidden files)" },
+                { label: "-u", description: "update newer files only" },
+                { label: "-v", description: "verbose messages" },
+              ].map((opt) => (
+                <li key={opt.label}>
+                  <strong>{opt.label}</strong>: {opt.description}
+                </li>
+              ))}
+            </ul>
+          </section>
 
-        <div>
-          <h2 className="text-2xl font-semibold mb-2">Syntax</h2>
-          <pre className="bg-gray-100 p-4 rounded text-sm">
-            <code>$ cp [options] source dest</code>
-          </pre>
-        </div>
+          <section>
+            <h2 className="text-lg font-semibold mb-2">Examples</h2>
+            <div className="space-y-4">
+              {[
+                { title: "Copy a single file:", code: "$ cp main.c bak" },
+                { title: "Copy multiple files to a directory:", code: "$ cp main.c def.h /home/usr/rapid/" },
+                { title: "Copy all C files:", code: "$ cp *.c bak" },
+                { title: "Copy directories recursively:", code: "$ cp -R dev bak" },
+                { title: "Force copy a file:", code: "$ cp -f test.c bak" },
+                { title: "Interactive prompt before overwrite:", code: "$ cp -i test.c bak" },
+                { title: "Update newer files only:", code: "$ cp -u * bak" },
+              ].map(({ title, code }) => (
+                <div key={title}>
+                  <h3 className="text-lg font-semibold">{title}</h3>
+                  <pre className="bg-gray-100 p-4 rounded text-sm">
+                    <code>{code}</code>
+                  </pre>
+                </div>
+              ))}
+            </div>
+          </section>
 
-        <div>
-          <h2 className="text-2xl font-semibold mb-2">Options</h2>
-          <ul className="list-disc pl-6 space-y-1 text-sm">
-            <li><strong>-a</strong>: archive files</li>
-            <li><strong>-f</strong>: force copy by removing destination if needed</li>
-            <li><strong>-i</strong>: interactive - ask before overwrite</li>
-            <li><strong>-l</strong>: link files instead of copy</li>
-            <li><strong>-L</strong>: follow symbolic links</li>
-            <li><strong>-n</strong>: no overwrite</li>
-            <li><strong>-R</strong>: recursive copy (include hidden files)</li>
-            <li><strong>-u</strong>: update newer files only</li>
-            <li><strong>-v</strong>: verbose messages</li>
-          </ul>
-        </div>
-
-        <div>
-          <h2 className="text-2xl font-semibold mb-2">Examples</h2>
-
-          <div className="space-y-4">
-            <div>
-              <h3 className="text-lg font-semibold">Copy a single file:</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm">
-                <code>$ cp main.c bak</code>
-              </pre>
+          <section>
+            <h2 className="text-lg font-semibold mb-4">cp Code Generator</h2>
+            <div className="grid gap-4 mb-4">
+              <OptionsSection options={options} handleOptionChange={handleOptionChange} />
+              <InputSection label="Source files/folders:" value={source} setValue={setSource} placeholder="file1 file2 dir1 dir2" />
+              <InputSection label="Destination folder/file:" value={destination} setValue={setDestination} placeholder="destdir" />
+              <InputSection label="Redirect stdout to:" value={stdout} setValue={setStdout} placeholder="out.txt" />
+              <InputSection label="Redirect stderr to:" value={stderr} setValue={setStderr} placeholder="err.txt" />
             </div>
 
-            <div>
-              <h3 className="text-lg font-semibold">Copy multiple files to a directory:</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm">
-                <code>$ cp main.c def.h /home/usr/rapid/</code>
-              </pre>
+            <div className="bg-gray-100 p-4 rounded text-sm mt-4">
+              <code>{generateCommand()}</code>
             </div>
-
-            <div>
-              <h3 className="text-lg font-semibold">Copy all C files:</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm">
-                <code>$ cp *.c bak</code>
-              </pre>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold">Copy directories recursively:</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm">
-                <code>$ cp -R dev bak</code>
-              </pre>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold">Force copy a file:</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm">
-                <code>$ cp -f test.c bak</code>
-              </pre>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold">Interactive prompt before overwrite:</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm">
-                <code>$ cp -i test.c bak</code>
-              </pre>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold">Update newer files only:</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm">
-                <code>$ cp -u * bak</code>
-              </pre>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <h2 className="text-2xl font-semibold mb-4">cp Code Generator</h2>
-
-          <div className="grid gap-4 mb-4">
-            <div className="space-y-2">
-              <label className="font-medium">Options:</label>
-              <div className="flex flex-wrap gap-2">
-                {[
-                  { value: "f", label: "Force (-f)" },
-                  { value: "i", label: "Interactive (-i)" },
-                  { value: "l", label: "Link (-l)" },
-                  { value: "L", label: "Follow symlinks (-L)" },
-                  { value: "n", label: "No overwrite (-n)" },
-                  { value: "R", label: "Recursive (-R)" },
-                  { value: "u", label: "Update newer (-u)" },
-                  { value: "v", label: "Verbose (-v)" },
-                ].map((opt) => (
-                  <label key={opt.value} className="flex items-center space-x-1 text-sm">
-                    <input
-                      type="checkbox"
-                      value={opt.value}
-                      checked={options.includes(opt.value)}
-                      onChange={handleOptionChange}
-                    />
-                    <span>{opt.label}</span>
-                  </label>
-                ))}
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <label className="font-medium">Source files/folders:</label>
-              <input
-                type="text"
-                placeholder="file1 file2 dir1 dir2"
-                value={source}
-                onChange={(e) => setSource(e.target.value)}
-                className="border rounded p-2 w-full text-sm"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label className="font-medium">Destination folder/file:</label>
-              <input
-                type="text"
-                placeholder="destdir"
-                value={destination}
-                onChange={(e) => setDestination(e.target.value)}
-                className="border rounded p-2 w-full text-sm"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label className="font-medium">Redirect stdout to:</label>
-              <input
-                type="text"
-                placeholder="out.txt"
-                value={stdout}
-                onChange={(e) => setStdout(e.target.value)}
-                className="border rounded p-2 w-full text-sm"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label className="font-medium">Redirect stderr to:</label>
-              <input
-                type="text"
-                placeholder="err.txt"
-                value={stderr}
-                onChange={(e) => setStderr(e.target.value)}
-                className="border rounded p-2 w-full text-sm"
-              />
-            </div>
-          </div>
-
-          <div className="bg-gray-100 p-4 rounded text-sm mt-4">
-            <code>{generateCommand()}</code>
-          </div>
-        </div>
-      </div>
+          </section>
+        </CardContent>
+      </Card>
     </div>
   );
 };
+
+const OptionsSection = ({ options, handleOptionChange }) => (
+  <div>
+    <label className="font-medium">Options:</label>
+    <div className="flex flex-wrap gap-2">
+      {[
+        { value: "f", label: "Force (-f)" },
+        { value: "i", label: "Interactive (-i)" },
+        { value: "l", label: "Link (-l)" },
+        { value: "L", label: "Follow symlinks (-L)" },
+        { value: "n", label: "No overwrite (-n)" },
+        { value: "R", label: "Recursive (-R)" },
+        { value: "u", label: "Update newer (-u)" },
+        { value: "v", label: "Verbose (-v)" },
+      ].map((opt) => (
+        <label key={opt.value} className="flex items-center space-x-1 text-sm">
+          <input
+            type="checkbox"
+            value={opt.value}
+            checked={options.includes(opt.value)}
+            onChange={handleOptionChange}
+          />
+          <span>{opt.label}</span>
+        </label>
+      ))}
+    </div>
+  </div>
+);
+
+const InputSection = ({ label, value, setValue, placeholder }) => (
+  <div className="space-y-2">
+    <label className="font-medium">{label}</label>
+    <input
+      type="text"
+      placeholder={placeholder}
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+      className="border rounded p-2 w-full text-sm"
+    />
+  </div>
+);
 
 export default CpCommand;

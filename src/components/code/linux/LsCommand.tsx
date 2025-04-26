@@ -1,5 +1,11 @@
 import React, { useState } from "react";
+import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
 
+/**
+ * LsCommand component generates a list of files and directories in a Linux/Unix system.
+ * The component allows users to customize the `ls` command with various options like
+ * displaying hidden files, using long formats, and sorting by file size.
+ */
 const LsCommand: React.FC = () => {
   const [longFormat, setLongFormat] = useState(false);
   const [showHidden, setShowHidden] = useState(false);
@@ -12,6 +18,10 @@ const LsCommand: React.FC = () => {
   const [stdoutFile, setStdoutFile] = useState("");
   const [stderrFile, setStderrFile] = useState("");
 
+  /**
+   * Generates the command based on selected options and input fields.
+   * @returns {string} The generated `ls` command with options and arguments.
+   */
   const generateCommand = () => {
     let cmd = "ls ";
     if (longFormat) cmd += "-l ";
@@ -38,122 +48,68 @@ const LsCommand: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto p-6">
-      <div className="mb-4">
-        <nav className="text-sm text-gray-500">
-          Home › Tools › <span className="text-black">ls Command</span>
-        </nav>
-      </div>
+    <div className="w-full max-w-3xl mx-auto">
+      <Card>
+        <CardHeader>
+          <CardTitle>ls Command in Linux/Unix</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed">
+          <p>
+            The <strong>ls</strong> command is used in Linux/Unix to list the contents of a directory, such as files and subdirectories.
+          </p>
 
-      <h1 className="text-3xl font-bold mb-6">ls Command in Linux/Unix</h1>
+          <div>
+            <h2 className="text-lg font-semibold mb-2">Syntax</h2>
+            <pre className="bg-gray-100 p-4 rounded text-sm">
+              <code>$ ls [options] [file|dir]</code>
+            </pre>
+          </div>
 
-      <div className="bg-white rounded-lg shadow p-6 space-y-6">
-        <p>
-          <strong>ls</strong> is a Linux shell command that lists directory contents of files and directories.
-        </p>
-
-        <div>
-          <h2 className="text-2xl font-semibold mb-2">Syntax</h2>
-          <pre className="bg-gray-100 p-4 rounded text-sm">
-            <code>$ ls [options] [file|dir]</code>
-          </pre>
-        </div>
-
-        <div>
-          <h2 className="text-2xl font-semibold mb-2">Options</h2>
-          <ul className="list-disc pl-6 space-y-1 text-sm">
-            <li><strong>-a</strong>: list all files including hidden</li>
-            <li><strong>--color</strong>: colored list (always/never/auto)</li>
-            <li><strong>-d</strong>: list directories only</li>
-            <li><strong>-F</strong>: classify entries with */={'>'}@|</li>
-            <li><strong>-i</strong>: show inode number</li>
-            <li><strong>-l</strong>: long format list (permissions, size)</li>
-            <li><strong>-la</strong>: long format with hidden files</li>
-            <li><strong>-lh</strong>: long format human readable size</li>
-            <li><strong>-ls</strong>: long format with file size</li>
-            <li><strong>-r</strong>: reverse order</li>
-            <li><strong>-R</strong>: recursive directory tree</li>
-            <li><strong>-s</strong>: list file size</li>
-            <li><strong>-S</strong>: sort by file size</li>
-            <li><strong>-t</strong>: sort by date/time</li>
-            <li><strong>-X</strong>: sort by extension name</li>
-          </ul>
-        </div>
-
-        <div>
-          <h2 className="text-2xl font-semibold mb-2">Examples</h2>
-
-          <div className="space-y-4">
-            <div>
-              <h3 className="text-lg font-semibold">List directory:</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm">
-                <code>$ ls Documents/Books</code>
-              </pre>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold">Absolute path:</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm">
-                <code>$ ls /home/user/Documents/Books</code>
-              </pre>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold">Root directory:</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm">
-                <code>$ ls /</code>
-              </pre>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold">Parent directory:</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm">
-                <code>$ ls ..</code>
-              </pre>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold">Home directory:</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm">
-                <code>$ ls ~</code>
-              </pre>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold">List hidden files:</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm">
-                <code>$ ls -a</code>
-              </pre>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold">Long format and hidden:</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm">
-                <code>$ ls -la</code>
-              </pre>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold">Sort by file size:</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm">
-                <code>$ ls -S</code>
-              </pre>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold">Recursive list:</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm">
-                <code>$ ls -R</code>
-              </pre>
+          <div>
+            <h2 className="text-lg font-semibold mb-2">Options</h2>
+            <div className="overflow-x-auto">
+              <table className="table-auto w-full text-left border-collapse">
+                <thead>
+                  <tr>
+                    <th className="border-b p-2">Option</th>
+                    <th className="border-b p-2">Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { option: "-a", desc: "List all files, including hidden ones." },
+                    { option: "-l", desc: "Use long listing format (permissions, size, etc.)" },
+                    { option: "-r", desc: "Reverse the order of the output" },
+                    { option: "-R", desc: "Recursively list directories" },
+                    { option: "-S", desc: "Sort by file size" },
+                    { option: "-d", desc: "List directories only" },
+                  ].map(({ option, desc }) => (
+                    <tr key={option}>
+                      <td className="border-b p-2">
+                        <code>{option}</code>
+                      </td>
+                      <td className="border-b p-2">{desc}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
-        </div>
 
-        <div>
-          <h2 className="text-2xl font-semibold mb-4">ls Code Generator</h2>
+          <div>
+            <h2 className="text-lg font-semibold mb-2">Examples</h2>
+            <div className="space-y-4">
+              <Example title="List files in a directory:" code={`$ ls Documents/Books`} />
+              <Example title="List all files, including hidden:" code={`$ ls -a`} />
+              <Example title="Use long format to view details:" code={`$ ls -l`} />
+              <Example title="Sort by file size:" code={`$ ls -S`} />
+              <Example title="List files recursively:" code={`$ ls -R`} />
+            </div>
+          </div>
 
-          <div className="grid gap-4 mb-4">
-            <div className="flex flex-wrap gap-4">
+          <div>
+            <h2 className="text-lg font-semibold mb-2">ls Command Generator</h2>
+            <div className="space-y-4">
               <label className="flex items-center space-x-1 text-sm">
                 <input type="checkbox" checked={longFormat} onChange={() => setLongFormat(!longFormat)} />
                 <span>Long list format (-l)</span>
@@ -221,15 +177,29 @@ const LsCommand: React.FC = () => {
                 className="border rounded p-2 w-full text-sm"
               />
             </div>
-          </div>
 
-          <div className="bg-gray-100 p-4 rounded text-sm mt-4">
-            <code>{generateCommand()}</code>
+            <div className="bg-gray-100 p-4 rounded text-sm mt-4">
+              <code>{generateCommand()}</code>
+            </div>
           </div>
-        </div>
-      </div>
+        </CardContent>
+      </Card>
     </div>
   );
 };
+
+/**
+ * Example component is used to display a code example with a title.
+ * @param {string} title The title of the example.
+ * @param {string} code The code to be displayed.
+ */
+const Example: React.FC<{ title: string; code: string }> = ({ title, code }) => (
+  <div>
+    <h3 className="text-lg font-semibold mb-2">{title}</h3>
+    <pre className="bg-gray-100 p-4 rounded text-sm whitespace-pre-wrap">
+      <code>{code}</code>
+    </pre>
+  </div>
+);
 
 export default LsCommand;

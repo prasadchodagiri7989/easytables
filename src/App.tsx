@@ -403,9 +403,25 @@ import HTMLTables from "./components/webdesign/html/HTMLTables";
 import WebTools from "./components/webdesign/WebTools";
 import HtmlColorCodes from "./components/webdesign/color/HtmlColorCodes";
 
+import AllCode from "./components/code/AllCode";
 
+import AllLinux from "./components/code/linux/AllLinux";
+import CatCommand from "./components/code/linux/CatCommand";
+import CdCommand from "./components/code/linux/CdCommand";
+import CpCommand from "./components/code/linux/CpCommand";
+import CurrentDirectory from "./components/code/linux/CurrentDirectory";
+import GccCommand from "./components/code/linux/GccCommand";
+import LsCommand from "./components/code/linux/LsCommand";
+import MoveFiles from "./components/code/linux/MoveFiles";
+import MvCommand from "./components/code/linux/MvCommand";
+import PwdCommand from "./components/code/linux/PwdCommand";
+import SlowVirtualBoxUbuntu from "./components/code/linux/SlowVirtualBoxUbuntu";
+import ViewFiles from "./components/code/linux/ViewFiles";
 
-
+import TextTools from "./components/code/text/TextTools";
+import AltCodes from "./components/code/text/AltCodes";
+import AsciiTable from "./components/code/text/AsciiTable";
+import UnicodePage from "./components/code/text/UnicodePage";
 
 
 const queryClient = new QueryClient();
@@ -756,6 +772,28 @@ const App = () => (
           <Route path="/tools/html-character-codes" element={<Layout><HTMLCharacterCodes /></Layout>} />
           <Route path="/tools/html-comments-guide" element={<Layout><HTMLComments /></Layout>} />
           <Route path="/tools/html-tables-generator" element={<Layout><HTMLTables /></Layout>} />
+
+          <Route path="/code/all" element={<Layout><AllCode /></Layout>} />
+
+          <Route path="/linux/all" element={<Layout><AllLinux /></Layout>} />
+          <Route path="/linux/cat-command" element={<Layout><CatCommand /></Layout>} />
+          <Route path="/linux/cd-command" element={<Layout><CdCommand /></Layout>} />
+          <Route path="/linux/cp-command" element={<Layout><CpCommand /></Layout>} />
+          <Route path="/linux/current-directory" element={<Layout><CurrentDirectory /></Layout>} />
+          <Route path="/linux/gcc-command" element={<Layout><GccCommand /></Layout>} />
+          <Route path="/linux/ls-command" element={<Layout><LsCommand /></Layout>} />
+          <Route path="/linux/move-files" element={<Layout><MoveFiles /></Layout>} />
+          <Route path="/linux/mv-command" element={<Layout><MvCommand /></Layout>} />
+          <Route path="/linux/pwd-command" element={<Layout><PwdCommand /></Layout>} />
+          <Route path="/linux/slow-virtualbox-ubuntu" element={<Layout><SlowVirtualBoxUbuntu /></Layout>} />
+          <Route path="/linux/view-files" element={<Layout><ViewFiles /></Layout>} />
+         
+          <Route path="/text/all" element={<Layout><TextTools /></Layout>} />
+          <Route path="/text/alt-codes" element={<Layout><AltCodes /></Layout>} />
+          <Route path="/text/ascii-table" element={<Layout><AsciiTable /></Layout>} />
+          <Route path="/text/unicode-page" element={<Layout><UnicodePage /></Layout>} />
+
+          
 
 
                     

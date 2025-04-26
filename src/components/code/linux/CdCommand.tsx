@@ -1,100 +1,61 @@
 import React from "react";
+import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
 
 const CdCommand: React.FC = () => {
   return (
-    <div className="container mx-auto p-6">
-      <div className="mb-4">
-        <nav className="text-sm text-gray-500">
-          Home › Tools › <span className="text-black">cd Command in Linux/Unix</span>
-        </nav>
-      </div>
+    <div className="w-full max-w-5xl mx-auto">
+      <Card>
+        <CardHeader>
+          <CardTitle>cd Command in Linux/Unix</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed">
+          <p>
+            The <strong>cd</strong> (change directory) command is used in Linux and Unix to move between directories in the terminal shell.
+          </p>
+          <p>
+            💡 Tip: You can press the <strong>Tab</strong> key to auto-complete directory names!
+          </p>
 
-      <h1 className="text-3xl font-bold mb-6">cd Command in Linux/Unix</h1>
+          <div>
+            <h2 className="text-lg font-semibold mb-2">Syntax</h2>
+            <pre className="bg-gray-100 p-4 rounded text-sm">
+              <code>$ cd [directory]</code>
+            </pre>
+          </div>
 
-      <div className="bg-white rounded-lg shadow p-6 space-y-6">
-        <p>
-          The <strong>cd</strong> (change directory) command is used in Linux and Unix to move between directories in the terminal shell.
-        </p>
-        <p>
-          💡 Tip: You can press the <strong>Tab</strong> key to auto-complete directory names!
-        </p>
-
-        <div>
-          <h2 className="text-2xl font-semibold mb-2">Syntax</h2>
-          <pre className="bg-gray-100 p-4 rounded text-sm">
-            <code>$ cd [directory]</code>
-          </pre>
-        </div>
-
-        <div>
-          <h2 className="text-2xl font-semibold mb-2">Examples</h2>
-
-          <div className="space-y-4">
-            <div>
-              <h3 className="text-lg font-semibold">Go to home directory:</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm">
-                <code>$ cd</code>
-              </pre>
-              <p className="text-sm text-gray-600">or</p>
-              <pre className="bg-gray-100 p-4 rounded text-sm">
-                <code>$ cd ~</code>
-              </pre>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold">Go to root directory:</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm">
-                <code>$ cd /</code>
-              </pre>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold">Move to parent directory:</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm">
-                <code>$ cd ..</code>
-              </pre>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold">Go to subdirectory (e.g., Documents):</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm">
-                <code>$ cd Documents</code>
-              </pre>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold">Go to nested directory (e.g., Documents/Books):</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm">
-                <code>$ cd Documents/Books</code>
-              </pre>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold">Use an absolute path:</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm">
-                <code>$ cd /home/user/Desktop</code>
-              </pre>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold">Directory with spaces (e.g., "My Images"):</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm">
-                <code>$ cd My\ Images</code>
-              </pre>
-              <p className="text-sm text-gray-600">or</p>
-              <pre className="bg-gray-100 p-4 rounded text-sm">
-                <code>$ cd "My Images"</code>
-              </pre>
-              <p className="text-sm text-gray-600">or</p>
-              <pre className="bg-gray-100 p-4 rounded text-sm">
-                <code>$ cd 'My Images'</code>
-              </pre>
+          <div>
+            <h2 className="text-lg font-semibold mb-2">Examples</h2>
+            <div className="space-y-6">
+              <Example title="Go to home directory:" codes={["$ cd", "$ cd ~"]} />
+              <Example title="Go to root directory:" codes={["$ cd /"]} />
+              <Example title="Move to parent directory:" codes={["$ cd .."]} />
+              <Example title="Go to subdirectory (e.g., Documents):" codes={["$ cd Documents"]} />
+              <Example title="Go to nested directory (e.g., Documents/Books):" codes={["$ cd Documents/Books"]} />
+              <Example title="Use an absolute path:" codes={["$ cd /home/user/Desktop"]} />
+              <Example
+                title='Directory with spaces (e.g., "My Images"):'
+                codes={["$ cd My\\ Images", '$ cd "My Images"', `$ cd 'My Images'`]}
+              />
             </div>
           </div>
-        </div>
-      </div>
+        </CardContent>
+      </Card>
     </div>
   );
 };
+
+const Example: React.FC<{ title: string; codes: string[] }> = ({ title, codes }) => (
+  <div>
+    <h3 className="text-lg font-semibold mb-2">{title}</h3>
+    {codes.map((code, idx) => (
+      <div key={idx} className="mb-2">
+        <pre className="bg-gray-100 p-4 rounded text-sm whitespace-pre-wrap">
+          <code>{code}</code>
+        </pre>
+        {idx < codes.length - 1 && <p className="text-sm text-gray-600">or</p>}
+      </div>
+    ))}
+  </div>
+);
 
 export default CdCommand;
