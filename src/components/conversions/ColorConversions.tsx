@@ -34,9 +34,7 @@ export default function ColorConversions() {
             className="block bg-white hover:bg-gray-100 p-4 rounded-xl shadow-md transition duration-200 dark:bg-transparent border"
           >
             <div className="font-semibold">{item.label} Conversion</div>
-            <div className="text-sm text-gray-600 dark:text-gray-400">
-              {colorUnits[item.from]} → {colorUnits[item.to]}
-            </div>
+
           </Link>
         ))}
       </div>
