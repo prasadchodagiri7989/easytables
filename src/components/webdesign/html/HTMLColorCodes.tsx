@@ -1,180 +1,152 @@
-import React from 'react';
+import React from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Link } from "react-router-dom";
 
-const HTMLColorCodes = () => {
+const HTMLColorCodes: React.FC = () => {
+  const hexColors = [
+    { code: "#000000", name: "Black" },
+    { code: "#FFFFFF", name: "White" },
+    { code: "#FF0000", name: "Red" },
+    { code: "#00FF00", name: "Lime" },
+    { code: "#0000FF", name: "Blue" },
+    { code: "#FFFF00", name: "Yellow" },
+    { code: "#00FFFF", name: "Aqua" },
+    { code: "#FF00FF", name: "Fuchsia" },
+    { code: "#C0C0C0", name: "Silver" },
+    { code: "#808080", name: "Gray" },
+  ];
+
+  const rgbColors = [
+    { code: "rgb(255, 0, 0)", name: "Red" },
+    { code: "rgb(0, 255, 0)", name: "Lime" },
+    { code: "rgb(0, 0, 255)", name: "Blue" },
+    { code: "rgb(255, 255, 0)", name: "Yellow" },
+    { code: "rgb(0, 255, 255)", name: "Aqua" },
+    { code: "rgb(255, 0, 255)", name: "Fuchsia" },
+  ];
+
+  const colorNames = [
+    "Red", "Green", "Blue", "Yellow", "Aqua", "Fuchsia", "Gray", "Silver", "Black", "White",
+  ];
+
+  const extendedColors = [
+    "AliceBlue", "AntiqueWhite", "Aquamarine", "Azure", "Beige", "Bisque", "Black", "BlanchedAlmond", "BlueViolet", "Brown",
+  ];
+
+  const otherColors = [
+    { code: "rgb(139, 69, 19)", name: "Brown" },
+    { code: "rgb(255, 99, 71)", name: "Tomato" },
+    { code: "rgb(0, 128, 0)", name: "Green" },
+    { code: "rgb(255, 105, 180)", name: "HotPink" },
+  ];
+
   return (
-    <div>
-      <h2>HTML Color Codes</h2>
-      <p>
-        HTML color codes are used to specify colors in web pages. There are various ways to represent colors, including using hexadecimal (hex) values, RGB values, and predefined color names. Below is a list of common HTML color codes.
-      </p>
-      
-      <p>
-        <a
-          href="https://www.rapidtables.com/web/color/html-color-codes.html"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Visit HTML Color Codes Resource
-        </a>
-      </p>
+    <div className="w-full max-w-6xl mx-auto px-4">
+      <Breadcrumb className="mb-4">
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/">Home</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>HTML Color Codes</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
 
-      <h3>Common HTML Color Codes</h3>
-      
-      <h4>Hexadecimal Color Codes</h4>
-      <ul>
-        <li>
-          <span style={{ color: '#000000' }}>#000000 - Black</span>
-        </li>
-        <li>
-          <span style={{ color: '#FFFFFF' }}>#FFFFFF - White</span>
-        </li>
-        <li>
-          <span style={{ color: '#FF0000' }}>#FF0000 - Red</span>
-        </li>
-        <li>
-          <span style={{ color: '#00FF00' }}>#00FF00 - Lime</span>
-        </li>
-        <li>
-          <span style={{ color: '#0000FF' }}>#0000FF - Blue</span>
-        </li>
-        <li>
-          <span style={{ color: '#FFFF00' }}>#FFFF00 - Yellow</span>
-        </li>
-        <li>
-          <span style={{ color: '#00FFFF' }}>#00FFFF - Aqua</span>
-        </li>
-        <li>
-          <span style={{ color: '#FF00FF' }}>#FF00FF - Fuchsia</span>
-        </li>
-        <li>
-          <span style={{ color: '#C0C0C0' }}>#C0C0C0 - Silver</span>
-        </li>
-        <li>
-          <span style={{ color: '#808080' }}>#808080 - Gray</span>
-        </li>
-      </ul>
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-2xl">HTML Color Codes</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p className="text-sm text-muted-foreground mb-4">
+            HTML color codes define colors for web pages using hex, RGB, or color names.
+          </p>
 
-      <h4>RGB Color Codes</h4>
-      <ul>
-        <li>
-          <span style={{ color: 'rgb(255, 0, 0)' }}>rgb(255, 0, 0) - Red</span>
-        </li>
-        <li>
-          <span style={{ color: 'rgb(0, 255, 0)' }}>rgb(0, 255, 0) - Lime</span>
-        </li>
-        <li>
-          <span style={{ color: 'rgb(0, 0, 255)' }}>rgb(0, 0, 255) - Blue</span>
-        </li>
-        <li>
-          <span style={{ color: 'rgb(255, 255, 0)' }}>rgb(255, 255, 0) - Yellow</span>
-        </li>
-        <li>
-          <span style={{ color: 'rgb(0, 255, 255)' }}>rgb(0, 255, 255) - Aqua</span>
-        </li>
-        <li>
-          <span style={{ color: 'rgb(255, 0, 255)' }}>rgb(255, 0, 255) - Fuchsia</span>
-        </li>
-      </ul>
+          {/* Hexadecimal Color Codes */}
+          <div className="mb-6">
+            <h3 className="text-lg font-semibold mb-2">Hexadecimal Color Codes</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+              {hexColors.map((color, idx) => (
+                <div key={idx} className="text-center text-xs">
+                  <div className="w-12 h-12 rounded border mx-auto" style={{ backgroundColor: color.code }} />
+                  <span className="block mt-1">{color.code} - {color.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
 
-      <h4>HTML Color Names</h4>
-      <ul>
-        <li>
-          <span style={{ color: 'red' }}>Red</span>
-        </li>
-        <li>
-          <span style={{ color: 'green' }}>Green</span>
-        </li>
-        <li>
-          <span style={{ color: 'blue' }}>Blue</span>
-        </li>
-        <li>
-          <span style={{ color: 'yellow' }}>Yellow</span>
-        </li>
-        <li>
-          <span style={{ color: 'aqua' }}>Aqua</span>
-        </li>
-        <li>
-          <span style={{ color: 'fuchsia' }}>Fuchsia</span>
-        </li>
-        <li>
-          <span style={{ color: 'gray' }}>Gray</span>
-        </li>
-        <li>
-          <span style={{ color: 'silver' }}>Silver</span>
-        </li>
-        <li>
-          <span style={{ color: 'black' }}>Black</span>
-        </li>
-        <li>
-          <span style={{ color: 'white' }}>White</span>
-        </li>
-      </ul>
+          {/* RGB Color Codes */}
+          <div className="mb-6">
+            <h3 className="text-lg font-semibold mb-2">RGB Color Codes</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+              {rgbColors.map((color, idx) => (
+                <div key={idx} className="text-center text-xs">
+                  <div className="w-12 h-12 rounded border mx-auto" style={{ backgroundColor: color.code }} />
+                  <span className="block mt-1">{color.code} - {color.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
 
-      <h4>Extended Color Names</h4>
-      <ul>
-        <li>
-          <span style={{ color: 'aliceblue' }}>AliceBlue</span>
-        </li>
-        <li>
-          <span style={{ color: 'antiquewhite' }}>AntiqueWhite</span>
-        </li>
-        <li>
-          <span style={{ color: 'aquamarine' }}>Aquamarine</span>
-        </li>
-        <li>
-          <span style={{ color: 'azure' }}>Azure</span>
-        </li>
-        <li>
-          <span style={{ color: 'beige' }}>Beige</span>
-        </li>
-        <li>
-          <span style={{ color: 'bisque' }}>Bisque</span>
-        </li>
-        <li>
-          <span style={{ color: 'black' }}>Black</span>
-        </li>
-        <li>
-          <span style={{ color: 'blanchedalmond' }}>BlanchedAlmond</span>
-        </li>
-        <li>
-          <span style={{ color: 'blueviolet' }}>BlueViolet</span>
-        </li>
-        <li>
-          <span style={{ color: 'brown' }}>Brown</span>
-        </li>
-      </ul>
+          {/* HTML Color Names */}
+          <div className="mb-6">
+            <h3 className="text-lg font-semibold mb-2">HTML Color Names</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+              {colorNames.map((name, idx) => (
+                <div key={idx} className="text-center text-xs">
+                  <div className="w-12 h-12 rounded border mx-auto" style={{ backgroundColor: name.toLowerCase() }} />
+                  <span className="block mt-1">{name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
 
-      <h4>Other Color Codes</h4>
-      <ul>
-        <li>
-          <span style={{ color: 'rgb(139, 69, 19)' }}>rgb(139, 69, 19) - Brown</span>
-        </li>
-        <li>
-          <span style={{ color: 'rgb(255, 99, 71)' }}>rgb(255, 99, 71) - Tomato</span>
-        </li>
-        <li>
-          <span style={{ color: 'rgb(0, 128, 0)' }}>rgb(0, 128, 0) - Green</span>
-        </li>
-        <li>
-          <span style={{ color: 'rgb(255, 105, 180)' }}>rgb(255, 105, 180) - HotPink</span>
-        </li>
-      </ul>
+          {/* Extended Color Names */}
+          <div className="mb-6">
+            <h3 className="text-lg font-semibold mb-2">Extended Color Names</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+              {extendedColors.map((name, idx) => (
+                <div key={idx} className="text-center text-xs">
+                  <div className="w-12 h-12 rounded border mx-auto" style={{ backgroundColor: name.toLowerCase() }} />
+                  <span className="block mt-1">{name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
 
-      <h3>More Color Code Resources</h3>
-      <p>
-        Explore more color codes and tools to find the perfect color for your web projects.
-      </p>
-      <p>
-        <a
-          href="https://www.rapidtables.com/web/color/html-color-codes.html"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          HTML Color Codes at RapidTables
-        </a>
-      </p>
+          {/* Other Color Codes */}
+          <div className="mb-6">
+            <h3 className="text-lg font-semibold mb-2">Other Color Codes</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+              {otherColors.map((color, idx) => (
+                <div key={idx} className="text-center text-xs">
+                  <div className="w-12 h-12 rounded border mx-auto" style={{ backgroundColor: color.code }} />
+                  <span className="block mt-1">{color.code} - {color.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* External Resource Link */}
+          <div className="mt-6">
+            <a
+              href="https://www.rapidtables.com/web/color/html-color-codes.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 underline"
+            >
+              Visit HTML Color Codes Resource
+            </a>
+          </div>
+
+        </CardContent>
+      </Card>
     </div>
   );
 };
 
-export default HTMLColorCodes;
+export default HTMLColorCodes;

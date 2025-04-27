@@ -1,31 +1,34 @@
-import React from 'react';
+import React from "react";
+import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
 
-const HTMLTables = () => {
+const HtmlTables: React.FC = () => {
   return (
-    <div>
-      <h2>HTML Tables</h2>
+    <div className="w-full max-w-3xl mx-auto">
+      <Card>
+        <CardHeader>
+          <CardTitle>HTML Tables</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed">
+          <p>
+            HTML tables are used to display data in a grid format, consisting of rows and columns. Rows are defined using <code>&lt;tr&gt;</code> tags, and columns are defined using <code>&lt;td&gt;</code> (table data) or <code>&lt;th&gt;</code> (table header) tags.
+          </p>
 
-      <p>
-        HTML tables are used to display data in a grid format. They consist of rows and columns, where rows are represented by the <code>&lt;tr&gt;</code> tag, and columns are defined using <code>&lt;td&gt;</code> (table data) or <code>&lt;th&gt;</code> (table header) tags.
-      </p>
+          {/* Basic Structure */}
+          <div>
+            <h2 className="text-lg font-semibold mb-2">Basic Table Structure</h2>
+            <ul className="list-disc pl-6 space-y-1 text-sm">
+              <li><code>&lt;table&gt;</code>: Defines the entire table.</li>
+              <li><code>&lt;tr&gt;</code>: Defines a row of cells.</li>
+              <li><code>&lt;th&gt;</code>: Defines a header cell (bold and centered by default).</li>
+              <li><code>&lt;td&gt;</code>: Defines a regular data cell.</li>
+            </ul>
+          </div>
 
-      <h3>Basic Table Structure</h3>
-
-      <p>A basic HTML table includes the following tags:</p>
-      <ul>
-        <li><code>&lt;table&gt;</code>: Defines the entire table.</li>
-        <li><code>&lt;tr&gt;</code>: Defines a row of cells.</li>
-        <li><code>&lt;th&gt;</code>: Defines a header cell (bold and centered by default).</li>
-        <li><code>&lt;td&gt;</code>: Defines a regular data cell.</li>
-      </ul>
-
-      <h4>Example: Simple Table</h4>
-
-      <p>Here's an example of a simple HTML table with a header row and two data rows:</p>
-
-      <pre>
-        <code>
-{`<table border="1">
+          {/* Example: Simple Table */}
+          <div>
+            <h2 className="text-lg font-semibold mb-2">Example: Simple Table</h2>
+            <pre className="bg-gray-100 p-4 rounded text-sm overflow-x-auto">
+              <code>{`<table border="1">
   <tr>
     <th>Header 1</th>
     <th>Header 2</th>
@@ -41,51 +44,28 @@ const HTMLTables = () => {
     <td>Data 5</td>
     <td>Data 6</td>
   </tr>
-</table>`}
-        </code>
-      </pre>
+</table>`}</code>
+            </pre>
+            <p>This creates a table with a header row and two data rows.</p>
+          </div>
 
-      <p>This renders as a table with headers and rows of data:</p>
+          {/* Table Styling */}
+          <div>
+            <h2 className="text-lg font-semibold mb-2">Table Styling</h2>
+            <p>You can style tables using CSS:</p>
+            <ul className="list-disc pl-6 space-y-1 text-sm">
+              <li><strong>border:</strong> Adds a border around the table and cells.</li>
+              <li><strong>padding:</strong> Adds space inside table cells.</li>
+              <li><strong>text-align:</strong> Aligns text inside cells.</li>
+              <li><strong>background-color:</strong> Changes the background color of rows or cells.</li>
+            </ul>
+          </div>
 
-      <table border={1}>
-        <thead>
-          <tr>
-            <th>Header 1</th>
-            <th>Header 2</th>
-            <th>Header 3</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Data 1</td>
-            <td>Data 2</td>
-            <td>Data 3</td>
-          </tr>
-          <tr>
-            <td>Data 4</td>
-            <td>Data 5</td>
-            <td>Data 6</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>Table Styling</h3>
-
-      <p>You can style tables using CSS. Here are some common ways to style HTML tables:</p>
-      <ul>
-        <li><code>border</code>: Adds a border around the table and cells.</li>
-        <li><code>padding</code>: Adds space inside table cells.</li>
-        <li><code>text-align</code>: Aligns text inside table cells.</li>
-        <li><code>background-color</code>: Changes the background color of rows or cells.</li>
-      </ul>
-
-      <h4>Example: Styled Table</h4>
-
-      <p>Here's an example of a styled HTML table using inline CSS:</p>
-
-      <pre>
-        <code>
-{`<table style="border: 1px solid black; width: 100%; text-align: center;">
+          {/* Example: Styled Table */}
+          <div>
+            <h2 className="text-lg font-semibold mb-2">Example: Styled Table</h2>
+            <pre className="bg-gray-100 p-4 rounded text-sm overflow-x-auto">
+              <code>{`<table style="border: 1px solid black; width: 100%; text-align: center;">
   <tr style="background-color: #f2f2f2;">
     <th>Header 1</th>
     <th>Header 2</th>
@@ -101,43 +81,17 @@ const HTMLTables = () => {
     <td>Data 5</td>
     <td>Data 6</td>
   </tr>
-</table>`}
-        </code>
-      </pre>
+</table>`}</code>
+            </pre>
+            <p>This renders a styled table with centered text, borders, and background color for the header row.</p>
+          </div>
 
-      <p>This renders a table with centered text, borders, and alternating row colors:</p>
-
-      <table style={{ border: '1px solid black', width: '100%', textAlign: 'center' }}>
-        <thead style={{ backgroundColor: '#f2f2f2' }}>
-          <tr>
-            <th>Header 1</th>
-            <th>Header 2</th>
-            <th>Header 3</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Data 1</td>
-            <td>Data 2</td>
-            <td>Data 3</td>
-          </tr>
-          <tr>
-            <td>Data 4</td>
-            <td>Data 5</td>
-            <td>Data 6</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>Table with Colspan and Rowspan</h3>
-
-      <p>You can span multiple columns or rows in a table using the <code>colspan</code> and <code>rowspan</code> attributes. These attributes allow you to merge cells across columns or rows.</p>
-
-      <h4>Example: Colspan and Rowspan</h4>
-
-      <pre>
-        <code>
-{`<table border="1">
+          {/* Colspan and Rowspan */}
+          <div>
+            <h2 className="text-lg font-semibold mb-2">Table with Colspan and Rowspan</h2>
+            <p>Use the <code>colspan</code> and <code>rowspan</code> attributes to merge cells across columns or rows.</p>
+            <pre className="bg-gray-100 p-4 rounded text-sm overflow-x-auto">
+              <code>{`<table border="1">
   <tr>
     <th colspan="2">Header 1 & 2</th>
     <th>Header 3</th>
@@ -151,41 +105,17 @@ const HTMLTables = () => {
     <td>Data 4</td>
     <td>Data 5</td>
   </tr>
-</table>`}
-        </code>
-      </pre>
+</table>`}</code>
+            </pre>
+            <p>This example shows how a cell can span multiple columns or rows.</p>
+          </div>
 
-      <p>This renders as a table where the first cell spans two rows and the header spans two columns:</p>
-
-      <table border={1}>
-        <thead>
-          <tr>
-            <th colSpan={2}>Header 1 &amp; 2</th>
-            <th>Header 3</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td rowSpan={2}>Data 1</td>
-            <td>Data 2</td>
-            <td>Data 3</td>
-          </tr>
-          <tr>
-            <td>Data 4</td>
-            <td>Data 5</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>Table with Caption</h3>
-
-      <p>You can add a title or caption to your table using the <code>&lt;caption&gt;</code> tag, which describes the table’s content.</p>
-
-      <h4>Example: Table with Caption</h4>
-
-      <pre>
-        <code>
-{`<table border="1">
+          {/* Table with Caption */}
+          <div>
+            <h2 className="text-lg font-semibold mb-2">Table with Caption</h2>
+            <p>The <code>&lt;caption&gt;</code> tag adds a title to the table describing its content.</p>
+            <pre className="bg-gray-100 p-4 rounded text-sm overflow-x-auto">
+              <code>{`<table border="1">
   <caption>Employee Data</caption>
   <tr>
     <th>Name</th>
@@ -199,55 +129,36 @@ const HTMLTables = () => {
     <td>Jane Smith</td>
     <td>Developer</td>
   </tr>
-</table>`}
-        </code>
-      </pre>
+</table>`}</code>
+            </pre>
+            <p>This example adds a caption "Employee Data" above the table.</p>
+          </div>
 
-      <p>This renders a table with a caption:</p>
+          {/* Conclusion */}
+          <div>
+            <h2 className="text-lg font-semibold mb-2">Conclusion</h2>
+            <p>
+              HTML tables are a powerful way to organize and display data in a tabular format. Mastering structure, styling, and techniques like merging cells enhances the effectiveness of your tables.
+            </p>
+          </div>
 
-      <table border={1}>
-        <caption>Employee Data</caption>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Position</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>John Doe</td>
-            <td>Manager</td>
-          </tr>
-          <tr>
-            <td>Jane Smith</td>
-            <td>Developer</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>Conclusion</h3>
-
-      <p>
-        HTML tables are a great way to organize and display data in a tabular format. Understanding the basic structure, styling, and advanced techniques like merging cells with <code>colspan</code> and <code>rowspan</code> will help you present data effectively on your web pages.
-      </p>
-
-      <h3>Further Resources</h3>
-
-      <p>For more detailed information on HTML tables, visit:</p>
-
-      <ul>
-        <li>
-          <a
-            href="https://www.rapidtables.com/web/html/html-table.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            HTML Tables - RapidTables
-          </a>
-        </li>
-      </ul>
+          {/* Further Resources */}
+          <div>
+            <h2 className="text-lg font-semibold mb-2">Further Resources</h2>
+            <p>For more detailed information, visit:</p>
+            <a
+              href="https://www.rapidtables.com/web/html/html-table.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 underline text-sm"
+            >
+              HTML Tables - RapidTables
+            </a>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 };
 
-export default HTMLTables;
+export default HtmlTables;

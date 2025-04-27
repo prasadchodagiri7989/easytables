@@ -427,6 +427,62 @@ import DevelopmentTools from "./components/webdesign/development/DevelopementToo
 import HtmlTools from "./components/webdesign/html/HTMLtools";
 import ColorTools from "./components/webdesign/color/ColorTools";
 
+import AhToMAhConverter from "./components/electrical/calculations/AhToMAhConverter";
+import AmpsToKilowattsConverter from "./components/electrical/calculations/AmpsToKilowattsConverter";
+import AmpsToKVAConverter from "./components/electrical/calculations/AmpsToKVAConverter";
+import AmpsToMilliampsConverter from "./components/electrical/calculations/AmpsToMilliampsConverter";
+import AmpsToOhmsConverter from "./components/electrical/calculations/AmpsToOhmsConverter";
+import AmpsToVAConverter from "./components/electrical/calculations/AmpsToVAConverter";
+import AmpsToVoltsConverter from "./components/electrical/calculations/AmpsToVoltsConverter";
+import AmpToWattsConverter from "./components/electrical/calculations/AmpToWattsConverter";
+import DBConverter from "./components/electrical/calculations/DBConverter";
+import ElectronVoltToVoltConverter from "./components/electrical/calculations/ElectronVoltToVoltConverter";
+import JoulesToKilowattsConverter from "./components/electrical/calculations/JoulesToKilowattsConverter";
+import JoulesToVoltsConverter from "./components/electrical/calculations/JoulesToVoltsConverter";
+import JoulesToWattsConverter from "./components/electrical/calculations/JoulesToWattsConverter";
+import KilowattsToAmpsConverter from "./components/electrical/calculations/KilowattsToAmpsConverter";
+import KilowattsToJoulesConverter from "./components/electrical/calculations/KilowattsToJoulesConverter";
+import KilowattsToKVAConverter from "./components/electrical/calculations/KilowattsToKVAConverter";
+import KVAToKWConverter from "./components/electrical/calculations/KVAToKWConverter";
+import KVAToVAConverter from "./components/electrical/calculations/KVAToVAConverter";
+import KVAToWattsConverter from "./components/electrical/calculations/KVAToWattsConverter";
+import KWhToKWConverter from "./components/electrical/calculations/KWhToKWConverter";
+import KWhToWattConverter from "./components/electrical/calculations/KWhToWattConverter";
+import KWToKJConverter from "./components/electrical/calculations/KWToKJConverter";
+import KWToKWhConverter from "./components/electrical/calculations/KWToKWhConverter";
+import KWToVAConverter from "./components/electrical/calculations/KWToVAConverter";
+import KWToVoltsConverter from "./components/electrical/calculations/KWToVoltsConverter";
+import KWToWhConverter from "./components/electrical/calculations/KWToWhConverter";
+import LumenToLuxConverter from "./components/electrical/calculations/LumenToLuxConverter";
+import LumenToWattConverter from "./components/electrical/calculations/LumenToWattConverter";
+import LuxToLumenConverter from "./components/electrical/calculations/LuxToLumenConverter";
+import MahToAhConverter from "./components/electrical/calculations/MahToAhConverter";
+import MahToWhConverter from "./components/electrical/calculations/MahToWhConverter";
+import MilliAmpsToAmpsConverter from "./components/electrical/calculations/MilliAmpsToAmpsConverter";
+import OhmsToAmpsConverter from "./components/electrical/calculations/OhmsToAmpsConverter";
+import OhmsToVoltsConverter from "./components/electrical/calculations/OhmsToVoltsConverter";
+import VAToAmpsConverter from "./components/electrical/calculations/VAToAmpsConverter";
+import VAToKVAConverter from "./components/electrical/calculations/VAToKVAConverter";
+import VAToKWConverter from "./components/electrical/calculations/VAToKWConverter";
+import VAToWattsConverter from "./components/electrical/calculations/VAToWattsConverter";
+import VoltsToAmpsConverter from "./components/electrical/calculations/VoltsToAmpsConverter";
+import VoltsToEVConverter from "./components/electrical/calculations/VoltsToEVConverter";
+import VoltsToJoulesConverter from "./components/electrical/calculations/VoltsToJoulesConverter";
+import VoltsToKWConverter from "./components/electrical/calculations/VoltsToKWConverter";
+import VoltsToOhmsConverter from "./components/electrical/calculations/VoltsToOhmsConverter";
+import VoltsToWattsConverter from "./components/electrical/calculations/VoltsToWattsConverter";
+import WattsToAmpsConverter from "./components/electrical/calculations/WattsToAmpsConverter";
+import WattsToKJConverter from "./components/electrical/calculations/WattsToKJConverter";
+import WattsToKVAConverter from "./components/electrical/calculations/WattsToKVAConverter";
+import WattsToKWhConverter from "./components/electrical/calculations/WattsToKWhConverter";
+import WattsToLumensConverter from "./components/electrical/calculations/WattsToLumensConverter";
+import WattsToVAConverter from "./components/electrical/calculations/WattsToVAConverter";
+import WattsToVoltsConverter from "./components/electrical/calculations/WattsToVoltsConverter";
+import WattsToWhConverter from "./components/electrical/calculations/WattsToWhConverter";
+import WhToKwConverter from "./components/electrical/calculations/WhToKwConverter";
+import WhToMahConverter from "./components/electrical/calculations/WhToMahConverter";
+import WhToWattsConverter from "./components/electrical/calculations/WhToWattsConverter";
+
 
 const queryClient = new QueryClient();
 
@@ -779,6 +835,8 @@ const App = () => (
           <Route path="/tools/html-character-codes" element={<Layout><HTMLCharacterCodes /></Layout>} />
           <Route path="/tools/html-comments-guide" element={<Layout><HTMLComments /></Layout>} />
           <Route path="/tools/html-tables-generator" element={<Layout><HTMLTables /></Layout>} />
+          <Route path="/tools/html-color" element={<Layout><HTMLColorCodes /></Layout>} />
+
 
           <Route path="/code/all" element={<Layout><AllCode /></Layout>} />
 
@@ -800,7 +858,63 @@ const App = () => (
           <Route path="/text/ascii-table" element={<Layout><AsciiTable /></Layout>} />
           <Route path="/text/unicode-page" element={<Layout><UnicodePage /></Layout>} />
 
-          
+          <Route path="/electrical-calculations/amps-to-watts" element={<Layout><AmpToWattsConverter /></Layout>} />
+          <Route path="/electrical-calculations/watts-to-amps" element={<Layout><WattsToAmpsConverter /></Layout>} />
+          <Route path="/electrical-calculations/ah-to-mah" element={<Layout><AhToMAhConverter /></Layout>} />
+          <Route path="/electrical-calculations/amps-to-kilowatts" element={<Layout><AmpsToKilowattsConverter /></Layout>} />
+          <Route path="/electrical-calculations/amps-to-kva" element={<Layout><AmpsToKVAConverter /></Layout>} />
+          <Route path="/electrical-calculations/amps-to-milliamps" element={<Layout><AmpsToMilliampsConverter /></Layout>} />
+          <Route path="/electrical-calculations/amps-to-ohms" element={<Layout><AmpsToOhmsConverter /></Layout>} />
+          <Route path="/electrical-calculations/amps-to-va" element={<Layout><AmpsToVAConverter /></Layout>} />
+          <Route path="/electrical-calculations/amps-to-volts" element={<Layout><AmpsToVoltsConverter /></Layout>} />
+          <Route path="/electrical-calculations/amp-to-watts" element={<Layout><AmpToWattsConverter /></Layout>} />
+          <Route path="/electrical-calculations/db-converter" element={<Layout><DBConverter /></Layout>} />
+          <Route path="/electrical-calculations/electron-volt-to-volt" element={<Layout><ElectronVoltToVoltConverter /></Layout>} />
+          <Route path="/electrical-calculations/joules-to-kilowatts" element={<Layout><JoulesToKilowattsConverter /></Layout>} />
+          <Route path="/electrical-calculations/joules-to-volts" element={<Layout><JoulesToVoltsConverter /></Layout>} />
+          <Route path="/electrical-calculations/joules-to-watts" element={<Layout><JoulesToWattsConverter /></Layout>} />
+          <Route path="/electrical-calculations/kilowatts-to-amps" element={<Layout><KilowattsToAmpsConverter /></Layout>} />
+          <Route path="/electrical-calculations/kilowatts-to-joules" element={<Layout><KilowattsToJoulesConverter /></Layout>} />
+          <Route path="/electrical-calculations/kilowatts-to-kva" element={<Layout><KilowattsToKVAConverter /></Layout>} />
+          <Route path="/electrical-calculations/kva-to-kw" element={<Layout><KVAToKWConverter /></Layout>} />
+          <Route path="/electrical-calculations/kva-to-va" element={<Layout><KVAToVAConverter /></Layout>} />
+          <Route path="/electrical-calculations/kva-to-watts" element={<Layout><KVAToWattsConverter /></Layout>} />
+          <Route path="/electrical-calculations/kwh-to-kw" element={<Layout><KWhToKWConverter /></Layout>} />
+          <Route path="/electrical-calculations/kwh-to-watt" element={<Layout><KWhToWattConverter /></Layout>} />
+          <Route path="/electrical-calculations/kw-to-kj" element={<Layout><KWToKJConverter /></Layout>} />
+          <Route path="/electrical-calculations/kw-to-kwh" element={<Layout><KWToKWhConverter /></Layout>} />
+          <Route path="/electrical-calculations/kw-to-va" element={<Layout><KWToVAConverter /></Layout>} />
+          <Route path="/electrical-calculations/kw-to-volts" element={<Layout><KWToVoltsConverter /></Layout>} />
+          <Route path="/electrical-calculations/kw-to-wh" element={<Layout><KWToWhConverter /></Layout>} />
+          <Route path="/electrical-calculations/lumen-to-lux" element={<Layout><LumenToLuxConverter /></Layout>} />
+          <Route path="/electrical-calculations/lumen-to-watt" element={<Layout><LumenToWattConverter /></Layout>} />
+          <Route path="/electrical-calculations/lux-to-lumen" element={<Layout><LuxToLumenConverter /></Layout>} />
+          <Route path="/electrical-calculations/mah-to-ah" element={<Layout><MahToAhConverter /></Layout>} />
+          <Route path="/electrical-calculations/mah-to-wh" element={<Layout><MahToWhConverter /></Layout>} />
+          <Route path="/electrical-calculations/milliamps-to-amps" element={<Layout><MilliAmpsToAmpsConverter /></Layout>} />
+          <Route path="/electrical-calculations/ohms-to-amps" element={<Layout><OhmsToAmpsConverter /></Layout>} />
+          <Route path="/electrical-calculations/ohms-to-volts" element={<Layout><OhmsToVoltsConverter /></Layout>} />
+          <Route path="/electrical-calculations/vat-to-amps" element={<Layout><VAToAmpsConverter /></Layout>} />
+          <Route path="/electrical-calculations/vat-to-kva" element={<Layout><VAToKVAConverter /></Layout>} />
+          <Route path="/electrical-calculations/vat-to-kw" element={<Layout><VAToKWConverter /></Layout>} />
+          <Route path="/electrical-calculations/vat-to-watts" element={<Layout><VAToWattsConverter /></Layout>} />
+          <Route path="/electrical-calculations/volts-to-amps" element={<Layout><VoltsToAmpsConverter /></Layout>} />
+          <Route path="/electrical-calculations/volts-to-ev" element={<Layout><VoltsToEVConverter /></Layout>} />
+          <Route path="/electrical-calculations/volts-to-joules" element={<Layout><VoltsToJoulesConverter /></Layout>} />
+          <Route path="/electrical-calculations/volts-to-kw" element={<Layout><VoltsToKWConverter /></Layout>} />
+          <Route path="/electrical-calculations/volts-to-ohms" element={<Layout><VoltsToOhmsConverter /></Layout>} />
+          <Route path="/electrical-calculations/volts-to-watts" element={<Layout><VoltsToWattsConverter /></Layout>} />
+          <Route path="/electrical-calculations/watts-to-amps" element={<Layout><WattsToAmpsConverter /></Layout>} />
+          <Route path="/electrical-calculations/watts-to-kj" element={<Layout><WattsToKJConverter /></Layout>} />
+          <Route path="/electrical-calculations/watts-to-kva" element={<Layout><WattsToKVAConverter /></Layout>} />
+          <Route path="/electrical-calculations/watts-to-kwh" element={<Layout><WattsToKWhConverter /></Layout>} />
+          <Route path="/electrical-calculations/watts-to-lumens" element={<Layout><WattsToLumensConverter /></Layout>} />
+          <Route path="/electrical-calculations/watts-to-va" element={<Layout><WattsToVAConverter /></Layout>} />
+          <Route path="/electrical-calculations/watts-to-volts" element={<Layout><WattsToVoltsConverter /></Layout>} />
+          <Route path="/electrical-calculations/watts-to-wh" element={<Layout><WattsToWhConverter /></Layout>} />
+          <Route path="/electrical-calculations/wh-to-kw" element={<Layout><WhToKwConverter /></Layout>} />
+          <Route path="/electrical-calculations/wh-to-mah" element={<Layout><WhToMahConverter /></Layout>} />
+          <Route path="/electrical-calculations/wh-to-watts" element={<Layout><WhToWattsConverter /></Layout>} />
 
 
                     

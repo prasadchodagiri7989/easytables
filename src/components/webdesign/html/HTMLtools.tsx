@@ -4,6 +4,8 @@ const htmlTools = [
   { label: "HTML Character Codes", path: "/tools/html-character-codes" },
   { label: "HTML Comments Guide", path: "/tools/html-comments-guide" },
   { label: "HTML Tables Generator", path: "/tools/html-tables-generator" },
+  { label: "HTML Color Codes", path: "/tools/html-color" },
+
 ];
 
 export default function HtmlTools() {

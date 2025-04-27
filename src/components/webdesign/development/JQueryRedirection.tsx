@@ -1,47 +1,50 @@
-import React from 'react';
+import React from "react";
+import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
 
-const JQueryRedirection = () => {
+const JQueryRedirection: React.FC = () => {
   return (
-    <div>
-      <h2>jQuery Redirection</h2>
-      <p>
-        <strong>jQuery Redirection</strong> is a method of redirecting users to a different page using jQuery. jQuery is a popular JavaScript library that simplifies DOM manipulation, and it can be used to implement redirection in a more concise way compared to vanilla JavaScript.
-      </p>
+    <div className="w-full max-w-3xl mx-auto">
+      <Card>
+        <CardHeader>
+          <CardTitle>jQuery Redirection</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed">
 
-      <h3>How jQuery Redirection Works</h3>
-      <p>
-        In jQuery, you can use the <code>window.location</code> object or the <code>location.href</code> method to perform the redirection. jQuery simplifies DOM handling, but for redirection, you essentially rely on the browser’s built-in navigation functionality.
-      </p>
+          {/* Introduction */}
+          <p>
+            jQuery Redirection is a method of redirecting users to a different page using jQuery. jQuery simplifies DOM manipulation and allows for concise handling of user interactions, although redirection relies on the browser’s built-in navigation functionality.
+          </p>
 
-      <h3>Basic jQuery Redirection</h3>
-      <p>
-        Here's a simple example of how to redirect users to a new URL using jQuery:
-      </p>
-      <pre>
-        <code>{`
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+          {/* How jQuery Redirection Works */}
+          <div>
+            <h2 className="text-lg font-semibold mb-2">How jQuery Redirection Works</h2>
+            <p>jQuery uses the <code>window.location</code> object or <code>location.href</code> method for redirection. While jQuery simplifies event handling, redirection itself is handled by the browser.</p>
+          </div>
+
+          {/* Basic jQuery Redirection */}
+          <div>
+            <h2 className="text-lg font-semibold mb-2">Basic jQuery Redirection</h2>
+            <pre className="bg-gray-100 p-4 rounded text-sm overflow-x-auto">
+              <code>{`<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
   $(document).ready(function() {
-    // Redirect after 3 seconds
     setTimeout(function() {
       window.location.href = 'https://www.example.com/';
     }, 3000);
   });
-</script>
-        `}</code>
-      </pre>
-      <p>
-        In this example, when the document is ready, the page will redirect to <code>https://www.example.com/</code> after a delay of 3 seconds.
-      </p>
+</script>`}</code>
+            </pre>
+            <p>
+              This example redirects the page to <a href="https://www.example.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">https://www.example.com/</a> after a 3-second delay once the document is ready.
+            </p>
+          </div>
 
-      <h3>jQuery Redirection on Button Click</h3>
-      <p>
-        You can also use jQuery to trigger redirection based on user interaction, such as a button click:
-      </p>
-      <pre>
-        <code>{`
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+          {/* jQuery Redirection on Button Click */}
+          <div>
+            <h2 className="text-lg font-semibold mb-2">jQuery Redirection on Button Click</h2>
+            <pre className="bg-gray-100 p-4 rounded text-sm overflow-x-auto">
+              <code>{`<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <button id="redirectButton">Click to Redirect</button>
 
@@ -51,20 +54,18 @@ const JQueryRedirection = () => {
       window.location.href = 'https://www.example.com/';
     });
   });
-</script>
-        `}</code>
-      </pre>
-      <p>
-        In this case, when the user clicks the button with the id <code>redirectButton</code>, they will be redirected to <code>https://www.example.com/</code>.
-      </p>
+</script>`}</code>
+            </pre>
+            <p>
+              Clicking the button with ID <code>redirectButton</code> will redirect the user to <a href="https://www.example.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">https://www.example.com/</a>.
+            </p>
+          </div>
 
-      <h3>jQuery Redirection with <code>location.replace()</code></h3>
-      <p>
-        Similar to JavaScript, jQuery redirection also works with the <code>location.replace()</code> method. It works like <code>window.location.href</code>, but it does not add the current page to the browser's history. This means the user cannot go back to the previous page using the back button.
-      </p>
-      <pre>
-        <code>{`
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+          {/* jQuery Redirection with location.replace() */}
+          <div>
+            <h2 className="text-lg font-semibold mb-2">jQuery Redirection with <code>location.replace()</code></h2>
+            <pre className="bg-gray-100 p-4 rounded text-sm overflow-x-auto">
+              <code>{`<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
   $(document).ready(function() {
@@ -72,39 +73,35 @@ const JQueryRedirection = () => {
       window.location.replace('https://www.example.com/');
     }, 3000);
   });
-</script>
-        `}</code>
-      </pre>
-      <p>
-        In this example, after 3 seconds, the current page will be replaced with <code>https://www.example.com/</code>, and the user will not be able to go back to the current page.
-      </p>
+</script>`}</code>
+            </pre>
+            <p>
+              This approach redirects and removes the current page from the browser’s history, preventing users from going back.
+            </p>
+          </div>
 
-      <h3>jQuery Redirection with Query Parameters</h3>
-      <p>
-        You can also append query parameters to the URL when performing a redirection:
-      </p>
-      <pre>
-        <code>{`
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+          {/* jQuery Redirection with Query Parameters */}
+          <div>
+            <h2 className="text-lg font-semibold mb-2">jQuery Redirection with Query Parameters</h2>
+            <pre className="bg-gray-100 p-4 rounded text-sm overflow-x-auto">
+              <code>{`<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
   $(document).ready(function() {
     window.location.href = 'https://www.example.com/?ref=123&campaign=summer-sale';
   });
-</script>
-        `}</code>
-      </pre>
-      <p>
-        This will redirect the user to <code>https://www.example.com/</code> with query parameters <code>ref=123</code> and <code>campaign=summer-sale</code>.
-      </p>
+</script>`}</code>
+            </pre>
+            <p>
+              The user is redirected to <a href="https://www.example.com/?ref=123&campaign=summer-sale" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">https://www.example.com/?ref=123&campaign=summer-sale</a> with query parameters.
+            </p>
+          </div>
 
-      <h3>jQuery Redirection with Conditions</h3>
-      <p>
-        You can use jQuery to conditionally redirect based on certain conditions. For example, you can check if a user is logged in and redirect accordingly:
-      </p>
-      <pre>
-        <code>{`
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+          {/* jQuery Redirection with Conditions */}
+          <div>
+            <h2 className="text-lg font-semibold mb-2">jQuery Redirection with Conditions</h2>
+            <pre className="bg-gray-100 p-4 rounded text-sm overflow-x-auto">
+              <code>{`<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
   $(document).ready(function() {
@@ -115,44 +112,52 @@ const JQueryRedirection = () => {
       window.location.href = 'https://www.example.com/login';
     }
   });
-</script>
-        `}</code>
-      </pre>
-      <p>
-        In this example, the redirection will happen based on the <code>isLoggedIn</code> condition. If the user is logged in, they are redirected to the dashboard. Otherwise, they are redirected to the login page.
-      </p>
+</script>`}</code>
+            </pre>
+            <p>
+              Based on the <code>isLoggedIn</code> condition, the user is redirected to either the dashboard or the login page.
+            </p>
+          </div>
 
-      <h3>Important Considerations</h3>
-      <ul>
-        <li><strong>SEO Impact:</strong> jQuery redirection, like JavaScript redirection, may not be as SEO-friendly as server-side redirection (e.g., 301 redirects). Search engines may not fully follow jQuery-based redirects.</li>
-        <li><strong>Browser Compatibility:</strong> jQuery redirection works well across modern browsers, but remember to include the jQuery library in your project for compatibility with older browsers.</li>
-        <li><strong>Delay:</strong> Always be mindful of the delay in redirection. A slow or unexpected redirect might affect the user experience.</li>
-      </ul>
+          {/* Important Considerations */}
+          <div>
+            <h2 className="text-lg font-semibold mb-2">Important Considerations</h2>
+            <ul className="list-disc pl-6 space-y-1">
+              <li><strong>SEO Impact:</strong> jQuery redirection is similar to JavaScript redirection and may not be SEO-friendly.</li>
+              <li><strong>Browser Compatibility:</strong> Works across modern browsers, but remember to include the jQuery library.</li>
+              <li><strong>Delay Impact:</strong> Be mindful of using delays, as unexpected redirections can affect the user experience.</li>
+            </ul>
+          </div>
 
-      <h3>Further Reading</h3>
-      <p>
-        For more information on jQuery and its redirection methods, you can refer to the following resources:
-      </p>
-      <ul>
-        <li>
-          <a
-            href="https://api.jquery.com/location/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            jQuery API Documentation - location
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://www.jQuery.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            jQuery Official Website
-          </a>
-        </li>
-      </ul>
+          {/* Further Reading */}
+          <div>
+            <h2 className="text-lg font-semibold mb-2">Further Reading</h2>
+            <ul className="list-disc pl-6 space-y-1">
+              <li>
+                <a
+                  href="https://api.jquery.com/category/ajax/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 underline"
+                >
+                  jQuery API Documentation - location
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://jquery.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 underline"
+                >
+                  jQuery Official Website
+                </a>
+              </li>
+            </ul>
+          </div>
+
+        </CardContent>
+      </Card>
     </div>
   );
 };
