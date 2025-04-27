@@ -83,6 +83,7 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
   const [lightingCalculatorsOpen, setLightingCalculatorsOpen] = useState(false);
   const [ecoOpen, setEcoOpen] = useState(false);
   const [mathsOpen, setMathsOpen] = useState(false);
+  const [webOpen, setWebOpen] = useState(false);
 
 
 
@@ -192,6 +193,37 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
             </CollapsibleContent>
           </Collapsible>
 
+
+
+          <Collapsible
+            open={webOpen}
+            onOpenChange={setWebOpen}
+            className="w-full mt-2"
+          >
+            <CollapsibleTrigger className="flex items-center justify-between w-full px-4 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 text-left">
+              <div className="flex items-center">
+                <Zap size={18} className="mr-2 dark:text-gray-300" />
+                <span className="text-sm font-medium dark:text-gray-300">Web Design</span>
+              </div>
+              <ChevronDown 
+                size={16} 
+                className={cn(
+                  "transition-transform duration-200 dark:text-gray-300",
+                  electricalOpen ? "rotate-180" : ""
+                )} 
+              />
+            </CollapsibleTrigger>
+            <CollapsibleContent className="pl-6 space-y-1 mt-1">
+              <SidebarLink to="/web/all" icon={Code} label="All Web" onClose={onClose} />
+              <SidebarLink to="/web/colors" icon={BookOpen} label="Web Colors" onClose={onClose} />
+              <SidebarLink to="/web/html" icon={BookOpen} label="Web HTML" onClose={onClose} />
+              <SidebarLink to="/web/tools" icon={Info} label="Web Tools" onClose={onClose} />
+              <SidebarLink to="/web/development" icon={BookOpen} label="Web Development" onClose={onClose} />
+              
+              
+              
+            </CollapsibleContent>
+          </Collapsible>
 
           <Collapsible
                 open={electricalCalculatorsOpen}

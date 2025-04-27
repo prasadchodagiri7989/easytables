@@ -423,6 +423,10 @@ import AltCodes from "./components/code/text/AltCodes";
 import AsciiTable from "./components/code/text/AsciiTable";
 import UnicodePage from "./components/code/text/UnicodePage";
 
+import DevelopmentTools from "./components/webdesign/development/DevelopementTools";
+import HtmlTools from "./components/webdesign/html/HTMLtools";
+import ColorTools from "./components/webdesign/color/ColorTools";
+
 
 const queryClient = new QueryClient();
 
@@ -752,14 +756,16 @@ const App = () => (
           <Route path="/symbols/roman-numerals" element={<Layout><RomanNumerals /></Layout>} />
 
 
-          <Route path="/tools/web" element={<Layout><WebTools /></Layout>} />
+          <Route path="/web/all" element={<Layout><WebTools /></Layout>} />
 
+          <Route path="/web/colors" element={<Layout><ColorTools /></Layout>} />
           <Route path="/tools/web-colors" element={<Layout><HtmlColorCodes /></Layout>} />
           <Route path="/tools/color-scheme-generator" element={<Layout><ColorSchemeGenerator /></Layout>} />
           <Route path="/tools/html-color-codes" element={<Layout><HtmlColorCode /></Layout>} />
           <Route path="/tools/rgb-color-picker" element={<Layout><RGBColorPicker /></Layout>} />
           <Route path="/tools/web-safe-colors" element={<Layout><WebSafeColors /></Layout>} />
 
+          <Route path="/web/development" element={<Layout><DevelopmentTools /></Layout>} />
           <Route path="/tools/canonical-url-generator" element={<Layout><CanonicalURL /></Layout>} />
           <Route path="/tools/htaccess-redirection" element={<Layout><HTAccessRedirection /></Layout>} />
           <Route path="/tools/html-redirection" element={<Layout><HTMLRedirection /></Layout>} />
@@ -769,6 +775,7 @@ const App = () => (
           <Route path="/tools/screen-resolution-statistics" element={<Layout><ScreenResolutionStatistics /></Layout>} />
           <Route path="/tools/website-traffic-down-checker" element={<Layout><WebsiteTrafficDown /></Layout>} />
 
+          <Route path="/web/html" element={<Layout><HtmlTools /></Layout>} />
           <Route path="/tools/html-character-codes" element={<Layout><HTMLCharacterCodes /></Layout>} />
           <Route path="/tools/html-comments-guide" element={<Layout><HTMLComments /></Layout>} />
           <Route path="/tools/html-tables-generator" element={<Layout><HTMLTables /></Layout>} />
