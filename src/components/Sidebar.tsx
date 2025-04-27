@@ -177,6 +177,7 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
               />
             </CollapsibleTrigger>
             <CollapsibleContent className="pl-6 space-y-1 mt-1">
+              <SidebarLink to="/code/all" icon={Code} label="All Codes" onClose={onClose} />
               <SidebarLink to="/electrical-calculators" icon={BookOpen} label="Electrical Calculators" onClose={onClose} />
               <SidebarLink to="/electrical-calculations" icon={BookOpen} label="Electrical Calculations" onClose={onClose} />
               <SidebarLink to="/electrical/units" icon={Info} label="Electrical & Electronic Units" onClose={onClose} />
