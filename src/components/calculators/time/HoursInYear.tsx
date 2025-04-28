@@ -13,7 +13,7 @@ import { Card } from "@/components/ui/card";
 export const HoursInYear: React.FC = () => {
   return (
     <>
-      <Breadcrumb className="mb-4">
+              <Breadcrumb className="mb-4">
         <BreadcrumbList>
           <BreadcrumbItem>
             <BreadcrumbLink asChild>
@@ -22,7 +22,19 @@ export const HoursInYear: React.FC = () => {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbPage>How Many Hours in a Year?</BreadcrumbPage>
+            <BreadcrumbLink asChild>
+              <Link to="/all-calculators">All Calculators</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/time/all">Time Calculators</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>How Many Hours Are in a Year?</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>

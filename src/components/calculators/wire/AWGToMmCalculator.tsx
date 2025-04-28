@@ -45,19 +45,38 @@ const AWGToMmCalculator: React.FC = () => {
 
   return (
     <>
-      <Breadcrumb className="mb-4">
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild>
-              <Link to="/">Home</Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>AWG to mm Calculator</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+    <Breadcrumb className="mb-4">
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbLink asChild>
+            <Link to="/">Home</Link>
+          </BreadcrumbLink>
+        </BreadcrumbItem>
+
+        <BreadcrumbSeparator />
+
+        <BreadcrumbItem>
+          <BreadcrumbLink asChild>
+            <Link to="/all-calculators">All Calculators</Link>
+          </BreadcrumbLink>
+        </BreadcrumbItem>
+
+        <BreadcrumbSeparator />
+
+        <BreadcrumbItem>
+          <BreadcrumbLink asChild>
+            <Link to="/wire/all">Wire Calculators</Link>
+          </BreadcrumbLink>
+        </BreadcrumbItem>
+
+        <BreadcrumbSeparator />
+
+        <BreadcrumbItem>
+          <BreadcrumbPage>AWG to mm Calculator</BreadcrumbPage>
+        </BreadcrumbItem>
+      </BreadcrumbList>
+    </Breadcrumb>
+
 
       <div className="calculator-container bg-white/40 dark:bg-transparent">
         <h2 className="calculator-header">AWG to mm Calculator</h2>

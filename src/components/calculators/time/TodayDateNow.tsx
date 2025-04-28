@@ -1,4 +1,13 @@
 import React, { useEffect, useState } from "react";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { Link } from "react-router-dom";
 
 const TodayDateNow: React.FC = () => {
   const [now, setNow] = useState(new Date());
@@ -24,12 +33,34 @@ const TodayDateNow: React.FC = () => {
   const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
   return (
+    <>
+          <Breadcrumb className="mb-4">
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/">Home</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/all-calculators">All Calculators</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/time/all">Time Calculators</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>Today's Date Now</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
     <div className="container mx-auto p-6">
-      <div className="mb-4">
-        <nav className="text-sm text-gray-500">
-          Home › Tools › <span className="text-black">Current date now</span>
-        </nav>
-      </div>
+      
 
       <h1 className="text-3xl font-bold mb-4">Today's Date Now</h1>
 
@@ -88,6 +119,7 @@ const TodayDateNow: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

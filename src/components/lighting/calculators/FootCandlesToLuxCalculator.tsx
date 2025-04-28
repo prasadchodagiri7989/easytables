@@ -4,6 +4,9 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { GuidanceSection } from "@/components/GuidanceSection";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
+
 
 const FootcandlesToLuxCalculator = () => {
   const [footcandles, setFootcandles] = useState('');
@@ -34,6 +37,32 @@ const FootcandlesToLuxCalculator = () => {
   };
 
   return (
+    <>
+        <Breadcrumb className="mb-4">
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link to="/">Home</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link to="/all-calculators">All Calculators</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link to="/lighting-calculators">Lighting Calculators</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>Footcandles to Lux Calculator</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
     <div className="container mx-auto p-4">
       <Card className="mb-8">
         <CardHeader>
@@ -98,6 +127,7 @@ const FootcandlesToLuxCalculator = () => {
         </div>
       </GuidanceSection>
     </div>
+    </>
   );
 };
 

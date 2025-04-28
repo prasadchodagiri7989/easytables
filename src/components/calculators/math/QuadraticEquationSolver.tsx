@@ -36,7 +36,7 @@ const QuadraticEquationSolver: React.FC = () => {
 
   return (
     <>
-      <Breadcrumb className="mb-4">
+           <Breadcrumb className="mb-4">
         <BreadcrumbList>
           <BreadcrumbItem>
             <BreadcrumbLink asChild>
@@ -45,7 +45,19 @@ const QuadraticEquationSolver: React.FC = () => {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbPage>Quadratic Equation Solver</BreadcrumbPage>
+            <BreadcrumbLink asChild>
+              <Link to="/all-calculators">All Calculators</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/math/all">Math Calculators</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>Quadratic Equation Calculator</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>

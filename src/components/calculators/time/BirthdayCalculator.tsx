@@ -3,6 +3,15 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { GuidanceSection } from "@/components/GuidanceSection";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { Link } from "react-router-dom";
 
 const BirthdayCalculator: React.FC = () => {
   const [birthDate, setBirthDate] = useState<string>("");
@@ -48,6 +57,32 @@ const BirthdayCalculator: React.FC = () => {
   };
 
   return (
+    <>
+              <Breadcrumb className="mb-4">
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/">Home</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/all-calculators">All Calculators</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/time/all">Time Calculators</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>Birthday Calculator</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
     <div className="w-full max-w-4xl mx-auto">
       <Card className="w-full max-w-lg mx-auto">
         <CardHeader>
@@ -88,6 +123,7 @@ const BirthdayCalculator: React.FC = () => {
         </ol>
       </GuidanceSection>
     </div>
+    </>
   );
 };
 

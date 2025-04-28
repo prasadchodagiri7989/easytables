@@ -5,6 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
 import { GuidanceSection } from "@/components/GuidanceSection";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Link } from "react-router-dom";
 
 const AmpsToVoltsCalculator = () => {
   const [solveBy, setSolveBy] = useState<"power" | "resistance">("power");
@@ -35,7 +37,33 @@ const AmpsToVoltsCalculator = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
+    <>
+      <Breadcrumb className="mb-4">
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/">Home</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/all-calculators">All Calculators</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/electrical-calculators">Electrical Calculators</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>Amps to Volts Calculator</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+     </Breadcrumb>
+      <div className="container mx-auto p-4">
       <Card className="mb-8">
         <CardHeader>
           <CardTitle>Amps to Volts Calculator</CardTitle>
@@ -114,6 +142,7 @@ const AmpsToVoltsCalculator = () => {
         </div>
       </GuidanceSection>
     </div>
+    </>
   );
 };
 

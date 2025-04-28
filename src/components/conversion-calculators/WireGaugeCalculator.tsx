@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { GuidanceSection } from "@/components/GuidanceSection";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Link } from "react-router-dom";
 
 const WireGaugeCalculator = () => {
   const [current, setCurrent] = useState('');
@@ -71,97 +73,124 @@ const WireGaugeCalculator = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <Card className="mb-8">
-        <CardHeader>
-          <CardTitle>Wire Gauge Calculator</CardTitle>
-        </CardHeader>
-        <CardContent>
+    <>
+      <Breadcrumb className="mb-4">
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/">Home</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/all-calculators">All Calculators</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/electrical-calculators">Electrical Calculators</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>Wire Gauge Calculator</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+     </Breadcrumb>
+      <div className="container mx-auto p-4">
+        <Card className="mb-8">
+          <CardHeader>
+            <CardTitle>Wire Gauge Calculator</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <Label htmlFor="phase">Phase</Label>
+                  <Select value={phase} onValueChange={(value) => setPhase(value as 'single' | 'three')}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select phase" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="single">Single Phase</SelectItem>
+                      <SelectItem value="three">Three Phase</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <Label htmlFor="current">Current (A)</Label>
+                  <Input
+                    id="current"
+                    type="number"
+                    placeholder="Enter current in Amps"
+                    value={current}
+                    onChange={(e) => setCurrent(e.target.value)}
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="length">Distance (ft)</Label>
+                  <Input
+                    id="length"
+                    type="number"
+                    placeholder="One-way distance in feet"
+                    value={length}
+                    onChange={(e) => setLength(e.target.value)}
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="voltageDrop">% Voltage Drop</Label>
+                  <Input
+                    id="voltageDrop"
+                    type="number"
+                    step="0.1"
+                    placeholder="Allowed voltage drop %"
+                    value={voltageDrop}
+                    onChange={(e) => setVoltageDrop(e.target.value)}
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="gauge">Suggested Wire Gauge (AWG)</Label>
+                  <Input
+                    id="gauge"
+                    type="text"
+                    placeholder="Calculated AWG"
+                    value={gauge}
+                    disabled
+                  />
+                </div>
+              </div>
+
+              {error && (
+                <div className="bg-red-50 text-red-600 p-3 rounded-md text-sm">
+                  {error}
+                </div>
+              )}
+
+              <div className="flex gap-3">
+                <Button onClick={calculateGauge}>Calculate</Button>
+                <Button variant="outline" onClick={reset}>Reset</Button>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        <GuidanceSection title="Wire Gauge Calculation Guide">
           <div className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <Label htmlFor="phase">Phase</Label>
-                <Select value={phase} onValueChange={(value) => setPhase(value as 'single' | 'three')}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select phase" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="single">Single Phase</SelectItem>
-                    <SelectItem value="three">Three Phase</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <Label htmlFor="current">Current (A)</Label>
-                <Input
-                  id="current"
-                  type="number"
-                  placeholder="Enter current in Amps"
-                  value={current}
-                  onChange={(e) => setCurrent(e.target.value)}
-                />
-              </div>
-              <div>
-                <Label htmlFor="length">Distance (ft)</Label>
-                <Input
-                  id="length"
-                  type="number"
-                  placeholder="One-way distance in feet"
-                  value={length}
-                  onChange={(e) => setLength(e.target.value)}
-                />
-              </div>
-              <div>
-                <Label htmlFor="voltageDrop">% Voltage Drop</Label>
-                <Input
-                  id="voltageDrop"
-                  type="number"
-                  step="0.1"
-                  placeholder="Allowed voltage drop %"
-                  value={voltageDrop}
-                  onChange={(e) => setVoltageDrop(e.target.value)}
-                />
-              </div>
-              <div>
-                <Label htmlFor="gauge">Suggested Wire Gauge (AWG)</Label>
-                <Input
-                  id="gauge"
-                  type="text"
-                  placeholder="Calculated AWG"
-                  value={gauge}
-                  disabled
-                />
-              </div>
-            </div>
-
-            {error && (
-              <div className="bg-red-50 text-red-600 p-3 rounded-md text-sm">
-                {error}
-              </div>
-            )}
-
-            <div className="flex gap-3">
-              <Button onClick={calculateGauge}>Calculate</Button>
-              <Button variant="outline" onClick={reset}>Reset</Button>
-            </div>
+            <p>This calculator helps determine the appropriate wire gauge based on current, distance, and allowable voltage drop.</p>
+            <ul className="list-disc pl-5">
+              <li>Voltage drop should typically not exceed 3% for efficiency and safety.</li>
+              <li>Always round up to the nearest larger gauge when in doubt.</li>
+              <li>Check NEC tables for exact specifications if needed.</li>
+            </ul>
           </div>
-        </CardContent>
-      </Card>
-
-      <GuidanceSection title="Wire Gauge Calculation Guide">
-        <div className="space-y-4">
-          <p>This calculator helps determine the appropriate wire gauge based on current, distance, and allowable voltage drop.</p>
-          <ul className="list-disc pl-5">
-            <li>Voltage drop should typically not exceed 3% for efficiency and safety.</li>
-            <li>Always round up to the nearest larger gauge when in doubt.</li>
-            <li>Check NEC tables for exact specifications if needed.</li>
-          </ul>
-        </div>
-      </GuidanceSection>
-    </div>
+        </GuidanceSection>
+      </div>
+    </>
   );
 };
 

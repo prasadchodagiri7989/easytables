@@ -13,7 +13,7 @@ import { Card } from "@/components/ui/card";
 export const DSTEndGuide: React.FC = () => {
   return (
     <>
-      <Breadcrumb className="mb-4">
+          <Breadcrumb className="mb-4">
         <BreadcrumbList>
           <BreadcrumbItem>
             <BreadcrumbLink asChild>
@@ -22,11 +22,22 @@ export const DSTEndGuide: React.FC = () => {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbPage>When Do the Clocks Go Back?</BreadcrumbPage>
+            <BreadcrumbLink asChild>
+              <Link to="/all-calculators">All Calculators</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/time/all">Time Calculators</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>When Do the Clocks Go Back? (Daylight Savings End)</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
-
       <div className="dst-end-guide-container bg-white/40 dark:bg-transparent">
         <h2 className="dst-end-guide-header text-center text-2xl font-bold mb-4">
           When Do the Clocks Go Back? (Daylight Savings End)

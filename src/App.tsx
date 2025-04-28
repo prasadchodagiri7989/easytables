@@ -483,6 +483,19 @@ import WhToKwConverter from "./components/electrical/calculations/WhToKwConverte
 import WhToMahConverter from "./components/electrical/calculations/WhToMahConverter";
 import WhToWattsConverter from "./components/electrical/calculations/WhToWattsConverter";
 
+import FinancialCalculators from "./components/calculators/financial/FinancialCalculators";
+import MathTools from "./components/calculators/math/MathTools";
+import AllGradeCalculators from "./components/calculators/grade/AllGradeCalculators";
+import { CollegeGPACalculator } from "./components/calculators/grade/CollegeGPACalculator";
+import { GPACalculationPage } from "./components/calculators/grade/GPACalculationPage";
+import { GPAToLetterGradeConversion } from "./components/calculators/grade/GPAToLetterGradeConversion";
+import { GradeCalculationPage } from "./components/calculators/grade/GradeCalculationPage";
+import { HighSchoolGPACalculator } from "./components/calculators/grade/HighSchoolGPACalculator";
+import { LetterGradeToGPACalculator } from "./components/calculators/grade/LetterGradeToGPACalculator";
+import { TestCalculator } from "./components/calculators/grade/TestCalculator";
+
+import TimeDateTools from "./components/calculators/time/TimeDateTools";
+import WireGaugeTools from "./components/calculators/wire/WireGaugeTools";
 
 const queryClient = new QueryClient();
 
@@ -662,6 +675,10 @@ const App = () => (
 
         {/* All Calculators */}
           <Route path="/all-calculators" element={<Layout><AllCalculators /></Layout>} />
+          <Route path="/all-conversions" element={<Layout><AllConversions /></Layout>} />
+
+
+          <Route path="/finance-all" element={<Layout><FinancialCalculators /></Layout>} />
           <Route path="/convertor/number" element={<Layout><NumberConverter /></Layout>} />
           <Route path="/calculator/discount" element={<Layout><DiscountCalculator /></Layout>} />
           <Route path="/calculator/effective-interest-rate" element={<Layout><EffectiveInterestRateCalculator /></Layout>} />
@@ -915,6 +932,26 @@ const App = () => (
           <Route path="/electrical-calculations/wh-to-kw" element={<Layout><WhToKwConverter /></Layout>} />
           <Route path="/electrical-calculations/wh-to-mah" element={<Layout><WhToMahConverter /></Layout>} />
           <Route path="/electrical-calculations/wh-to-watts" element={<Layout><WhToWattsConverter /></Layout>} />
+
+          <Route path="/wire/all" element={<Layout><WireGaugeTools /></Layout>} />
+          <Route path="/time/all" element={<Layout><TimeDateTools /></Layout>} />
+          <Route path="/math/all" element={<Layout><MathTools /></Layout>} />
+          <Route path="/grade/all" element={<Layout><AllGradeCalculators /></Layout>} />
+          <Route path="/calculator/college-gpa" element={<Layout><GPACalculationPage /></Layout>} />
+          <Route path="/calculator/final-grade" element={<Layout><FinalGradeCalculator /></Layout>} />
+          <Route path="/calculator/gpa" element={<Layout><GPACalculator /></Layout>} />
+          <Route path="/calculator/grade-basic" element={<Layout><GradeCalculator /></Layout>} />
+          <Route path="/calculator/gpa-calc" element={<Layout><GPACalculationPage /></Layout>} />
+          <Route path="/calculator/grade-calc" element={<Layout><GradeCalculationPage /></Layout>} />
+          <Route path="/calculator/gpa-to-letter" element={<Layout><GPAToLetterGradeConversion /></Layout>} />
+          <Route path="/calculator/highschool-gpa" element={<Layout><HighSchoolGPACalculator /></Layout>} />
+          <Route path="/calculator/letter-to-gpa" element={<Layout><LetterGradeToGPACalculator /></Layout>} />
+          <Route path="/calculator/test" element={<Layout><TestCalculator /></Layout>} />
+
+          
+
+          
+
 
 
                     

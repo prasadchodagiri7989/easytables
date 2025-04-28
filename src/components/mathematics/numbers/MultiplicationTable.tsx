@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { GuidanceSection } from "@/components/GuidanceSection";
+
 import { Link } from "react-router-dom"; // Or use next/link for Next.js
 
 export const MultiplicationTable = () => {

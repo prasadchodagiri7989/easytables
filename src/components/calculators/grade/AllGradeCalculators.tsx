@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 const gradeCalculators = [
-  { label: "Grade Calculators", path: "/calculator/grade" },
   { label: "College GPA Calculator", path: "/calculator/college-gpa" },
   { label: "Final Grade Calculator", path: "/calculator/final-grade" },
   { label: "GPA Calculator", path: "/calculator/gpa" },

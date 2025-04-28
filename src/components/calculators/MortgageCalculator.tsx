@@ -268,19 +268,31 @@ export const MortgageCalculator = () => {
 
   return (
     <>
-        <Breadcrumb className="mb-4">
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <Link to="/">Home</Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage>Mortgage Calculator</BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
+          <Breadcrumb className="mb-4">
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/">Home</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/all-calculators">All Calculators</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/finance/all">Finance Calculators</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>Mortgage Calculator</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
     <div className="calculator-container bg-white/40 dark:bg-transparent">
       <h2 className="calculator-header">Mortgage Calculator</h2>
       
@@ -398,32 +410,38 @@ export const MortgageCalculator = () => {
                   <div className="form-group">
                     <div className="flex justify-between">
                       <Label htmlFor="loan-term" className="form-label">Loan Term (years)</Label>
-                      {calculationMode !== "findTerm" && (
-                        <span className="text-sm text-gray-600">{(parseFloat(loanTerm) / 30 * 100).toFixed(0)}%</span>
-                      )}
+                      <span className="text-sm text-gray-600">
+                        {(parseFloat(loanTerm) / 30 * 100).toFixed(0)}%
+                      </span>
                     </div>
-                    {calculationMode !== "findTerm" && (
-                      <div className="mt-2">
-                        <Slider 
-                          value={[parseFloat(loanTerm)]} 
-                          onValueChange={(value) => setLoanTerm(value[0].toString())}
-                          min={0}
-                          max={30}
-                          step={1}
-                        />
-                        <div className="flex justify-between text-xs text-gray-600 mt-1">
-                          <span>0</span>
-                          <span>30</span>
-                        </div>
+
+                    <div className="mt-2">
+                      <Slider 
+                        value={[parseFloat(loanTerm)]} 
+                        onValueChange={(value) => setLoanTerm(value[0].toString())}
+                        min={0}
+                        max={30}
+                        step={1}
+                      />
+                      <div className="flex justify-between text-xs text-gray-600 mt-1">
+                        <span>0</span>
+                        <span>30</span>
                       </div>
-                    )}
-                    {calculationMode === "findTerm" && loanTerm && (
-                      <div className="bg-blue-50 p-3 rounded-md mt-2">
-                        <div className="font-medium text-blue-800">Calculated Term: {loanTerm} years</div>
-                      </div>
-                    )}
+                    </div>
                   </div>
                 )}
+
+                {calculationMode === "findTerm" && loanTerm && (
+                  <div className="form-group">
+                    <div className="flex justify-between">
+                      <Label htmlFor="loan-term" className="form-label">Loan Term (years)</Label>
+                    </div>
+                    <div className="bg-blue-50 p-3 rounded-md mt-2">
+                      <div className="font-medium text-blue-800">Calculated Term: {loanTerm} years</div>
+                    </div>
+                  </div>
+                )}
+
                 
                 <div className="form-group">
                   <Label htmlFor="interest-rate" className="form-label">Interest Rate (%)</Label>

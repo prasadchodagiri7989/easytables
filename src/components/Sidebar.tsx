@@ -95,7 +95,7 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
       "flex flex-col"
     )}>
       <div className="p-4 border-b border-gray-200/50 dark:border-gray-800/50 flex items-center justify-between">
-        <h2 className="text-lg font-medium dark:text-white">Math Tools</h2>
+        <h2 className="text-lg font-medium dark:text-white">Easy Tables</h2>
         <button 
           onClick={onClose}
           className="p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 md:hidden"

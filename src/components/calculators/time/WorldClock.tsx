@@ -1,4 +1,13 @@
 import React, { useState, useEffect } from "react";
+import {
+    Breadcrumb,
+    BreadcrumbItem,
+    BreadcrumbLink,
+    BreadcrumbList,
+    BreadcrumbPage,
+    BreadcrumbSeparator,
+  } from "@/components/ui/breadcrumb";
+  import { Link } from "react-router-dom";
 
 const WorldClock: React.FC = () => {
   const [currentTime, setCurrentTime] = useState<string>("");
@@ -44,6 +53,32 @@ const WorldClock: React.FC = () => {
   };
 
   return (
+    <>
+          <Breadcrumb className="mb-4">
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/">Home</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/all-calculators">All Calculators</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/time/all">Time Calculators</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>World Clock & Current Time</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
     <div className="container mx-auto p-6">
       <h2 className="text-center text-3xl font-semibold mb-4">World Clock & Current Time</h2>
 
@@ -84,6 +119,7 @@ const WorldClock: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

@@ -6,6 +6,15 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { GuidanceSection } from "@/components/GuidanceSection";
 import { ArrowRightLeft } from "lucide-react";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { Link } from "react-router-dom";
 
 const TimeCalculator: React.FC = () => {
   const [years, setYears] = useState(0);
@@ -65,6 +74,32 @@ const TimeCalculator: React.FC = () => {
   };
 
   return (
+    <>
+              <Breadcrumb className="mb-4">
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/">Home</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/all-calculators">All Calculators</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/time/all">Time Calculators</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>Time Calculator</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
     <div className="w-full max-w-4xl mx-auto">
       <Card className="w-full max-w-lg mx-auto">
         <CardHeader>
@@ -185,6 +220,7 @@ const TimeCalculator: React.FC = () => {
         </ol>
       </GuidanceSection>
     </div>
+    </>
   );
 };
 

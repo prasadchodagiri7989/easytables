@@ -27,7 +27,7 @@ const slugify = (str: string) =>
 export default function LightingCalculators() {
   return (
     <div className="p-6 max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6 text-center">Electrical Calculators</h1>
+      <h1 className="text-3xl font-bold mb-6 text-center">Lighting Calculators</h1>
       <div className="grid md:grid-cols-2 gap-4">
         {calculators.map((item, i) => (
           <Link

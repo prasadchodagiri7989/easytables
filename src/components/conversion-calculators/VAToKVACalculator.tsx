@@ -4,6 +4,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { GuidanceSection } from "@/components/GuidanceSection";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Link } from "react-router-dom";
 
 const VAToKVACalculator = () => {
   const [va, setVa] = useState('');
@@ -25,7 +27,33 @@ const VAToKVACalculator = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
+    <>
+      <Breadcrumb className="mb-4">
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/">Home</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/all-calculators">All Calculators</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/electrical-calculators">Electrical Calculators</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>VA to kVA Calculator</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+     </Breadcrumb>
+      <div className="container mx-auto p-4">
       <Card className="mb-8">
         <CardHeader>
           <CardTitle>VA to kVA Calculator</CardTitle>
@@ -81,7 +109,7 @@ const VAToKVACalculator = () => {
           </div>
         </div>
       </GuidanceSection>
-    </div>
+    </div> </>
   );
 };
 

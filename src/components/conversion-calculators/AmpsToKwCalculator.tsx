@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { GuidanceSection } from "@/components/GuidanceSection";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Link } from "react-router-dom";
 
 const AmpsToKWCalculator = () => {
   const [amps, setAmps] = useState('');
@@ -48,7 +50,33 @@ const AmpsToKWCalculator = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
+    <>
+      <Breadcrumb className="mb-4">
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/">Home</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/all-calculators">All Calculators</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/electrical-calculators">Electrical Calculators</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>Amps to Kilowatts (kW) Calculator</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+     </Breadcrumb>
+      <div className="container mx-auto p-4">
       <Card className="mb-8">
         <CardHeader>
           <CardTitle>Amps to Kilowatts (kW) Calculator</CardTitle>
@@ -154,6 +182,7 @@ const AmpsToKWCalculator = () => {
         </div>
       </GuidanceSection>
     </div>
+    </>
   );
 };
 

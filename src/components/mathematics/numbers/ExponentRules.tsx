@@ -1,7 +1,8 @@
 import React from "react";
 import { Card } from "@/components/ui/card";
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { GuidanceSection } from "@/components/GuidanceSection";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+
 import { Link } from "react-router-dom"; // Or use next/link if you're in Next.js
 
 export const ExponentRules = () => {

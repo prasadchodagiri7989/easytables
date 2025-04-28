@@ -12,14 +12,8 @@ import {
 import { Label } from "@/components/ui/label";
 import { ArrowRightLeft } from "lucide-react";
 import { GuidanceSection } from "@/components/GuidanceSection";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+
 import { Link, useLocation } from "react-router-dom";
 
 // Hook to parse query parameters
