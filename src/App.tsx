@@ -7,6 +7,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
+import ScrollToTop from "./components/ScrollToTop";
+
 // Tools
 import RedirectGenerator from "./components/tools/RedirectGenerator";
 import Base64Encode from "./components/tools/Base64Encode";
@@ -505,6 +507,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+      <ScrollToTop />
         <Routes>
           <Route path="/" element={<Layout><Index /></Layout>} />
           
