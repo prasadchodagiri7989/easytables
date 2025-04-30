@@ -135,7 +135,7 @@ export const ColorConverter = () => {
 
   return (
     <>
-      <Breadcrumb className="mb-4">
+<Breadcrumb className="mb-4">
         <BreadcrumbList>
           <BreadcrumbItem>
             <BreadcrumbLink asChild>
@@ -144,11 +144,14 @@ export const ColorConverter = () => {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbPage>Color Converter</BreadcrumbPage>
+            <BreadcrumbLink asChild>
+              <Link to="/all-conversions">All Conversions</Link>
+            </BreadcrumbLink>
           </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbPage>Angle Convertor</BreadcrumbPage>
         </BreadcrumbList>
       </Breadcrumb>
-
       <div className="w-full max-w-4xl mx-auto">
         <Card className="w-full max-w-lg mx-auto">
           <CardHeader>

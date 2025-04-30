@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card"; // Adjust the path to your component library if needed
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
 
 const VAToKVAConverter: React.FC = () => {
   const [apparentPower, setApparentPower] = useState<number>(1000); // Default apparent power (VA)
@@ -13,14 +15,34 @@ const VAToKVAConverter: React.FC = () => {
 
   return (
     <div className="w-full max-w-3xl mx-auto">
-      <Card className="bg-white shadow-lg">
+      <Breadcrumb className="mb-4">
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/">Home</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/electrical-conversions">Electrical Conversions</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>VA to kVA Converter</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+
+      <Card>
         <CardHeader>
-          <CardTitle>How to Convert VA to Kilovolt-Amperes (<code>kVA</code>)</CardTitle>
+          <CardTitle>VA to kVA Converter</CardTitle>
         </CardHeader>
         <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed">
           {/* Introduction */}
           <p>
-            In this guide, you'll learn how to convert apparent power in volt-amperes (<code>VA</code>) to kilovolt-amperes (<code>kVA</code>), a common unit for larger-scale electrical systems.
+            Convert apparent power in volt-amperes (<code>VA</code>) to kilovolt-amperes (<code>kVA</code>) by using a simple calculation. This is commonly used for larger-scale electrical systems.
           </p>
 
           {/* Explanation */}

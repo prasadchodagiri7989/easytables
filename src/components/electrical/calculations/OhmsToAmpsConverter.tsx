@@ -1,108 +1,133 @@
-import React, { useState } from "react";
-import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card"; // Adjust the path to your component library if needed
+import React, { useState } from 'react';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator
+} from "@/components/ui/breadcrumb";
+import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 
 const OhmsToAmpsConverter: React.FC = () => {
-  const [voltage, setVoltage] = useState<number>(230); // Default voltage (Volts)
-  const [resistance, setResistance] = useState<number>(10); // Default resistance (Ohms)
+  const [voltage, setVoltage] = useState<number>(230);  // Voltage in volts (V)
+  const [resistance, setResistance] = useState<number>(10);  // Resistance in ohms (Ω)
+  const [current, setCurrent] = useState<number | string>('—');  // Current in amps (A)
 
-  // Function to calculate current in amps
-  const calculateCurrentAmps = (voltage: number, resistance: number): number => {
-    return voltage / resistance; // Formula to convert Ohms to Amps
+  const convertToAmps = (voltage: number, resistance: number) => {
+    return voltage / resistance;  // I(A) = V(V) / R(Ω)
   };
 
-  const currentAmps = calculateCurrentAmps(voltage, resistance);
+  const handleConvert = () => {
+    const result = convertToAmps(voltage, resistance);
+    setCurrent(result);
+  };
+
+  const examples = [
+    { voltage: 230, resistance: 10, expectedResult: 23, description: '230 V with resistance of 10 Ω' },
+    { voltage: 120, resistance: 60, expectedResult: 2, description: '120 V with resistance of 60 Ω' },
+    { voltage: 480, resistance: 240, expectedResult: 2, description: '480 V with resistance of 240 Ω' },
+  ];
 
   return (
     <div className="w-full max-w-3xl mx-auto">
-      <Card className="bg-white shadow-lg">
+      <Breadcrumb className="mb-4">
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/">Home</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/electrical-conversions">Electrical Conversions</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>Ohms to Amps Converter</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+
+      <Card>
         <CardHeader>
-          <CardTitle>How to Convert Ohms to Amps</CardTitle>
+          <CardTitle>Ohms to Amps Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed">
-          {/* Introduction */}
-          <p>
-            In this guide, you'll learn how to convert resistance in ohms (<code>Ω</code>) and voltage in volts (<code>V</code>) to current in amps (<code>A</code>).
-          </p>
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+          <p>Convert voltage in volts (V) and resistance in ohms (Ω) to current in amps (A).</p>
 
-          {/* Explanation */}
-          <div className="text-center">
-            <h3 className="text-lg font-semibold">Ohms to Amps Calculation</h3>
-            <p className="mt-2">
-              The current (<code>I</code>) in amps is calculated using the formula:
-            </p>
-          </div>
+          <div className="space-y-4">
+            <div>
+              <label className="block font-medium mb-1">Voltage in Volts (V):</label>
+              <input
+                type="number"
+                value={voltage}
+                onChange={(e) => setVoltage(Number(e.target.value))}
+                className="w-full border px-3 py-2 rounded"
+              />
+            </div>
 
-          {/* Ohms to Amps Formula */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">Formula</h2>
-            <p>
-              The current in amps (<code>I</code>) is calculated as:
-            </p>
-            <p className="mt-2">
-              <code>I = V / R</code>
-            </p>
-            <p className="mt-4">
-              Where:
-            </p>
-            <ul className="list-disc ml-6">
-              <li><strong>Voltage (<code>V</code>)</strong> = Voltage in volts (<code>V</code>)</li>
-              <li><strong>Resistance (<code>R</code>)</strong> = Resistance in ohms (<code>Ω</code>)</li>
-              <li><strong>Current (<code>I</code>)</strong> = Current in amps (<code>A</code>)</li>
-            </ul>
-          </div>
+            <div>
+              <label className="block font-medium mb-1">Resistance in Ohms (Ω):</label>
+              <input
+                type="number"
+                value={resistance}
+                onChange={(e) => setResistance(Number(e.target.value))}
+                className="w-full border px-3 py-2 rounded"
+              />
+            </div>
 
-          {/* Example Calculation */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">Example Calculation</h2>
-            <p>
-              Suppose you have a voltage of {voltage} <code>V</code> and a resistance of {resistance} <code>Ω</code>. To convert this to current in amps:
-            </p>
-            <div className="bg-gray-100 p-4 rounded-md text-center">
-              <p className="font-semibold">I = V / R</p>
-              <p className="mt-2">
-                I = {voltage} <code>V</code> / {resistance} <code>Ω</code> = {currentAmps} <code>A</code>
+            <button
+              onClick={handleConvert}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
+            >
+              Convert
+            </button>
+
+            <div>
+              <strong>Converted Current:</strong>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{current} A</p>
+            </div>
+
+            <div>
+              <h2 className="font-semibold text-base mt-6 mb-2">Examples:</h2>
+              <ul className="space-y-2 list-disc list-inside">
+                {examples.map((example, index) => (
+                  <li key={index}>
+                    <p><strong>{example.description}</strong></p>
+                    <p>Voltage: {example.voltage} V, Resistance: {example.resistance} Ω</p>
+                    <p>Converted Current: {example.expectedResult} A</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="font-semibold text-base mt-6 mb-2">Formula:</h2>
+              <p>
+                <strong>I = V / R</strong><br />
+                Where:
+              </p>
+              <ul className="list-disc list-inside ml-4 mt-1">
+                <li><strong>I</strong>: Current in amps (A)</li>
+                <li><strong>V</strong>: Voltage in volts (V)</li>
+                <li><strong>R</strong>: Resistance in ohms (Ω)</li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="font-semibold text-base mt-6 mb-2">Explanation:</h2>
+              <p>
+                The conversion from voltage (V) and resistance (Ω) to current (A) is based on the formula:
+                <br />
+                - Current (I) is equal to voltage (V) divided by resistance (R).
+                <br />
+                - This conversion helps us calculate how much current flows through a resistor given the voltage across it.
               </p>
             </div>
-            <p className="mt-2">
-              Therefore, with {voltage} <code>V</code> and {resistance} <code>Ω</code>, the current is {currentAmps} amps (<code>A</code>).
-            </p>
-          </div>
-
-          {/* More Practical Examples */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">More Practical Examples</h2>
-            <ul className="list-disc ml-6 space-y-2">
-              <li>
-                *Example 1:* For a voltage of 230 <code>V</code> and a resistance of 10 <code>Ω</code>:
-                <p className="bg-gray-100 p-2">I = 230 <code>V</code> / 10 <code>Ω</code> = 23 <code>A</code></p>
-              </li>
-              <li>
-                *Example 2:* For a voltage of 120 <code>V</code> and a resistance of 60 <code>Ω</code>:
-                <p className="bg-gray-100 p-2">I = 120 <code>V</code> / 60 <code>Ω</code> = 2 <code>A</code></p>
-              </li>
-              <li>
-                *Example 3:* For a voltage of 480 <code>V</code> and a resistance of 240 <code>Ω</code>:
-                <p className="bg-gray-100 p-2">I = 480 <code>V</code> / 240 <code>Ω</code> = 2 <code>A</code></p>
-              </li>
-            </ul>
-          </div>
-
-          {/* Important Notes */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">Important Notes</h2>
-            <ul className="list-disc ml-6 space-y-2">
-              <li>The voltage should be in volts (V) and the resistance in ohms (Ω) for the conversion to amps.</li>
-              <li>Ensure that the units of voltage and resistance are correct for the current calculation.</li>
-              <li>This calculation helps determine how much current flows through a resistor given the voltage across it.</li>
-            </ul>
-          </div>
-
-          {/* Conclusion */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">Conclusion</h2>
-            <p>
-              Converting voltage (V) and resistance (Ω) to current (A) requires dividing the voltage by the resistance. Use the formula <code>I = V / R</code>.
-            </p>
           </div>
         </CardContent>
       </Card>

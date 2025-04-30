@@ -1,113 +1,140 @@
-
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator
+} from "@/components/ui/breadcrumb";
 import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 
 const WattsToKVAConverter: React.FC = () => {
   const [watts, setWatts] = useState<number>(1000); // Default 1000 Watts
   const [voltage, setVoltage] = useState<number>(220); // Default voltage 220V
   const [powerFactor, setPowerFactor] = useState<number>(0.8); // Default power factor 0.8
+  const [kVA, setKVA] = useState<number | string>('—'); // Converted kVA
 
   const calculateKVA = (watts: number, voltage: number, powerFactor: number) => {
     return (watts / (voltage * powerFactor)) / 1000; // Conversion to kVA
   };
 
-  const kVA = calculateKVA(watts, voltage, powerFactor);
+  const handleConvert = () => {
+    const result = calculateKVA(watts, voltage, powerFactor);
+    setKVA(result);
+  };
 
   return (
     <div className="w-full max-w-3xl mx-auto">
-      <Card className="bg-white shadow-lg">
+      <Breadcrumb className="mb-4">
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/">Home</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/electrical-conversions">Electrical Conversions</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>Watts to kVA Converter</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+
+      <Card>
         <CardHeader>
-          <CardTitle>How to Convert Watts (W) to Kilovolt-amperes (kVA)</CardTitle>
+          <CardTitle>Watts to kVA Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+          <p>Convert power in watts (W) to apparent power in kilovolt-amperes (kVA) based on voltage and power factor.</p>
 
-          {/* Introduction */}
-          <p>
-            In this guide, you'll learn how to convert electrical power in watts (W) to apparent power in kilovolt-amperes (kVA). This conversion is essential for understanding the apparent power consumed by electrical devices, which is especially important in industrial and commercial electrical systems.
-          </p>
+          <div className="space-y-4">
+            <div>
+              <label className="block font-medium mb-1">Power (Watts):</label>
+              <input
+                type="number"
+                value={watts}
+                onChange={(e) => setWatts(Number(e.target.value))}
+                className="w-full border px-3 py-2 rounded"
+              />
+            </div>
 
-          {/* Explanation */}
-          <div className="text-center">
-            <h3 className="text-lg font-semibold">Watts to Kilovolt-amperes Calculation</h3>
-            <p className="mt-2">
-              To convert watts to kVA, you need to know the voltage and the power factor of the device or system. The formula used is based on the relationship between real power (watts), apparent power (kVA), and power factor.
-            </p>
-          </div>
+            <div>
+              <label className="block font-medium mb-1">Voltage (Volts):</label>
+              <input
+                type="number"
+                value={voltage}
+                onChange={(e) => setVoltage(Number(e.target.value))}
+                className="w-full border px-3 py-2 rounded"
+              />
+            </div>
 
-          {/* Watts to kVA Formula */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">Formula</h2>
-            <p>
-              The apparent power \( S \) in kilovolt-amperes (kVA) is calculated as:
-            </p>
-            <p className="mt-2">
-              <code>S = (P / (V × pf)) / 1000</code>
-            </p>
-            <p className="mt-4">
-              Where:
-            </p>
-            <ul className="list-disc ml-6">
-              <li><strong>Watts (P)</strong> = Real power in watts</li>
-              <li><strong>Voltage (V)</strong> = Voltage in volts</li>
-              <li><strong>Power Factor (pf)</strong> = Power factor of the system (a value between 0 and 1)</li>
-              <li><strong>Kilovolt-amperes (kVA)</strong> = Apparent power in kVA</li>
-            </ul>
-          </div>
+            <div>
+              <label className="block font-medium mb-1">Power Factor:</label>
+              <input
+                type="number"
+                value={powerFactor}
+                onChange={(e) => setPowerFactor(Number(e.target.value))}
+                step="0.1"
+                className="w-full border px-3 py-2 rounded"
+              />
+            </div>
 
-          {/* Example Calculation */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">Example Calculation</h2>
-            <p>
-              Suppose you have a device using {watts}W of real power, operating at a voltage of {voltage}V and with a power factor of {powerFactor}. The apparent power in kilovolt-amperes would be:
-            </p>
-            <div className="bg-gray-100 p-4 rounded-md text-center">
-              <p className="font-semibold">S = (P / (V × pf)) / 1000</p>
-              <p className="mt-2">
-                S = ({watts} / ({voltage} × {powerFactor})) / 1000 = {kVA} kVA
+            <button
+              onClick={handleConvert}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
+            >
+              Convert
+            </button>
+
+            <div>
+              <strong>Converted Apparent Power:</strong>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{kVA} kVA</p>
+            </div>
+
+            <div>
+              <h2 className="font-semibold text-base mt-6 mb-2">Formula:</h2>
+              <p>
+                <strong>S = (P / (V × pf)) / 1000</strong><br />
+                Where:
+              </p>
+              <ul className="list-disc list-inside ml-4 mt-1">
+                <li><strong>P</strong>: Power in watts (W)</li>
+                <li><strong>V</strong>: Voltage in volts (V)</li>
+                <li><strong>pf</strong>: Power factor (a value between 0 and 1)</li>
+                <li><strong>S</strong>: Apparent power in kilovolt-amperes (kVA)</li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="font-semibold text-base mt-6 mb-2">Explanation:</h2>
+              <p>
+                The conversion from watts (W) to kilovolt-amperes (kVA) is based on the formula:
+                <br />
+                - Apparent Power (kVA) is calculated by dividing the real power (W) by the product of voltage (V) and power factor (pf), and then dividing by 1000 to convert to kVA.
               </p>
             </div>
-            <p className="mt-2">
-              Therefore, a device using {watts}W of power, running at {voltage}V with a power factor of {powerFactor}, will have an apparent power of {kVA} kVA.
-            </p>
-          </div>
 
-          {/* More Practical Examples */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">More Practical Examples</h2>
-            <ul className="list-disc ml-6 space-y-2">
-              <li>
-                *Example 1:* A 1000W device running at 220V with a power factor of 0.9:
-                <p className="bg-gray-100 p-2">S = (1000 / (220 × 0.9)) / 1000 = 5.06 kVA</p>
-              </li>
-              <li>
-                *Example 2:* A 1500W device running at 110V with a power factor of 0.8:
-                <p className="bg-gray-100 p-2">S = (1500 / (110 × 0.8)) / 1000 = 17.05 kVA</p>
-              </li>
-              <li>
-                *Example 3:* A 2000W device running at 480V with a power factor of 0.85:
-                <p className="bg-gray-100 p-2">S = (2000 / (480 × 0.85)) / 1000 = 4.92 kVA</p>
-              </li>
-            </ul>
+            <div>
+              <h2 className="font-semibold text-base mt-6 mb-2">Example Calculations:</h2>
+              <ul className="space-y-2 list-disc list-inside">
+                <li>
+                  *Example 1:* A device using 1000W at 220V with a power factor of 0.8:
+                  <p className="bg-gray-100 p-2">S = (1000 / (220 × 0.8)) / 1000 = 5.68 kVA</p>
+                </li>
+                <li>
+                  *Example 2:* A device using 1500W at 110V with a power factor of 0.9:
+                  <p className="bg-gray-100 p-2">S = (1500 / (110 × 0.9)) / 1000 = 15.15 kVA</p>
+                </li>
+              </ul>
+            </div>
           </div>
-
-          {/* Important Notes */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">Important Notes</h2>
-            <ul className="list-disc ml-6 space-y-2">
-              <li>The power factor (pf) represents the efficiency of the power usage. It is typically less than 1 for most electrical devices, especially inductive loads like motors.</li>
-              <li>The formula gives you the apparent power in kVA, which includes both the real power (watts) and reactive power in the system.</li>
-              <li>In most cases, electrical equipment will have a power factor close to 1 for efficient operation, but it can vary depending on the type of load.</li>
-            </ul>
-          </div>
-
-          {/* Conclusion */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">Conclusion</h2>
-            <p>
-              To convert watts to kilovolt-amperes (kVA), you need to know the real power (in watts), the voltage (in volts), and the power factor. This conversion is essential for understanding the total apparent power required by electrical devices or systems.
-            </p>
-          </div>
-
         </CardContent>
       </Card>
     </div>

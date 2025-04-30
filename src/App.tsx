@@ -322,7 +322,7 @@ import WorldClock from "./components/calculators/time/WorldClock";
 
 
 
-
+import EcologyTools from "./components/ecology/EcologyPage";
 import HowToReduceCarbonFootprint from "./components/ecology/HowToReduceCarbonFootprint";
 import HowToReducePlasticWaste from "./components/ecology/HowToReducePlasticWaste";
 import HowToSaveFuel from "./components/ecology/HowToSaveFuel";
@@ -890,7 +890,7 @@ const App = () => (
           <Route path="/electrical-calculations/joules-to-kilowatts" element={<Layout><JoulesToKilowattsConverter /></Layout>} />
           <Route path="/electrical-calculations/joules-to-volts" element={<Layout><JoulesToVoltsConverter /></Layout>} />
           <Route path="/electrical-calculations/joules-to-watts" element={<Layout><JoulesToWattsConverter /></Layout>} />
-          <Route path="/electrical-calculations/kilowatts-to-amps" element={<Layout><KilowattsToAmpsConverter /></Layout>} />
+          <Route path="/electrical-calculations/kw-to-amps" element={<Layout><KilowattsToAmpsConverter /></Layout>} />
           <Route path="/electrical-calculations/kilowatts-to-joules" element={<Layout><KilowattsToJoulesConverter /></Layout>} />
           <Route path="/electrical-calculations/kilowatts-to-kva" element={<Layout><KilowattsToKVAConverter /></Layout>} />
           <Route path="/electrical-calculations/kva-to-kw" element={<Layout><KVAToKWConverter /></Layout>} />
@@ -949,6 +949,7 @@ const App = () => (
           <Route path="/calculator/test" element={<Layout><TestCalculator /></Layout>} />
 
           
+          <Route path="/ecology/all" element={<Layout><EcologyTools /></Layout>} />
 
           
 

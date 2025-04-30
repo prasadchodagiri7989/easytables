@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
+import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
 
 const LumenToLuxConverter: React.FC = () => {
   const [lumens, setLumens] = useState<number>(0);  // Luminous flux in lumens (lm)
@@ -46,96 +49,134 @@ const LumenToLuxConverter: React.FC = () => {
   ];
 
   return (
-    <div className="container">
-      <h1>Lumens to Lux Converter</h1>
+    <div className="w-full max-w-3xl mx-auto">
+      <Breadcrumb className="mb-4">
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/">Home</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/lighting-calculations">Lighting Calculations</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>Lumen to Lux Converter</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
 
-      <div>
-        <label>Enter Luminous Flux in Lumens (lm):</label>
-        <input
-          type="number"
-          value={lumens}
-          onChange={(e) => setLumens(Number(e.target.value))}
-        />
-      </div>
+      <Card>
+        <CardHeader>
+          <CardTitle>Lumen to Lux Converter</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+          <p>Convert luminous flux in lumens (lm) to illuminance in lux (lx) depending on the area and the unit of measurement.</p>
 
-      <div>
-        <label>Enter Area:</label>
-        <input
-          type="number"
-          value={area}
-          onChange={(e) => setArea(Number(e.target.value))}
-        />
-      </div>
+          <div className="space-y-4">
+            <div>
+              <label className="block font-medium mb-1">Luminous Flux in Lumens (lm):</label>
+              <input
+                type="number"
+                value={lumens}
+                onChange={(e) => setLumens(Number(e.target.value))}
+                className="w-full border px-3 py-2 rounded"
+              />
+            </div>
 
-      <div>
-        <label>Choose Area Unit:</label>
-        <select value={unit} onChange={(e) => setUnit(e.target.value)}>
-          <option value="m2">Square Meters (m²)</option>
-          <option value="ft2">Square Feet (ft²)</option>
-        </select>
-      </div>
+            <div>
+              <label className="block font-medium mb-1">Area:</label>
+              <input
+                type="number"
+                value={area}
+                onChange={(e) => setArea(Number(e.target.value))}
+                className="w-full border px-3 py-2 rounded"
+              />
+            </div>
 
-      <div>
-        <button onClick={handleConvert}>Convert</button>
-      </div>
+            <div>
+              <label className="block font-medium mb-1">Choose Area Unit:</label>
+              <select
+                value={unit}
+                onChange={(e) => setUnit(e.target.value)}
+                className="w-full border px-3 py-2 rounded"
+              >
+                <option value="m2">Square Meters (m²)</option>
+                <option value="ft2">Square Feet (ft²)</option>
+              </select>
+            </div>
 
-      <div>
-        <h2>Converted Illuminance (Lux):</h2>
-        <p>{lux} lx</p>
-      </div>
+            <button
+              onClick={handleConvert}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
+            >
+              Convert
+            </button>
 
-      <div>
-        <h2>Examples:</h2>
-        <ul>
-          {examples.map((example, index) => (
-            <li key={index}>
-              <p><strong>{example.description}:</strong></p>
-              <p>Lumens: {example.lumens} lm, Area: {example.area} {example.unit}</p>
-              <p>Converted Illuminance: {example.expectedResult} lx</p>
-            </li>
-          ))}
-        </ul>
-      </div>
+            <div>
+              <strong>Converted Illuminance:</strong>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{lux} lx</p>
+            </div>
 
-      <div>
-        <h2>Formula:</h2>
-        <p>
-          <strong>lx = lm / m²</strong> (for square meters)
-          <br />
-          <strong>lx = 10.76391 × lm / ft²</strong> (for square feet)
-        </p>
-        <p>
-          Where:
-          <ul>
-            <li>lx = Illuminance in lux (lx)</li>
-            <li>lm = Luminous flux in lumens (lm)</li>
-            <li>m² = Area in square meters (m²)</li>
-            <li>ft² = Area in square feet (ft²)</li>
-          </ul>
-        </p>
-      </div>
+            <div>
+              <h2 className="font-semibold text-base mt-6 mb-2">Examples:</h2>
+              <ul className="space-y-2 list-disc list-inside">
+                {examples.map((example, index) => (
+                  <li key={index}>
+                    <p><strong>{example.description}</strong></p>
+                    <p>Lumens: {example.lumens} lm, Area: {example.area} {example.unit}</p>
+                    <p>Converted Illuminance: {example.expectedResult} lx</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-      <div>
-        <h2>Explanation:</h2>
-        <p>
-          The conversion from lumens (lm) to lux (lx) depends on the area that the light is spread over.
-          <br />
-          - For square meters: lux (lx) = lumens (lm) / area (m²)
-          <br />
-          - For square feet: lux (lx) = 10.76391 × lumens (lm) / area (ft²)
-          <br />
-          This formula calculates how much illuminance (in lux) is received over a given area.
-        </p>
-      </div>
+            <div>
+              <h2 className="font-semibold text-base mt-6 mb-2">Formula:</h2>
+              <p>
+                <strong>lx = lm / m²</strong> (for square meters)
+                <br />
+                <strong>lx = 10.76391 × lm / ft²</strong> (for square feet)
+              </p>
+              <p>
+                Where:
+                <ul className="list-disc list-inside ml-4 mt-1">
+                  <li>lx = Illuminance in lux (lx)</li>
+                  <li>lm = Luminous flux in lumens (lm)</li>
+                  <li>m² = Area in square meters (m²)</li>
+                  <li>ft² = Area in square feet (ft²)</li>
+                </ul>
+              </p>
+            </div>
 
-      <div>
-        <h2>Example Calculation:</h2>
-        <p>
-          What is the illuminance in lux if a light source produces 2000 lumens and is spread over an area of 4 square meters?
-          <br />
-          Using the formula: lux = lumens / area, we get lux = 2000 / 4 = 500 lx.
-        </p>
-      </div>
+            <div>
+              <h2 className="font-semibold text-base mt-6 mb-2">Explanation:</h2>
+              <p>
+                The conversion from lumens (lm) to lux (lx) depends on the area that the light is spread over.
+                <br />
+                - For square meters: lux (lx) = lumens (lm) / area (m²)
+                <br />
+                - For square feet: lux (lx) = 10.76391 × lumens (lm) / area (ft²)
+                <br />
+                This formula calculates how much illuminance (in lux) is received over a given area.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="font-semibold text-base mt-6 mb-2">Example Calculation:</h2>
+              <p>
+                What is the illuminance in lux if a light source produces 2000 lumens and is spread over an area of 4 square meters?
+                <br />
+                Using the formula: lux = lumens / area, we get lux = 2000 / 4 = 500 lx.
+              </p>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 };

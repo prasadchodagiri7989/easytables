@@ -1,4 +1,7 @@
 import { Link } from "react-router-dom";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+
+
 
 const textTools = [
   { label: "Alt Codes", path: "/text/alt-codes" },
@@ -9,6 +12,7 @@ const textTools = [
 export default function TextTools() {
   return (
     <div className="p-6 max-w-4xl mx-auto">
+        
       <h1 className="text-3xl font-bold mb-6 text-center">Text Tools</h1>
       <div className="grid md:grid-cols-2 gap-4">
         {textTools.map((item, i) => (

@@ -12,6 +12,9 @@ import {
 } from "@/components/ui/select";
 import { ArrowRightLeft } from "lucide-react";
 import { numberFormats, convertNumber } from "@/lib/number-conversions";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+
+import { Link } from "react-router-dom";
 
 export const NumberConverter = () => {
   const [fromFormat, setFromFormat] = useState("ascii");
@@ -36,6 +39,23 @@ export const NumberConverter = () => {
 
   return (
     <div className="w-full max-w-3xl mx-auto">
+      <Breadcrumb className="mb-4">
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/">Home</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/all-conversions">All Conversions</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbPage>Angle Convertor</BreadcrumbPage>
+        </BreadcrumbList>
+      </Breadcrumb>
       <Card>
         <CardHeader>
           <CardTitle className="text-2xl">Number Converter</CardTitle>

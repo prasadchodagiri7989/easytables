@@ -1,108 +1,121 @@
-import React, { useState } from "react";
-import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card"; // Adjust the path to your component library if needed
+import React, { useState } from 'react';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator
+} from "@/components/ui/breadcrumb";
+import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 
 const VAToWattsConverter: React.FC = () => {
   const [apparentPower, setApparentPower] = useState<number>(1000); // Default apparent power (VA)
   const [powerFactor, setPowerFactor] = useState<number>(0.8); // Default power factor
+  const [powerWatts, setPowerWatts] = useState<number | string>('—'); // Calculated power in watts
 
   // Function to calculate power in watts
   const calculatePowerWatts = (apparentPower: number, powerFactor: number): number => {
     return apparentPower * powerFactor; // Formula to convert VA to W
   };
 
-  const powerWatts = calculatePowerWatts(apparentPower, powerFactor);
+  const handleConvert = () => {
+    const result = calculatePowerWatts(apparentPower, powerFactor);
+    setPowerWatts(result);
+  };
 
   return (
     <div className="w-full max-w-3xl mx-auto">
-      <Card className="bg-white shadow-lg">
+      <Breadcrumb className="mb-4">
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/">Home</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/energy-conversions">Energy Conversions</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>VA to Watts Converter</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+
+      <Card>
         <CardHeader>
-          <CardTitle>How to Convert VA to Watts (<code>W</code>)</CardTitle>
+          <CardTitle>VA to Watts Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed">
-          {/* Introduction */}
-          <p>
-            In this guide, you'll learn how to convert apparent power in volt-amperes (<code>VA</code>) to real power in watts (<code>W</code>) by accounting for the power factor.
-          </p>
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+          <p>Convert apparent power in volt-amperes (VA) and power factor to real power in watts (W).</p>
 
-          {/* Explanation */}
-          <div className="text-center">
-            <h3 className="text-lg font-semibold">VA to Watts Calculation</h3>
-            <p className="mt-2">
-              The real power (<code>P</code>) in watts is calculated using the formula:
-            </p>
-          </div>
+          <div className="space-y-4">
+            <div>
+              <label className="block font-medium mb-1">Apparent Power in Volt-Amperes (VA):</label>
+              <input
+                type="number"
+                value={apparentPower}
+                onChange={(e) => setApparentPower(Number(e.target.value))}
+                className="w-full border px-3 py-2 rounded"
+              />
+            </div>
 
-          {/* VA to Watts Formula */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">Formula</h2>
-            <p>
-              The real power in watts (<code>P<sub>W</sub></code>) is calculated as:
-            </p>
-            <p className="mt-2">
-              <code>P<sub>W</sub> = S<sub>VA</sub> × PF</code>
-            </p>
-            <p className="mt-4">
-              Where:
-            </p>
-            <ul className="list-disc ml-6">
-              <li><strong>Apparent Power (<code>S<sub>VA</sub></code>)</strong> = Apparent power in volt-amperes (<code>VA</code>)</li>
-              <li><strong>Power Factor (PF)</strong> = The power factor (a value between 0 and 1)</li>
-              <li><strong>Real Power (<code>P<sub>W</sub></code>)</strong> = Real power in watts (<code>W</code>)</li>
-            </ul>
-          </div>
+            <div>
+              <label className="block font-medium mb-1">Power Factor (PF):</label>
+              <input
+                type="number"
+                step="0.1"
+                value={powerFactor}
+                onChange={(e) => setPowerFactor(Number(e.target.value))}
+                className="w-full border px-3 py-2 rounded"
+              />
+            </div>
 
-          {/* Example Calculation */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">Example Calculation</h2>
-            <p>
-              Suppose you have an apparent power of {apparentPower} <code>VA</code> and a power factor of {powerFactor}. To convert this to real power in watts:
-            </p>
-            <div className="bg-gray-100 p-4 rounded-md text-center">
-              <p className="font-semibold">P<sub>W</sub> = S<sub>VA</sub> × PF</p>
-              <p className="mt-2">
-                P<sub>W</sub> = {apparentPower} <code>VA</code> × {powerFactor} = {powerWatts} <code>W</code>
+            <button
+              onClick={handleConvert}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
+            >
+              Convert
+            </button>
+
+            <div>
+              <strong>Converted Power:</strong>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{powerWatts} W</p>
+            </div>
+
+            <div>
+              <h2 className="font-semibold text-base mt-6 mb-2">Formula:</h2>
+              <p>
+                <strong>P<sub>W</sub> = S<sub>VA</sub> × PF</strong><br />
+                Where:
+              </p>
+              <ul className="list-disc list-inside ml-4 mt-1">
+                <li><strong>P<sub>W</sub></strong>: Real power in watts (W)</li>
+                <li><strong>S<sub>VA</sub></strong>: Apparent power in volt-amperes (VA)</li>
+                <li><strong>PF</strong>: Power factor (a value between 0 and 1)</li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="font-semibold text-base mt-6 mb-2">Explanation:</h2>
+              <p>
+                The conversion from apparent power (VA) to real power (W) involves multiplying the apparent power by the power factor (PF), which accounts for the efficiency of the electrical system.
               </p>
             </div>
-            <p className="mt-2">
-              Therefore, with {apparentPower} <code>VA</code> and a power factor of {powerFactor}, the real power is {powerWatts} watts (<code>W</code>).
-            </p>
-          </div>
 
-          {/* More Practical Examples */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">More Practical Examples</h2>
-            <ul className="list-disc ml-6 space-y-2">
-              <li>
-                *Example 1:* For an apparent power of 1000 <code>VA</code> and a power factor of 0.8:
-                <p className="bg-gray-100 p-2">P<sub>W</sub> = 1000 <code>VA</code> × 0.8 = 800 <code>W</code></p>
-              </li>
-              <li>
-                *Example 2:* For an apparent power of 5000 <code>VA</code> and a power factor of 0.9:
-                <p className="bg-gray-100 p-2">P<sub>W</sub> = 5000 <code>VA</code> × 0.9 = 4500 <code>W</code></p>
-              </li>
-              <li>
-                *Example 3:* For an apparent power of 2500 <code>VA</code> and a power factor of 0.6:
-                <p className="bg-gray-100 p-2">P<sub>W</sub> = 2500 <code>VA</code> × 0.6 = 1500 <code>W</code></p>
-              </li>
-            </ul>
-          </div>
-
-          {/* Important Notes */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">Important Notes</h2>
-            <ul className="list-disc ml-6 space-y-2">
-              <li>The power factor (PF) is a measure of how effectively the electrical power is being used. It ranges from 0 to 1, with 1 indicating perfect efficiency.</li>
-              <li>Ensure that the apparent power is in volt-amperes (VA) and that the power factor is provided to calculate real power in watts (W).</li>
-              <li>This calculation is useful for electrical systems to understand real power consumption or output, considering the phase difference between voltage and current.</li>
-            </ul>
-          </div>
-
-          {/* Conclusion */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">Conclusion</h2>
-            <p>
-              Converting apparent power (VA) to real power (W) involves considering the power factor. Multiply the apparent power by the power factor to get the value in watts.
-            </p>
+            <div>
+              <h2 className="font-semibold text-base mt-6 mb-2">Examples:</h2>
+              <ul className="space-y-2 list-disc list-inside">
+                <li>1000 VA × 0.8 PF = 800 W</li>
+                <li>5000 VA × 0.9 PF = 4500 W</li>
+                <li>2500 VA × 0.6 PF = 1500 W</li>
+              </ul>
+            </div>
           </div>
         </CardContent>
       </Card>

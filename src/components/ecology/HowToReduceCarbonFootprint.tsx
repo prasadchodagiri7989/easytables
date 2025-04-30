@@ -1,9 +1,33 @@
 import React from "react";
 import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
+
+
 
 const HowToReduceCarbonFootprint: React.FC = () => {
   return (
     <div className="w-full max-w-3xl mx-auto">
+       <Breadcrumb className="mb-4">
+                      <BreadcrumbList>
+                        <BreadcrumbItem>
+                          <BreadcrumbLink asChild>
+                            <Link to="/">Home</Link>
+                          </BreadcrumbLink>
+                        </BreadcrumbItem>
+                        <BreadcrumbSeparator />
+                        <BreadcrumbItem>
+                          <BreadcrumbLink asChild>
+                            <Link to="/ecology/all">Ecology</Link>
+                          </BreadcrumbLink>
+                        </BreadcrumbItem>
+                        <BreadcrumbSeparator />
+                        <BreadcrumbItem>
+                          <BreadcrumbPage>Green Hosting Providers Comparison</BreadcrumbPage>
+                        </BreadcrumbItem>
+                      </BreadcrumbList>
+                   </Breadcrumb>
+                
       <Card>
         <CardHeader>
           <CardTitle>How to Reduce Your Carbon Footprint</CardTitle>

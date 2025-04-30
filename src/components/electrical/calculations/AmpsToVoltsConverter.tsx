@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
+
 
 const AmpsToVoltsConverter: React.FC = () => {
   const [amps, setAmps] = useState<number>(3); // Default 3A
@@ -19,6 +22,25 @@ const AmpsToVoltsConverter: React.FC = () => {
 
   return (
     <div className="w-full max-w-3xl mx-auto">
+                      <Breadcrumb className="mb-4">
+                        <BreadcrumbList>
+                          <BreadcrumbItem>
+                            <BreadcrumbLink asChild>
+                              <Link to="/">Home</Link>
+                            </BreadcrumbLink>
+                          </BreadcrumbItem>
+                          <BreadcrumbSeparator />
+                          <BreadcrumbItem>
+                            <BreadcrumbLink asChild>
+                              <Link to="/electrical-calculations">Electrical Calculations</Link>
+                            </BreadcrumbLink>
+                          </BreadcrumbItem>
+                          <BreadcrumbSeparator />
+                          <BreadcrumbItem>
+                            <BreadcrumbPage>kVA to VA Calculator</BreadcrumbPage>
+                          </BreadcrumbItem>
+                        </BreadcrumbList>
+                     </Breadcrumb>
       <Card className="bg-white shadow-lg">
         <CardHeader>
           <CardTitle>How to Convert Amps to Volts</CardTitle>

@@ -1,108 +1,126 @@
 import React, { useState } from "react";
-import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card"; // Adjust the path to your component library if needed
+import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card"; 
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Link } from "react-router-dom";
 
 const VAToAmpsConverter: React.FC = () => {
   const [apparentPower, setApparentPower] = useState<number>(1000); // Default apparent power (VA)
   const [voltage, setVoltage] = useState<number>(230); // Default voltage (V)
+  const [currentAmps, setCurrentAmps] = useState<number | string>("—");
 
   // Function to calculate current in amps
   const calculateCurrentAmps = (apparentPower: number, voltage: number): number => {
     return apparentPower / voltage; // Formula to convert VA to Amps
   };
 
-  const currentAmps = calculateCurrentAmps(apparentPower, voltage);
+  const handleConvert = () => {
+    const result = calculateCurrentAmps(apparentPower, voltage);
+    setCurrentAmps(result);
+  };
 
   return (
     <div className="w-full max-w-3xl mx-auto">
-      <Card className="bg-white shadow-lg">
+      <Breadcrumb className="mb-4">
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/">Home</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/electrical-conversions">Electrical Conversions</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>VA to Amps Converter</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+
+      <Card>
         <CardHeader>
-          <CardTitle>How to Convert VA to Amps</CardTitle>
+          <CardTitle>VA to Amps Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed">
-          {/* Introduction */}
-          <p>
-            In this guide, you'll learn how to convert apparent power in volt-amperes (<code>VA</code>) to current in amps (<code>A</code>) by using the voltage.
-          </p>
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+          <p>Convert apparent power in volt-amperes (VA) and voltage in volts (V) to current in amps (A).</p>
 
-          {/* Explanation */}
-          <div className="text-center">
-            <h3 className="text-lg font-semibold">VA to Amps Calculation</h3>
-            <p className="mt-2">
-              The current (<code>I</code>) in amps is calculated using the formula:
-            </p>
-          </div>
+          <div className="space-y-4">
+            <div>
+              <label className="block font-medium mb-1">Apparent Power in VA:</label>
+              <input
+                type="number"
+                value={apparentPower}
+                onChange={(e) => setApparentPower(Number(e.target.value))}
+                className="w-full border px-3 py-2 rounded"
+              />
+            </div>
 
-          {/* VA to Amps Formula */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">Formula</h2>
-            <p>
-              The current in amps (<code>I</code>) is calculated as:
-            </p>
-            <p className="mt-2">
-              <code>I = S<sub>VA</sub> / V</code>
-            </p>
-            <p className="mt-4">
-              Where:
-            </p>
-            <ul className="list-disc ml-6">
-              <li><strong>Apparent Power (<code>S<sub>VA</sub></code>)</strong> = Apparent power in volt-amperes (<code>VA</code>)</li>
-              <li><strong>Voltage (<code>V</code>)</strong> = Voltage in volts (<code>V</code>)</li>
-              <li><strong>Current (<code>I</code>)</strong> = Current in amps (<code>A</code>)</li>
-            </ul>
-          </div>
+            <div>
+              <label className="block font-medium mb-1">Voltage in V:</label>
+              <input
+                type="number"
+                value={voltage}
+                onChange={(e) => setVoltage(Number(e.target.value))}
+                className="w-full border px-3 py-2 rounded"
+              />
+            </div>
 
-          {/* Example Calculation */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">Example Calculation</h2>
-            <p>
-              Suppose you have an apparent power of {apparentPower} <code>VA</code> and a voltage of {voltage} <code>V</code>. To convert this to current in amps:
-            </p>
-            <div className="bg-gray-100 p-4 rounded-md text-center">
-              <p className="font-semibold">I = S<sub>VA</sub> / V</p>
-              <p className="mt-2">
-                I = {apparentPower} <code>VA</code> / {voltage} <code>V</code> = {currentAmps} <code>A</code>
+            <button
+              onClick={handleConvert}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
+            >
+              Convert
+            </button>
+
+            <div>
+              <strong>Converted Current:</strong>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{currentAmps} A</p>
+            </div>
+
+            <div>
+              <h2 className="font-semibold text-base mt-6 mb-2">Formula:</h2>
+              <p>
+                <strong>I = S<sub>VA</sub> / V</strong><br />
+                Where:
+              </p>
+              <ul className="list-disc list-inside ml-4 mt-1">
+                <li><strong>I</strong>: Current in amps (A)</li>
+                <li><strong>S<sub>VA</sub></strong>: Apparent power in volt-amperes (VA)</li>
+                <li><strong>V</strong>: Voltage in volts (V)</li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="font-semibold text-base mt-6 mb-2">Explanation:</h2>
+              <p>
+                To convert apparent power (VA) to current (A), simply divide the apparent power (S<sub>VA</sub>) by the voltage (V) using the formula:
+                <br />
+                <strong>I = S<sub>VA</sub> / V</strong>.
+                <br />
+                This will give the current (I) in amps.
               </p>
             </div>
-            <p className="mt-2">
-              Therefore, with {apparentPower} <code>VA</code> and {voltage} <code>V</code>, the current is {currentAmps} amps (<code>A</code>).
-            </p>
-          </div>
 
-          {/* More Practical Examples */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">More Practical Examples</h2>
-            <ul className="list-disc ml-6 space-y-2">
-              <li>
-                *Example 1:* For an apparent power of 1000 <code>VA</code> and a voltage of 230 <code>V</code>:
-                <p className="bg-gray-100 p-2">I = 1000 <code>VA</code> / 230 <code>V</code> = 4.35 <code>A</code></p>
-              </li>
-              <li>
-                *Example 2:* For an apparent power of 5000 <code>VA</code> and a voltage of 120 <code>V</code>:
-                <p className="bg-gray-100 p-2">I = 5000 <code>VA</code> / 120 <code>V</code> = 41.67 <code>A</code></p>
-              </li>
-              <li>
-                *Example 3:* For an apparent power of 2500 <code>VA</code> and a voltage of 480 <code>V</code>:
-                <p className="bg-gray-100 p-2">I = 2500 <code>VA</code> / 480 <code>V</code> = 5.21 <code>A</code></p>
-              </li>
-            </ul>
-          </div>
-
-          {/* Important Notes */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">Important Notes</h2>
-            <ul className="list-disc ml-6 space-y-2">
-              <li>The voltage should be in volts (V) and must be known for the conversion to amps.</li>
-              <li>Ensure that the apparent power is in volt-amperes (VA) when using the formula.</li>
-              <li>This calculation helps determine how much current is drawn by an electrical system based on its apparent power and the voltage supplied.</li>
-            </ul>
-          </div>
-
-          {/* Conclusion */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">Conclusion</h2>
-            <p>
-              Converting apparent power (VA) to current (A) requires knowing the voltage (V). Divide the apparent power by the voltage to find the current in amps.
-            </p>
+            <div>
+              <h2 className="font-semibold text-base mt-6 mb-2">Examples:</h2>
+              <ul className="space-y-2 list-disc list-inside">
+                <li>
+                  <strong>Example 1:</strong> For an apparent power of 1000 VA and a voltage of 230 V:
+                  <p className="bg-white p-2">I = 1000 VA / 230 V = 4.35 A</p>
+                </li>
+                <li>
+                  <strong>Example 2:</strong> For an apparent power of 5000 VA and a voltage of 120 V:
+                  <p className="bg-white p-2">I = 5000 VA / 120 V = 41.67 A</p>
+                </li>
+                <li>
+                  <strong>Example 3:</strong> For an apparent power of 2500 VA and a voltage of 480 V:
+                  <p className="bg-white p-2">I = 2500 VA / 480 V = 5.21 A</p>
+                </li>
+              </ul>
+            </div>
           </div>
         </CardContent>
       </Card>

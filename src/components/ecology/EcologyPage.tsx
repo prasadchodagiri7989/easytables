@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
 
 const ecologyTools = [
   { label: "How to Reduce Carbon Footprint", path: "/eco/reduce-carbon-footprint" },
@@ -13,6 +14,7 @@ const ecologyTools = [
 export default function EcologyTools() {
   return (
     <div className="p-6 max-w-4xl mx-auto">
+
       <h1 className="text-3xl font-bold mb-6 text-center">Ecology & Sustainability</h1>
       <div className="grid md:grid-cols-2 gap-4">
         {ecologyTools.map((item, i) => (

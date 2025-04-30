@@ -1,111 +1,137 @@
 import React, { useState } from "react";
 import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
 
 const WattsToVAConverter: React.FC = () => {
   const [watts, setWatts] = useState<number>(1000); // Default 1000 Watts
   const [voltage, setVoltage] = useState<number>(220); // Default voltage 220V
   const [powerFactor, setPowerFactor] = useState<number>(0.8); // Default power factor 0.8
+  const [va, setVA] = useState<number | string>('—'); // Default value for VA
 
   const calculateVA = (watts: number, voltage: number, powerFactor: number) => {
     return watts / powerFactor; // Conversion to VA
   };
 
-  const va = calculateVA(watts, voltage, powerFactor);
+  const handleConvert = () => {
+    const result = calculateVA(watts, voltage, powerFactor);
+    setVA(result);
+  };
 
   return (
     <div className="w-full max-w-3xl mx-auto">
-      <Card className="bg-white shadow-lg">
+      <Breadcrumb className="mb-4">
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/">Home</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/power-conversions">Power Conversions</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>Watts to VA Converter</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+
+      <Card>
         <CardHeader>
-          <CardTitle>How to Convert Watts (W) to Volt-amperes (VA)</CardTitle>
+          <CardTitle>Watts to Volt-amperes (VA) Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+          <p>Convert electrical power in watts (W) to apparent power in volt-amperes (VA).</p>
 
-          {/* Introduction */}
-          <p>
-            In this guide, you'll learn how to convert electrical power in watts (W) to apparent power in volt-amperes (VA). This conversion is important when dealing with alternating current (AC) systems, as VA represents the total power used in the system, including both active and reactive power.
-          </p>
+          <div className="space-y-4">
+            <div>
+              <label className="block font-medium mb-1">Watts (W):</label>
+              <input
+                type="number"
+                value={watts}
+                onChange={(e) => setWatts(Number(e.target.value))}
+                className="w-full border px-3 py-2 rounded"
+              />
+            </div>
 
-          {/* Explanation */}
-          <div className="text-center">
-            <h3 className="text-lg font-semibold">Watts to Volt-amperes Calculation</h3>
-            <p className="mt-2">
-              To convert watts to VA, you need to know the power factor of the device or system. The formula used is based on the relationship between real power (watts) and apparent power (volt-amperes).
-            </p>
-          </div>
+            <div>
+              <label className="block font-medium mb-1">Voltage (V):</label>
+              <input
+                type="number"
+                value={voltage}
+                onChange={(e) => setVoltage(Number(e.target.value))}
+                className="w-full border px-3 py-2 rounded"
+              />
+            </div>
 
-          {/* Watts to VA Formula */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">Formula</h2>
-            <p>
-              The apparent power \( S \) in volt-amperes (VA) is calculated as:
-            </p>
-            <p className="mt-2">
-              <code>S = P / pf</code>
-            </p>
-            <p className="mt-4">
-              Where:
-            </p>
-            <ul className="list-disc ml-6">
-              <li><strong>Watts (P)</strong> = Real power in watts</li>
-              <li><strong>Power Factor (pf)</strong> = Power factor of the system (a value between 0 and 1)</li>
-              <li><strong>Volt-amperes (VA)</strong> = Apparent power in VA</li>
-            </ul>
-          </div>
+            <div>
+              <label className="block font-medium mb-1">Power Factor:</label>
+              <input
+                type="number"
+                value={powerFactor}
+                onChange={(e) => setPowerFactor(Number(e.target.value))}
+                className="w-full border px-3 py-2 rounded"
+              />
+            </div>
 
-          {/* Example Calculation */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">Example Calculation</h2>
-            <p>
-              Suppose you have a device using {watts}W of real power with a power factor of {powerFactor}. The apparent power in volt-amperes would be:
-            </p>
-            <div className="bg-gray-100 p-4 rounded-md text-center">
-              <p className="font-semibold">S = P / pf</p>
-              <p className="mt-2">
-                S = {watts}W / {powerFactor} = {va} VA
+            <button
+              onClick={handleConvert}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
+            >
+              Convert
+            </button>
+
+            <div>
+              <strong>Converted Apparent Power (VA):</strong>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{va} VA</p>
+            </div>
+
+            <div>
+              <h2 className="font-semibold text-base mt-6 mb-2">Formula:</h2>
+              <p>
+                <strong>VA = Watts / Power Factor</strong><br />
+                Where:
+              </p>
+              <ul className="list-disc list-inside ml-4 mt-1">
+                <li><strong>VA</strong>: Apparent power in volt-amperes (VA)</li>
+                <li><strong>Watts</strong>: Real power in watts (W)</li>
+                <li><strong>Power Factor</strong>: Power factor of the system (a value between 0 and 1)</li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="font-semibold text-base mt-6 mb-2">Explanation:</h2>
+              <p>
+                The conversion from watts (W) to volt-amperes (VA) is based on the formula:
+                <br />
+                - Apparent power (VA) is equal to real power (watts) divided by the power factor.
+                <br />
+                - This conversion helps us calculate the total apparent power (including both real and reactive power) required in an AC system.
               </p>
             </div>
-            <p className="mt-2">
-              Therefore, a device using {watts}W of power with a power factor of {powerFactor} will have an apparent power of {va} VA.
-            </p>
-          </div>
 
-          {/* More Practical Examples */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">More Practical Examples</h2>
-            <ul className="list-disc ml-6 space-y-2">
-              <li>
-                *Example 1:* A 1000W device with a power factor of 0.9:
-                <p className="bg-gray-100 p-2">S = 1000W / 0.9 = 1111.11 VA</p>
-              </li>
-              <li>
-                *Example 2:* A 1500W device with a power factor of 0.8:
-                <p className="bg-gray-100 p-2">S = 1500W / 0.8 = 1875 VA</p>
-              </li>
-              <li>
-                *Example 3:* A 2000W device with a power factor of 0.85:
-                <p className="bg-gray-100 p-2">S = 2000W / 0.85 = 2352.94 VA</p>
-              </li>
-            </ul>
+            <div>
+              <h2 className="font-semibold text-base mt-6 mb-2">Examples:</h2>
+              <ul className="space-y-2 list-disc list-inside">
+                <li>
+                  <strong>Example 1:</strong> A device using 1000W of real power with a power factor of 0.8:
+                  <p className="bg-gray-100 p-2">VA = 1000W / 0.8 = 1250 VA</p>
+                </li>
+                <li>
+                  <strong>Example 2:</strong> A device using 1500W of real power with a power factor of 0.9:
+                  <p className="bg-gray-100 p-2">VA = 1500W / 0.9 = 1666.67 VA</p>
+                </li>
+                <li>
+                  <strong>Example 3:</strong> A device using 2000W of real power with a power factor of 0.85:
+                  <p className="bg-gray-100 p-2">VA = 2000W / 0.85 = 2352.94 VA</p>
+                </li>
+              </ul>
+            </div>
           </div>
-
-          {/* Important Notes */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">Important Notes</h2>
-            <ul className="list-disc ml-6 space-y-2">
-              <li>The power factor (pf) represents the efficiency of the power usage. It is typically less than 1 for most electrical devices, especially inductive loads like motors.</li>
-              <li>The formula gives you the apparent power in VA, which is the total power in the system, including both real power and reactive power.</li>
-              <li>The power factor typically varies between 0 and 1, with 1 representing a purely resistive load where all the supplied power is used effectively.</li>
-            </ul>
-          </div>
-
-          {/* Conclusion */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">Conclusion</h2>
-            <p>
-              To convert watts to volt-amperes (VA), you need to know the real power (in watts) and the power factor. This conversion helps in understanding the total apparent power needed in an electrical system, especially in AC circuits where reactive power plays a role.
-            </p>
-          </div>
-
         </CardContent>
       </Card>
     </div>

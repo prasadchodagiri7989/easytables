@@ -1,14 +1,23 @@
 import React, { useState } from 'react';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator
+} from "@/components/ui/breadcrumb";
+import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 
 const JoulesToKilowattsConverter: React.FC = () => {
-  const [energy, setEnergy] = useState<number>(0);  // Energy in joules (J)
-  const [time, setTime] = useState<number>(0);  // Time in seconds (s)
-  const [power, setPower] = useState<number | string>('');  // Output power in kilowatts (kW)
-  
-  // Conversion function
+  const [energy, setEnergy] = useState<number>(0);
+  const [time, setTime] = useState<number>(0);
+  const [power, setPower] = useState<number | string>('—');
+
   const convertToKilowatts = (energy: number, time: number) => {
-    if (time === 0) return 0; // Avoid division by zero
-    return energy / (1000 * time); // kW = J / (1000 * s)
+    if (time === 0) return "Time cannot be zero";
+    return (energy / (1000 * time)).toFixed(5);
   };
 
   const handleConvert = () => {
@@ -16,103 +25,112 @@ const JoulesToKilowattsConverter: React.FC = () => {
     setPower(result);
   };
 
-  // Example scenarios for better understanding
   const examples = [
-    {
-      energy: 90,
-      time: 3,
-      expectedResult: 0.03,
-      description: 'Example 1: 90 joules over 3 seconds',
-    },
-    {
-      energy: 150,
-      time: 5,
-      expectedResult: 0.03,
-      description: 'Example 2: 150 joules over 5 seconds',
-    },
-    {
-      energy: 500,
-      time: 10,
-      expectedResult: 0.05,
-      description: 'Example 3: 500 joules over 10 seconds',
-    },
-    {
-      energy: 1200,
-      time: 20,
-      expectedResult: 0.06,
-      description: 'Example 4: 1200 joules over 20 seconds',
-    },
+    { energy: 90, time: 3, expectedResult: 0.03, description: '90 joules over 3 seconds' },
+    { energy: 150, time: 5, expectedResult: 0.03, description: '150 joules over 5 seconds' },
+    { energy: 500, time: 10, expectedResult: 0.05, description: '500 joules over 10 seconds' },
+    { energy: 1200, time: 20, expectedResult: 0.06, description: '1200 joules over 20 seconds' },
   ];
 
   return (
-    <div className="container">
-      <h1>Joules to Kilowatts Converter</h1>
+    <div className="w-full max-w-3xl mx-auto">
+      <Breadcrumb className="mb-4">
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/">Home</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/electrical-calculations">Electrical Calculations</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>Joules to Kilowatts Converter</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
 
-      <div>
-        <label>Enter Energy in Joules (J):</label>
-        <input
-          type="number"
-          value={energy}
-          onChange={(e) => setEnergy(Number(e.target.value))}
-        />
-      </div>
+      <Card>
+        <CardHeader>
+          <CardTitle>Joules to Kilowatts Converter</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+          <p>
+            Convert energy in joules (J) to power in kilowatts (kW) by entering the energy and time values below.
+          </p>
 
-      <div>
-        <label>Enter Time in Seconds (s):</label>
-        <input
-          type="number"
-          value={time}
-          onChange={(e) => setTime(Number(e.target.value))}
-        />
-      </div>
+          <div className="space-y-4">
+            <div>
+              <label className="block font-medium mb-1">Energy (Joules):</label>
+              <input
+                type="number"
+                value={energy}
+                onChange={(e) => setEnergy(Number(e.target.value))}
+                className="w-full border px-3 py-2 rounded"
+              />
+            </div>
 
-      <div>
-        <button onClick={handleConvert}>Convert</button>
-      </div>
+            <div>
+              <label className="block font-medium mb-1">Time (Seconds):</label>
+              <input
+                type="number"
+                value={time}
+                onChange={(e) => setTime(Number(e.target.value))}
+                className="w-full border px-3 py-2 rounded"
+              />
+            </div>
 
-      <div>
-        <h2>Converted Power:</h2>
-        <p>{power} kW</p>
-      </div>
+            <button
+              onClick={handleConvert}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
+            >
+              Convert
+            </button>
 
-      <div>
-        <h2>Examples:</h2>
-        <ul>
-          {examples.map((example, index) => (
-            <li key={index}>
-              <p><strong>{example.description}:</strong></p>
-              <p>Energy: {example.energy} J, Time: {example.time} s</p>
-              <p>Converted Power: {example.expectedResult} kW</p>
-            </li>
-          ))}
-        </ul>
-      </div>
+            <div>
+              <strong>Result:</strong>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{power} kW</p>
+            </div>
 
-      <div>
-        <h2>Formula:</h2>
-        <p>
-          <strong>kW = J / (1000 * s)</strong>
-        </p>
-        <p>
-          Where:
-          <ul>
-            <li>kW = Power in kilowatts</li>
-            <li>J = Energy in joules</li>
-            <li>s = Time in seconds</li>
-          </ul>
-        </p>
-      </div>
+            <div>
+              <h2 className="font-semibold text-base mt-6 mb-2">Examples:</h2>
+              <ul className="space-y-2 list-disc list-inside">
+                {examples.map((example, index) => (
+                  <li key={index}>
+                    <p><strong>{example.description}</strong></p>
+                    <p>Energy: {example.energy} J, Time: {example.time} s</p>
+                    <p>Expected Power: {example.expectedResult} kW</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-      <div>
-        <h2>Explanation:</h2>
-        <p>
-          The conversion from joules (J) to kilowatts (kW) is based on the fact that:
-          <br />
-          - 1 kilowatt (kW) is equal to 1000 joules per second (J/s).
-          <br />
-          - To calculate the power in kilowatts, divide the total energy (in joules) by 1000 and the time (in seconds).
-        </p>
-      </div>
+            <div>
+              <h2 className="font-semibold text-base mt-6 mb-2">Formula:</h2>
+              <p>
+                <strong>kW = J / (1000 × s)</strong><br />
+                Where:
+              </p>
+              <ul className="list-disc list-inside ml-4 mt-1">
+                <li><strong>kW</strong>: Power in kilowatts</li>
+                <li><strong>J</strong>: Energy in joules</li>
+                <li><strong>s</strong>: Time in seconds</li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="font-semibold text-base mt-6 mb-2">Explanation:</h2>
+              <p>
+                1 kilowatt (kW) equals 1000 joules per second (J/s). To compute power, divide the total energy (J) by the time (s), then divide the result by 1000 to convert watts to kilowatts.
+              </p>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 };

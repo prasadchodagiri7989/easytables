@@ -1,110 +1,125 @@
 import React, { useState } from "react";
-import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card"; // Adjust the path to your component library if needed
+import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Link } from "react-router-dom";
 
 const VoltsToJoulesConverter: React.FC = () => {
   const [volts, setVolts] = useState<number>(1); // Default voltage value
   const [current, setCurrent] = useState<number>(1); // Default current value
   const [time, setTime] = useState<number>(1); // Default time value (in seconds)
+  const [energyJoules, setEnergyJoules] = useState<number>(1); // Default energy value
 
-  // Function to calculate energy in Joules
   const calculateEnergyJoules = (volts: number, current: number, time: number): number => {
     return volts * current * time; // Formula to convert volts, current, and time to energy in joules (J)
   };
 
-  const energyJoules = calculateEnergyJoules(volts, current, time);
+  const handleConvert = () => {
+    const result = calculateEnergyJoules(volts, current, time);
+    setEnergyJoules(result);
+  };
 
   return (
     <div className="w-full max-w-3xl mx-auto">
-      <Card className="bg-white shadow-lg">
+      <Breadcrumb className="mb-4">
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/">Home</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/energy-conversions">Energy Conversions</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>Volts to Joules Converter</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+
+      <Card>
         <CardHeader>
-          <CardTitle>How to Convert Volts to Joules (J)</CardTitle>
+          <CardTitle>Volts to Joules Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed">
-          {/* Introduction */}
-          <p>
-            In this guide, you'll learn how to convert voltage in volts (V), current in amperes (A), and time in seconds (s) to energy in joules (J). This is essential for calculating energy usage in electrical circuits.
-          </p>
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+          <p>Convert voltage (V), current (A), and time (s) to energy in joules (J).</p>
 
-          {/* Explanation */}
-          <div className="text-center">
-            <h3 className="text-lg font-semibold">Volts to Joules Calculation</h3>
-            <p className="mt-2">
-              The energy (E) in joules is calculated using the formula:
-            </p>
-          </div>
+          <div className="space-y-4">
+            <div>
+              <label className="block font-medium mb-1">Voltage (V):</label>
+              <input
+                type="number"
+                value={volts}
+                onChange={(e) => setVolts(Number(e.target.value))}
+                className="w-full border px-3 py-2 rounded"
+              />
+            </div>
 
-          {/* Volts to Joules Formula */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">Formula</h2>
-            <p>
-              The energy in joules <span className="font-semibold">E(J)</span> is calculated as:
-            </p>
-            <p className="mt-2">
-              <code>E(J) = V × I × t</code>
-            </p>
-            <p className="mt-4">
-              Where:
-            </p>
-            <ul className="list-disc ml-6">
-              <li><strong>Voltage (V)</strong> = Voltage in volts</li>
-              <li><strong>Current (I)</strong> = Current in amperes (A)</li>
-              <li><strong>Time (t)</strong> = Time in seconds (s)</li>
-              <li><strong>Energy (E)</strong> = Energy in joules (J)</li>
-            </ul>
-          </div>
+            <div>
+              <label className="block font-medium mb-1">Current (A):</label>
+              <input
+                type="number"
+                value={current}
+                onChange={(e) => setCurrent(Number(e.target.value))}
+                className="w-full border px-3 py-2 rounded"
+              />
+            </div>
 
-          {/* Example Calculation */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">Example Calculation</h2>
-            <p>
-              Suppose you have a voltage of {volts}V, a current of {current}A, and a time of {time} seconds. To convert this to energy in joules:
-            </p>
-            <div className="bg-gray-100 p-4 rounded-md text-center">
-              <p className="font-semibold">E(J) = V × I × t</p>
-              <p className="mt-2">
-                E(J) = {volts}V × {current}A × {time}s = {energyJoules} J
+            <div>
+              <label className="block font-medium mb-1">Time (s):</label>
+              <input
+                type="number"
+                value={time}
+                onChange={(e) => setTime(Number(e.target.value))}
+                className="w-full border px-3 py-2 rounded"
+              />
+            </div>
+
+            <button
+              onClick={handleConvert}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
+            >
+              Convert
+            </button>
+
+            <div>
+              <strong>Converted Energy:</strong>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{energyJoules} J</p>
+            </div>
+
+            <div>
+              <h2 className="font-semibold text-base mt-6 mb-2">Formula:</h2>
+              <p>
+                <strong>E(J) = V × I × t</strong><br />
+                Where:
+              </p>
+              <ul className="list-disc list-inside ml-4 mt-1">
+                <li><strong>E(J)</strong>: Energy in joules (J)</li>
+                <li><strong>V</strong>: Voltage in volts (V)</li>
+                <li><strong>I</strong>: Current in amperes (A)</li>
+                <li><strong>t</strong>: Time in seconds (s)</li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="font-semibold text-base mt-6 mb-2">Explanation:</h2>
+              <p>
+                The conversion from volts, current, and time to joules is based on the formula:
+                <br />
+                - Energy (E) is equal to voltage (V) multiplied by current (I) and time (t).
+                <br />
+                - This conversion helps us calculate the energy (in joules) consumed or stored in an electrical system over a given time.
               </p>
             </div>
-            <p className="mt-2">
-              Therefore, with {volts}V, {current}A, and {time}s, the energy is {energyJoules} joules (J).
-            </p>
-          </div>
 
-          {/* More Practical Examples */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">More Practical Examples</h2>
-            <ul className="list-disc ml-6 space-y-2">
-              <li>
-                *Example 1:* For a voltage of 1V, a current of 1A, and a time of 1 second:
-                <p className="bg-gray-100 p-2">E(J) = 1V × 1A × 1s = 1 J</p>
-              </li>
-              <li>
-                *Example 2:* For a voltage of 120V, a current of 10A, and a time of 2 seconds:
-                <p className="bg-gray-100 p-2">E(J) = 120V × 10A × 2s = 2400 J</p>
-              </li>
-              <li>
-                *Example 3:* For a voltage of 240V, a current of 5A, and a time of 0.5 seconds:
-                <p className="bg-gray-100 p-2">E(J) = 240V × 5A × 0.5s = 600 J</p>
-              </li>
-            </ul>
-          </div>
-
-          {/* Important Notes */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">Important Notes</h2>
-            <ul className="list-disc ml-6 space-y-2">
-              <li>Ensure that voltage is in volts (V), current is in amperes (A), and time is in seconds (s) when performing the calculation.</li>
-              <li>Energy in joules is commonly used to measure electrical energy usage or the energy stored in systems.</li>
-              <li>Joules are the standard SI unit of energy and are used in various scientific and engineering fields.</li>
-            </ul>
-          </div>
-
-          {/* Conclusion */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">Conclusion</h2>
-            <p>
-              Converting voltage, current, and time into energy in joules is crucial for understanding energy usage in electrical systems. Simply multiply the voltage, current, and time to calculate the energy in joules.
-            </p>
+            <div>
+              <h2 className="font-semibold text-base mt-6 mb-2">Practical Example:</h2>
+              <p>For a voltage of {volts}V, a current of {current}A, and a time of {time}s, the energy is:</p>
+              <p className="bg-gray-100 p-2">E(J) = {volts}V × {current}A × {time}s = {energyJoules} J</p>
+            </div>
           </div>
         </CardContent>
       </Card>

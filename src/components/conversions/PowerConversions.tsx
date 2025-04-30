@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
 
 const powerConversions = [
   { label: "Watt (W) to Kilowatt (kW)", path: "/convertor/power?from=w&to=kw" },

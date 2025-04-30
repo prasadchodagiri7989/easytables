@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
+
+
 
 const CpCommand = () => {
   const [options, setOptions] = useState<string[]>([]);
@@ -37,6 +41,29 @@ const CpCommand = () => {
 
   return (
     <div className="w-full max-w-5xl mx-auto">
+        <Breadcrumb className="mb-4">
+                <BreadcrumbList>
+                  <BreadcrumbItem>
+                    <BreadcrumbLink asChild>
+                      <Link to="/">Home</Link>
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator />
+                  <BreadcrumbItem>
+                    <BreadcrumbLink asChild>
+                      <Link to="/code/all">Code Tools</Link>
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator />
+                  <BreadcrumbItem>
+                    <BreadcrumbLink asChild>
+                      <Link to="/linux/all">Linux Commands</Link>
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator />
+                  <BreadcrumbPage>cp Command</BreadcrumbPage>
+                </BreadcrumbList>
+              </Breadcrumb>
       <Card>
         <CardHeader>
           <CardTitle>cp Command in Linux/Unix</CardTitle>

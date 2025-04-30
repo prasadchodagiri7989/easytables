@@ -1,110 +1,127 @@
 import React, { useState } from "react";
 import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Link } from "react-router-dom";
 
 const WattsToVoltsConverter: React.FC = () => {
   const [watts, setWatts] = useState<number>(1000); // Default 1000 Watts
   const [current, setCurrent] = useState<number>(5); // Default current 5A
+  const [volts, setVolts] = useState<number | string>('—'); // Voltage result
 
   const calculateVolts = (watts: number, current: number) => {
     return watts / current; // Conversion to Volts
   };
 
-  const volts = calculateVolts(watts, current);
+  const handleConvert = () => {
+    const result = calculateVolts(watts, current);
+    setVolts(result);
+  };
+
+  const examples = [
+    { watts: 1000, current: 5, expectedResult: 200, description: '1000W with 5A' },
+    { watts: 2000, current: 4, expectedResult: 500, description: '2000W with 4A' },
+    { watts: 500, current: 2, expectedResult: 250, description: '500W with 2A' },
+  ];
 
   return (
     <div className="w-full max-w-3xl mx-auto">
-      <Card className="bg-white shadow-lg">
+      <Breadcrumb className="mb-4">
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/">Home</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/energy-conversions">Energy Conversions</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>Watts to Volts Converter</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+
+      <Card>
         <CardHeader>
-          <CardTitle>How to Convert Watts (W) to Volts (V)</CardTitle>
+          <CardTitle>Watts to Volts Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+          <p>Convert electrical power in watts (W) and current in amperes (A) to voltage in volts (V).</p>
 
-          {/* Introduction */}
-          <p>
-            In this guide, you'll learn how to convert electrical power in watts (W) to voltage in volts (V). This conversion is essential in understanding the voltage needed to deliver a certain power at a given current.
-          </p>
+          <div className="space-y-4">
+            <div>
+              <label className="block font-medium mb-1">Power in Watts (W):</label>
+              <input
+                type="number"
+                value={watts}
+                onChange={(e) => setWatts(Number(e.target.value))}
+                className="w-full border px-3 py-2 rounded"
+              />
+            </div>
 
-          {/* Explanation */}
-          <div className="text-center">
-            <h3 className="text-lg font-semibold">Watts to Volts Calculation</h3>
-            <p className="mt-2">
-              To convert watts to volts, you need to know the current in the circuit. The formula used for this conversion is based on the relationship between power, voltage, and current.
-            </p>
-          </div>
+            <div>
+              <label className="block font-medium mb-1">Current in Amperes (A):</label>
+              <input
+                type="number"
+                value={current}
+                onChange={(e) => setCurrent(Number(e.target.value))}
+                className="w-full border px-3 py-2 rounded"
+              />
+            </div>
 
-          {/* Watts to Volts Formula */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">Formula</h2>
-            <p>
-              The voltage \( V \) in volts is calculated as:
-            </p>
-            <p className="mt-2">
-              <code>V = P / I</code>
-            </p>
-            <p className="mt-4">
-              Where:
-            </p>
-            <ul className="list-disc ml-6">
-              <li><strong>Watts (P)</strong> = Power in watts</li>
-              <li><strong>Current (I)</strong> = Current in amperes (A)</li>
-              <li><strong>Volts (V)</strong> = Voltage in volts</li>
-            </ul>
-          </div>
+            <button
+              onClick={handleConvert}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
+            >
+              Convert
+            </button>
 
-          {/* Example Calculation */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">Example Calculation</h2>
-            <p>
-              Suppose you have a device using {watts}W of power with a current of {current}A. The voltage required to deliver this power would be:
-            </p>
-            <div className="bg-gray-100 p-4 rounded-md text-center">
-              <p className="font-semibold">V = P / I</p>
-              <p className="mt-2">
-                V = {watts}W / {current}A = {volts}V
+            <div>
+              <strong>Converted Voltage:</strong>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{volts} V</p>
+            </div>
+
+            <div>
+              <h2 className="font-semibold text-base mt-6 mb-2">Examples:</h2>
+              <ul className="space-y-2 list-disc list-inside">
+                {examples.map((example, index) => (
+                  <li key={index}>
+                    <p><strong>{example.description}</strong></p>
+                    <p>Watts: {example.watts} W, Current: {example.current} A</p>
+                    <p>Converted Voltage: {example.expectedResult} V</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="font-semibold text-base mt-6 mb-2">Formula:</h2>
+              <p>
+                <strong>V = P / I</strong><br />
+                Where:
+              </p>
+              <ul className="list-disc list-inside ml-4 mt-1">
+                <li><strong>V</strong>: Voltage in volts (V)</li>
+                <li><strong>P</strong>: Power in watts (W)</li>
+                <li><strong>I</strong>: Current in amperes (A)</li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="font-semibold text-base mt-6 mb-2">Explanation:</h2>
+              <p>
+                The conversion from watts (W) to volts (V) is based on the formula:
+                <br />
+                - Voltage (V) is equal to power (watts) divided by current (amperes).
+                <br />
+                - This conversion helps us calculate the voltage required to supply a given amount of power at a certain current.
               </p>
             </div>
-            <p className="mt-2">
-              Therefore, to supply {watts}W of power with a current of {current}A, the voltage would be {volts}V.
-            </p>
           </div>
-
-          {/* More Practical Examples */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">More Practical Examples</h2>
-            <ul className="list-disc ml-6 space-y-2">
-              <li>
-                *Example 1:* For a 1000W device with a current of 5A:
-                <p className="bg-gray-100 p-2">V = 1000W / 5A = 200V</p>
-              </li>
-              <li>
-                *Example 2:* For a 2000W device with a current of 4A:
-                <p className="bg-gray-100 p-2">V = 2000W / 4A = 500V</p>
-              </li>
-              <li>
-                *Example 3:* For a 500W device with a current of 2A:
-                <p className="bg-gray-100 p-2">V = 500W / 2A = 250V</p>
-              </li>
-            </ul>
-          </div>
-
-          {/* Important Notes */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">Important Notes</h2>
-            <ul className="list-disc ml-6 space-y-2">
-              <li>The formula assumes that the power is purely real and does not account for reactive power in AC circuits.</li>
-              <li>If you're working with an AC system, you may need to account for the power factor.</li>
-              <li>The relationship between power, current, and voltage is central to understanding energy consumption and system design.</li>
-            </ul>
-          </div>
-
-          {/* Conclusion */}
-          <div>
-            <h2 className="text-lg font-semibold mb-2">Conclusion</h2>
-            <p>
-              To convert watts to volts, simply divide the power in watts by the current in amperes. This simple calculation is essential for determining the voltage required to deliver a certain amount of power in a circuit.
-            </p>
-          </div>
-
         </CardContent>
       </Card>
     </div>

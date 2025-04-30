@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
 
 const energyConversions = [
   { label: "Joules to Kilojoules", path: "/convertor/energy?from=j&to=kj" },
