@@ -5,6 +5,27 @@ import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
 
 const ResistorChart = () => {
   return (
+    <>
+
+         <Breadcrumb className="mb-4">
+                                <BreadcrumbList>
+                                  <BreadcrumbItem>
+                                    <BreadcrumbLink asChild>
+                                      <Link to="/">Home</Link>
+                                    </BreadcrumbLink>
+                                  </BreadcrumbItem>
+                                  <BreadcrumbSeparator />
+                                  <BreadcrumbItem>
+                                    <BreadcrumbLink asChild>
+                                      <Link to="/electrical/components">Electrical components</Link>
+                                    </BreadcrumbLink>
+                                  </BreadcrumbItem>
+                                  <BreadcrumbSeparator />
+                                  <BreadcrumbItem>
+                                    <BreadcrumbPage>Resistor </BreadcrumbPage>
+                                  </BreadcrumbItem>
+                                </BreadcrumbList>
+                              </Breadcrumb>
     <div className="p-6 text-gray-800 dark:text-white">
       <h1 className="text-3xl font-bold mb-4">What is a Resistor?</h1>
       <p className="mb-4">
@@ -68,6 +89,7 @@ const ResistorChart = () => {
         Connected to ground (0V). Sets digital pin to logical '0' when disconnected.
       </p>
     </div>
+    </>
   );
 };
 

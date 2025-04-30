@@ -4,6 +4,26 @@ import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
 
 const KwhInfo = () => {
   return (
+    <>
+          <Breadcrumb className="mb-4">
+                                                          <BreadcrumbList>
+                                                            <BreadcrumbItem>
+                                                              <BreadcrumbLink asChild>
+                                                                <Link to="/">Home</Link>
+                                                              </BreadcrumbLink>
+                                                            </BreadcrumbItem>
+                                                            <BreadcrumbSeparator />
+                                                            <BreadcrumbItem>
+                                                              <BreadcrumbLink asChild>
+                                                                <Link to="/electrical/units">Electrical units</Link>
+                                                              </BreadcrumbLink>
+                                                            </BreadcrumbItem>
+                                                            <BreadcrumbSeparator />
+                                                            <BreadcrumbItem>
+                                                              <BreadcrumbPage>Kilowatt-hour</BreadcrumbPage>
+                                                            </BreadcrumbItem>
+                                                          </BreadcrumbList>
+          </Breadcrumb>
     <div className="max-w-4xl mx-auto p-6 bg-white/40 dark:bg-transparent rounded-2xl shadow-md space-y-6">
       <h1 className="text-3xl font-bold text-center">Kilowatt-hour (kWh)</h1>
 
@@ -85,6 +105,7 @@ const KwhInfo = () => {
         <p>Usage depends on factors like weather and the number of people living in the home.</p>
       </section>
     </div>
+    </>
   );
 };
 

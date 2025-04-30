@@ -35,6 +35,24 @@ const CoulombsLaw = () => {
   };
 
   return (
+    <>
+    <Breadcrumb className="mb-4">
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/">Home</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/electrical/laws">Electronic Circuit Laws</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbPage>Kirchhoff's Laws</BreadcrumbPage>
+            </BreadcrumbList>
+          </Breadcrumb>
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">Coulomb's Law</h1>
       <p className="mb-6">
@@ -132,6 +150,7 @@ const CoulombsLaw = () => {
         )}
       </div>
     </div>
+    </>
   );
 };
 

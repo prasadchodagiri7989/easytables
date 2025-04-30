@@ -5,6 +5,26 @@ import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
 
 const SwitchSymbols = () => {
   return (
+    <>
+                 <Breadcrumb className="mb-4">
+                      <BreadcrumbList>
+                        <BreadcrumbItem>
+                          <BreadcrumbLink asChild>
+                            <Link to="/">Home</Link>
+                          </BreadcrumbLink>
+                        </BreadcrumbItem>
+                        <BreadcrumbSeparator />
+                        <BreadcrumbItem>
+                          <BreadcrumbLink asChild>
+                            <Link to="/electrical/symbols">Electronic Symbols</Link>
+                          </BreadcrumbLink>
+                        </BreadcrumbItem>
+                        <BreadcrumbSeparator />
+                        <BreadcrumbItem>
+                          <BreadcrumbPage>Switch Symbols</BreadcrumbPage>
+                        </BreadcrumbItem>
+                      </BreadcrumbList>
+                    </Breadcrumb>
     <div className="p-6 text-gray-800 dark:text-white">
       <h1 className="text-3xl font-bold mb-4">Electronic Switch Symbols</h1>
       <p className="mb-6">
@@ -104,6 +124,7 @@ const SwitchSymbols = () => {
         </table>
       </div>
     </div>
+    </>
   );
 };
 

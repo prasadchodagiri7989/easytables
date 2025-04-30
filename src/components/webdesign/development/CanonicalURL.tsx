@@ -6,6 +6,19 @@ import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
 const CanonicalUrl: React.FC = () => {
   return (
     <div className="w-full max-w-3xl mx-auto">
+                      <Breadcrumb className="mb-4">
+                            <BreadcrumbList>
+                              <BreadcrumbItem>
+                                <BreadcrumbLink asChild>
+                                  <Link to="/web/development">Development Tools</Link>
+                                </BreadcrumbLink>
+                              </BreadcrumbItem>
+                              <BreadcrumbSeparator />
+                              <BreadcrumbItem>
+                                <BreadcrumbPage>Canonical URL</BreadcrumbPage>
+                              </BreadcrumbItem>
+                            </BreadcrumbList>
+                          </Breadcrumb>
       <Card>
         <CardHeader>
           <CardTitle>Canonical URL</CardTitle>

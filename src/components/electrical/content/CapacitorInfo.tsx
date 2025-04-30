@@ -5,6 +5,26 @@ import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
 
 const CapacitorInfo = () => {
   return (
+    <>
+     <Breadcrumb className="mb-4">
+                            <BreadcrumbList>
+                              <BreadcrumbItem>
+                                <BreadcrumbLink asChild>
+                                  <Link to="/">Home</Link>
+                                </BreadcrumbLink>
+                              </BreadcrumbItem>
+                              <BreadcrumbSeparator />
+                              <BreadcrumbItem>
+                                <BreadcrumbLink asChild>
+                                  <Link to="/electrical/components">Electrical components</Link>
+                                </BreadcrumbLink>
+                              </BreadcrumbItem>
+                              <BreadcrumbSeparator />
+                              <BreadcrumbItem>
+                                <BreadcrumbPage>Capacitor </BreadcrumbPage>
+                              </BreadcrumbItem>
+                            </BreadcrumbList>
+                          </Breadcrumb>
     <div className="p-6 text-gray-800 dark:text-white">
       <h1 className="text-3xl font-bold mb-4">What is a Capacitor?</h1>
       <p className="mb-4">
@@ -91,6 +111,7 @@ const CapacitorInfo = () => {
         <li>Paper Capacitor</li>
       </ul>
     </div>
+    </>
   );
 };
 

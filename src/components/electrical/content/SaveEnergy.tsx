@@ -119,6 +119,7 @@ const HowToSaveEnergy = () => {
   ];
 
   return (
+    <>
     <div className="p-6 md:p-10 max-w-4xl">
       <h1 className="text-3xl font-bold mb-6 text-green-700">How to Save Energy</h1>
       <p className="mb-4 text-lg text-gray-700 dark:text-white">Practical tips to reduce electricity and fuel consumption and save money at home and on the road.</p>
@@ -128,6 +129,7 @@ const HowToSaveEnergy = () => {
         ))}
       </ul>
     </div>
+    </>
   );
 };
 

@@ -37,6 +37,26 @@ const Section = ({ title, children }) => (
 
 const ElectricalVoltage = () => {
   return (
+    <>
+                         <Breadcrumb className="mb-4">
+                                      <BreadcrumbList>
+                                        <BreadcrumbItem>
+                                          <BreadcrumbLink asChild>
+                                            <Link to="/">Home</Link>
+                                          </BreadcrumbLink>
+                                        </BreadcrumbItem>
+                                        <BreadcrumbSeparator />
+                                        <BreadcrumbItem>
+                                          <BreadcrumbLink asChild>
+                                            <Link to="/electrical/basic-terms">Basic Electrical terms</Link>
+                                          </BreadcrumbLink>
+                                        </BreadcrumbItem>
+                                        <BreadcrumbSeparator />
+                                        <BreadcrumbItem>
+                                          <BreadcrumbPage>Electrical Voltage</BreadcrumbPage>
+                                        </BreadcrumbItem>
+                                      </BreadcrumbList>
+                                  </Breadcrumb>
 <div className="max-w-3xl p-6  dark:text-white rounded-xl shadow-md">
       <h1 className="text-3xl font-bold mb-6">Electrical Voltage</h1>
 
@@ -135,6 +155,7 @@ const ElectricalVoltage = () => {
         </table>
       </Section>
     </div>
+    </>
   );
 };
 

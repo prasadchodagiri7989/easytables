@@ -18,6 +18,25 @@ const Section = ({ title, children }) => (
 
 const PowerEfficiency = () => {
   return (
+    <>     <Breadcrumb className="mb-4">
+                      <BreadcrumbList>
+                        <BreadcrumbItem>
+                          <BreadcrumbLink asChild>
+                            <Link to="/">Home</Link>
+                          </BreadcrumbLink>
+                        </BreadcrumbItem>
+                        <BreadcrumbSeparator />
+                        <BreadcrumbItem>
+                          <BreadcrumbLink asChild>
+                            <Link to="/electrical/basic-terms">Basic Electrical terms</Link>
+                          </BreadcrumbLink>
+                        </BreadcrumbItem>
+                        <BreadcrumbSeparator />
+                        <BreadcrumbItem>
+                          <BreadcrumbPage>Power Efficiency</BreadcrumbPage>
+                        </BreadcrumbItem>
+                      </BreadcrumbList>
+                  </Breadcrumb>
     <div className="max-w-3xl p-6 bg-white/40 dark:bg-transparent dark:text-white rounded-xl shadow-md">
       <h1 className="text-3xl font-bold mb-6">Power Efficiency</h1>
 
@@ -64,6 +83,7 @@ const PowerEfficiency = () => {
         <Equation>η = 100% × (600 J / 3000 J) = 20%</Equation>
       </Section>
     </div>
+    </>
   );
 };
 

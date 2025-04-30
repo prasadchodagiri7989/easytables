@@ -52,7 +52,7 @@ const OhmsLaw: React.FC = () => {
           <BreadcrumbSeparator />
           <BreadcrumbItem>
             <BreadcrumbLink asChild>
-              <Link to="/all-calculators">All Calculators</Link>
+              <Link to="/electrical/laws">Electronic Circuit Laws</Link>
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />

@@ -6,9 +6,19 @@ import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
 const HtmlComments: React.FC = () => {
   return (
     <div className="w-full max-w-3xl mx-auto p-6">
-      <nav className="text-sm text-gray-500 mb-4">
-        Home › Tools › <span className="text-black">HTML Comments</span>
-      </nav>
+          <Breadcrumb className="mb-4">
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/web/html">HTML Tools</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>HTML Comments</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
 
       <Card>
         <CardHeader>

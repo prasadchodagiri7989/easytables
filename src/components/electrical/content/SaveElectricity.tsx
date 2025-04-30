@@ -113,6 +113,7 @@ const SaveElectricityTips = () => {
   ];
 
   return (
+    <>
     <div className="p-6 text-gray-800 dark:text-white">
       <h1 className="text-3xl font-bold mb-4 text-green-700">How to Save Electricity</h1>
       <p className="mb-6 dark:text-white">
@@ -126,6 +127,7 @@ const SaveElectricityTips = () => {
         ))}
       </ul>
     </div>
+    </>
   );
 };
 

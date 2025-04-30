@@ -18,6 +18,26 @@ const Section = ({ title, children }) => (
 
 const ElectricalResistance = () => {
   return (
+    <>                  
+          <Breadcrumb className="mb-4">
+                                          <BreadcrumbList>
+                                            <BreadcrumbItem>
+                                              <BreadcrumbLink asChild>
+                                                <Link to="/">Home</Link>
+                                              </BreadcrumbLink>
+                                            </BreadcrumbItem>
+                                            <BreadcrumbSeparator />
+                                            <BreadcrumbItem>
+                                              <BreadcrumbLink asChild>
+                                                <Link to="/electrical/basic-terms">Basic Electrical terms</Link>
+                                              </BreadcrumbLink>
+                                            </BreadcrumbItem>
+                                            <BreadcrumbSeparator />
+                                            <BreadcrumbItem>
+                                              <BreadcrumbPage>Electrical Resistance</BreadcrumbPage>
+                                            </BreadcrumbItem>
+                                          </BreadcrumbList>
+                                      </Breadcrumb>
     <div className="max-w-3xl p-6 bg-white/40 dark:bg-transparent dark:text-white rounded-xl shadow-md">
       <h1 className="text-3xl font-bold mb-6">Electrical Resistance</h1>
 
@@ -81,6 +101,7 @@ const ElectricalResistance = () => {
         Superconductivity is a phenomenon where resistance drops to zero at temperatures near absolute zero (0 K).
       </Section>
     </div>
+    </>
   );
 };
 

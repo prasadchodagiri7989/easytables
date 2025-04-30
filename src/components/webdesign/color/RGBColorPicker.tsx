@@ -28,6 +28,19 @@ export const RGBColorPicker: React.FC = () => {
 
   return (
     <div className="w-full max-w-4xl mx-auto">
+          <Breadcrumb className="mb-4">
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/web/colors">Color Tools</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbPage>RGB Color Picker</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
       <Card className="w-full max-w-lg mx-auto">
         <CardHeader>
           <CardTitle className="text-2xl">RGB Color Picker</CardTitle>

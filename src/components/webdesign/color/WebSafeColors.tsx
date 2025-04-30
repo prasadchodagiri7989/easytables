@@ -22,12 +22,13 @@ const webSafeColors = generateWebSafeColors();
 
 const WebSafeColors: React.FC = () => {
   return (
+    
     <div className="w-full max-w-6xl mx-auto px-4">
       <Breadcrumb className="mb-4">
         <BreadcrumbList>
           <BreadcrumbItem>
             <BreadcrumbLink asChild>
-              <Link to="/">Home</Link>
+              <Link to="/web/colors">Color Tools</Link>
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />

@@ -5,6 +5,26 @@ import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
 
 export default function OhmLaw() {
   return (
+    <>
+         <Breadcrumb className="mb-4">
+                <BreadcrumbList>
+                  <BreadcrumbItem>
+                    <BreadcrumbLink asChild>
+                      <Link to="/">Home</Link>
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator />
+                  <BreadcrumbItem>
+                    <BreadcrumbLink asChild>
+                      <Link to="/electrical/units">Electrical units</Link>
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator />
+                  <BreadcrumbItem>
+                    <BreadcrumbPage>Ohm</BreadcrumbPage>
+                  </BreadcrumbItem>
+                </BreadcrumbList>
+      </Breadcrumb>
     <div className="p-6 max-w-4xl mx-auto space-y-6">
       <h1 className="text-3xl font-bold text-center">Ohm (Ω)</h1>
 
@@ -68,5 +88,6 @@ export default function OhmLaw() {
         <li>Watt</li>
       </ul>
     </div>
+    </>
   );
 }
