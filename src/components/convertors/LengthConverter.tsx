@@ -121,7 +121,7 @@ export const LengthConverter = () => {
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
-          <BreadcrumbPage>Angle Convertor</BreadcrumbPage>
+          <BreadcrumbPage>Length Convertor</BreadcrumbPage>
         </BreadcrumbList>
       </Breadcrumb>
     <div className="w-full max-w-4xl mx-auto">
@@ -131,47 +131,48 @@ export const LengthConverter = () => {
         </CardHeader>
         <CardContent className="space-y-5">
 
-          <div className="grid grid-cols-[1fr,auto,1fr] gap-2 items-end">
-            <div className="space-y-2">
-              <Label htmlFor="fromUnit">From</Label>
-              <Select value={fromUnit} onValueChange={setFromUnit}>
-                <SelectTrigger id="fromUnit">
-                  <SelectValue placeholder="From unit" />
-                </SelectTrigger>
-                <SelectContent>
-                  {availableUnits.map((unit) => (
-                    <SelectItem key={unit.value} value={unit.value}>
-                      {unit.label}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-
-            <Button 
-              variant="ghost" 
-              className="self-center ml-1 px-2" 
-              onClick={handleSwapUnits}
-            >
-              <ArrowRightLeft className="h-4 w-4" />
-            </Button>
-
-            <div className="space-y-2">
-              <Label htmlFor="toUnit">To</Label>
-              <Select value={toUnit} onValueChange={setToUnit}>
-                <SelectTrigger id="toUnit">
-                  <SelectValue placeholder="To unit" />
-                </SelectTrigger>
-                <SelectContent>
-                  {availableUnits.map((unit) => (
-                    <SelectItem key={unit.value} value={unit.value}>
-                      {unit.label}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
+        <div className="grid grid-cols-[1fr,auto,1fr] gap-2 items-end">
+          <div className="space-y-2">
+            <Label htmlFor="fromUnit">From</Label>
+            <Select value={fromUnit} onValueChange={setFromUnit} disabled>
+              <SelectTrigger id="fromUnit" disabled>
+                <SelectValue placeholder="From unit" />
+              </SelectTrigger>
+              <SelectContent>
+                {availableUnits.map((unit) => (
+                  <SelectItem key={unit.value} value={unit.value}>
+                    {unit.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
+
+          <Button 
+            variant="ghost" 
+            className="self-center ml-1 px-2" 
+            onClick={handleSwapUnits}
+          >
+            <ArrowRightLeft className="h-4 w-4" />
+          </Button>
+
+          <div className="space-y-2">
+            <Label htmlFor="toUnit">To</Label>
+            <Select value={toUnit} onValueChange={setToUnit} disabled>
+              <SelectTrigger id="toUnit" disabled>
+                <SelectValue placeholder="To unit" />
+              </SelectTrigger>
+              <SelectContent>
+                {availableUnits.map((unit) => (
+                  <SelectItem key={unit.value} value={unit.value}>
+                    {unit.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+        </div>
+
 
           <div className="space-y-2">
             <Label htmlFor="value">Value</Label>

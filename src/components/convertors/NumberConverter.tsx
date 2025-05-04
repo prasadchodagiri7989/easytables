@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -12,15 +12,39 @@ import {
 } from "@/components/ui/select";
 import { ArrowRightLeft } from "lucide-react";
 import { numberFormats, convertNumber } from "@/lib/number-conversions";
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { Link, useLocation, useSearchParams } from "react-router-dom";
 
-import { Link } from "react-router-dom";
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
 
 export const NumberConverter = () => {
   const [fromFormat, setFromFormat] = useState("ascii");
   const [toFormat, setToFormat] = useState("binary");
   const [input, setInput] = useState("");
   const [result, setResult] = useState<string | null>(null);
+
+  const query = useQuery();
+  const [searchParams] = useSearchParams();
+
+  useEffect(() => {
+    const from = query.get("from");
+    const to = query.get("to");
+
+    const isValidFormat = (format: string | null) =>
+      numberFormats.some((f) => f.value === format);
+
+    if (isValidFormat(from)) setFromFormat(from!);
+    if (isValidFormat(to)) setToFormat(to!);
+  }, [query]);
 
   const handleSwap = () => {
     setFromFormat(toFormat);
@@ -33,7 +57,7 @@ export const NumberConverter = () => {
       const output = convertNumber(input, fromFormat, toFormat);
       setResult(output);
     } catch (error) {
-      setResult("Invalid input");
+      setResult("Invalid input. Please check the format.");
     }
   };
 
@@ -53,9 +77,10 @@ export const NumberConverter = () => {
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
-          <BreadcrumbPage>Angle Convertor</BreadcrumbPage>
+          <BreadcrumbPage>Number Converter</BreadcrumbPage>
         </BreadcrumbList>
       </Breadcrumb>
+
       <Card>
         <CardHeader>
           <CardTitle className="text-2xl">Number Converter</CardTitle>
@@ -65,9 +90,11 @@ export const NumberConverter = () => {
             <div>
               <Label>From</Label>
               <Select value={fromFormat} onValueChange={setFromFormat}>
-                <SelectTrigger><SelectValue placeholder="From format" /></SelectTrigger>
+                <SelectTrigger disabled>
+                  <SelectValue placeholder="From format" />
+                </SelectTrigger>
                 <SelectContent>
-                  {numberFormats.map(fmt => (
+                  {numberFormats.map((fmt) => (
                     <SelectItem key={fmt.value} value={fmt.value}>
                       {fmt.label}
                     </SelectItem>
@@ -83,9 +110,11 @@ export const NumberConverter = () => {
             <div>
               <Label>To</Label>
               <Select value={toFormat} onValueChange={setToFormat}>
-                <SelectTrigger><SelectValue placeholder="To format" /></SelectTrigger>
+                <SelectTrigger disabled>
+                  <SelectValue placeholder="To format" />
+                </SelectTrigger>
                 <SelectContent>
-                  {numberFormats.map(fmt => (
+                  {numberFormats.map((fmt) => (
                     <SelectItem key={fmt.value} value={fmt.value}>
                       {fmt.label}
                     </SelectItem>
