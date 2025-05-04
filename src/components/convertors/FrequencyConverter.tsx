@@ -43,9 +43,11 @@ export const FrequencyConverter = () => {
     useEffect(() => {
       const from = query.get("from");
       const to = query.get("to");
+      const value = query.get("value");
   
       if (from) setFromUnit(from);
       if (to) setToUnit(to);
+      if (value) setValue(value);
     }, [query]);
   
     // Update available units when category changes

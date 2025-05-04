@@ -154,10 +154,12 @@ export const units = {
   ],
   frequency: [
     { label: "Hertz (Hz)", value: "hz", factor: 1 },
-    { label: "Kilohertz (kHz)", value: "khz", factor: 1000 },
-    { label: "Megahertz (MHz)", value: "mhz", factor: 1000000 },
-    { label: "Gigahertz (GHz)", value: "ghz", factor: 1000000000 },
-    { label: "Revolutions per minute (rpm)", value: "rpm", factor: 1/60 },
+    { label: "Kilohertz (kHz)", value: "khz", factor: 1e3 },
+    { label: "Megahertz (MHz)", value: "mhz", factor: 1e6 },
+    { label: "Gigahertz (GHz)", value: "ghz", factor: 1e9 },
+    { label: "Terahertz (THz)", value: "thz", factor: 1e12 },
+    { label: "Revolutions per minute (RPM)", value: "rpm", factor: 1/60 },
+    { label: "Radians per second (rad/s)", value: "radps", factor: 1 / (2 * Math.PI) } // 1 Hz = 2π rad/s ⇒ 1 rad/s = 1 / (2π) Hz
   ],
   fuel_economy: [
     { label: "Miles per gallon (mpg)", value: "mpg", factor: 1 },
