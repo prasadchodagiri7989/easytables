@@ -51,6 +51,12 @@ export const PPMGuide = () => {
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
+                      <BreadcrumbItem>
+                        <BreadcrumbLink asChild>
+                          <Link to="/mathematics/numbers">Numbers</Link>
+                        </BreadcrumbLink>
+                      </BreadcrumbItem>
+                      <BreadcrumbSeparator />
           <BreadcrumbItem>
             <BreadcrumbPage>Parts-Per Million (PPM) Rules</BreadcrumbPage>
           </BreadcrumbItem>

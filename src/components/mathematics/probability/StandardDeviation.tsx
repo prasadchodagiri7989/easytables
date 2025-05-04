@@ -22,6 +22,12 @@ export const StandardDeviation = () => {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/mathematics/probability">probability Tool</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+          <BreadcrumbItem>
             <BreadcrumbPage>Standard Deviation</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>

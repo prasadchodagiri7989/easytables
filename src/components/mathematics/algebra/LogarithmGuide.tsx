@@ -57,6 +57,12 @@ export const LogarithmGuide = () => {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
+                            <BreadcrumbLink asChild>
+                              <Link to="/mathematics/algebra">Algebra Tool</Link>
+                            </BreadcrumbLink>
+                          </BreadcrumbItem>
+                          <BreadcrumbSeparator />
+          <BreadcrumbItem>
             <BreadcrumbPage>Logarithms</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>

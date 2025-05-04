@@ -23,6 +23,12 @@ export const GeometrySymbols = () => {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
+      <BreadcrumbLink asChild>
+        <Link to="/mathematics/symbols">symbols Tool</Link>
+      </BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+          <BreadcrumbItem>
             <BreadcrumbPage>Geometry Symbols</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>

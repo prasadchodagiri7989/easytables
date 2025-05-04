@@ -57,6 +57,12 @@ export const LogarithmRules = () => {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
+                            <BreadcrumbLink asChild>
+                              <Link to="/mathematics/algebra">Algebra Tool</Link>
+                            </BreadcrumbLink>
+                          </BreadcrumbItem>
+                          <BreadcrumbSeparator />
+          <BreadcrumbItem>
             <BreadcrumbPage>Logarithm Rules</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>

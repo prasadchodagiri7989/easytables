@@ -23,6 +23,12 @@ export const GreekAlphabetSymbols = () => {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
+      <BreadcrumbLink asChild>
+        <Link to="/mathematics/symbols">symbols Tool</Link>
+      </BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+          <BreadcrumbItem>
             <BreadcrumbPage>Greek Alphabet Symbols</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>

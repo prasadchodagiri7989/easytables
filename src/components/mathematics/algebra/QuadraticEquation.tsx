@@ -22,6 +22,12 @@ export const QuadraticEquationExplanation = () => {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
+                            <BreadcrumbLink asChild>
+                              <Link to="/mathematics/algebra">Algebra Tool</Link>
+                            </BreadcrumbLink>
+                          </BreadcrumbItem>
+                          <BreadcrumbSeparator />
+          <BreadcrumbItem>
             <BreadcrumbPage>Quadratic Equation Explanation</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>

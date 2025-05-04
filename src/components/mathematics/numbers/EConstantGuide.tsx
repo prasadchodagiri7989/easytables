@@ -56,6 +56,12 @@ export const EConstantGuide = () => {
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
+                      <BreadcrumbItem>
+                        <BreadcrumbLink asChild>
+                          <Link to="/mathematics/numbers">Numbers</Link>
+                        </BreadcrumbLink>
+                      </BreadcrumbItem>
+                      <BreadcrumbSeparator />
           <BreadcrumbItem>
             <BreadcrumbPage>Euler's Number (e) Constant</BreadcrumbPage>
           </BreadcrumbItem>

@@ -22,6 +22,12 @@ export const StatisticalSymbols = () => {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
+      <BreadcrumbLink asChild>
+        <Link to="/mathematics/symbols">symbols Tool</Link>
+      </BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+          <BreadcrumbItem>
             <BreadcrumbPage>Statistical Symbols</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>

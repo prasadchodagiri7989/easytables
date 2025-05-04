@@ -46,19 +46,25 @@ export const ExponentRules = () => {
 
   return (
     <>
-      <Breadcrumb className="mb-4">
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild>
-              <Link to="/">Home</Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>Exponent Rules</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+         <Breadcrumb className="mb-4">
+           <BreadcrumbList>
+             <BreadcrumbItem>
+               <BreadcrumbLink asChild>
+                 <Link to="/">Home</Link>
+               </BreadcrumbLink>
+             </BreadcrumbItem>
+             <BreadcrumbSeparator />
+             <BreadcrumbItem>
+               <BreadcrumbLink asChild>
+                 <Link to="/mathematics/numbers">Numbers</Link>
+               </BreadcrumbLink>
+             </BreadcrumbItem>
+             <BreadcrumbSeparator />
+             <BreadcrumbItem>
+               <BreadcrumbPage>ExponentRules Table</BreadcrumbPage>
+             </BreadcrumbItem>
+           </BreadcrumbList>
+         </Breadcrumb>
 
       <div className="exponent-rules-container bg-white/40 dark:bg-transparent">
         <h2 className="exponent-rules-header text-center text-2xl font-bold mb-4">

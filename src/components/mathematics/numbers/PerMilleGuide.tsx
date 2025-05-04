@@ -51,6 +51,12 @@ export const PerMilleGuide = () => {
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
+                      <BreadcrumbItem>
+                        <BreadcrumbLink asChild>
+                          <Link to="/mathematics/numbers">Numbers</Link>
+                        </BreadcrumbLink>
+                      </BreadcrumbItem>
+                      <BreadcrumbSeparator />
           <BreadcrumbItem>
             <BreadcrumbPage>Per-mille Rules</BreadcrumbPage>
           </BreadcrumbItem>

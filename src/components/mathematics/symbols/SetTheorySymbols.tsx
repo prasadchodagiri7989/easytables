@@ -22,6 +22,12 @@ export const SetTheorySymbols = () => {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
+      <BreadcrumbLink asChild>
+        <Link to="/mathematics/symbols">symbols Tool</Link>
+      </BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+          <BreadcrumbItem>
             <BreadcrumbPage>Set Theory Symbols</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>

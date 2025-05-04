@@ -22,6 +22,12 @@ export const Arctan = () => {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/mathematics/trigonometry">trigonometry Tool</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+          <BreadcrumbItem>
             <BreadcrumbPage>Arctan (Inverse Tangent)</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>

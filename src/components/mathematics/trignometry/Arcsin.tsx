@@ -22,6 +22,12 @@ export const Arcsin = () => {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/mathematics/trigonometry">trigonometry Tool</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+          <BreadcrumbItem>
             <BreadcrumbPage>Arcsin (Inverse Sine)</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>

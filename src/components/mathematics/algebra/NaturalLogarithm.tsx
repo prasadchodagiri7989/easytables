@@ -85,6 +85,12 @@ export const NaturalLogarithm = () => {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
+                            <BreadcrumbLink asChild>
+                              <Link to="/mathematics/algebra">Algebra Tool</Link>
+                            </BreadcrumbLink>
+                          </BreadcrumbItem>
+                          <BreadcrumbSeparator />
+          <BreadcrumbItem>
             <BreadcrumbPage>Natural Logarithm</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>

@@ -22,6 +22,12 @@ export const Arccos = () => {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/mathematics/trigonometry">trigonometry Tool</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+          <BreadcrumbItem>
             <BreadcrumbPage>Arccos (Inverse Cosine)</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>

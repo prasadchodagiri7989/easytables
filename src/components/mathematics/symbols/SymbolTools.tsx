@@ -16,6 +16,23 @@ const symbolTopics = [
 
 export default function MathSymbolsTools() {
   return (
+    <>
+    <Breadcrumb className="mb-4">
+  <BreadcrumbList>
+    <BreadcrumbItem>
+      <BreadcrumbLink asChild>
+        <Link to="/">Home</Link>
+      </BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbLink asChild>
+        <Link to="/mathematics/symbols">symbols Tool</Link>
+      </BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+  </BreadcrumbList>
+</Breadcrumb>
     <div className="p-6 max-w-4xl mx-auto">
       <h1 className="text-3xl font-bold mb-6 text-center">Math Symbols</h1>
       <div className="grid md:grid-cols-2 gap-4">
@@ -30,5 +47,6 @@ export default function MathSymbolsTools() {
         ))}
       </div>
     </div>
+    </>
   );
 }

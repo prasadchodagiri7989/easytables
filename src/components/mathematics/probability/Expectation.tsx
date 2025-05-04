@@ -22,6 +22,12 @@ export const Expectation = () => {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/mathematics/probability">probability Tool</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+          <BreadcrumbItem>
             <BreadcrumbPage>Expected Value</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>

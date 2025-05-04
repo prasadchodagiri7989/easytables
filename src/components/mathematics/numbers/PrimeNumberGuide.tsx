@@ -51,6 +51,12 @@ export const PrimeNumberGuide = () => {
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
+                      <BreadcrumbItem>
+                        <BreadcrumbLink asChild>
+                          <Link to="/mathematics/numbers">Numbers</Link>
+                        </BreadcrumbLink>
+                      </BreadcrumbItem>
+                      <BreadcrumbSeparator />
           <BreadcrumbItem>
             <BreadcrumbPage>Prime Number Rules</BreadcrumbPage>
           </BreadcrumbItem>

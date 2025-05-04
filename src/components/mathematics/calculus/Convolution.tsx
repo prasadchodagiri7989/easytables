@@ -22,6 +22,12 @@ export const Convolution = () => {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/mathematics/calculus">calculus Tool</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+          <BreadcrumbItem>
             <BreadcrumbPage>Convolution</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>

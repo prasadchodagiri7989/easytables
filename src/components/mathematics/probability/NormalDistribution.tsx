@@ -22,6 +22,12 @@ export const NormalDistribution = () => {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/mathematics/probability">probability Tool</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+          <BreadcrumbItem>
             <BreadcrumbPage>Normal Distribution</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>

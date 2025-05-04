@@ -56,6 +56,12 @@ export const ZeroNumberGuide = () => {
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
+                      <BreadcrumbItem>
+                        <BreadcrumbLink asChild>
+                          <Link to="/mathematics/numbers">Numbers</Link>
+                        </BreadcrumbLink>
+                      </BreadcrumbItem>
+                      <BreadcrumbSeparator />
           <BreadcrumbItem>
             <BreadcrumbPage>Zero Number Rules</BreadcrumbPage>
           </BreadcrumbItem>

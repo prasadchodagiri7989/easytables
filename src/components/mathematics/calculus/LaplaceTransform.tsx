@@ -22,6 +22,12 @@ export const LaplaceTransformExplanation = () => {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/mathematics/calculus">calculus Tool</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+          <BreadcrumbItem>
             <BreadcrumbPage>Laplace Transform</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>

@@ -17,6 +17,23 @@ const numberTools = [
 
 export default function NumberTools() {
   return (
+    <>
+          <Breadcrumb className="mb-4">
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/">Home</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+                          <BreadcrumbItem>
+                            <BreadcrumbLink asChild>
+                              <Link to="/mathematics/numbers">Numbers Tool</Link>
+                            </BreadcrumbLink>
+                          </BreadcrumbItem>
+                          <BreadcrumbSeparator />
+            </BreadcrumbList>
+          </Breadcrumb>
     <div className="p-6 max-w-4xl mx-auto">
       <h1 className="text-3xl font-bold mb-6 text-center">Number Tools & Tables</h1>
       <div className="grid md:grid-cols-2 gap-4">
@@ -31,5 +48,6 @@ export default function NumberTools() {
         ))}
       </div>
     </div>
+    </>
   );
 }

@@ -12,6 +12,23 @@ const probabilityStatsTools = [
 
 export default function ProbabilityStatisticsTools() {
   return (
+    <>
+    <Breadcrumb className="mb-4">
+  <BreadcrumbList>
+    <BreadcrumbItem>
+      <BreadcrumbLink asChild>
+        <Link to="/">Home</Link>
+      </BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/mathematics/probability">probability Tool</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+  </BreadcrumbList>
+</Breadcrumb>
     <div className="p-6 max-w-4xl mx-auto">
       <h1 className="text-3xl font-bold mb-6 text-center">Probability & Statistics Tools</h1>
       <div className="grid md:grid-cols-2 gap-4">
@@ -26,5 +43,6 @@ export default function ProbabilityStatisticsTools() {
         ))}
       </div>
     </div>
+    </>
   );
 }
