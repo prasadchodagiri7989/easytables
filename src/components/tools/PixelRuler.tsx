@@ -199,7 +199,7 @@ const PixelRuler = () => {
                      </BreadcrumbItem>
                       <BreadcrumbSeparator />
                       <BreadcrumbItem>
-                       <BreadcrumbPage>Average Calculator</BreadcrumbPage>
+                       <BreadcrumbPage>Pixel Ruler</BreadcrumbPage>
                         </BreadcrumbItem>
                   </BreadcrumbList>
                </Breadcrumb>

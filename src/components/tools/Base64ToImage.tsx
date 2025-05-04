@@ -76,7 +76,7 @@ const Base64ToImage = () => {
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                  <BreadcrumbPage>Average Calculator</BreadcrumbPage>
+                  <BreadcrumbPage>Base64 To Image</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>

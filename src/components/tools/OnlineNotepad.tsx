@@ -184,7 +184,7 @@ export const OnlineNotepad = () => {
                         </BreadcrumbItem>
                         <BreadcrumbSeparator />
                         <BreadcrumbItem>
-                          <BreadcrumbPage>Average Calculator</BreadcrumbPage>
+                          <BreadcrumbPage>Online Notepad</BreadcrumbPage>
                         </BreadcrumbItem>
                       </BreadcrumbList>
                     </Breadcrumb>

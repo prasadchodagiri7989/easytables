@@ -194,7 +194,7 @@ export const ImageToPDF = () => {
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                  <BreadcrumbPage>Average Calculator</BreadcrumbPage>
+                  <BreadcrumbPage>Image to PDF Converter</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>

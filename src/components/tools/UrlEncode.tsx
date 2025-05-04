@@ -53,7 +53,7 @@ const UrlEncode = () => {
                      </BreadcrumbItem>
                       <BreadcrumbSeparator />
                       <BreadcrumbItem>
-                       <BreadcrumbPage>Average Calculator</BreadcrumbPage>
+                       <BreadcrumbPage>URL Encode</BreadcrumbPage>
                         </BreadcrumbItem>
                   </BreadcrumbList>
                </Breadcrumb>

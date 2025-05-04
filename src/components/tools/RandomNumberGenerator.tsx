@@ -116,7 +116,7 @@ export const RandomNumberGenerator = () => {
                      </BreadcrumbItem>
                       <BreadcrumbSeparator />
                       <BreadcrumbItem>
-                       <BreadcrumbPage>Average Calculator</BreadcrumbPage>
+                       <BreadcrumbPage>Random Number Generator</BreadcrumbPage>
                         </BreadcrumbItem>
                   </BreadcrumbList>
                </Breadcrumb>

@@ -214,7 +214,7 @@ export const RulerInch = () => {
                      </BreadcrumbItem>
                       <BreadcrumbSeparator />
                       <BreadcrumbItem>
-                       <BreadcrumbPage>Average Calculator</BreadcrumbPage>
+                       <BreadcrumbPage>Ruler (Inches)</BreadcrumbPage>
                         </BreadcrumbItem>
                   </BreadcrumbList>
                </Breadcrumb>

@@ -229,7 +229,7 @@ export const MicTest = () => {
                     </BreadcrumbItem>
                     <BreadcrumbSeparator />
                     <BreadcrumbItem>
-                      <BreadcrumbPage>Average Calculator</BreadcrumbPage>
+                      <BreadcrumbPage>Microphone Test</BreadcrumbPage>
                     </BreadcrumbItem>
                   </BreadcrumbList>
                 </Breadcrumb>

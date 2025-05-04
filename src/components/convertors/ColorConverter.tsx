@@ -149,7 +149,7 @@ export const ColorConverter = () => {
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
-          <BreadcrumbPage>Angle Convertor</BreadcrumbPage>
+          <BreadcrumbPage>Color Convertor</BreadcrumbPage>
         </BreadcrumbList>
       </Breadcrumb>
       <div className="w-full max-w-4xl mx-auto">

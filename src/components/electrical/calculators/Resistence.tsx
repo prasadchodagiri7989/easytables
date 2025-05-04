@@ -52,7 +52,7 @@ const ResistanceCalculator = () => {
                       </BreadcrumbItem>
                       <BreadcrumbSeparator />
                       <BreadcrumbItem>
-                        <BreadcrumbPage>Capacitance Calculator</BreadcrumbPage>
+                        <BreadcrumbPage>Resistance Calculator</BreadcrumbPage>
                       </BreadcrumbItem>
                     </BreadcrumbList>
                   </Breadcrumb>

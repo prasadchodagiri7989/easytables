@@ -192,7 +192,7 @@ export const PNGtoPDF = () => {
                      </BreadcrumbItem>
                       <BreadcrumbSeparator />
                       <BreadcrumbItem>
-                       <BreadcrumbPage>Average Calculator</BreadcrumbPage>
+                       <BreadcrumbPage>PNG to PDF Converterr</BreadcrumbPage>
                         </BreadcrumbItem>
                   </BreadcrumbList>
                </Breadcrumb>

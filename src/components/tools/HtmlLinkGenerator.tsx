@@ -66,7 +66,7 @@ const HtmlLinkGenerator = () => {
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                  <BreadcrumbPage>Average Calculator</BreadcrumbPage>
+                  <BreadcrumbPage>HTML Link Generator</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>

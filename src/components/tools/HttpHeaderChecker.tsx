@@ -90,7 +90,7 @@ const HttpHeaderChecker = () => {
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                  <BreadcrumbPage>Average Calculator</BreadcrumbPage>
+                  <BreadcrumbPage>HTTP Header Checker</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>

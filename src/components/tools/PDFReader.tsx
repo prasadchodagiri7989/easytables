@@ -146,7 +146,7 @@ export const PDFReader = () => {
                                 </BreadcrumbItem>
                                 <BreadcrumbSeparator />
                                 <BreadcrumbItem>
-                                  <BreadcrumbPage>Average Calculator</BreadcrumbPage>
+                                  <BreadcrumbPage>PDF Reader</BreadcrumbPage>
                                 </BreadcrumbItem>
                               </BreadcrumbList>
                             </Breadcrumb>

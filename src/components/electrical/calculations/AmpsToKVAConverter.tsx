@@ -44,7 +44,7 @@ const AmpsToKVAConverter: React.FC = () => {
                           </BreadcrumbItem>
                           <BreadcrumbSeparator />
                           <BreadcrumbItem>
-                            <BreadcrumbPage>kVA to VA Calculator</BreadcrumbPage>
+                            <BreadcrumbPage>Amps to kVA</BreadcrumbPage>
                           </BreadcrumbItem>
                         </BreadcrumbList>
                      </Breadcrumb>

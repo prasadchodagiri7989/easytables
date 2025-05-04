@@ -146,7 +146,7 @@ export const ChartMaker = () => {
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                  <BreadcrumbPage>Average Calculator</BreadcrumbPage>
+                  <BreadcrumbPage>Chart Maker</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>

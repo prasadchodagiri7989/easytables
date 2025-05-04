@@ -121,7 +121,7 @@ export const FrequencyConverter = () => {
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
-          <BreadcrumbPage>Angle Convertor</BreadcrumbPage>
+          <BreadcrumbPage>Frequency Convertor</BreadcrumbPage>
         </BreadcrumbList>
       </Breadcrumb>
     <div className="w-full max-w-4xl mx-auto">

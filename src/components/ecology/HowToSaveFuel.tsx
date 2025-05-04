@@ -23,11 +23,11 @@ const HowToSaveFuel: React.FC = () => {
                         </BreadcrumbItem>
                         <BreadcrumbSeparator />
                         <BreadcrumbItem>
-                          <BreadcrumbPage>Green Hosting Providers Comparison</BreadcrumbPage>
+                          <BreadcrumbPage>How to Save Fuel</BreadcrumbPage>
                         </BreadcrumbItem>
                       </BreadcrumbList>
                    </Breadcrumb>
-                
+
       <Card>
         <CardHeader>
           <CardTitle>How to Save Fuel</CardTitle>

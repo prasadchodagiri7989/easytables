@@ -23,7 +23,7 @@ const PlantTrees: React.FC = () => {
                         </BreadcrumbItem>
                         <BreadcrumbSeparator />
                         <BreadcrumbItem>
-                          <BreadcrumbPage>Green Hosting Providers Comparison</BreadcrumbPage>
+                          <BreadcrumbPage>Plant Trees</BreadcrumbPage>
                         </BreadcrumbItem>
                       </BreadcrumbList>
                    </Breadcrumb>

@@ -136,7 +136,7 @@ export const OnlineClock = () => {
                     </BreadcrumbItem>
                     <BreadcrumbSeparator />
                     <BreadcrumbItem>
-                      <BreadcrumbPage>Average Calculator</BreadcrumbPage>
+                      <BreadcrumbPage>Online Clock</BreadcrumbPage>
                     </BreadcrumbItem>
                   </BreadcrumbList>
                 </Breadcrumb>

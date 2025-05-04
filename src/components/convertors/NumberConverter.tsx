@@ -53,7 +53,7 @@ export const NumberConverter = () => {
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
-          <BreadcrumbPage>Angle Convertor</BreadcrumbPage>
+          <BreadcrumbPage>Number Convertor</BreadcrumbPage>
         </BreadcrumbList>
       </Breadcrumb>
       <Card>

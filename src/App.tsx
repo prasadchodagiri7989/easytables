@@ -348,6 +348,7 @@ import AlgebraTools from "./components/mathematics/algebra/AlgebraTools";
 import { FactorialNumbersGuide } from "./components/mathematics/algebra/FactorialNumbersGuide";
 import { LogarithmGuide } from "./components/mathematics/algebra/LogarithmGuide";
 import { LogarithmRules } from "./components/mathematics/algebra/LogarithmRules";
+import { NaturalLogarithm } from "./components/mathematics/algebra/NaturalLogarithm";
 import { LogarithmTable } from "./components/mathematics/algebra/LogarithmTable";
 import { QuadraticEquationExplanation } from "./components/mathematics/algebra/QuadraticEquation";
 
@@ -477,6 +478,7 @@ import WattsToKVAConverter from "./components/electrical/calculations/WattsToKVA
 import WattsToKWhConverter from "./components/electrical/calculations/WattsToKWhConverter";
 import WattsToLumensConverter from "./components/electrical/calculations/WattsToLumensConverter";
 import WattsToVAConverter from "./components/electrical/calculations/WattsToVAConverter";
+import WattsToJoulesConverter from "./components/electrical/calculations/WattsToJoulesConverter";
 import WattsToVoltsConverter from "./components/electrical/calculations/WattsToVoltsConverter";
 import WattsToWhConverter from "./components/electrical/calculations/WattsToWhConverter";
 import WhToKwConverter from "./components/electrical/calculations/WhToKwConverter";
@@ -768,7 +770,7 @@ const App = () => (
           <Route path="/eco/save-energy" element={<Layout><HowToSaveEnergy /></Layout>} />
           <Route path="/eco/green-hosting-comparison" element={<Layout><GreenHostingComparison /></Layout>} />
           <Route path="/eco/plant-trees" element={<Layout><PlantTrees /></Layout>} />
-          <Route path="/eco/save-electricity" element={<Layout><GreenHostingComparison /></Layout>} />
+          <Route path="/eco/save-electricity" element={<Layout><SaveElectricityTips /></Layout>} />
 
           <Route path="/mathematics/all" element={<Layout><AllMathematics /></Layout>} />
 
@@ -791,6 +793,7 @@ const App = () => (
           <Route path="/algebra/factorial" element={<Layout><FactorialNumbersGuide /></Layout>} />
           <Route path="/algebra/logarithm" element={<Layout><LogarithmGuide /></Layout>} />
           <Route path="/algebra/logarithm-rules" element={<Layout><LogarithmRules /></Layout>} />
+          <Route path="/algebra/natural-logarithm" element={<Layout><NaturalLogarithm /></Layout>} />
           <Route path="/algebra/logarithm-table" element={<Layout><LogarithmTable /></Layout>} />
           <Route path="/algebra/quadratic-equation" element={<Layout><QuadraticEquationExplanation /></Layout>} />
 
@@ -853,6 +856,8 @@ const App = () => (
           <Route path="/tools/html-comments-guide" element={<Layout><HTMLComments /></Layout>} />
           <Route path="/tools/html-tables-generator" element={<Layout><HTMLTables /></Layout>} />
           <Route path="/tools/html-color" element={<Layout><HTMLColorCodes /></Layout>} />
+
+          <Route path="/web/tools" element={<Layout><WebTools /></Layout>} />
 
 
           <Route path="/code/all" element={<Layout><AllCode /></Layout>} />
@@ -932,6 +937,9 @@ const App = () => (
           <Route path="/electrical-calculations/wh-to-kw" element={<Layout><WhToKwConverter /></Layout>} />
           <Route path="/electrical-calculations/wh-to-mah" element={<Layout><WhToMahConverter /></Layout>} />
           <Route path="/electrical-calculations/wh-to-watts" element={<Layout><WhToWattsConverter /></Layout>} />
+          <Route path="/electrical-calculations/watts-to-joules" element={<Layout><WattsToJoulesConverter /></Layout>} />
+
+
 
           <Route path="/wire/all" element={<Layout><WireGaugeTools /></Layout>} />
           <Route path="/time/all" element={<Layout><TimeDateTools /></Layout>} />

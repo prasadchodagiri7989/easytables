@@ -55,7 +55,7 @@ const VoltageDividerCalculator = () => {
                       </BreadcrumbItem>
                       <BreadcrumbSeparator />
                       <BreadcrumbItem>
-                        <BreadcrumbPage>Capacitance Calculator</BreadcrumbPage>
+                        <BreadcrumbPage>Voltage Divider Calculator</BreadcrumbPage>
                       </BreadcrumbItem>
                     </BreadcrumbList>
                   </Breadcrumb>

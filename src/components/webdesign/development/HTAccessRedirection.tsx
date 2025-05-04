@@ -6,9 +6,22 @@ import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
 const HtaccessRedirection: React.FC = () => {
   return (
     <div className="w-full max-w-3xl mx-auto">
+                              <Breadcrumb className="mb-4">
+                                    <BreadcrumbList>
+                                      <BreadcrumbItem>
+                                        <BreadcrumbLink asChild>
+                                          <Link to="/web/development">Development Tools</Link>
+                                        </BreadcrumbLink>
+                                      </BreadcrumbItem>
+                                      <BreadcrumbSeparator />
+                                      <BreadcrumbItem>
+                                        <BreadcrumbPage>HTAccess Redirection</BreadcrumbPage>
+                                      </BreadcrumbItem>
+                                    </BreadcrumbList>
+                                  </Breadcrumb>
       <Card>
         <CardHeader>
-          <CardTitle>.htaccess Redirection</CardTitle>
+          <CardTitle>HTAccess Redirection</CardTitle>
         </CardHeader>
         <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed">
 

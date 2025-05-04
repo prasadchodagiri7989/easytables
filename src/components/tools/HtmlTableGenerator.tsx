@@ -33,7 +33,7 @@ const HtmlTableGenerator = () => {
 
   const updateTableSize = (newRows: number, newCols: number) => {
     if (newRows > rows) {
-      const additionalRows = Array(newRows - rows).fill().map(() => Array(cols).fill(""));
+      const additionalRows = Array(newRows - rows).fill(null).map(() => Array(cols).fill(""));
       setTableData([...tableData, ...additionalRows]);
     } else {
       setTableData(tableData.slice(0, newRows));
@@ -143,7 +143,7 @@ const HtmlTableGenerator = () => {
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                  <BreadcrumbPage>Average Calculator</BreadcrumbPage>
+                  <BreadcrumbPage>HTML Table Generator</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>

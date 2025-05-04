@@ -192,7 +192,7 @@ export const OnlineMirror = () => {
                     </BreadcrumbItem>
                     <BreadcrumbSeparator />
                     <BreadcrumbItem>
-                      <BreadcrumbPage>Average Calculator</BreadcrumbPage>
+                      <BreadcrumbPage>Online Mirror</BreadcrumbPage>
                     </BreadcrumbItem>
                   </BreadcrumbList>
                 </Breadcrumb>

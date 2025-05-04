@@ -49,7 +49,7 @@ const FrequencyCalculator = () => {
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                  <BreadcrumbPage>Capacitance Calculator</BreadcrumbPage>
+                  <BreadcrumbPage>Frequency Calculator</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>

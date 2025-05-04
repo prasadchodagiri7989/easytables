@@ -50,7 +50,7 @@ const PowerCalculator = () => {
                       </BreadcrumbItem>
                       <BreadcrumbSeparator />
                       <BreadcrumbItem>
-                        <BreadcrumbPage>Capacitance Calculator</BreadcrumbPage>
+                        <BreadcrumbPage>Power Calculator</BreadcrumbPage>
                       </BreadcrumbItem>
                     </BreadcrumbList>
                   </Breadcrumb>

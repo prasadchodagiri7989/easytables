@@ -135,7 +135,7 @@ const OhmsLawCalculator = () => {
                       </BreadcrumbItem>
                       <BreadcrumbSeparator />
                       <BreadcrumbItem>
-                        <BreadcrumbPage>Capacitance Calculator</BreadcrumbPage>
+                        <BreadcrumbPage>Ohm's Law Calculator</BreadcrumbPage>
                       </BreadcrumbItem>
                     </BreadcrumbList>
                   </Breadcrumb>

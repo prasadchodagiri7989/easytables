@@ -31,7 +31,7 @@ const AhToMAhConverter: React.FC = () => {
                   </BreadcrumbItem>
                   <BreadcrumbSeparator />
                   <BreadcrumbItem>
-                    <BreadcrumbPage>kVA to VA Calculator</BreadcrumbPage>
+                    <BreadcrumbPage>Ah to mAh</BreadcrumbPage>
                   </BreadcrumbItem>
                 </BreadcrumbList>
              </Breadcrumb>

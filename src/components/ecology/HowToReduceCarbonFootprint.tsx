@@ -23,11 +23,11 @@ const HowToReduceCarbonFootprint: React.FC = () => {
                         </BreadcrumbItem>
                         <BreadcrumbSeparator />
                         <BreadcrumbItem>
-                          <BreadcrumbPage>Green Hosting Providers Comparison</BreadcrumbPage>
+                          <BreadcrumbPage>Reduce Your Carbon Footprint</BreadcrumbPage>
                         </BreadcrumbItem>
                       </BreadcrumbList>
                    </Breadcrumb>
-                
+
       <Card>
         <CardHeader>
           <CardTitle>How to Reduce Your Carbon Footprint</CardTitle>

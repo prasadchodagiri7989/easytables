@@ -139,7 +139,7 @@ export const PieChartMaker = () => {
                  </BreadcrumbItem>
                   <BreadcrumbSeparator />
                   <BreadcrumbItem>
-                   <BreadcrumbPage>Average Calculator</BreadcrumbPage>
+                   <BreadcrumbPage>Pie Chart Maker</BreadcrumbPage>
                     </BreadcrumbItem>
               </BreadcrumbList>
            </Breadcrumb>

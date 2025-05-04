@@ -121,7 +121,7 @@ export const AreaConverter = () => {
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
-          <BreadcrumbPage>Angle Convertor</BreadcrumbPage>
+          <BreadcrumbPage>Area Convertor</BreadcrumbPage>
         </BreadcrumbList>
       </Breadcrumb>
     <div className="w-full max-w-4xl mx-auto">

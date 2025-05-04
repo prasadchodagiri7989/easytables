@@ -131,7 +131,7 @@ export const PasswordGenerator = () => {
                             </BreadcrumbItem>
                             <BreadcrumbSeparator />
                             <BreadcrumbItem>
-                              <BreadcrumbPage>Average Calculator</BreadcrumbPage>
+                              <BreadcrumbPage>Password Generator</BreadcrumbPage>
                             </BreadcrumbItem>
                           </BreadcrumbList>
                         </Breadcrumb>
