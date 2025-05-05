@@ -123,11 +123,7 @@ export const TemperatureConverter = () => {
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
-<<<<<<< HEAD
           <BreadcrumbPage>Temperature Convertor</BreadcrumbPage>
-=======
-          <BreadcrumbPage>Temparature Convertor</BreadcrumbPage>
->>>>>>> 310e656879cb9369df1eb115b6834e8bad9953de
         </BreadcrumbList>
       </Breadcrumb>
     <div className="w-full max-w-4xl mx-auto">

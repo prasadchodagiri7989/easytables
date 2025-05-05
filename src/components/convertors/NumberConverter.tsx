@@ -77,11 +77,7 @@ export const NumberConverter = () => {
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
-<<<<<<< HEAD
           <BreadcrumbPage>Number Convertor</BreadcrumbPage>
-=======
-          <BreadcrumbPage>Number Converter</BreadcrumbPage>
->>>>>>> 310e656879cb9369df1eb115b6834e8bad9953de
         </BreadcrumbList>
       </Breadcrumb>
 

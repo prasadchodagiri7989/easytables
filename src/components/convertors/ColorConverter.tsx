@@ -210,11 +210,7 @@ export const ColorConverter = () => {
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
-<<<<<<< HEAD
           <BreadcrumbPage>Color Convertor</BreadcrumbPage>
-=======
-          <BreadcrumbPage>Color Converter</BreadcrumbPage>
->>>>>>> 310e656879cb9369df1eb115b6834e8bad9953de
         </BreadcrumbList>
       </Breadcrumb>
 
