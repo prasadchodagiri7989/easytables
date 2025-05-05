@@ -7,6 +7,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
+import ScrollToTop from "./components/ScrollToTop";
+
 // Tools
 import RedirectGenerator from "./components/tools/RedirectGenerator";
 import Base64Encode from "./components/tools/Base64Encode";
@@ -499,6 +501,19 @@ import { TestCalculator } from "./components/calculators/grade/TestCalculator";
 import TimeDateTools from "./components/calculators/time/TimeDateTools";
 import WireGaugeTools from "./components/calculators/wire/WireGaugeTools";
 
+import { GifToPng } from "./components/image/GiftoPng";
+import ImageConversions from "./components/conversions/ImageConversions";
+import { GifToJpg } from "./components/image/GifToJpg";
+import { JpgToGif } from "./components/image/JpgToGif";
+import { JpgToPdf } from "./components/image/JpgToPdf";
+import { JpgToPng } from "./components/image/JpgToPng";
+import { PngToGif } from "./components/image/PngToGif";
+import { PngToJpg } from "./components/image/PngToJpg";
+import { PngToPdf } from "./components/image/PngToPdf";
+import { ImageToBlackWhite } from "./components/image/ImageToBlackWhite";
+
+
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -507,8 +522,12 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+      <ScrollToTop />
         <Routes>
           <Route path="/" element={<Layout><Index /></Layout>} />
+
+          <Route path="/test" element={<Layout><GifToJpg /></Layout>} />
+
           
           {/* Calculator Routes */}
           <Route path="/scientific" element={<Layout><ScientificCalculator /></Layout>} />
@@ -958,6 +977,17 @@ const App = () => (
 
           
           <Route path="/ecology/all" element={<Layout><EcologyTools /></Layout>} />
+          {/* Image Conversion Routes */}
+          <Route path="/image-conversions" element={<Layout><ImageConversions /></Layout>} />
+          <Route path="/image/gif-to-png" element={<Layout><GifToPng /></Layout>} />
+          <Route path="/image/gif-to-jpg" element={<Layout><GifToJpg /></Layout>} />
+          <Route path="/image/jpg-to-gif" element={<Layout><JpgToGif /></Layout>} />
+          <Route path="/image/jpg-to-pdf" element={<Layout><JpgToPdf /></Layout>} />
+          <Route path="/image/jpg-to-png" element={<Layout><JpgToPng /></Layout>} />
+          <Route path="/image/png-to-gif" element={<Layout><PngToGif /></Layout>} />
+          <Route path="/image/png-to-jpg" element={<Layout><PngToJpg /></Layout>} />
+          <Route path="/image/png-to-pdf" element={<Layout><PngToPdf /></Layout>} />
+          <Route path="/image/to-black-white" element={<Layout><ImageToBlackWhite /></Layout>} />
 
           
 

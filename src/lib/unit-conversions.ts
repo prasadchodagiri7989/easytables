@@ -57,6 +57,7 @@ export const units = {
     { label: "Celsius (°C)", value: "c", factor: 1 },
     { label: "Fahrenheit (°F)", value: "f", factor: 1 },
     { label: "Kelvin (K)", value: "k", factor: 1 },
+    { label: "Rankine (°R)", value: "r", factor: 1 },
   ],
   area: [
     { label: "Square Meter (m²)", value: "m2", factor: 1 },
@@ -153,10 +154,12 @@ export const units = {
   ],
   frequency: [
     { label: "Hertz (Hz)", value: "hz", factor: 1 },
-    { label: "Kilohertz (kHz)", value: "khz", factor: 1000 },
-    { label: "Megahertz (MHz)", value: "mhz", factor: 1000000 },
-    { label: "Gigahertz (GHz)", value: "ghz", factor: 1000000000 },
-    { label: "Revolutions per minute (rpm)", value: "rpm", factor: 1/60 },
+    { label: "Kilohertz (kHz)", value: "khz", factor: 1e3 },
+    { label: "Megahertz (MHz)", value: "mhz", factor: 1e6 },
+    { label: "Gigahertz (GHz)", value: "ghz", factor: 1e9 },
+    { label: "Terahertz (THz)", value: "thz", factor: 1e12 },
+    { label: "Revolutions per minute (RPM)", value: "rpm", factor: 1/60 },
+    { label: "Radians per second (rad/s)", value: "radps", factor: 1 / (2 * Math.PI) } // 1 Hz = 2π rad/s ⇒ 1 rad/s = 1 / (2π) Hz
   ],
   fuel_economy: [
     { label: "Miles per gallon (mpg)", value: "mpg", factor: 1 },
@@ -186,28 +189,33 @@ export const getUnitsForCategory = (category: string) => {
 const convertTemperature = (value: number, from: string, to: string): number => {
   // Convert to Celsius first (as base unit)
   let celsius: number;
-  
+
   if (from === "c") {
     celsius = value;
   } else if (from === "f") {
-    celsius = (value - 32) * 5/9;
+    celsius = (value - 32) * 5 / 9;
   } else if (from === "k") {
     celsius = value - 273.15;
+  } else if (from === "r") {
+    celsius = value * 1.25;
   } else {
     throw new Error("Invalid temperature unit");
   }
-  
+
   // Convert from Celsius to target unit
   if (to === "c") {
     return celsius;
   } else if (to === "f") {
-    return celsius * 9/5 + 32;
+    return celsius * 9 / 5 + 32;
   } else if (to === "k") {
     return celsius + 273.15;
+  } else if (to === "r") {
+    return celsius * 0.8;
   } else {
     throw new Error("Invalid temperature unit");
   }
 };
+
 
 const convertFuelEconomy = (value: number, from: string, to: string): number => {
   if (from === to) return value;
