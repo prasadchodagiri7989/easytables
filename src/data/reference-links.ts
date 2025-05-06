@@ -224,6 +224,31 @@ export const referenceLinks: Record<string, { label: string; href: string }[]> =
   { label: "Ohm's Law Calculator", href: "/electrical-calculators/ohms-law-calculator" },
   { label: "Power Factor Calculator", href: "/electrical-calculators/power-factor-calculator" }
 ],
-
+"/electrical-calculations/kw-to-kwh": [
+  { label: "How to Convert kW to kWh", href: "/electrical-calculations/kw-to-wh" },
+  { label: "kWh to kW Calculator", href: "/electrical-calculations/kwh-to-kw" },
+  { label: "Watts to kWh Calculator", href: "/electrical-calculations/watts-to-kwh" },
+  { label: "Electrical Calculations", href: "/electrical-calculations" },
+  { label: "Power Conversion Tools", href: "/all-conversions" }
+],
+"/electrical-calculations/kw-to-va": [
+  { label: "How to Convert kW to VA", href: "/electrical-calculations/kw-to-kva" },
+  { label: "VA to kW Calculator", href: "/electrical-calculations/va-to-kw" },
+  { label: "Electrical Calculations", href: "/electrical-calculations" },
+  { label: "Power Conversion Tools", href: "/all-conversions" }
+],
+"/electrical-calculations/kw-to-kva": [
+  { label: "How to Convert kW to kVA", href: "/electrical-calculations/kva-to-kw" },
+  { label: "kVA to kW Calculator", href: "/electrical-calculations/kva-to-kw" },
+  { label: "Electrical Calculations", href: "/electrical-calculations" },
+  { label: "Power Conversion Tools", href: "/all-conversions" }
+],
+"/electrical-calculations/kwh-to-kw": [
+  { label: "How to Convert kWh to kW", href: "/electrical-calculations/kw-to-kwh" },
+  { label: "kWh to Watts Calculator", href: "/electrical-calculations/kwh-to-watt" },
+  { label: "Kilowatt (kW)", href: "/electrical/units/kw" },
+  { label: "Watt (W)", href: "/electrical/units/watt" },
+  { label: "Electrical Calculations", href: "/electrical-calculations" }
+],
   };
   
