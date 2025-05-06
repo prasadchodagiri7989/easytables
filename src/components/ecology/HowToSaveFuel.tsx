@@ -3,36 +3,34 @@ import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
 
-
-
 const HowToSaveFuel: React.FC = () => {
   return (
-    <div className="w-full max-w-3xl mx-auto">
-       <Breadcrumb className="mb-4">
-                      <BreadcrumbList>
-                        <BreadcrumbItem>
-                          <BreadcrumbLink asChild>
-                            <Link to="/">Home</Link>
-                          </BreadcrumbLink>
-                        </BreadcrumbItem>
-                        <BreadcrumbSeparator />
-                        <BreadcrumbItem>
-                          <BreadcrumbLink asChild>
-                            <Link to="/ecology/all">Ecology</Link>
-                          </BreadcrumbLink>
-                        </BreadcrumbItem>
-                        <BreadcrumbSeparator />
-                        <BreadcrumbItem>
-                          <BreadcrumbPage>How to Save Fuel</BreadcrumbPage>
-                        </BreadcrumbItem>
-                      </BreadcrumbList>
-                   </Breadcrumb>
+    <div className="w-full max-w-4xl mx-auto">
+      <Breadcrumb className="mb-4">
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/">Home</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/ecology/all">Ecology</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>How to Save Fuel</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
 
       <Card>
         <CardHeader>
           <CardTitle>How to Save Fuel</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>
             Fuel is a valuable and finite resource, and using it efficiently not only saves money but also reduces harmful emissions. Here are practical tips to help you conserve fuel in your everyday life:
           </p>

@@ -46,7 +46,7 @@ const VAToKWConverter: React.FC = () => {
         <CardHeader>
           <CardTitle>VA to Kilowatts Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>Convert apparent power in volt-amperes (VA) to real power in kilowatts (kW) using the power factor.</p>
 
           {/* Input Fields */}
@@ -57,7 +57,7 @@ const VAToKWConverter: React.FC = () => {
                 type="number"
                 value={apparentPower}
                 onChange={(e) => setApparentPower(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
                 placeholder="Enter apparent power in VA"
               />
             </div>
@@ -68,7 +68,7 @@ const VAToKWConverter: React.FC = () => {
                 type="number"
                 value={powerFactor}
                 onChange={(e) => setPowerFactor(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
                 placeholder="Enter power factor (0 to 1)"
                 step="0.01"
                 min="0"
@@ -86,7 +86,7 @@ const VAToKWConverter: React.FC = () => {
             {/* Conversion Result */}
             <div>
               <strong>Converted Power:</strong>
-              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{powerKW} kW</p>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base dark:text-black">{powerKW} kW</p>
             </div>
 
             {/* Formula */}
@@ -110,15 +110,15 @@ const VAToKWConverter: React.FC = () => {
               <ul className="space-y-2 list-disc list-inside">
                 <li>
                   *Example 1:* For an apparent power of 1000 <code>VA</code> and a power factor of 0.8:
-                  <p className="bg-gray-100 p-2">P<sub>kW</sub> = (1000 <code>VA</code> × 0.8) / 1000 = 0.8 <code>kW</code></p>
+                  <p className="bg-gray-100 p-2 dark:text-black">P<sub>kW</sub> = (1000 <code>VA</code> × 0.8) / 1000 = 0.8 <code>kW</code></p>
                 </li>
                 <li>
                   *Example 2:* For an apparent power of 5000 <code>VA</code> and a power factor of 0.9:
-                  <p className="bg-gray-100 p-2">P<sub>kW</sub> = (5000 <code>VA</code> × 0.9) / 1000 = 4.5 <code>kW</code></p>
+                  <p className="bg-gray-100 p-2 dark:text-black">P<sub>kW</sub> = (5000 <code>VA</code> × 0.9) / 1000 = 4.5 <code>kW</code></p>
                 </li>
                 <li>
                   *Example 3:* For an apparent power of 2500 <code>VA</code> and a power factor of 0.6:
-                  <p className="bg-gray-100 p-2">P<sub>kW</sub> = (2500 <code>VA</code> × 0.6) / 1000 = 1.5 <code>kW</code></p>
+                  <p className="bg-gray-100 p-2 dark:text-black">P<sub>kW</sub> = (2500 <code>VA</code> × 0.6) / 1000 = 1.5 <code>kW</code></p>
                 </li>
               </ul>
             </div>

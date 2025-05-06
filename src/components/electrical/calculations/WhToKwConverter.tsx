@@ -36,7 +36,7 @@ const WhToKwConverter: React.FC = () => {
         <CardHeader>
           <CardTitle>Wh to Kw Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>Convert energy in watt-hours (Wh) to power in kilowatts (kW).</p>
 
           {/* Wh Input */}
@@ -46,14 +46,14 @@ const WhToKwConverter: React.FC = () => {
               type="number"
               value={wh}
               onChange={(e) => setWh(Number(e.target.value))}
-              className="w-full border px-3 py-2 rounded"
+              className="w-full border px-3 py-2 rounded dark:text-black"
             />
           </div>
 
           {/* Converted Value Display */}
           <div>
             <strong>Converted Power:</strong>
-            <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{kw.toFixed(2)} kW</p>
+            <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base dark:text-black">{kw.toFixed(2)} kW</p>
           </div>
 
           {/* Examples */}

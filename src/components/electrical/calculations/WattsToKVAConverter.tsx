@@ -51,7 +51,7 @@ const WattsToKVAConverter: React.FC = () => {
         <CardHeader>
           <CardTitle>Watts to kVA Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>Convert power in watts (W) to apparent power in kilovolt-amperes (kVA) based on voltage and power factor.</p>
 
           <div className="space-y-4">
@@ -61,7 +61,7 @@ const WattsToKVAConverter: React.FC = () => {
                 type="number"
                 value={watts}
                 onChange={(e) => setWatts(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -71,7 +71,7 @@ const WattsToKVAConverter: React.FC = () => {
                 type="number"
                 value={voltage}
                 onChange={(e) => setVoltage(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -82,7 +82,7 @@ const WattsToKVAConverter: React.FC = () => {
                 value={powerFactor}
                 onChange={(e) => setPowerFactor(Number(e.target.value))}
                 step="0.1"
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -95,7 +95,7 @@ const WattsToKVAConverter: React.FC = () => {
 
             <div>
               <strong>Converted Apparent Power:</strong>
-              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{kVA} kVA</p>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base dark:text-black">{kVA} kVA</p>
             </div>
 
             <div>
@@ -126,11 +126,11 @@ const WattsToKVAConverter: React.FC = () => {
               <ul className="space-y-2 list-disc list-inside">
                 <li>
                   *Example 1:* A device using 1000W at 220V with a power factor of 0.8:
-                  <p className="bg-gray-100 p-2">S = (1000 / (220 × 0.8)) / 1000 = 5.68 kVA</p>
+                  <p className="bg-gray-100 p-2 dark:text-black">S = (1000 / (220 × 0.8)) / 1000 = 5.68 kVA</p>
                 </li>
                 <li>
                   *Example 2:* A device using 1500W at 110V with a power factor of 0.9:
-                  <p className="bg-gray-100 p-2">S = (1500 / (110 × 0.9)) / 1000 = 15.15 kVA</p>
+                  <p className="bg-gray-100 p-2 dark:text-black">S = (1500 / (110 × 0.9)) / 1000 = 15.15 kVA</p>
                 </li>
               </ul>
             </div>

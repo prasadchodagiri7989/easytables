@@ -43,7 +43,7 @@ const WattsToKWhConverter: React.FC = () => {
         <CardHeader>
           <CardTitle>Watts to Kilowatt-hours Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>Convert electrical power in watts (W) to energy consumption in kilowatt-hours (kWh).</p>
 
           <div className="space-y-4">
@@ -53,7 +53,7 @@ const WattsToKWhConverter: React.FC = () => {
                 type="number"
                 value={watts}
                 onChange={(e) => setWatts(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -63,7 +63,7 @@ const WattsToKWhConverter: React.FC = () => {
                 type="number"
                 value={hours}
                 onChange={(e) => setHours(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -76,7 +76,7 @@ const WattsToKWhConverter: React.FC = () => {
 
             <div>
               <strong>Converted Energy:</strong>
-              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{energyInKWh} kWh</p>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base dark:text-black">{energyInKWh} kWh</p>
             </div>
 
             <div>
@@ -108,7 +108,7 @@ const WattsToKWhConverter: React.FC = () => {
               <p>
                 If you have a device using {watts}W of power for {hours} hour(s), the total energy consumption in kilowatt-hours will be:
               </p>
-              <div className="bg-gray-100 p-4 rounded-md text-center">
+              <div className="bg-gray-100 p-4 rounded-md text-center dark:text-black">
                 <p className="font-semibold">Energy = (Power × Time) / 1000</p>
                 <p className="mt-2">
                   Energy = ({watts} W × {hours} h) / 1000 = {energyInKWh} kWh

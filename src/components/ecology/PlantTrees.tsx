@@ -31,7 +31,7 @@ const PlantTrees: React.FC = () => {
         <CardHeader>
           <CardTitle>Plant Trees to Help the Environment</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>
             Planting trees is one of the simplest yet most impactful actions individuals and communities can take to protect the environment and combat climate change. Trees absorb carbon dioxide (CO₂), release oxygen, and provide essential habitat for wildlife.
           </p>

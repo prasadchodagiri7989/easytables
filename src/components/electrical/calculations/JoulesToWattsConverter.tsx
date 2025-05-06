@@ -60,7 +60,7 @@ const JoulesToWattsConverter: React.FC = () => {
         <CardHeader>
           <CardTitle>Joules to Watts Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>
             Calculate power (W) by dividing energy in joules by time in seconds.
           </p>
@@ -72,7 +72,7 @@ const JoulesToWattsConverter: React.FC = () => {
                 type="number"
                 value={energy}
                 onChange={(e) => setEnergy(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -82,7 +82,7 @@ const JoulesToWattsConverter: React.FC = () => {
                 type="number"
                 value={time}
                 onChange={(e) => setTime(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -95,7 +95,7 @@ const JoulesToWattsConverter: React.FC = () => {
 
             <div>
               <strong>Result:</strong>
-              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{power} W</p>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base dark:text-black">{power} W</p>
             </div>
 
             <div>

@@ -57,7 +57,7 @@ const KilowattsToJoulesConverter: React.FC = () => {
         <CardHeader>
           <CardTitle>Kilowatts to Joules Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>
             Convert power in kilowatts (kW) and time in seconds (s) into energy in joules (J).
           </p>

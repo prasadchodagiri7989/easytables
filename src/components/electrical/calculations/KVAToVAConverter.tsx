@@ -56,7 +56,7 @@ const KVAToVAConverter: React.FC = () => {
         <CardHeader>
           <CardTitle>kVA to VA Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>
             Convert apparent power in kilovolt-amps (kVA) to volt-amps (VA).
           </p>
@@ -68,7 +68,7 @@ const KVAToVAConverter: React.FC = () => {
                 type="number"
                 value={apparentPowerKVA}
                 onChange={(e) => setApparentPowerKVA(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -81,7 +81,7 @@ const KVAToVAConverter: React.FC = () => {
 
             <div>
               <strong>Result:</strong>
-              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{apparentPowerVA} VA</p>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base dark:text-black">{apparentPowerVA} VA</p>
             </div>
 
             <div>

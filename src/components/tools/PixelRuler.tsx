@@ -1,26 +1,24 @@
-
 import React, { useState, useRef, useEffect } from "react";
 import { MoveHorizontal, MoveVertical, Maximize2, Minimize2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import ToolLayout from "@/components/ui/ToolLayout";
-import { GuidanceSection } from "../GuidanceSection";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
-import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
-
+import { Link } from "react-router-dom";
+import { GuidanceSection } from "../GuidanceSection";
 
 const PixelRuler = () => {
   const [orientation, setOrientation] = useState<"horizontal" | "vertical">("horizontal");
   const [rulerLength, setRulerLength] = useState(800);
   const [isFullWidth, setIsFullWidth] = useState(false);
   const [dpr, setDpr] = useState(window.devicePixelRatio || 1);
-  
+
   const rulerContainerRef = useRef<HTMLDivElement>(null);
   const horizontalRulerRef = useRef<HTMLCanvasElement>(null);
   const verticalRulerRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
     setDpr(window.devicePixelRatio || 1);
-    
+
     const handleResize = () => {
       if (isFullWidth) {
         if (orientation === "horizontal") {
@@ -46,7 +44,7 @@ const PixelRuler = () => {
   const toggleFullWidth = () => {
     const newIsFullWidth = !isFullWidth;
     setIsFullWidth(newIsFullWidth);
-    
+
     if (newIsFullWidth && orientation === "horizontal") {
       setRulerLength(window.innerWidth - 48); // Adjust for container padding
     } else if (!newIsFullWidth) {
@@ -57,7 +55,7 @@ const PixelRuler = () => {
   const toggleOrientation = () => {
     const newOrientation = orientation === "horizontal" ? "vertical" : "horizontal";
     setOrientation(newOrientation);
-    
+
     if (isFullWidth && newOrientation === "horizontal") {
       setRulerLength(window.innerWidth - 48);
     } else if (isFullWidth && newOrientation === "vertical") {
@@ -85,39 +83,39 @@ const PixelRuler = () => {
     // Scale for high DPI displays
     const width = rulerLength;
     const height = 60;
-    
+
     canvas.width = width * dpr;
     canvas.height = height * dpr;
     canvas.style.width = `${width}px`;
     canvas.style.height = `${height}px`;
-    
+
     ctx.scale(dpr, dpr);
-    
+
     // Clear canvas
     ctx.fillStyle = '#ffffff';
     ctx.fillRect(0, 0, width, height);
-    
+
     // Draw ruler markings
     ctx.fillStyle = '#000000';
     ctx.font = '10px Arial';
     ctx.textAlign = 'center';
-    
+
     // Draw the main horizontal line
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(0, 30);
     ctx.lineTo(width, 30);
     ctx.stroke();
-    
+
     // Draw tick marks
     for (let i = 0; i <= width; i += 10) {
       const tickHeight = i % 100 === 0 ? 15 : i % 50 === 0 ? 10 : 5;
-      
+
       ctx.beginPath();
       ctx.moveTo(i, 30 - tickHeight);
       ctx.lineTo(i, 30);
       ctx.stroke();
-      
+
       // Add labels for every 100 pixels
       if (i % 100 === 0) {
         ctx.fillText(i.toString(), i, 20);
@@ -131,43 +129,43 @@ const PixelRuler = () => {
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
-    
+
     // Scale for high DPI displays
     const width = 60;
     const height = rulerLength;
-    
+
     canvas.width = width * dpr;
     canvas.height = height * dpr;
     canvas.style.width = `${width}px`;
     canvas.style.height = `${height}px`;
-    
+
     ctx.scale(dpr, dpr);
-    
+
     // Clear canvas
     ctx.fillStyle = '#ffffff';
     ctx.fillRect(0, 0, width, height);
-    
+
     // Draw ruler markings
     ctx.fillStyle = '#000000';
     ctx.font = '10px Arial';
     ctx.textAlign = 'right';
-    
+
     // Draw the main vertical line
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(30, 0);
     ctx.lineTo(30, height);
     ctx.stroke();
-    
+
     // Draw tick marks
     for (let i = 0; i <= height; i += 10) {
       const tickWidth = i % 100 === 0 ? 15 : i % 50 === 0 ? 10 : 5;
-      
+
       ctx.beginPath();
       ctx.moveTo(30 - tickWidth, i);
       ctx.lineTo(30, i);
       ctx.stroke();
-      
+
       // Add labels for every 100 pixels
       if (i % 100 === 0) {
         ctx.save();
@@ -189,27 +187,25 @@ const PixelRuler = () => {
   };
 
   return (
-    <>
-              <Breadcrumb className="mb-4">
-                 <BreadcrumbList>
-                     <BreadcrumbItem>
-                        <BreadcrumbLink asChild>
-                           <Link to="/">Home</Link>
-                        </BreadcrumbLink>
-                     </BreadcrumbItem>
-                      <BreadcrumbSeparator />
-                      <BreadcrumbItem>
-                       <BreadcrumbPage>Pixel Ruler</BreadcrumbPage>
-                        </BreadcrumbItem>
-                  </BreadcrumbList>
-               </Breadcrumb>
-    <ToolLayout
-      title="Online Pixel Ruler"
-      description="Measure elements on your screen in pixels. Useful for web designers and developers."
-    >
-      <div className="space-y-6">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-3">
+    <div className="max-w-4xl mx-auto px-4">
+      <Breadcrumb className="mb-4">
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/">Home</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>Pixel Ruler</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+
+      <Card>
+        <CardHeader>
+          <div className="flex items-center justify-between">
+            <CardTitle>Online Pixel Ruler</CardTitle>
             <Button
               variant="outline"
               size="sm"
@@ -228,6 +224,10 @@ const PixelRuler = () => {
                 </>
               )}
             </Button>
+          </div>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          <div className="flex items-center justify-between">
             <Button
               variant="outline"
               size="sm"
@@ -246,9 +246,7 @@ const PixelRuler = () => {
                 </>
               )}
             </Button>
-          </div>
-          
-          {!isFullWidth && (
+
             <div className="flex items-center space-x-2">
               <Button
                 variant="outline"
@@ -258,9 +256,7 @@ const PixelRuler = () => {
               >
                 -100px
               </Button>
-              <span className="text-sm px-2">
-                {rulerLength}px
-              </span>
+              <span className="text-sm px-2">{rulerLength}px</span>
               <Button
                 variant="outline"
                 size="sm"
@@ -270,83 +266,57 @@ const PixelRuler = () => {
                 +100px
               </Button>
             </div>
-          )}
-        </div>
-        
-        <div 
-          ref={rulerContainerRef}
-          className="flex justify-center bg-white border border-gray-200 rounded-lg p-6 overflow-auto"
-        >
-          {orientation === "horizontal" ? (
-            <canvas
-              ref={horizontalRulerRef}
-              className="border border-gray-300 shadow-sm"
-              style={{ width: rulerLength, height: 60 }}
-            />
-          ) : (
-            <canvas
-              ref={verticalRulerRef}
-              className="border border-gray-300 shadow-sm"
-              style={{ width: 60, height: rulerLength }}
-            />
-          )}
-        </div>
-        
-        <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-          <h3 className="text-sm font-medium text-gray-700 mb-2">How to Use</h3>
-          <ul className="text-sm text-gray-600 space-y-1 list-disc pl-5">
-            <li>The ruler displays measurements in pixels</li>
-            <li>Use the buttons above to change orientation or size</li>
-            <li>Position the ruler next to the element you want to measure</li>
-            <li>For more precise measurements, use browser developer tools</li>
-          </ul>
-          
-          <div className="mt-4 pt-3 border-t border-gray-200">
-            <h4 className="text-xs font-medium text-gray-600 mb-1">Device Information</h4>
-            <div className="text-xs text-gray-500">
-              <p>Screen Resolution: {window.screen.width} × {window.screen.height} pixels</p>
-              <p>Device Pixel Ratio: {dpr}x</p>
-            </div>
           </div>
-        </div>
-      </div>
-    </ToolLayout>
-    <GuidanceSection title="How to Use the Online Pixel Ruler">
-  <div className="space-y-4">
-    <div>
-      <h4 className="font-medium mb-1">Using the Pixel Ruler</h4>
-      <p>The Online Pixel Ruler allows you to measure elements on your screen in pixels, making it an essential tool for web designers and developers.</p>
 
-      <p className="mt-2"><strong>How to Use:</strong></p>
-      <ol className="list-decimal pl-5">
-        <li>Use the buttons to adjust the ruler width in increments of 100px.</li>
-        <li>Switch between horizontal and vertical orientation as needed.</li>
-        <li>Position the ruler next to the element you want to measure.</li>
-        <li>For more precise measurements, use your browser's developer tools.</li>
-      </ol>
+          <div ref={rulerContainerRef} className="relative w-full">
+            {orientation === "horizontal" ? (
+              <canvas ref={horizontalRulerRef} className="w-full h-16" />
+            ) : (
+              <canvas ref={verticalRulerRef} className="w-16 h-full" />
+            )}
+          </div>
+
+          <GuidanceSection title="How to Use the Pixel Ruler">
+            <p>The Pixel Ruler is a versatile tool that allows you to measure pixel distances on your screen with precision. Whether you're designing graphics, measuring UI elements, or ensuring pixel-perfect alignment, this tool can help you get accurate measurements.</p>
+            
+            <h4>Step-by-Step Instructions</h4>
+            <p>Follow these steps to get started:</p>
+            <ol>
+              <li>Click on the ruler icon to activate the tool.</li>
+              <li>Click and drag the ruler to the desired starting point on the screen.</li>
+              <li>Adjust the length and orientation of the ruler by dragging its ends or rotating it.</li>
+              <li>Read the pixel measurements displayed along the ruler to get the exact distance between the two points.</li>
+            </ol>
+
+            <h4>Additional Features</h4>
+            <ul>
+              <li><strong>Adjustable Units:</strong> You can switch between pixels, inches, and centimeters depending on your measurement needs.</li>
+              <li><strong>Snap to Grid:</strong> For designers working on grid layouts, enable the snap-to-grid feature for easier alignment with predefined grid lines.</li>
+              <li><strong>Ruler Rotation:</strong> Rotate the ruler to measure diagonal distances or specific angles between elements.</li>
+            </ul>
+
+            <h4>Tips for Precision</h4>
+            <ul>
+              <li><strong>Zoom In:</strong> To get more precise measurements, zoom in on the area you're working with for better accuracy.</li>
+              <li><strong>Use Multiple Rulers:</strong> You can use more than one ruler at the same time to measure different areas simultaneously.</li>
+              <li><strong>Use the Grid Overlay:</strong> If you're measuring specific UI elements, overlay a grid to assist with more accurate measurements.</li>
+            </ul>
+
+            <h4>Common Use Cases</h4>
+            <p>Here are some scenarios where the Pixel Ruler can come in handy:</p>
+            <ul>
+              <li>Designing responsive web pages and ensuring pixel-perfect elements.</li>
+              <li>Measuring distances between objects in digital artwork or UI layouts.</li>
+              <li>Verifying that UI components align correctly on different screen sizes.</li>
+            </ul>
+
+            <p>With these instructions and tips, you should be able to get the most out of the Pixel Ruler and achieve precise measurements every time.</p>
+          </GuidanceSection>
+
+
+        </CardContent>
+      </Card>
     </div>
-
-    <div>
-      <h4 className="font-medium mb-1">Device Information</h4>
-      <ul className="list-disc pl-5">
-        <li><strong>Screen Resolution:</strong> 1536 × 864 pixels</li>
-        <li><strong>Device Pixel Ratio:</strong> 1.25x</li>
-        <li>Effective resolution is adjusted based on pixel density.</li>
-      </ul>
-    </div>
-
-    <div>
-      <h4 className="font-medium mb-1">Why Use This Tool?</h4>
-      <ul className="list-disc pl-5">
-        <li>Accurately measure elements without needing external software.</li>
-        <li>Quickly adjust dimensions to match design specifications.</li>
-        <li>Ensure pixel-perfect alignment in UI/UX design.</li>
-      </ul>
-    </div>
-  </div>
-</GuidanceSection>
-
-    </>
   );
 };
 

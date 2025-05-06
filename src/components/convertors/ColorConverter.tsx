@@ -1,3 +1,4 @@
+// ColorConverter.tsx
 import React, { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -20,7 +21,6 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-
 import { Link, useLocation } from "react-router-dom";
 
 function useQuery() {
@@ -130,37 +130,38 @@ const convertColor = (value: string, from: string, to: string): string => {
     const [r, g, b] = input.replace(/[^\d,]/g, "").split(",").map(Number);
     return { r, g, b };
   };
-
+  
   const parseHSL = (input: string) => {
     const [h, s, l] = input.replace(/[^\d,]/g, "").split(",").map(Number);
     return { h, s, l };
   };
-
+  
   const parseHSV = (input: string) => {
     const [h, s, v] = input.replace(/[^\d,]/g, "").split(",").map(Number);
     return { h, s, v };
   };
-
+  
   const parseCMYK = (input: string) => {
     const [c, m, y, k] = input.replace(/[^\d,]/g, "").split(",").map(Number);
     return { c, m, y, k };
   };
-
+  
   let rgb;
   if (from === "hex") rgb = parseHex(value);
   else if (from === "rgb") rgb = parseRGB(value);
-  else if (from === "hsl") rgb = hslToRgb(...Object.values(parseHSL(value)));
-  else if (from === "hsv") rgb = hsvToRgb(...Object.values(parseHSV(value)));
-  else if (from === "cmyk") rgb = cmykToRgb(...Object.values(parseCMYK(value)));
+  else if (from === "hsl") rgb = hslToRgb(parseHSL(value).h, parseHSL(value).s, parseHSL(value).l);
+  else if (from === "hsv") rgb = hsvToRgb(parseHSV(value).h, parseHSV(value).s, parseHSV(value).v);
+  else if (from === "cmyk") rgb = cmykToRgb(parseCMYK(value).c, parseCMYK(value).m, parseCMYK(value).y, parseCMYK(value).k);
   else throw new Error("Unsupported format");
-
+  
   if (to === "hex") return rgbToHex(rgb.r, rgb.g, rgb.b);
   if (to === "rgb") return `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
   if (to === "hsl") return rgbToHsl(rgb.r, rgb.g, rgb.b);
   if (to === "hsv") return rgbToHsv(rgb.r, rgb.g, rgb.b);
   if (to === "cmyk") return rgbToCmyk(rgb.r, rgb.g, rgb.b);
-
+  
   return "Invalid conversion";
+  
 };
 
 export const ColorConverter = () => {
@@ -210,7 +211,7 @@ export const ColorConverter = () => {
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
-          <BreadcrumbPage>Color Convertor</BreadcrumbPage>
+          <BreadcrumbPage>Color Converter</BreadcrumbPage>
         </BreadcrumbList>
       </Breadcrumb>
 
@@ -224,7 +225,7 @@ export const ColorConverter = () => {
               <div className="space-y-2">
                 <Label>From</Label>
                 <Select value={fromFormat} onValueChange={setFromFormat}>
-                  <SelectTrigger disabled>
+                  <SelectTrigger>
                     <SelectValue placeholder="From format" />
                   </SelectTrigger>
                   <SelectContent>
@@ -244,7 +245,7 @@ export const ColorConverter = () => {
               <div className="space-y-2">
                 <Label>To</Label>
                 <Select value={toFormat} onValueChange={setToFormat}>
-                  <SelectTrigger disabled>
+                  <SelectTrigger>
                     <SelectValue placeholder="To format" />
                   </SelectTrigger>
                   <SelectContent>
@@ -292,22 +293,34 @@ export const ColorConverter = () => {
           </CardContent>
         </Card>
 
-        <GuidanceSection title={`How to Convert ${fromFormat.toUpperCase()} to ${toFormat.toUpperCase()}`}>
-          <p>Use the format guide and example below:</p>
-          <ol className="list-decimal pl-5 my-2">
-            <li>Select "{fromFormat.toUpperCase()}" from the "From" dropdown</li>
-            <li>Select "{toFormat.toUpperCase()}" from the "To" dropdown</li>
-            <li>Enter your color code (e.g., #ff5733 or 255,87,51)</li>
-            <li>Click "Convert" to get the result</li>
-          </ol>
-          <h4 className="font-medium mt-4 mb-1">Example</h4>
-          <p>
-            Convert <code>#ff5733</code> (HEX) to RGB:
-          </p>
-          <div className="bg-background p-2 rounded my-2">
-            <p>#ff5733 = rgb(255, 87, 51)</p>
-          </div>
-        </GuidanceSection>
+        // At the end of ColorConverter component
+
+<GuidanceSection title={`How to Convert ${fromFormat.toUpperCase()} to ${toFormat.toUpperCase()}`}>
+  <p>Use the format guide and example below:</p>
+  <ol className="list-decimal pl-5 my-2 space-y-2">
+    <li>
+      Select <strong>{fromFormat.toUpperCase()}</strong> as the source format and{" "}
+      <strong>{toFormat.toUpperCase()}</strong> as the target format.
+    </li>
+    <li>
+      Enter the color value using the correct format:
+      <ul className="list-disc pl-5 mt-1 space-y-1">
+        <li><strong>HEX</strong>: <code>#ff5733</code> or <code>ff5733</code></li>
+        <li><strong>RGB</strong>: <code>255,87,51</code></li>
+        <li><strong>HSL</strong>: <code>14,100,60</code></li>
+        <li><strong>HSV</strong>: <code>14,80,100</code></li>
+        <li><strong>CMYK</strong>: <code>0,66,80,0</code></li>
+      </ul>
+    </li>
+    <li>Click the <strong>Convert</strong> button to see the result below.</li>
+  </ol>
+  <p className="mt-3">
+    This tool helps you convert between multiple color formats used in web and print design. 
+    Ensure your input matches the expected format for accurate conversion.
+  </p>
+</GuidanceSection>
+
+
       </div>
     </>
   );

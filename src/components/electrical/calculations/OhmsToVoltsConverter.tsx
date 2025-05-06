@@ -40,7 +40,7 @@ const OhmsToVoltsConverter: React.FC = () => {
         <CardHeader>
           <CardTitle>How to Convert Ohms to Volts</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed dark:text-white">
           {/* Introduction */}
           <p>
             In this guide, you'll learn how to convert resistance in ohms (<code>Ω</code>) and current in amps (<code>A</code>) to voltage in volts (<code>V</code>).
@@ -79,7 +79,7 @@ const OhmsToVoltsConverter: React.FC = () => {
             <p>
               Suppose you have a current of {current} <code>A</code> and a resistance of {resistance} <code>Ω</code>. To convert this to voltage in volts:
             </p>
-            <div className="bg-gray-100 p-4 rounded-md text-center">
+            <div className="bg-gray-100 p-4 rounded-md text-center dark:text-black">
               <p className="font-semibold">V = I × R</p>
               <p className="mt-2">
                 V = {current} <code>A</code> × {resistance} <code>Ω</code> = {voltage} <code>V</code>
@@ -96,15 +96,15 @@ const OhmsToVoltsConverter: React.FC = () => {
             <ul className="list-disc ml-6 space-y-2">
               <li>
                 *Example 1:* For a current of 5 <code>A</code> and a resistance of 10 <code>Ω</code>:
-                <p className="bg-gray-100 p-2">V = 5 <code>A</code> × 10 <code>Ω</code> = 50 <code>V</code></p>
+                <p className="bg-gray-100 p-2 dark:text-black">V = 5 <code>A</code> × 10 <code>Ω</code> = 50 <code>V</code></p>
               </li>
               <li>
                 *Example 2:* For a current of 2 <code>A</code> and a resistance of 20 <code>Ω</code>:
-                <p className="bg-gray-100 p-2">V = 2 <code>A</code> × 20 <code>Ω</code> = 40 <code>V</code></p>
+                <p className="bg-gray-100 p-2 dark:text-black">V = 2 <code>A</code> × 20 <code>Ω</code> = 40 <code>V</code></p>
               </li>
               <li>
                 *Example 3:* For a current of 10 <code>A</code> and a resistance of 5 <code>Ω</code>:
-                <p className="bg-gray-100 p-2">V = 10 <code>A</code> × 5 <code>Ω</code> = 50 <code>V</code></p>
+                <p className="bg-gray-100 p-2 dark:text-black">V = 10 <code>A</code> × 5 <code>Ω</code> = 50 <code>V</code></p>
               </li>
             </ul>
           </div>

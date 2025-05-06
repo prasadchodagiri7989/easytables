@@ -65,7 +65,7 @@ const KilowattsToAmpsConverter: React.FC = () => {
         <CardHeader>
           <CardTitle>Kilowatts to Amps Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>Convert power in kilowatts (kW) to current in amps (A) by selecting the phase type and entering voltage and power factor if needed.</p>
 
           <div className="space-y-4">
@@ -75,7 +75,7 @@ const KilowattsToAmpsConverter: React.FC = () => {
                 type="number"
                 value={power}
                 onChange={(e) => setPower(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -85,7 +85,7 @@ const KilowattsToAmpsConverter: React.FC = () => {
                 type="number"
                 value={voltage}
                 onChange={(e) => setVoltage(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -94,7 +94,7 @@ const KilowattsToAmpsConverter: React.FC = () => {
               <select
                 value={phaseType}
                 onChange={(e) => setPhaseType(e.target.value as any)}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               >
                 <option value="DC">DC</option>
                 <option value="AC Single Phase">AC Single Phase</option>
@@ -126,7 +126,7 @@ const KilowattsToAmpsConverter: React.FC = () => {
 
             <div>
               <strong>Result:</strong>
-              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{current} A</p>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base dark:text-black">{current} A</p>
             </div>
 
             <div>

@@ -189,7 +189,7 @@ const SvgViewer = () => {
               value={svgCode}
               onChange={handleCodeChange}
               placeholder="Paste your SVG code here or upload an SVG file..."
-              className="flex-1 p-4 font-mono text-sm resize-none border-0 focus:ring-0 outline-none"
+              className="flex-1 p-4 font-mono text-sm resize-none border focus:ring-0 outline-none dark:bg-transparent"
               spellCheck="false"
             ></textarea>
           </div>
@@ -218,7 +218,7 @@ const SvgViewer = () => {
                     id="size"
                     value={previewSize}
                     onChange={(e) => setPreviewSize(Number(e.target.value))}
-                    className="text-xs p-1 border border-gray-200 rounded"
+                    className="text-xs p-1 border border-gray-200 rounded dark:text-black"
                   >
                     <option value="200">Small</option>
                     <option value="300">Medium</option>

@@ -44,7 +44,7 @@ const VAToAmpsConverter: React.FC = () => {
         <CardHeader>
           <CardTitle>VA to Amps Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>Convert apparent power in volt-amperes (VA) and voltage in volts (V) to current in amps (A).</p>
 
           <div className="space-y-4">
@@ -54,7 +54,7 @@ const VAToAmpsConverter: React.FC = () => {
                 type="number"
                 value={apparentPower}
                 onChange={(e) => setApparentPower(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -64,7 +64,7 @@ const VAToAmpsConverter: React.FC = () => {
                 type="number"
                 value={voltage}
                 onChange={(e) => setVoltage(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -77,7 +77,7 @@ const VAToAmpsConverter: React.FC = () => {
 
             <div>
               <strong>Converted Current:</strong>
-              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{currentAmps} A</p>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base dark:text-black">{currentAmps} A</p>
             </div>
 
             <div>
@@ -109,15 +109,15 @@ const VAToAmpsConverter: React.FC = () => {
               <ul className="space-y-2 list-disc list-inside">
                 <li>
                   <strong>Example 1:</strong> For an apparent power of 1000 VA and a voltage of 230 V:
-                  <p className="bg-white p-2">I = 1000 VA / 230 V = 4.35 A</p>
+                  <p className="bg-white p-2 dark:text-black">I = 1000 VA / 230 V = 4.35 A</p>
                 </li>
                 <li>
                   <strong>Example 2:</strong> For an apparent power of 5000 VA and a voltage of 120 V:
-                  <p className="bg-white p-2">I = 5000 VA / 120 V = 41.67 A</p>
+                  <p className="bg-white p-2 dark:text-black">I = 5000 VA / 120 V = 41.67 A</p>
                 </li>
                 <li>
                   <strong>Example 3:</strong> For an apparent power of 2500 VA and a voltage of 480 V:
-                  <p className="bg-white p-2">I = 2500 VA / 480 V = 5.21 A</p>
+                  <p className="bg-white p-2 dark:text-black">I = 2500 VA / 480 V = 5.21 A</p>
                 </li>
               </ul>
             </div>

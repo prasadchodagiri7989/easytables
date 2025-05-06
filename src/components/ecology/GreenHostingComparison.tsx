@@ -65,7 +65,7 @@ const GreenHostingComparison: React.FC = () => {
         <CardHeader>
           <CardTitle>Green Hosting Providers Comparison</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>
             Green web hosting is an eco-conscious alternative to traditional hosting, aimed at reducing carbon emissions and promoting sustainability. These providers invest in renewable energy, carbon offset programs, or energy-efficient data centers. Here's a comparison of some well-known green hosting providers:
           </p>

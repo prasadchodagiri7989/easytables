@@ -32,7 +32,7 @@ const AmpToWattsConverter: React.FC = () => {
                           </BreadcrumbItem>
                           <BreadcrumbSeparator />
                           <BreadcrumbItem>
-                            <BreadcrumbPage>kVA to VA Calculator</BreadcrumbPage>
+                            <BreadcrumbPage>Amps to Watts</BreadcrumbPage>
                           </BreadcrumbItem>
                         </BreadcrumbList>
                      </Breadcrumb>
@@ -40,7 +40,7 @@ const AmpToWattsConverter: React.FC = () => {
         <CardHeader>
           <CardTitle>How to Convert Amps to Watts</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed dark:text-white">
 
           {/* Introduction */}
           <section>
@@ -73,7 +73,7 @@ const AmpToWattsConverter: React.FC = () => {
             <p>
               For a DC power supply with a voltage of 12V:
             </p>
-            <div className="bg-gray-100 p-4 rounded-md text-center">
+            <div className="bg-gray-100 p-4 rounded-md text-center dark:text-black">
               <p className="font-semibold">watts = amps × volts</p>
               <p className="mt-2">
                 watts = {amps}A × 12V = {calculateWatts(amps, 12)}W
@@ -94,7 +94,7 @@ const AmpToWattsConverter: React.FC = () => {
 
               {/* Resistive load */}
               <p>For a resistive load (PF = 1):</p>
-              <div className="bg-gray-100 p-4 rounded-md text-center">
+              <div className="bg-gray-100 p-4 rounded-md text-center dark:text-black">
                 <p className="font-semibold">watts = PF × amps × volts</p>
                 <p className="mt-2">
                   watts = 1 × {amps}A × 120V = {calculateWatts(amps, 120, 1)}W
@@ -106,7 +106,7 @@ const AmpToWattsConverter: React.FC = () => {
 
               {/* Inductive load */}
               <p className="mt-4">For an inductive load (PF = 0.8):</p>
-              <div className="bg-gray-100 p-4 rounded-md text-center">
+              <div className="bg-gray-100 p-4 rounded-md text-center dark:text-black">
                 <p className="font-semibold">watts = PF × amps × volts</p>
                 <p className="mt-2">
                   watts = 0.8 × {amps}A × 120V = {calculateWatts(amps, 120, 0.8)}W
@@ -123,7 +123,7 @@ const AmpToWattsConverter: React.FC = () => {
 
               {/* Resistive load */}
               <p>For a resistive load (PF = 1):</p>
-              <div className="bg-gray-100 p-4 rounded-md text-center">
+              <div className="bg-gray-100 p-4 rounded-md text-center dark:text-black">
                 <p className="font-semibold">watts = PF × amps × volts</p>
                 <p className="mt-2">
                   watts = 1 × {amps}A × 230V = {calculateWatts(amps, 230, 1)}W
@@ -135,7 +135,7 @@ const AmpToWattsConverter: React.FC = () => {
 
               {/* Inductive load */}
               <p className="mt-4">For an inductive load (PF = 0.8):</p>
-              <div className="bg-gray-100 p-4 rounded-md text-center">
+              <div className="bg-gray-100 p-4 rounded-md text-center dark:text-black">
                 <p className="font-semibold">watts = PF × amps × volts</p>
                 <p className="mt-2">
                   watts = 0.8 × {amps}A × 230V = {calculateWatts(amps, 230, 0.8)}W

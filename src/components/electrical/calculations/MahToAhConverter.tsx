@@ -69,7 +69,7 @@ const MahToAhConverter: React.FC = () => {
         <CardHeader>
           <CardTitle>mAh to Ah Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>Convert milliampere-hours (mAh) to ampere-hours (Ah) for battery capacity.</p>
 
           <div className="space-y-4">
@@ -79,7 +79,7 @@ const MahToAhConverter: React.FC = () => {
                 type="number"
                 value={mAh}
                 onChange={(e) => setMah(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -92,7 +92,7 @@ const MahToAhConverter: React.FC = () => {
 
             <div>
               <strong>Converted Capacity (Ah):</strong>
-              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{ah} Ah</p>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base dark:text-black">{ah} Ah</p>
             </div>
 
             <div>

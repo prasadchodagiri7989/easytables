@@ -44,7 +44,7 @@ const VoltsToAmpsConverter: React.FC = () => {
         <CardHeader>
           <CardTitle>Volts to Amps Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>Convert voltage in volts (V) and resistance in ohms (Ω) to current in amperes (A) using Ohm's Law.</p>
 
           <div className="space-y-4">
@@ -54,7 +54,7 @@ const VoltsToAmpsConverter: React.FC = () => {
                 type="number"
                 value={volts}
                 onChange={(e) => setVolts(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -64,7 +64,7 @@ const VoltsToAmpsConverter: React.FC = () => {
                 type="number"
                 value={resistance}
                 onChange={(e) => setResistance(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -77,7 +77,7 @@ const VoltsToAmpsConverter: React.FC = () => {
 
             <div>
               <strong>Converted Current:</strong>
-              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{currentAmps} A</p>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base dark:text-black">{currentAmps} A</p>
             </div>
 
             <div>
@@ -85,15 +85,15 @@ const VoltsToAmpsConverter: React.FC = () => {
               <ul className="space-y-2 list-disc list-inside">
                 <li>
                   *Example 1:* For a voltage of 1V and a resistance of 1Ω:
-                  <p className="bg-gray-100 p-2">I(A) = 1V / 1Ω = 1 A</p>
+                  <p className="bg-gray-100 p-2 dark:text-black">I(A) = 1V / 1Ω = 1 A</p>
                 </li>
                 <li>
                   *Example 2:* For a voltage of 120V and a resistance of 12Ω:
-                  <p className="bg-gray-100 p-2">I(A) = 120V / 12Ω = 10 A</p>
+                  <p className="bg-gray-100 p-2 dark:text-black">I(A) = 120V / 12Ω = 10 A</p>
                 </li>
                 <li>
                   *Example 3:* For a voltage of 240V and a resistance of 24Ω:
-                  <p className="bg-gray-100 p-2">I(A) = 240V / 24Ω = 10 A</p>
+                  <p className="bg-gray-100 p-2 dark:text-black">I(A) = 240V / 24Ω = 10 A</p>
                 </li>
               </ul>
             </div>

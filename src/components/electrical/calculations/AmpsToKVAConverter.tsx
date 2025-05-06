@@ -48,11 +48,11 @@ const AmpsToKVAConverter: React.FC = () => {
                           </BreadcrumbItem>
                         </BreadcrumbList>
                      </Breadcrumb>
-      <Card className="bg-white shadow-lg">
+      <Card className="bg-white shadow-lg dark:bg-transparent dark:text-white">
         <CardHeader>
           <CardTitle>How to Convert Amps to kVA</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed dark:text-white">
 
           {/* Introduction */}
           <p>
@@ -76,7 +76,7 @@ const AmpsToKVAConverter: React.FC = () => {
             <p>
               If the phase current is 12 amps (A) and the RMS voltage is 110 volts (V), the apparent power in kVA is:
             </p>
-            <div className="bg-gray-100 p-4 rounded-md text-center">
+            <div className="bg-gray-100 p-4 rounded-md text-center dark:text-black">
               <p className="font-semibold">kVA = Amps × Volts / 1000</p>
               <p className="mt-2">
                 kVA = {amps}A × {volts}V / 1000 = {singlePhaseKVA.toFixed(3)} kVA
@@ -109,7 +109,7 @@ const AmpsToKVAConverter: React.FC = () => {
             <p>
               If the phase current is 12 amps (A) and the line-to-line RMS voltage is 190 volts (V), the apparent power in kVA is:
             </p>
-            <div className="bg-gray-100 p-4 rounded-md text-center">
+            <div className="bg-gray-100 p-4 rounded-md text-center dark:text-black">
               <p className="font-semibold">kVA = √3 × Amps × Volts / 1000</p>
               <p className="mt-2">
                 kVA = √3 × {amps}A × {volts}V / 1000 = {threePhaseLineToLineKVA.toFixed(3)} kVA
@@ -134,7 +134,7 @@ const AmpsToKVAConverter: React.FC = () => {
             <p>
               If the phase current is 12 amps (A) and the line-to-neutral RMS voltage is 120 volts (V), the apparent power in kVA is:
             </p>
-            <div className="bg-gray-100 p-4 rounded-md text-center">
+            <div className="bg-gray-100 p-4 rounded-md text-center dark:text-black">
               <p className="font-semibold">kVA = 3 × Amps × Volts / 1000</p>
               <p className="mt-2">
                 kVA = 3 × {amps}A × {volts}V / 1000 = {threePhaseLineToNeutralKVA.toFixed(3)} kVA

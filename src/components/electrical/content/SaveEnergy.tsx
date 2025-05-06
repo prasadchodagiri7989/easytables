@@ -1,9 +1,7 @@
-// components/energy/HowToSaveEnergy.tsx
-
-import React from 'react';
+import React from "react";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
-
 
 const HowToSaveEnergy = () => {
   const energyTips = [
@@ -119,17 +117,44 @@ const HowToSaveEnergy = () => {
   ];
 
   return (
-    <>
-    <div className="p-6 md:p-10 max-w-4xl">
-      <h1 className="text-3xl font-bold mb-6 text-green-700">How to Save Energy</h1>
-      <p className="mb-4 text-lg text-gray-700 dark:text-white">Practical tips to reduce electricity and fuel consumption and save money at home and on the road.</p>
-      <ul className="list-disc pl-5 space-y-2 text-gray-800">
-        {energyTips.map((tip, index) => (
-          <li key={index} className="leading-relaxed dark:text-white">{tip}</li>
-        ))}
-      </ul>
+    <div className="w-full max-w-4xl mx-auto">
+      <Breadcrumb className="mb-4">
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/">Home</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/ecology/all">Ecology</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>How to Save Energy</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>How to Save Energy</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+          <p>
+            Practical tips to reduce electricity and fuel consumption and save money at home and on the road.
+          </p>
+
+          <ul className="list-disc pl-5 space-y-2 text-gray-800">
+            {energyTips.map((tip, index) => (
+              <li key={index} className="leading-relaxed dark:text-white">{tip}</li>
+            ))}
+          </ul>
+        </CardContent>
+      </Card>
     </div>
-    </>
   );
 };
 

@@ -191,7 +191,7 @@ const HttpStatusChecker = () => {
               value={url}
               onChange={(e) => setUrl(e.target.value)}
               placeholder="example.com"
-              className="flex-1 px-4 py-2 border border-gray-200 rounded-l-lg focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all"
+              className="flex-1 px-4 py-2 border border-gray-200 rounded-l-lg focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all dark:bg-transparent"
             />
             <Button
               onClick={checkStatus}

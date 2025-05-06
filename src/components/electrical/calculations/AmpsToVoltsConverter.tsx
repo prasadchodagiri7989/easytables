@@ -37,15 +37,15 @@ const AmpsToVoltsConverter: React.FC = () => {
                           </BreadcrumbItem>
                           <BreadcrumbSeparator />
                           <BreadcrumbItem>
-                            <BreadcrumbPage>kVA to VA Calculator</BreadcrumbPage>
+                            <BreadcrumbPage>Amps to Volts</BreadcrumbPage>
                           </BreadcrumbItem>
                         </BreadcrumbList>
                      </Breadcrumb>
-      <Card className="bg-white shadow-lg">
+      <Card className="bg-white shadow-lg dark:bg-transparent dark:text-white">
         <CardHeader>
           <CardTitle>How to Convert Amps to Volts</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed dark:text-white">
 
           {/* Introduction */}
           <p>
@@ -72,7 +72,7 @@ const AmpsToVoltsConverter: React.FC = () => {
             <p className="mt-2">
               For example, if the power consumption is {watts}W and the current is {amps}A, the voltage would be:
             </p>
-            <div className="bg-gray-100 p-4 rounded-md text-center">
+            <div className="bg-gray-100 p-4 rounded-md text-center dark:text-black">
               <p className="font-semibold">V = W / A</p>
               <p className="mt-2">
                 V = {watts}W / {amps}A = {voltsWithWatts}V
@@ -95,7 +95,7 @@ const AmpsToVoltsConverter: React.FC = () => {
             <p className="mt-2">
               For example, if the current is {amps}A and the resistance is {resistance}Ω, the voltage would be:
             </p>
-            <div className="bg-gray-100 p-4 rounded-md text-center">
+            <div className="bg-gray-100 p-4 rounded-md text-center dark:text-black">
               <p className="font-semibold">V = A × Ω</p>
               <p className="mt-2">
                 V = {amps}A × {resistance}Ω = {voltsWithOhms}V
@@ -112,11 +112,11 @@ const AmpsToVoltsConverter: React.FC = () => {
             <ul className="list-disc ml-6">
               <li>
                 *Example 1:* If the power consumption is 45W and the current is 3A, the voltage supply would be:
-                <p className="bg-gray-100 p-2">V = 45W / 3A = 15V</p>
+                <p className="bg-gray-100 p-2 dark:text-black">V = 45W / 3A = 15V</p>
               </li>
               <li>
                 *Example 2:* For a circuit with a current of 3A and a resistance of 10Ω, the voltage would be:
-                <p className="bg-gray-100 p-2">V = 3A × 10Ω = 30V</p>
+                <p className="bg-gray-100 p-2 dark:text-black">V = 3A × 10Ω = 30V</p>
               </li>
             </ul>
           </div>

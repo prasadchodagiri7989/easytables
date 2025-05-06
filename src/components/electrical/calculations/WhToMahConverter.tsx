@@ -50,7 +50,7 @@ const WhToMahConverter: React.FC = () => {
         <CardHeader>
           <CardTitle>Wh to mAh Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>Convert energy in watt-hours (Wh) to electric charge in milliamp-hours (mAh) for battery capacities.</p>
 
           {/* Input Fields */}
@@ -61,7 +61,7 @@ const WhToMahConverter: React.FC = () => {
                 type="number"
                 value={wh}
                 onChange={(e) => setWh(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -71,7 +71,7 @@ const WhToMahConverter: React.FC = () => {
                 type="number"
                 value={voltage}
                 onChange={(e) => setVoltage(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -85,7 +85,7 @@ const WhToMahConverter: React.FC = () => {
             {/* Result Display */}
             <div>
               <strong>Converted Capacity:</strong>
-              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{mah.toFixed(2)} mAh</p>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base dark:text-black">{mah.toFixed(2)} mAh</p>
             </div>
 
             {/* Formula */}

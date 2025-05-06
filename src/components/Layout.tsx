@@ -6,6 +6,9 @@ import { cn } from "@/lib/utils";
 import { SearchBar } from "./SearchBar";
 import { useTheme } from "@/hooks/use-theme";
 
+import { ReferenceLinks } from "./reference/ReferenceLinks"; // adjust path as needed
+
+
 interface LayoutProps {
   children: React.ReactNode;
 }
@@ -64,6 +67,11 @@ export const Layout = ({ children }: LayoutProps) => {
           </div>
           
           {children}
+          
+          <ReferenceLinks />
+
+
+          
         </div>
       </main>
     </div>

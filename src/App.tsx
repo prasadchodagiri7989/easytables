@@ -656,7 +656,10 @@ const App = () => (
           <Route path="/electrical-calculators/kwh-to-kw-calculator" element={<Layout><KWhToKWCalculator /></Layout>} />
           <Route path="/electrical-calculators/kwh-to-watts-calculator" element={<Layout><KWhToWattsCalculator /></Layout>} />
           <Route path="/electrical-calculators/mah-to-wh-calculator" element={<Layout><MAhToWhCalculator /></Layout>} />
+          <Route path="/electrical-calculators/ohms-law-calculator" element={<Layout><OhmsLawCalculator /></Layout>} />
+          <Route path="/electrical-calculators/power-calculator" element={<Layout><PowerCalculator /></Layout>} />
           <Route path="/electrical-calculators/power-factor-calculator" element={<Layout><PowerFactorCalculator /></Layout>} />
+          <Route path="/electrical-calculators/voltage-divider-calculator" element={<Layout><VoltageDividerCalculator /></Layout>} />
           <Route path="/electrical-calculators/va-to-amps-calculator" element={<Layout><VAToAmpsCalculator /></Layout>} />
           <Route path="/electrical-calculators/va-to-watts-calculator" element={<Layout><VAToWattsCalculator /></Layout>} />
           <Route path="/electrical-calculators/va-to-kw-calculator" element={<Layout><VAToKWCalculator /></Layout>} />
@@ -706,7 +709,7 @@ const App = () => (
           <Route path="/calculator/gst" element={<Layout><GSTCalculator /></Layout>} />
           <Route path="/calculator/simple-interest" element={<Layout><SimpleInterestCalculator /></Layout>} />
           <Route path="/calculator/vat" element={<Layout><VATCalculator /></Layout>} />
-          <Route path="/calculators/Percentage-calculator" element={<Layout><PercentageCalculator /></Layout>}/>
+          <Route path="components/calculators/PercentageCalculator" element={<Layout><PercentageCalculator /></Layout>}/>
           <Route path="/calculator/percentage-change" element={<Layout><PercentageCalculator /></Layout>}/>
           <Route path="/calculator/percentage-increase" element={<Layout><PercentageIncreaseCalculator /></Layout>}/>
 
@@ -904,6 +907,7 @@ const App = () => (
           <Route path="/electrical-calculations/ah-to-mah" element={<Layout><AhToMAhConverter /></Layout>} />
           <Route path="/electrical-calculations/amps-to-kilowatts" element={<Layout><AmpsToKilowattsConverter /></Layout>} />
           <Route path="/electrical-calculations/amps-to-kva" element={<Layout><AmpsToKVAConverter /></Layout>} />
+          <Route path="/electrical-calculations/amps-to-kw" element={<Layout><AmpsToKilowattsConverter /></Layout>} />
           <Route path="/electrical-calculations/amps-to-milliamps" element={<Layout><AmpsToMilliampsConverter /></Layout>} />
           <Route path="/electrical-calculations/amps-to-ohms" element={<Layout><AmpsToOhmsConverter /></Layout>} />
           <Route path="/electrical-calculations/amps-to-va" element={<Layout><AmpsToVAConverter /></Layout>} />
@@ -919,6 +923,10 @@ const App = () => (
           <Route path="/electrical-calculations/kilowatts-to-kva" element={<Layout><KilowattsToKVAConverter /></Layout>} />
           <Route path="/electrical-calculations/kva-to-kw" element={<Layout><KVAToKWConverter /></Layout>} />
           <Route path="/electrical-calculations/kva-to-va" element={<Layout><KVAToVAConverter /></Layout>} />
+          <Route path="/electrical-calculations/kw-to-kva" element={<Layout><KilowattsToKVAConverter /></Layout>} />
+          <Route path="/electrical-calculations/kw-to-joules" element={<Layout><KilowattsToJoulesConverter /></Layout>} />
+
+          <Route path="/electrical-calculations/kva-to-amps" element={<Layout><KVAToAmpsCalculator /></Layout>} />
           <Route path="/electrical-calculations/kva-to-watts" element={<Layout><KVAToWattsConverter /></Layout>} />
           <Route path="/electrical-calculations/kwh-to-kw" element={<Layout><KWhToKWConverter /></Layout>} />
           <Route path="/electrical-calculations/kwh-to-watt" element={<Layout><KWhToWattConverter /></Layout>} />
@@ -927,6 +935,8 @@ const App = () => (
           <Route path="/electrical-calculations/kw-to-va" element={<Layout><KWToVAConverter /></Layout>} />
           <Route path="/electrical-calculations/kw-to-volts" element={<Layout><KWToVoltsConverter /></Layout>} />
           <Route path="/electrical-calculations/kw-to-wh" element={<Layout><KWToWhConverter /></Layout>} />
+          <Route path="/electrical-calculations/kw-to-watts" element={<Layout><KWhToWattConverter /></Layout>} />
+
           <Route path="/electrical-calculations/lumen-to-lux" element={<Layout><LumenToLuxConverter /></Layout>} />
           <Route path="/electrical-calculations/lumen-to-watt" element={<Layout><LumenToWattConverter /></Layout>} />
           <Route path="/electrical-calculations/lux-to-lumen" element={<Layout><LuxToLumenConverter /></Layout>} />

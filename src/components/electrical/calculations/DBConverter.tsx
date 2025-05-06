@@ -63,7 +63,7 @@ const DBConverter: React.FC = () => {
         <CardHeader>
           <CardTitle>Decibel (dB) Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>
             Convert decibel values (dBm, dBW, etc.) into linear units like watts or volts. This is useful in RF engineering,
             audio systems, and electrical calculations.
@@ -75,7 +75,7 @@ const DBConverter: React.FC = () => {
               <select
                 value={quantity}
                 onChange={(e) => setQuantity(e.target.value)}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               >
                 <option value="Power">Power</option>
                 <option value="Voltage">Voltage</option>
@@ -89,7 +89,7 @@ const DBConverter: React.FC = () => {
               <select
                 value={dBUnit}
                 onChange={(e) => setDbUnit(e.target.value)}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               >
                 <option value="dBm">dBm</option>
                 <option value="dBW">dBW</option>
@@ -104,7 +104,7 @@ const DBConverter: React.FC = () => {
                 type="number"
                 value={inputValue}
                 onChange={(e) => setInputValue(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -117,7 +117,7 @@ const DBConverter: React.FC = () => {
 
             <div>
               <strong>Result:</strong>
-              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{outputValue}</p>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base dark:text-black">{outputValue}</p>
             </div>
           </div>
         </CardContent>

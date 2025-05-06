@@ -44,7 +44,7 @@ const WattsToVAConverter: React.FC = () => {
         <CardHeader>
           <CardTitle>Watts to Volt-amperes (VA) Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>Convert electrical power in watts (W) to apparent power in volt-amperes (VA).</p>
 
           <div className="space-y-4">
@@ -54,7 +54,7 @@ const WattsToVAConverter: React.FC = () => {
                 type="number"
                 value={watts}
                 onChange={(e) => setWatts(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -64,7 +64,7 @@ const WattsToVAConverter: React.FC = () => {
                 type="number"
                 value={voltage}
                 onChange={(e) => setVoltage(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -74,7 +74,7 @@ const WattsToVAConverter: React.FC = () => {
                 type="number"
                 value={powerFactor}
                 onChange={(e) => setPowerFactor(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -87,7 +87,7 @@ const WattsToVAConverter: React.FC = () => {
 
             <div>
               <strong>Converted Apparent Power (VA):</strong>
-              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{va} VA</p>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base dark:text-black">{va} VA</p>
             </div>
 
             <div>
@@ -119,15 +119,15 @@ const WattsToVAConverter: React.FC = () => {
               <ul className="space-y-2 list-disc list-inside">
                 <li>
                   <strong>Example 1:</strong> A device using 1000W of real power with a power factor of 0.8:
-                  <p className="bg-gray-100 p-2">VA = 1000W / 0.8 = 1250 VA</p>
+                  <p className="bg-gray-100 p-2 dark:text-black">VA = 1000W / 0.8 = 1250 VA</p>
                 </li>
                 <li>
                   <strong>Example 2:</strong> A device using 1500W of real power with a power factor of 0.9:
-                  <p className="bg-gray-100 p-2">VA = 1500W / 0.9 = 1666.67 VA</p>
+                  <p className="bg-gray-100 p-2 dark:text-black">VA = 1500W / 0.9 = 1666.67 VA</p>
                 </li>
                 <li>
                   <strong>Example 3:</strong> A device using 2000W of real power with a power factor of 0.85:
-                  <p className="bg-gray-100 p-2">VA = 2000W / 0.85 = 2352.94 VA</p>
+                  <p className="bg-gray-100 p-2 dark:text-black">VA = 2000W / 0.85 = 2352.94 VA</p>
                 </li>
               </ul>
             </div>

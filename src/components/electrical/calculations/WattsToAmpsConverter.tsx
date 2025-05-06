@@ -54,7 +54,7 @@ const WattsToAmpsConverter: React.FC = () => {
         <CardHeader>
           <CardTitle>Watts to Amps Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>Convert electric power in watts (W) to electric current in amps (A), considering voltage and power factor (for AC).</p>
 
           <div className="space-y-4">
@@ -64,7 +64,7 @@ const WattsToAmpsConverter: React.FC = () => {
                 type="number"
                 value={watts}
                 onChange={(e) => setWatts(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -74,7 +74,7 @@ const WattsToAmpsConverter: React.FC = () => {
                 type="number"
                 value={voltage}
                 onChange={(e) => setVoltage(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -87,7 +87,7 @@ const WattsToAmpsConverter: React.FC = () => {
                 step="0.01"
                 min="0"
                 max="1"
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -102,7 +102,7 @@ const WattsToAmpsConverter: React.FC = () => {
 
             <div>
               <strong>Converted Current (Amps):</strong>
-              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{amps.toFixed(6)} A</p>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base dark:text-black">{amps.toFixed(6)} A</p>
             </div>
 
             <div>

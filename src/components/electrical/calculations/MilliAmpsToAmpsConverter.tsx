@@ -69,7 +69,7 @@ const MilliAmpsToAmpsConverter: React.FC = () => {
         <CardHeader>
           <CardTitle>MilliAmps to Amps Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>Convert current in milliamps (mA) to amps (A) using the formula A = mA / 1000.</p>
 
           <div className="space-y-4">
@@ -79,7 +79,7 @@ const MilliAmpsToAmpsConverter: React.FC = () => {
                 type="number"
                 value={milliAmps}
                 onChange={(e) => setMilliAmps(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
                 placeholder="Enter value in milliamps"
               />
             </div>
@@ -95,7 +95,7 @@ const MilliAmpsToAmpsConverter: React.FC = () => {
 
             <div>
               <strong>Converted Current (Amps):</strong>
-              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{amps} A</p>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base dark:text-black">{amps} A</p>
             </div>
 
             <div>

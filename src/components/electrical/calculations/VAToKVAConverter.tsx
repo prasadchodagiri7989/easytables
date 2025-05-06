@@ -39,7 +39,7 @@ const VAToKVAConverter: React.FC = () => {
         <CardHeader>
           <CardTitle>VA to kVA Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed dark:text-white">
           {/* Introduction */}
           <p>
             Convert apparent power in volt-amperes (<code>VA</code>) to kilovolt-amperes (<code>kVA</code>) by using a simple calculation. This is commonly used for larger-scale electrical systems.
@@ -77,7 +77,7 @@ const VAToKVAConverter: React.FC = () => {
             <p>
               Suppose you have an apparent power of {apparentPower} <code>VA</code>. To convert this to apparent power in kilovolt-amperes:
             </p>
-            <div className="bg-gray-100 p-4 rounded-md text-center">
+            <div className="bg-gray-100 p-4 rounded-md text-center dark:text-black">
               <p className="font-semibold">S<sub>kVA</sub> = S<sub>VA</sub> / 1000</p>
               <p className="mt-2">
                 S<sub>kVA</sub> = {apparentPower} <code>VA</code> / 1000 = {powerKVA} <code>kVA</code>
@@ -94,15 +94,15 @@ const VAToKVAConverter: React.FC = () => {
             <ul className="list-disc ml-6 space-y-2">
               <li>
                 *Example 1:* For an apparent power of 1000 <code>VA</code>:
-                <p className="bg-gray-100 p-2">S<sub>kVA</sub> = 1000 <code>VA</code> / 1000 = 1 <code>kVA</code></p>
+                <p className="bg-gray-100 p-2 dark:text-black">S<sub>kVA</sub> = 1000 <code>VA</code> / 1000 = 1 <code>kVA</code></p>
               </li>
               <li>
                 *Example 2:* For an apparent power of 5000 <code>VA</code>:
-                <p className="bg-gray-100 p-2">S<sub>kVA</sub> = 5000 <code>VA</code> / 1000 = 5 <code>kVA</code></p>
+                <p className="bg-gray-100 p-2 dark:text-black">S<sub>kVA</sub> = 5000 <code>VA</code> / 1000 = 5 <code>kVA</code></p>
               </li>
               <li>
                 *Example 3:* For an apparent power of 2500 <code>VA</code>:
-                <p className="bg-gray-100 p-2">S<sub>kVA</sub> = 2500 <code>VA</code> / 1000 = 2.5 <code>kVA</code></p>
+                <p className="bg-gray-100 p-2 dark:text-black">S<sub>kVA</sub> = 2500 <code>VA</code> / 1000 = 2.5 <code>kVA</code></p>
               </li>
             </ul>
           </div>

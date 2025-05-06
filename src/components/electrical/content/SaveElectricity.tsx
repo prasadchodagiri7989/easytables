@@ -1,9 +1,16 @@
 import React from "react";
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
-import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 
-
-const SaveElectricityTips = () => {
+const SaveElectricityTips: React.FC = () => {
   const tips = [
     "Install solar panels on your roof to generate electricity.",
     "Install solar water heater system.",
@@ -13,7 +20,7 @@ const SaveElectricityTips = () => {
     "Buy Energy Star qualified appliances.",
     "Buy appliances with low power consumption.",
     "Check the temperature insulation of your house.",
-    "Turn off appliances and gadgets that are in stand by state.",
+    "Turn off appliances and gadgets that are in standby state.",
     "Prefer fan to A/C.",
     "Prefer A/C heating to electric/gas/wood heating.",
     "Prefer inverter A/C to regular on/off A/C.",
@@ -41,7 +48,7 @@ const SaveElectricityTips = () => {
     "Buy computer with low power (TDP) CPU/GPU.",
     "Buy computer with efficient power supply unit (PSU).",
     "Prefer LED light over incandescent light bulbs.",
-    "Disconnect electrical charger when it finished charging.",
+    "Disconnect electrical charger when it finishes charging.",
     "Prefer microwave oven over toaster oven.",
     "Use electricity usage monitor.",
     "Use browser/applications with Dark mode.",
@@ -113,21 +120,43 @@ const SaveElectricityTips = () => {
   ];
 
   return (
-    <>
-    <div className="p-6 text-gray-800 dark:text-white">
-      <h1 className="text-3xl font-bold mb-4 text-green-700">How to Save Electricity</h1>
-      <p className="mb-6 dark:text-white">
-        Save money on your electricity bills with these energy-saving tips. Follow these practical steps to reduce power consumption at home.
-      </p>
-      <ul className="list-disc pl-6 space-y-2">
-        {tips.map((tip, index) => (
-          <li key={index} className="leading-relaxed">
-            {tip}
-          </li>
-        ))}
-      </ul>
+    <div className="w-full max-w-4xl mx-auto">
+      <Breadcrumb className="mb-4">
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink asChild>
+              <Link to="/">Home</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>Save Electricity</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Save Electricity with Simple Tips</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
+          <p>
+            Saving electricity is not only great for your wallet but also crucial for reducing environmental impact. Small changes in daily habits can lead to significant energy savings and contribute to a more sustainable planet.
+          </p>
+
+          <h4 className="font-medium text-base">Energy Saving Tips</h4>
+          <ul className="list-disc list-inside space-y-1">
+            {tips.map((tip, index) => (
+              <li key={index}>{tip}</li>
+            ))}
+          </ul>
+
+          <p>
+            Implementing even a handful of these tips can drastically reduce your energy consumption. Encourage your household or community to follow these steps and make a collective impact.
+          </p>
+        </CardContent>
+      </Card>
     </div>
-    </>
   );
 };
 

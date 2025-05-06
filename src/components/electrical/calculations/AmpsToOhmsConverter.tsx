@@ -37,15 +37,15 @@ const AmpsToOhmsConverter: React.FC = () => {
                           </BreadcrumbItem>
                           <BreadcrumbSeparator />
                           <BreadcrumbItem>
-                            <BreadcrumbPage>kVA to VA Calculator</BreadcrumbPage>
+                            <BreadcrumbPage>Amps to Ohms</BreadcrumbPage>
                           </BreadcrumbItem>
                         </BreadcrumbList>
                      </Breadcrumb>
-      <Card className="bg-white shadow-lg">
+      <Card className="bg-white shadow-lg dark:bg-transparent dark:text-white">
         <CardHeader>
           <CardTitle>How to Convert Amps to Ohms</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed dark:text-white">
 
           {/* Introduction */}
           <p>
@@ -59,7 +59,7 @@ const AmpsToOhmsConverter: React.FC = () => {
             <p className="mt-2">
               Ohm's Law relates voltage (V), current (I), and resistance (R) with the formula:
             </p>
-            <p className="mt-2">
+            <p className="mt-2 ">
               <code>V = I × R</code>
             </p>
             <p className="mt-2">
@@ -82,7 +82,7 @@ const AmpsToOhmsConverter: React.FC = () => {
             <p className="mt-2">
               For example, if the voltage is {voltage}V and the current is {amps}A, the resistance would be:
             </p>
-            <div className="bg-gray-100 p-4 rounded-md text-center">
+            <div className="bg-gray-100 p-4 rounded-md text-center dark:text-black">
               <p className="font-semibold">R = V / I</p>
               <p className="mt-2">
                 R = {voltage}V / {amps}A = {resistanceVoltage}Ω
@@ -95,7 +95,7 @@ const AmpsToOhmsConverter: React.FC = () => {
 
           {/* Amps to Ohms Calculation with Power */}
           <div>
-            <h2 className="text-lg font-semibold mb-2">Amps to Ohms Calculation with Power</h2>
+            <h2 className="text-lg font-semibold mb-2 ">Amps to Ohms Calculation with Power</h2>
             <p>
               If you know the power and current, you can calculate resistance using the formula:
             </p>
@@ -105,7 +105,7 @@ const AmpsToOhmsConverter: React.FC = () => {
             <p className="mt-2">
               For example, if the power is {power}W and the current is {amps}A, the resistance would be:
             </p>
-            <div className="bg-gray-100 p-4 rounded-md text-center">
+            <div className="bg-gray-100 p-4 rounded-md text-center dark:text-black">
               <p className="font-semibold">R = P / I^2</p>
               <p className="mt-2">
                 R = {power}W / ({amps}A)^2 = {resistancePower}Ω
@@ -122,11 +122,11 @@ const AmpsToOhmsConverter: React.FC = () => {
             <ul className="list-disc ml-6">
               <li>
                 *Example 1:* If the voltage across a resistor is 24V and the current flowing through it is 2A, the resistance is:
-                <p className="bg-gray-100 p-2">R = 24V / 2A = 12Ω</p>
+                <p className="bg-gray-100 p-2 dark:text-black">R = 24V / 2A = 12Ω</p>
               </li>
               <li>
                 *Example 2:* If a circuit consumes 30W of power and the current is 0.5A, the resistance is:
-                <p className="bg-gray-100 p-2">R = 30W / (0.5A)^2 = 120Ω</p>
+                <p className="bg-gray-100 p-2 dark:text-black">R = 30W / (0.5A)^2 = 120Ω</p>
               </li>
             </ul>
           </div>

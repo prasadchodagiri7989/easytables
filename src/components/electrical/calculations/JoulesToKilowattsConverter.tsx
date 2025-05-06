@@ -58,7 +58,7 @@ const JoulesToKilowattsConverter: React.FC = () => {
         <CardHeader>
           <CardTitle>Joules to Kilowatts Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>
             Convert energy in joules (J) to power in kilowatts (kW) by entering the energy and time values below.
           </p>
@@ -70,7 +70,7 @@ const JoulesToKilowattsConverter: React.FC = () => {
                 type="number"
                 value={energy}
                 onChange={(e) => setEnergy(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -80,7 +80,7 @@ const JoulesToKilowattsConverter: React.FC = () => {
                 type="number"
                 value={time}
                 onChange={(e) => setTime(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -93,7 +93,7 @@ const JoulesToKilowattsConverter: React.FC = () => {
 
             <div>
               <strong>Result:</strong>
-              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{power} kW</p>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base dark:text-black">{power} kW</p>
             </div>
 
             <div>

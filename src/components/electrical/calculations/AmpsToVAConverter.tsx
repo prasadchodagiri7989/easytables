@@ -38,15 +38,15 @@ const AmpsToVAConverter: React.FC = () => {
                           </BreadcrumbItem>
                           <BreadcrumbSeparator />
                           <BreadcrumbItem>
-                            <BreadcrumbPage>kVA to VA Calculator</BreadcrumbPage>
+                            <BreadcrumbPage>Amps to VA</BreadcrumbPage>
                           </BreadcrumbItem>
                         </BreadcrumbList>
                      </Breadcrumb>
-      <Card className="bg-white shadow-lg">
+      <Card className="bg-white shadow-lg dark:bg-transparent dark:text-white">
         <CardHeader>
           <CardTitle>How to Convert Amps to VA</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed dark:text-white">
 
           {/* Introduction */}
           <p>
@@ -77,7 +77,7 @@ const AmpsToVAConverter: React.FC = () => {
             <p className="mt-2">
               For example, if the current is {amps}A and the voltage supply is {voltage}V, the apparent power would be:
             </p>
-            <div className="bg-gray-100 p-4 rounded-md text-center">
+            <div className="bg-gray-100 p-4 rounded-md text-center dark:text-black">
               <p className="font-semibold">VA = A × V</p>
               <p className="mt-2">
                 VA = {amps}A × {voltage}V = {va}VA
@@ -100,7 +100,7 @@ const AmpsToVAConverter: React.FC = () => {
             <p className="mt-2">
               For example, if the current is {phaseCurrent}A and the line-to-line voltage is {lineVoltage}V, the apparent power would be:
             </p>
-            <div className="bg-gray-100 p-4 rounded-md text-center">
+            <div className="bg-gray-100 p-4 rounded-md text-center dark:text-black">
               <p className="font-semibold">VA = √3 × A × V</p>
               <p className="mt-2">
                 VA = √3 × {phaseCurrent}A × {lineVoltage}V = {threePhaseVA.toFixed(2)}VA
@@ -117,11 +117,11 @@ const AmpsToVAConverter: React.FC = () => {
             <ul className="list-disc ml-6">
               <li>
                 *Example 1:* If the current is 10A and the voltage is 220V, the apparent power in a single-phase system would be:
-                <p className="bg-gray-100 p-2">S(VA) = 10A × 220V = 2200VA</p>
+                <p className="bg-gray-100 p-2 dark:text-black">S(VA) = 10A × 220V = 2200VA</p>
               </li>
               <li>
                 *Example 2:* For a 3-phase system with a current of 5A and a line-to-line voltage of 400V, the apparent power would be:
-                <p className="bg-gray-100 p-2">S(VA) = √3 × 5A × 400V = 3464.1VA</p>
+                <p className="bg-gray-100 p-2 dark:text-black">S(VA) = √3 × 5A × 400V = 3464.1VA</p>
               </li>
             </ul>
           </div>

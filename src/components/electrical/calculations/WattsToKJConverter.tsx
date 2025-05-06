@@ -57,7 +57,7 @@ const WattsToKJConverter: React.FC = () => {
         <CardHeader>
           <CardTitle>Watts to Kilojoules Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>Convert electrical power in watts (W) to energy in kilojoules (kJ) based on time.</p>
 
           <div className="space-y-4">
@@ -68,7 +68,7 @@ const WattsToKJConverter: React.FC = () => {
                 type="number"
                 value={watts}
                 onChange={(e) => setWatts(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -79,7 +79,7 @@ const WattsToKJConverter: React.FC = () => {
                 type="number"
                 value={time}
                 onChange={(e) => setTime(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -94,7 +94,7 @@ const WattsToKJConverter: React.FC = () => {
             {/* Display Results */}
             <div>
               <strong>Converted Energy:</strong>
-              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{energyInKJ} kJ</p>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base dark:text-black">{energyInKJ} kJ</p>
             </div>
 
             {/* Examples */}

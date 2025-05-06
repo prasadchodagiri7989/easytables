@@ -49,11 +49,11 @@ const AmpsToKilowattsConverter: React.FC = () => {
                           </BreadcrumbItem>
                         </BreadcrumbList>
                      </Breadcrumb>
-      <Card className="bg-white shadow-lg">
+      <Card className="bg-white shadow-lg dark:bg-transparent dark:text-white">
         <CardHeader>
           <CardTitle>How to Convert Amps to Kilowatts</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed dark:text-white">
 
           {/* Introduction */}
           <p>
@@ -71,7 +71,7 @@ const AmpsToKilowattsConverter: React.FC = () => {
             </p>
             <p>
               Example: Convert 3A and 110V to kW:
-              <div className="bg-gray-100 p-4 rounded-md text-center">
+              <div className="bg-gray-100 p-4 rounded-md text-center dark:text-black">
                 <p className="font-semibold">kW = 3A × 110V / 1000</p>
                 <p className="mt-2">kW = {amps}A × {volts}V / 1000 = {dcKilowatts}kW</p>
               </div>
@@ -89,7 +89,7 @@ const AmpsToKilowattsConverter: React.FC = () => {
             </p>
             <p>
               Example: Convert 3A, 110V with a power factor of 0.8 to kW:
-              <div className="bg-gray-100 p-4 rounded-md text-center">
+              <div className="bg-gray-100 p-4 rounded-md text-center dark:text-black">
                 <p className="font-semibold">kW = 0.8 × 3A × 110V / 1000</p>
                 <p className="mt-2">kW = {powerFactor} × {amps}A × {volts}V / 1000 = {acSinglePhaseKilowatts}kW</p>
               </div>
@@ -107,7 +107,7 @@ const AmpsToKilowattsConverter: React.FC = () => {
             </p>
             <p>
               Example: Convert 3A, 110V with a power factor of 0.8 to kW for a three-phase system:
-              <div className="bg-gray-100 p-4 rounded-md text-center">
+              <div className="bg-gray-100 p-4 rounded-md text-center dark:text-black">
                 <p className="font-semibold">kW = √3 × 0.8 × 3A × 110V / 1000</p>
                 <p className="mt-2">kW = √3 × {powerFactor} × {amps}A × {volts}V / 1000 = {acThreePhaseKilowatts}kW</p>
               </div>

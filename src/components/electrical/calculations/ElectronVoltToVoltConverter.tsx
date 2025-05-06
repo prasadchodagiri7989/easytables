@@ -97,7 +97,7 @@ const ElectronVoltToVoltConverter: React.FC = () => {
         <CardHeader>
           <CardTitle>Electron-Volt to Volt Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>
             This tool converts energy in electron-volts (eV) into volts (V) using either the elementary charge or actual charge in coulombs.
           </p>
@@ -109,7 +109,7 @@ const ElectronVoltToVoltConverter: React.FC = () => {
                 type="number"
                 value={energy}
                 onChange={(e) => setEnergy(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -119,7 +119,7 @@ const ElectronVoltToVoltConverter: React.FC = () => {
                 type="number"
                 value={charge}
                 onChange={(e) => setCharge(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -128,7 +128,7 @@ const ElectronVoltToVoltConverter: React.FC = () => {
               <select
                 onChange={(e) => setMethod(e.target.value)}
                 value={method}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               >
                 <option value="elementaryCharge">Using Elementary Charge (e)</option>
                 <option value="coulombs">Using Coulombs (C)</option>
@@ -144,7 +144,7 @@ const ElectronVoltToVoltConverter: React.FC = () => {
 
             <div>
               <strong>Result:</strong>
-              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{voltage} V</p>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base dark:text-black">{voltage} V</p>
             </div>
 
             <div>

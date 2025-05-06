@@ -36,11 +36,11 @@ const AmpsToMilliampsConverter: React.FC = () => {
                           </BreadcrumbItem>
                         </BreadcrumbList>
                      </Breadcrumb>
-      <Card className="bg-white shadow-lg">
+      <Card className="bg-white shadow-lg dark:bg-transparent dark:text-white">
         <CardHeader>
           <CardTitle>How to Convert Amps to Milliamps</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed dark:text-white">
 
           {/* Introduction */}
           <p>
@@ -64,7 +64,7 @@ const AmpsToMilliampsConverter: React.FC = () => {
             <p>
               The current I in milliamps (mA) is equal to 3 amps (A) times 1000 milliamps per amp:
             </p>
-            <div className="bg-gray-100 p-4 rounded-md text-center">
+            <div className="bg-gray-100 p-4 rounded-md text-center dark:text-black">
               <p className="font-semibold">mA = A × 1000</p>
               <p className="mt-2">
                 mA = {amps}A × 1000 = {milliamps}mA

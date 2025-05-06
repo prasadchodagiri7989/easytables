@@ -49,7 +49,7 @@ const WattsToVoltsConverter: React.FC = () => {
         <CardHeader>
           <CardTitle>Watts to Volts Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>Convert electrical power in watts (W) and current in amperes (A) to voltage in volts (V).</p>
 
           <div className="space-y-4">
@@ -59,7 +59,7 @@ const WattsToVoltsConverter: React.FC = () => {
                 type="number"
                 value={watts}
                 onChange={(e) => setWatts(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -69,7 +69,7 @@ const WattsToVoltsConverter: React.FC = () => {
                 type="number"
                 value={current}
                 onChange={(e) => setCurrent(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -82,7 +82,7 @@ const WattsToVoltsConverter: React.FC = () => {
 
             <div>
               <strong>Converted Voltage:</strong>
-              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{volts} V</p>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base dark:text-black">{volts} V</p>
             </div>
 
             <div>

@@ -130,6 +130,12 @@ const OhmsLawCalculator = () => {
                       <BreadcrumbSeparator />
                       <BreadcrumbItem>
                         <BreadcrumbLink asChild>
+                          <Link to="/a">All Calculators</Link>
+                        </BreadcrumbLink>
+                      </BreadcrumbItem>
+                      <BreadcrumbSeparator />
+                      <BreadcrumbItem>
+                        <BreadcrumbLink asChild>
                           <Link to="/electrical-calculators">Electrical Calculators</Link>
                         </BreadcrumbLink>
                       </BreadcrumbItem>

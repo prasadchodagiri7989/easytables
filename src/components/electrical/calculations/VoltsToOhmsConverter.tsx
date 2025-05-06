@@ -47,7 +47,7 @@ const VoltsToOhmsConverter: React.FC = () => {
         <CardHeader>
           <CardTitle>Volts to Ohms Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>Convert voltage (V) and current (A) to resistance (Ω) using Ohm's law.</p>
 
           <div className="space-y-4">
@@ -57,7 +57,7 @@ const VoltsToOhmsConverter: React.FC = () => {
                 type="number"
                 value={volts}
                 onChange={(e) => setVolts(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -67,7 +67,7 @@ const VoltsToOhmsConverter: React.FC = () => {
                 type="number"
                 value={current}
                 onChange={(e) => setCurrent(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -80,7 +80,7 @@ const VoltsToOhmsConverter: React.FC = () => {
 
             <div>
               <strong>Converted Resistance:</strong>
-              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{resistance} Ω</p>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base dark:text-black">{resistance} Ω</p>
             </div>
 
             <div>
@@ -101,7 +101,7 @@ const VoltsToOhmsConverter: React.FC = () => {
               <p>
                 Suppose you have a voltage of 10V and a current of 2A:
               </p>
-              <div className="bg-gray-100 p-4 rounded-md text-center">
+              <div className="bg-gray-100 p-4 rounded-md text-center dark:text-black">
                 <p className="font-semibold">R = V / I</p>
                 <p className="mt-2">
                   R = 10V / 2A = 5 Ω

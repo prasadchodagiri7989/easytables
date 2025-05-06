@@ -35,11 +35,11 @@ const AhToMAhConverter: React.FC = () => {
                   </BreadcrumbItem>
                 </BreadcrumbList>
              </Breadcrumb>
-      <Card className="bg-white shadow-lg">
+      <Card className="bg-white shadow-lg dark:bg-transparent dark:text-white">
         <CardHeader>
           <CardTitle>How to Convert Ah to mAh</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed dark:text-white">
 
           {/* Introduction */}
           <p>
@@ -63,7 +63,7 @@ const AhToMAhConverter: React.FC = () => {
             <p>
               If you have a charge of 3 amp-hours (Ah), you can calculate the equivalent milliampere-hours (mAh) by multiplying 3 by 1000:
             </p>
-            <div className="bg-gray-100 p-4 rounded-md text-center">
+            <div className="bg-gray-100 p-4 rounded-md text-center dark:text-black">
               <p className="font-semibold">mAh = Ah × 1000</p>
               <p className="mt-2">
                 mAh = {ampHours}Ah × 1000 = {milliAmpHours}mAh
@@ -80,7 +80,7 @@ const AhToMAhConverter: React.FC = () => {
             <p>
               If you have a larger battery, say 5 amp-hours (Ah), the conversion to milliampere-hours (mAh) would be:
             </p>
-            <div className="bg-gray-100 p-4 rounded-md text-center">
+            <div className="bg-gray-100 p-4 rounded-md text-center dark:text-black">
               <p className="font-semibold">mAh = Ah × 1000</p>
               <p className="mt-2">
                 mAh = 5Ah × 1000 = 5000mAh
@@ -97,7 +97,7 @@ const AhToMAhConverter: React.FC = () => {
             <p>
               If your battery charge is only 0.5 amp-hours (Ah), the conversion will be:
             </p>
-            <div className="bg-gray-100 p-4 rounded-md text-center">
+            <div className="bg-gray-100 p-4 rounded-md text-center dark:text-black">
               <p className="font-semibold">mAh = Ah × 1000</p>
               <p className="mt-2">
                 mAh = 0.5Ah × 1000 = 500mAh
@@ -114,7 +114,7 @@ const AhToMAhConverter: React.FC = () => {
             <p>
               For a very large battery, say 10 amp-hours (Ah), the conversion would be:
             </p>
-            <div className="bg-gray-100 p-4 rounded-md text-center">
+            <div className="bg-gray-100 p-4 rounded-md text-center dark:text-black">
               <p className="font-semibold">mAh = Ah × 1000</p>
               <p className="mt-2">
                 mAh = 10Ah × 1000 = 10000mAh

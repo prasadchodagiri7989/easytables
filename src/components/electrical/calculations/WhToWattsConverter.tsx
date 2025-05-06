@@ -50,7 +50,7 @@ const WhToWattsConverter: React.FC = () => {
         <CardHeader>
           <CardTitle>Wh to Watts Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>Convert energy in watt-hours (Wh) to power in watts (W) over a given time period in hours.</p>
 
           <div className="space-y-4">
@@ -60,7 +60,7 @@ const WhToWattsConverter: React.FC = () => {
                 type="number"
                 value={wh}
                 onChange={(e) => setWh(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -70,7 +70,7 @@ const WhToWattsConverter: React.FC = () => {
                 type="number"
                 value={hours}
                 onChange={(e) => setHours(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -83,7 +83,7 @@ const WhToWattsConverter: React.FC = () => {
 
             <div>
               <strong>Converted Power:</strong>
-              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{watts} W</p>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base dark:text-black">{watts} W</p>
             </div>
 
             <div>

@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Link } from "react-router-dom";
 
-const TodayDateNow: React.FC = () => {
+const  TodayDateNow: React.FC = () => {
   const [now, setNow] = useState(new Date());
   const [locale, setLocale] = useState("en-IN");
 
@@ -64,11 +64,11 @@ const TodayDateNow: React.FC = () => {
 
       <h1 className="text-3xl font-bold mb-4">Today's Date Now</h1>
 
-      <div className="flex flex-col items-center space-y-2 mb-6">
+      <div className="flex flex-col items-center space-y-2 mb-6 ">
         <select
           value={locale}
           onChange={handleLocaleChange}
-          className="border rounded p-2 text-sm"
+          className="border rounded p-2 text-sm dark:text-black"
         >
           <option value="en-IN">English (India)</option>
           <option value="en-US">English (US)</option>
@@ -83,7 +83,7 @@ const TodayDateNow: React.FC = () => {
         <div className="text-md">{timezone} (GMT+5.5)</div>
       </div>
 
-      <div className="flex justify-center mb-6">
+      <div className="flex justify-center mb-6 dark:text-black">
         <input
           type="date"
           value={now.toISOString().substring(0, 10)}
@@ -93,9 +93,9 @@ const TodayDateNow: React.FC = () => {
       </div>
 
       <div className="bg-white rounded-lg shadow p-4">
-        <h2 className="text-center text-xl font-semibold mb-2">Calendar Chart</h2>
+        <h2 className="text-center text-xl font-semibold mb-2 dark:text-black">Calendar Chart</h2>
 
-        <div className="grid grid-cols-7 gap-2 text-center font-medium">
+        <div className="grid grid-cols-7 gap-2 text-center font-medium dark:text-black">
           <div>S</div>
           <div>M</div>
           <div>T</div>
@@ -110,7 +110,7 @@ const TodayDateNow: React.FC = () => {
             <div
               key={index}
               className={`p-2 rounded ${
-                index + 1 === now.getDate() ? "bg-blue-500 text-white" : "bg-gray-100"
+                index + 1 === now.getDate() ? "bg-blue-500 text-white" : "bg-gray-100 dark:text-black"
               }`}
             >
               {index + 1}

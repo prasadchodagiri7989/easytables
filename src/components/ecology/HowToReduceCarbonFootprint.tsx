@@ -32,7 +32,7 @@ const HowToReduceCarbonFootprint: React.FC = () => {
         <CardHeader>
           <CardTitle>How to Reduce Your Carbon Footprint</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>
             Reducing your carbon footprint means actively working to decrease the amount of greenhouse gases you emit into the atmosphere. It's one of the most effective ways individuals can help fight climate change. From transportation to diet, there are multiple ways to make eco-conscious choices.
           </p>

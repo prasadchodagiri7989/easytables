@@ -33,7 +33,7 @@ const HowToReducePlasticWaste: React.FC = () => {
         <CardHeader>
           <CardTitle>How to Reduce Plastic Waste Pollution</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>
             Plastic pollution is a growing environmental concern, with millions of tons of plastic waste ending up in oceans, landfills, and ecosystems each year. Reducing plastic waste starts with everyday habits and mindful consumption choices.
           </p>

@@ -56,7 +56,7 @@ const VoltsToEVConverter: React.FC = () => {
         <CardHeader>
           <CardTitle>Volts to Electronvolts Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>Convert voltage in volts (V) to energy in electronvolts (eV) using a simple formula.</p>
 
           <div className="space-y-4">
@@ -66,7 +66,7 @@ const VoltsToEVConverter: React.FC = () => {
                 type="number"
                 value={volts}
                 onChange={(e) => setVolts(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -79,7 +79,7 @@ const VoltsToEVConverter: React.FC = () => {
 
             <div>
               <strong>Converted Energy:</strong>
-              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{electronVolts} eV</p>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base dark:text-black">{electronVolts} eV</p>
             </div>
 
             <div>

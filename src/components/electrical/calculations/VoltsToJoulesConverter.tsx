@@ -44,7 +44,7 @@ const VoltsToJoulesConverter: React.FC = () => {
         <CardHeader>
           <CardTitle>Volts to Joules Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>Convert voltage (V), current (A), and time (s) to energy in joules (J).</p>
 
           <div className="space-y-4">
@@ -54,7 +54,7 @@ const VoltsToJoulesConverter: React.FC = () => {
                 type="number"
                 value={volts}
                 onChange={(e) => setVolts(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -64,7 +64,7 @@ const VoltsToJoulesConverter: React.FC = () => {
                 type="number"
                 value={current}
                 onChange={(e) => setCurrent(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -74,7 +74,7 @@ const VoltsToJoulesConverter: React.FC = () => {
                 type="number"
                 value={time}
                 onChange={(e) => setTime(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -87,7 +87,7 @@ const VoltsToJoulesConverter: React.FC = () => {
 
             <div>
               <strong>Converted Energy:</strong>
-              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{energyJoules} J</p>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base dark:text-black">{energyJoules} J</p>
             </div>
 
             <div>
@@ -118,7 +118,7 @@ const VoltsToJoulesConverter: React.FC = () => {
             <div>
               <h2 className="font-semibold text-base mt-6 mb-2">Practical Example:</h2>
               <p>For a voltage of {volts}V, a current of {current}A, and a time of {time}s, the energy is:</p>
-              <p className="bg-gray-100 p-2">E(J) = {volts}V × {current}A × {time}s = {energyJoules} J</p>
+              <p className="bg-gray-100 p-2 dark:text-black">E(J) = {volts}V × {current}A × {time}s = {energyJoules} J</p>
             </div>
           </div>
         </CardContent>

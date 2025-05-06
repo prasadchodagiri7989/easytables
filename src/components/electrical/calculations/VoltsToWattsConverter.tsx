@@ -42,7 +42,7 @@ const VoltsToWattsConverter: React.FC = () => {
         <CardHeader>
           <CardTitle>Volts to Watts Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>Convert voltage in volts (V) and current in amperes (A) to power in watts (W).</p>
 
           <div className="space-y-4">
@@ -53,7 +53,7 @@ const VoltsToWattsConverter: React.FC = () => {
                 type="number"
                 value={volts}
                 onChange={(e) => setVolts(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -64,7 +64,7 @@ const VoltsToWattsConverter: React.FC = () => {
                 type="number"
                 value={amps}
                 onChange={(e) => setAmps(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -79,7 +79,7 @@ const VoltsToWattsConverter: React.FC = () => {
             {/* Output Result */}
             <div>
               <strong>Converted Power:</strong>
-              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{watts} W</p>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base dark:text-black">{watts} W</p>
             </div>
 
             {/* Examples Section */}
@@ -88,15 +88,15 @@ const VoltsToWattsConverter: React.FC = () => {
               <ul className="space-y-2 list-disc list-inside">
                 <li>
                   *Example 1:* For a device operating at 220V and drawing 5A:
-                  <p className="bg-gray-100 p-2">P = 220V × 5A = 1100W</p>
+                  <p className="bg-gray-100 p-2 dark:text-black">P = 220V × 5A = 1100W</p>
                 </li>
                 <li>
                   *Example 2:* For a device operating at 110V and drawing 3A:
-                  <p className="bg-gray-100 p-2">P = 110V × 3A = 330W</p>
+                  <p className="bg-gray-100 p-2 dark:text-black">P = 110V × 3A = 330W</p>
                 </li>
                 <li>
                   *Example 3:* For a device operating at 12V and drawing 10A:
-                  <p className="bg-gray-100 p-2">P = 12V × 10A = 120W</p>
+                  <p className="bg-gray-100 p-2 dark:text-black">P = 12V × 10A = 120W</p>
                 </li>
               </ul>
             </div>

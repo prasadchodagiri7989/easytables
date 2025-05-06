@@ -78,6 +78,18 @@ export const Stopwatch = () => {
                         </BreadcrumbLink>
                      </BreadcrumbItem>
                       <BreadcrumbSeparator />
+                    <BreadcrumbItem>
+                      <BreadcrumbLink asChild>
+                        <Link to="/a">All Calculators</Link>
+                      </BreadcrumbLink>
+                    </BreadcrumbItem>
+                    <BreadcrumbSeparator />
+                    <BreadcrumbItem>
+                      <BreadcrumbLink asChild>
+                        <Link to="/time/all">Time Calculator</Link>
+                      </BreadcrumbLink>
+                    </BreadcrumbItem>
+                    <BreadcrumbSeparator />
                       <BreadcrumbItem>
                        <BreadcrumbPage>Stopwatch</BreadcrumbPage>
                         </BreadcrumbItem>

@@ -55,7 +55,7 @@ const WattsToJoulesConverter: React.FC = () => {
         <CardHeader>
           <CardTitle>Watts to Joules Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>
             Convert electric power in watts (W) to energy in joules (J) using the time in seconds (s).
           </p>
@@ -67,7 +67,7 @@ const WattsToJoulesConverter: React.FC = () => {
                 type="number"
                 value={watts}
                 onChange={(e) => setWatts(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -77,7 +77,7 @@ const WattsToJoulesConverter: React.FC = () => {
                 type="number"
                 value={seconds}
                 onChange={(e) => setSeconds(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -90,7 +90,7 @@ const WattsToJoulesConverter: React.FC = () => {
 
             <div>
               <strong>Energy in Joules:</strong>
-              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{joules} J</p>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base dark:text-black">{joules} J</p>
             </div>
 
             <div>
@@ -125,7 +125,7 @@ const WattsToJoulesConverter: React.FC = () => {
               <p>
                 What is the energy consumed by a device using <strong>30 watts</strong> of power for <strong>3 seconds</strong>?
               </p>
-              <p className="mt-2 font-mono bg-gray-100 p-2 rounded">
+              <p className="mt-2 font-mono bg-gray-100 p-2 rounded dark:text-black">
                 E = 30W × 3s = <strong>90J</strong>
               </p>
             </div>

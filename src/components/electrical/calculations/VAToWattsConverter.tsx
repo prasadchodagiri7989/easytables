@@ -51,7 +51,7 @@ const VAToWattsConverter: React.FC = () => {
         <CardHeader>
           <CardTitle>VA to Watts Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>Convert apparent power in volt-amperes (VA) and power factor to real power in watts (W).</p>
 
           <div className="space-y-4">
@@ -61,7 +61,7 @@ const VAToWattsConverter: React.FC = () => {
                 type="number"
                 value={apparentPower}
                 onChange={(e) => setApparentPower(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -72,7 +72,7 @@ const VAToWattsConverter: React.FC = () => {
                 step="0.1"
                 value={powerFactor}
                 onChange={(e) => setPowerFactor(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -85,7 +85,7 @@ const VAToWattsConverter: React.FC = () => {
 
             <div>
               <strong>Converted Power:</strong>
-              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{powerWatts} W</p>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base dark:text-black">{powerWatts} W</p>
             </div>
 
             <div>

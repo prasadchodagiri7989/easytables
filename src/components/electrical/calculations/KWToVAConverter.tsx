@@ -57,7 +57,7 @@ const KWToVAConverter: React.FC = () => {
         <CardHeader>
           <CardTitle>Kilowatts to Volt-Amps Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>
             Convert real power in kilowatts (kW) and power factor (PF) to apparent power in volt-amps (VA).
           </p>
@@ -69,7 +69,7 @@ const KWToVAConverter: React.FC = () => {
                 type="number"
                 value={realPower}
                 onChange={(e) => setRealPower(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -79,7 +79,7 @@ const KWToVAConverter: React.FC = () => {
                 type="number"
                 value={powerFactor}
                 onChange={(e) => setPowerFactor(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -92,7 +92,7 @@ const KWToVAConverter: React.FC = () => {
 
             <div>
               <strong>Converted Apparent Power:</strong>
-              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{apparentPower} VA</p>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base dark:text-black">{apparentPower} VA</p>
             </div>
 
             <div>

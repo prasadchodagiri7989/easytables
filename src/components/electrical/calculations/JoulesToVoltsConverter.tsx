@@ -58,7 +58,7 @@ const JoulesToVoltsConverter: React.FC = () => {
         <CardHeader>
           <CardTitle>Joules to Volts Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>
             Calculate voltage (V) from energy (J) and charge (C). Voltage is the energy per unit charge.
           </p>
@@ -70,7 +70,7 @@ const JoulesToVoltsConverter: React.FC = () => {
                 type="number"
                 value={energy}
                 onChange={(e) => setEnergy(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -80,7 +80,7 @@ const JoulesToVoltsConverter: React.FC = () => {
                 type="number"
                 value={charge}
                 onChange={(e) => setCharge(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -93,7 +93,7 @@ const JoulesToVoltsConverter: React.FC = () => {
 
             <div>
               <strong>Result:</strong>
-              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{voltage} V</p>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base dark:text-black">{voltage} V</p>
             </div>
 
             <div>

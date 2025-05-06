@@ -77,7 +77,7 @@ const KWToVoltsConverter: React.FC = () => {
         <CardHeader>
           <CardTitle>KW to Volts Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>Convert power in kilowatts (kW) to voltage in volts (V) depending on the system type.</p>
 
           <div className="space-y-4">
@@ -87,7 +87,7 @@ const KWToVoltsConverter: React.FC = () => {
                 type="number"
                 value={power}
                 onChange={(e) => setPower(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -97,7 +97,7 @@ const KWToVoltsConverter: React.FC = () => {
                 type="number"
                 value={current}
                 onChange={(e) => setCurrent(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -107,7 +107,7 @@ const KWToVoltsConverter: React.FC = () => {
                 type="number"
                 value={powerFactor}
                 onChange={(e) => setPowerFactor(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -116,7 +116,7 @@ const KWToVoltsConverter: React.FC = () => {
               <select
                 value={systemType}
                 onChange={(e) => setSystemType(e.target.value)}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               >
                 <option value="dc">DC</option>
                 <option value="ac-single-phase">AC Single-phase</option>
@@ -133,7 +133,7 @@ const KWToVoltsConverter: React.FC = () => {
 
             <div>
               <strong>Converted Voltage:</strong>
-              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{voltage} V</p>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base dark:text-black">{voltage} V</p>
             </div>
 
             <div>

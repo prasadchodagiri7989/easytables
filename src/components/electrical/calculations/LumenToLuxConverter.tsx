@@ -74,7 +74,7 @@ const LumenToLuxConverter: React.FC = () => {
         <CardHeader>
           <CardTitle>Lumen to Lux Converter</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-4 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>Convert luminous flux in lumens (lm) to illuminance in lux (lx) depending on the area and the unit of measurement.</p>
 
           <div className="space-y-4">
@@ -84,7 +84,7 @@ const LumenToLuxConverter: React.FC = () => {
                 type="number"
                 value={lumens}
                 onChange={(e) => setLumens(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -94,7 +94,7 @@ const LumenToLuxConverter: React.FC = () => {
                 type="number"
                 value={area}
                 onChange={(e) => setArea(Number(e.target.value))}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               />
             </div>
 
@@ -103,7 +103,7 @@ const LumenToLuxConverter: React.FC = () => {
               <select
                 value={unit}
                 onChange={(e) => setUnit(e.target.value)}
-                className="w-full border px-3 py-2 rounded"
+                className="w-full border px-3 py-2 rounded dark:text-black"
               >
                 <option value="m2">Square Meters (m²)</option>
                 <option value="ft2">Square Feet (ft²)</option>
@@ -119,7 +119,7 @@ const LumenToLuxConverter: React.FC = () => {
 
             <div>
               <strong>Converted Illuminance:</strong>
-              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base">{lux} lx</p>
+              <p className="mt-1 p-3 bg-gray-100 rounded font-mono text-base dark:text-black">{lux} lx</p>
             </div>
 
             <div>
