@@ -154,6 +154,117 @@ const AmpToWattsConverter: React.FC = () => {
               In DC systems, you simply multiply amps by voltage to get watts. In AC systems, you must also account for the power factor, which adjusts for the type of load. Always ensure you know both the voltage and power factor for accurate conversions.
             </p>
           </section>
+          {/* Additional Insights */}
+<section>
+  <h2 className="text-lg font-semibold mt-6 mb-2">Things to Keep in Mind</h2>
+  <ul className="list-disc ml-6 space-y-1">
+    <li><strong>AC vs DC:</strong> The conversion is straightforward in DC, but in AC, always consider the power factor (PF).</li>
+    <li><strong>Power Factor:</strong> Resistive loads like heaters and incandescent bulbs have a PF close to 1. Inductive loads like motors and air conditioners typically have PF between 0.7 and 0.95.</li>
+    <li><strong>Current Ratings:</strong> Electrical devices often list amperage and voltage, but not watts. Use this conversion to calculate power consumption accurately.</li>
+    <li><strong>Efficiency:</strong> In real-world applications, always account for efficiency losses in the system — actual wattage may be lower than theoretical output.</li>
+  </ul>
+</section>
+
+{/* Applications */}
+<section>
+  <h2 className="text-lg font-semibold mt-6 mb-2">Where This Conversion is Used</h2>
+  <ul className="list-disc ml-6 space-y-1">
+    <li><strong>Home Appliances:</strong> Calculating power use for fans, TVs, refrigerators, and washing machines.</li>
+    <li><strong>Solar and Battery Systems:</strong> Determining inverter size, panel load, and battery drain in watts.</li>
+    <li><strong>Electric Vehicles:</strong> Estimating charging loads and energy efficiency.</li>
+    <li><strong>Generator Sizing:</strong> Choosing generators based on the total amp load and expected voltage levels.</li>
+  </ul>
+</section>
+
+{/* Table */}
+<section>
+  <h2 className="text-lg font-semibold mt-6 mb-2">Quick Reference Table</h2>
+  <div className="overflow-x-auto">
+    <table className="table-auto border-collapse border border-gray-300 text-left w-full text-sm dark:text-white">
+      <thead>
+        <tr className="bg-gray-200 dark:bg-gray-800">
+          <th className="border border-gray-300 p-2">Amps</th>
+          <th className="border border-gray-300 p-2">Voltage (V)</th>
+          <th className="border border-gray-300 p-2">Power Factor</th>
+          <th className="border border-gray-300 p-2">Watts</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td className="border border-gray-300 p-2">1</td>
+          <td className="border border-gray-300 p-2">120</td>
+          <td className="border border-gray-300 p-2">1</td>
+          <td className="border border-gray-300 p-2">120 W</td>
+        </tr>
+        <tr>
+          <td className="border border-gray-300 p-2">5</td>
+          <td className="border border-gray-300 p-2">230</td>
+          <td className="border border-gray-300 p-2">0.9</td>
+          <td className="border border-gray-300 p-2">1035 W</td>
+        </tr>
+        <tr>
+          <td className="border border-gray-300 p-2">10</td>
+          <td className="border border-gray-300 p-2">240</td>
+          <td className="border border-gray-300 p-2">0.85</td>
+          <td className="border border-gray-300 p-2">2040 W</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+{/* Terminology Breakdown */}
+<section>
+  <h2 className="text-lg font-semibold mt-6 mb-2">Terminology Explained</h2>
+  <ul className="list-disc ml-6 space-y-1">
+    <li><strong>Ampere (A):</strong> The unit of electric current – how much electric charge flows per second.</li>
+    <li><strong>Watt (W):</strong> A measure of real electrical power – the actual energy consumed or produced.</li>
+    <li><strong>Volt (V):</strong> The potential difference or pressure that pushes electric charges through a conductor.</li>
+    <li><strong>Power Factor (PF):</strong> A decimal between 0 and 1 representing the efficiency of the power usage in AC systems.</li>
+  </ul>
+</section>
+
+{/* Common Mistakes to Avoid */}
+<section>
+  <h2 className="text-lg font-semibold mt-6 mb-2">Common Mistakes to Avoid</h2>
+  <ul className="list-disc ml-6 space-y-1">
+    <li>❌ Forgetting to include power factor for AC calculations (watts = amps × volts × PF).</li>
+    <li>❌ Using different units (e.g., milliamps instead of amps) without converting first.</li>
+    <li>❌ Confusing watts (real power) with VA (apparent power).</li>
+    <li>❌ Assuming all devices have PF = 1. Inductive loads almost always have PF &lt; 1.</li>
+  </ul>
+</section>
+
+{/* Electrical Safety Tips */}
+<section>
+  <h2 className="text-lg font-semibold mt-6 mb-2">⚠️ Electrical Safety Tips</h2>
+  <ul className="list-disc ml-6 space-y-1">
+    <li>Always turn off the power before measuring current in a live circuit.</li>
+    <li>Use proper-rated fuses or breakers to avoid overloads.</li>
+    <li>Never exceed current ratings of plugs, wires, or devices.</li>
+    <li>Consult a licensed electrician for high-current or multi-phase installations.</li>
+  </ul>
+</section>
+
+{/* Bonus Tip */}
+<section>
+  <h2 className="text-lg font-semibold mt-6 mb-2">💡 Pro Tip</h2>
+  <p>
+    If you know the wattage and voltage but want to find the amps instead, simply reverse the formula:
+    <br />
+    <code>Amps = Watts ÷ (Volts × PF)</code>
+  </p>
+</section>
+
+
+{/* Final Notes */}
+<section>
+  <h2 className="text-lg font-semibold mt-6 mb-2">Final Notes</h2>
+  <p>
+    Converting amps to watts helps not just in understanding how much power a device consumes but also in making informed decisions for energy management. This knowledge is vital for homeowners, engineers, and electricians alike.
+  </p>
+</section>
+
 
         </CardContent>
       </Card>
