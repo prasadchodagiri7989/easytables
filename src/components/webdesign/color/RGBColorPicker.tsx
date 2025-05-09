@@ -95,14 +95,29 @@ export const RGBColorPicker: React.FC = () => {
       </Card>
 
       <GuidanceSection title="How to Use the RGB Color Picker">
-        <p>This tool helps you build colors using RGB (Red, Green, Blue) values:</p>
-        <ul className="list-disc pl-5 my-2">
-          <li>Each color component ranges from 0 to 255.</li>
-          <li>Use the sliders or input fields to adjust each value.</li>
-          <li>The box below previews the resulting color.</li>
-          <li>Copy the RGB or HEX code for use in your design or development work.</li>
-        </ul>
-      </GuidanceSection>
+  <p>This tool helps you build and preview custom colors using RGB (Red, Green, Blue) values:</p>
+
+  <ul className="list-disc pl-5 my-2 space-y-1">
+    <li>Each color component—Red, Green, and Blue—ranges from 0 to 255.</li>
+    <li>Use the sliders or input fields to adjust the intensity of each color channel.</li>
+    <li>The combined RGB values determine the final color shown in the preview box.</li>
+    <li>The corresponding HEX code is automatically calculated from the RGB values.</li>
+    <li>Click on the RGB or HEX field to copy the color code to your clipboard.</li>
+    <li>Experiment with combinations to find the perfect color for your project.</li>
+    <li>Use this tool to match brand colors, UI themes, or custom palette creation.</li>
+    <li>Real-time feedback makes it easy to fine-tune exact shades and tones.</li>
+    <li>Works great for CSS, graphic design, web development, and prototyping.</li>
+    <li>The preview area can be used to quickly test how colors appear against light or dark backgrounds.</li>
+  </ul>
+
+  <h4 className="font-medium mt-3 mb-1">Tip for Designers</h4>
+  <p>To create muted or pastel tones, keep RGB values closer to the mid-range (e.g., 150–200). For bold, saturated colors, push values closer to 255.</p>
+
+  <p className="mt-2 text-sm text-muted-foreground">
+    Note: RGB is an additive color model used for screens—avoid using it directly for print design, which relies on CMYK.
+  </p>
+</GuidanceSection>
+
     </div>
   );
 };

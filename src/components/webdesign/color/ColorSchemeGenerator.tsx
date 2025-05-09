@@ -5,6 +5,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import chroma from "chroma-js";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
+import { GuidanceSection } from "@/components/GuidanceSection";
 
 const colorSchemes = [
   "monochromatic",
@@ -99,6 +100,66 @@ export const ColorSchemeGenerator = () => {
               </div>
             ))}
           </div>
+          <GuidanceSection title="How to Use the Color Scheme Generator">
+  <p>
+    This tool helps you generate harmonious color palettes based on a single base color using popular color theory models.
+  </p>
+
+  <h4 className="font-medium mt-3 mb-1">Steps to Generate a Color Scheme</h4>
+  <ol className="list-decimal pl-5 space-y-1">
+    <li>Select a base color using the color picker</li>
+    <li>Choose a color scheme type (e.g., Analogous, Complementary)</li>
+    <li>Click "Generate" to view a palette of colors</li>
+    <li>Use the colors in your UI designs, illustrations, or branding</li>
+  </ol>
+
+  <h4 className="font-medium mt-3 mb-1">Supported Color Schemes</h4>
+  <ul className="list-disc pl-5 space-y-1">
+    <li><strong>Monochromatic:</strong> Variations in lightness and saturation of one hue</li>
+    <li><strong>Analogous:</strong> Colors adjacent to the base hue on the color wheel</li>
+    <li><strong>Triadic:</strong> Three colors evenly spaced around the color wheel</li>
+    <li><strong>Complementary:</strong> Colors opposite each other on the color wheel</li>
+    <li><strong>Split-Complementary:</strong> Base color plus two adjacent to its complement</li>
+    <li><strong>Tetradic:</strong> A double-complementary rectangle (four hues)</li>
+  </ul>
+
+  <h4 className="font-medium mt-3 mb-1">Color Theory in Practice</h4>
+  <p>
+    Effective color use improves readability, accessibility, and emotional resonance. Each scheme offers a unique visual balance:
+  </p>
+  <ul className="list-disc pl-5 space-y-1">
+    <li>Use complementary schemes for high contrast (e.g., buttons, CTAs)</li>
+    <li>Analogous schemes are calming and cohesive—great for backgrounds and branding</li>
+    <li>Monochromatic schemes are clean and professional, often used in minimal designs</li>
+  </ul>
+
+  <h4 className="font-medium mt-3 mb-1">Example</h4>
+  <div className="space-y-1">
+    <p><strong>Base Color:</strong> #3498db (a soft blue)</p>
+    <p><strong>Scheme:</strong> Triadic</p>
+    <p><strong>Generated Colors:</strong></p>
+    <ul className="list-disc pl-5">
+      <li>#3498db (Blue)</li>
+      <li>#db3498 (Pink/Purple)</li>
+      <li>#98db34 (Green)</li>
+    </ul>
+    <p>These colors form a vibrant, balanced palette suitable for a playful UI or dashboard.</p>
+  </div>
+
+  <h4 className="font-medium mt-3 mb-1">Tips for Designers</h4>
+  <ul className="list-disc pl-5 space-y-1">
+    <li>Test palettes for accessibility using contrast checkers</li>
+    <li>Use lighter shades for backgrounds, darker tones for text</li>
+    <li>Maintain brand consistency by defining a base palette</li>
+    <li>Apply the 60-30-10 rule for color proportions in layouts</li>
+  </ul>
+
+  <p className="mt-2 text-sm text-muted-foreground">
+    Note: This generator uses the HSL color space via <code>chroma-js</code> for accurate hue manipulation.
+  </p>
+</GuidanceSection>
+
+          
         </CardContent>
       </Card>
     </div>

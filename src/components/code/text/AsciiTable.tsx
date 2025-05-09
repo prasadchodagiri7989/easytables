@@ -36,7 +36,7 @@ const AsciiTable: React.FC = () => {
         <CardHeader>
           <CardTitle>ASCII Table (American Standard Code for Information Interchange)</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>
             ASCII is a character encoding standard for electronic communication, representing text in computers, telecommunications equipment, and other devices. Each character is assigned a number from 0 to 127.
           </p>

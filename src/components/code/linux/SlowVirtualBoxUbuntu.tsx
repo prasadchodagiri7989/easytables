@@ -35,7 +35,7 @@ const SlowVirtualBoxUbuntu: React.FC = () => {
         <CardHeader>
           <CardTitle>Fix Slow Ubuntu in VirtualBox</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>
             If your Ubuntu system runs slow inside VirtualBox, it could be due to insufficient resources or missing configurations. Here are common reasons and solutions to speed up your Ubuntu VM.
           </p>

@@ -53,7 +53,7 @@ const ViewFiles: React.FC = () => {
         <CardHeader>
           <CardTitle>ls Command in Linux/Unix</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>
             The <strong>ls</strong> command is used to <strong>list files and directories</strong> in Linux.
           </p>
