@@ -132,6 +132,61 @@ const KilowattsToJoulesConverter: React.FC = () => {
               </p>
             </div>
           </div>
+
+          {/* Extra Content Section: About Kilowatts to Joules Conversion */}
+<div>
+  <h2 className="font-semibold text-base mt-6 mb-2">Understanding the Conversion from Kilowatts (kW) to Joules (J)</h2>
+  <p>
+    Converting **Kilowatts (kW)** to **Joules (J)** helps in understanding how much energy is delivered over a period of time. Kilowatts represent the rate of energy usage or generation (power), while Joules measure the total amount of energy used.
+  </p>
+
+  <hr className="my-4 border-t-2 border-gray-200" />
+
+  <h3 className="font-semibold text-base mt-4 mb-2">What is a Kilowatt?</h3>
+  <ul className="list-disc list-inside ml-4 space-y-1">
+    <li>
+      1 kilowatt = 1,000 watts
+    </li>
+    <li>
+      Kilowatts represent the rate of doing work or using energy, often seen in electrical appliances and machinery.
+    </li>
+  </ul>
+
+  <hr className="my-4 border-t-2 border-gray-200" />
+
+  <h3 className="font-semibold text-base mt-4 mb-2">What is a Joule?</h3>
+  <ul className="list-disc list-inside ml-4 space-y-1">
+    <li>
+      1 joule is the energy transferred when one watt of power is applied for one second.
+    </li>
+    <li>
+      It is the SI unit of energy, widely used in physics and engineering.
+    </li>
+  </ul>
+
+  <hr className="my-4 border-t-2 border-gray-200" />
+
+  <h3 className="font-semibold text-base mt-4 mb-2">Conversion Formula</h3>
+  <p>
+    To convert kilowatts to joules, you also need to know the time in seconds:
+  </p>
+  <ul className="list-disc list-inside ml-4 space-y-1">
+    <li>
+      **Joules = Kilowatts × 1,000 × Time (in seconds)**
+    </li>
+    <li>
+      For example, 2 kW used for 60 seconds = 2 × 1,000 × 60 = 120,000 J
+    </li>
+  </ul>
+
+  <hr className="my-4 border-t-2 border-gray-200" />
+
+  <h3 className="font-semibold text-base mt-4 mb-2">Why This Conversion Matters</h3>
+  <p>
+    This conversion is essential for energy budgeting, battery calculations, and analyzing energy efficiency in systems where both power and duration are key factors. It helps translate power ratings into actual energy consumption.
+  </p>
+</div>
+
         </CardContent>
       </Card>
     </div>
