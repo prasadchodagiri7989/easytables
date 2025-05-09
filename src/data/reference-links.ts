@@ -1043,8 +1043,318 @@ export const referenceLinks: Record<string, { label: string; href: string }[]> =
 "/electrical-calculators/wire-gauge-calculator": [
   { label: "Voltage Drop Calculator", href: "/electrical-calculators/voltage-drop-calculator" },
   { label: "Inches to mm Converter", href: "/convertor/length" }
+], 
+"/electrical/units/ampere": [
+  { label: "Electrical Current", href: "/electrical/content/current" },
+  { label: "Electric Power", href: "/electrical/content/power" },
+  { label: "Electrical Voltage", href: "/electrical/content/voltage" },
+  { label: "Watt (W)", href: "/electrical/units/watt" },
+  { label: "Volt (V)", href: "/electrical/units/volt" },
+  { label: "Ohm (Ω)", href: "/electrical/units/ohm" },
+  { label: "Amps to Volts Calculator", href: "/electrical-calculations/amps-to-volts" },
+  { label: "Amps to Watts Calculator", href: "/electrical-calculations/amps-to-watts" },
+  { label: "Electrical Units Overview", href: "/electrical/units" }
 ],
-
+"/electrical/units/dbm": [
+  { label: "dBm to mW Conversion Calculator", href: "/electrical-calculations/dbm-to-mw" },
+  { label: "mW to dBm Conversion Calculator", href: "/electrical-calculations/mw-to-dbm" },
+  { label: "dBm to Watts Conversion Calculator", href: "/electrical-calculations/dbm-to-watt" },
+  { label: "Watts to dBm Conversion Calculator", href: "/electrical-calculations/watt-to-dbm" },
+  { label: "dBW (Decibel-Watt)", href: "/electrical/units/dbw" },
+  { label: "Decibel (dB)", href: "/electrical/units/decibel" },
+  { label: "Watt (W)", href: "/electrical/units/watt" },
+  { label: "Electric Power", href: "/electrical/content/power" },
+  { label: "Electrical Units", href: "/electrical/units" },
+  { label: "Logarithm Calculator", href: "/tools/log-calculator" }
+],
+"/electrical/units/dbw": [
+  { label: "dBm (Decibel-milliwatt)", href: "/electrical/units/dbm" },
+  { label: "Decibel (dB)", href: "/electrical/units/decibel" },
+  { label: "Watt (W)", href: "/electrical/units/watt" },
+  { label: "dBm to mW Conversion Calculator", href: "/electrical-calculations/dbm-to-mw" },
+  { label: "mW to dBm Conversion Calculator", href: "/electrical-calculations/mw-to-dbm" },
+  { label: "dBm to Watts Conversion Calculator", href: "/electrical-calculations/dbm-to-watt" },
+  { label: "Watts to dBm Conversion Calculator", href: "/electrical-calculations/watt-to-dbm" },
+  { label: "Electric Power", href: "/electrical/content/power" },
+  { label: "Electrical Units", href: "/electrical/units" },
+  { label: "Logarithm Calculator", href: "/tools/log-calculator" }
+],
+"/electrical/units/decibel": [
+  { label: "dBm (Decibel-milliwatt)", href: "/electrical/units/dbm" },
+  { label: "dBW (Decibel-Watt)", href: "/electrical/units/dbw" },
+  { label: "Watt (W)", href: "/electrical/units/watt" },
+  { label: "Volt (V)", href: "/electrical/units/volt" },
+  { label: "Electrical Units", href: "/electrical/units" },
+  { label: "Logarithm Calculator", href: "/tools/log-calculator" }
+],
+"/electrical/units/farad": [
+  { label: "Capacitor (Farad)", href: "/electrical/content/capacitor" },
+  { label: "Volt (V)", href: "/electrical/units/volt" },
+  { label: "Watt (W)", href: "/electrical/units/watt" },
+  { label: "Ampere (A)", href: "/electrical/units/ampere" },
+  { label: "Ohm (Ω)", href: "/electrical/units/ohm" },
+  { label: "Voltage", href: "/electrical/content/voltage" },
+  { label: "Electric Power", href: "/electrical/content/power" },
+  { label: "Electrical Current", href: "/electrical/content/current" },
+  { label: "Electrical Units", href: "/electrical/units" }
+],
+"/electrical/units/kva": [
+  { label: "Electric Power", href: "/electrical/content/power" },
+  { label: "Watt (W)", href: "/electrical/units/watt" },
+  { label: "dB milliwatt (dBm)", href: "/electrical/units/dbm" },
+  { label: "Kilowatt-hour (kWh)", href: "/electrical/units/kwh" },
+  { label: "kVA to VA Calculator", href: "/electrical-calculations/kva-to-va" },
+  { label: "kVA to kW Calculator", href: "/electrical-calculations/kva-to-kw" },
+  { label: "kVA to Watts Calculator", href: "/electrical-calculations/kva-to-watts" },
+  { label: "kVA to Amps Calculator", href: "/electrical-calculations/kva-to-amps" },
+  { label: "Electrical Units", href: "/electrical/units" },
+  { label: "Logarithm Calculator", href: "/tools/log-calculator" }
+],
+"/electrical/units/kwh": [
+  { label: "Kilowatt (kW)", href: "/electrical/units/kw" },
+  { label: "Watt (W)", href: "/electrical/units/watt" },
+  { label: "Electric Power", href: "/electrical/content/power" },
+  { label: "kW to kWh Calculator", href: "/electrical-calculations/kw-to-kwh" },
+  { label: "kWh to kW Calculator", href: "/electrical-calculations/kwh-to-kw" },
+  { label: "kWh to BTU Converter", href: "/electrical-calculations/kwh-to-btuh" },
+  { label: "Power Conversion Tools", href: "/all-conversions" },
+  { label: "Energy Conversion", href: "/convertor/energy" },
+  { label: "Electrical Units", href: "/electrical/units" }
+],
+"/electrical/units/ohm": [
+  { label: "Electrical Resistance", href: "/electrical/content/resistance" },
+  { label: "Resistor", href: "/electrical/content/resistor" },
+  { label: "Ohm's Law", href: "/electrical/circuit-laws/ohm" },
+  { label: "Electrical Units", href: "/electrical/units" },
+  { label: "Volt (V)", href: "/electrical/units/volt" },
+  { label: "Ampere (A)", href: "/electrical/units/ampere" },
+  { label: "Watt (W)", href: "/electrical/units/watt" }
+],
+"/electrical/units/volt": [
+  { label: "Voltage", href: "/electrical/content/voltage" },
+  { label: "Watt (W)", href: "/electrical/units/watt" },
+  { label: "Ampere (A)", href: "/electrical/units/ampere" },
+  { label: "Ohm (Ω)", href: "/electrical/units/ohm" },
+  { label: "How to Convert Volts to Watts", href: "/electrical-calculations/volts-to-watts" },
+  { label: "Volts to Watts Calculator", href: "/electrical-calculators/volts-to-watts-calculator" },
+  { label: "Electric Power", href: "/electrical/content/power" },
+  { label: "Electrical Current", href: "/electrical/content/current" },
+  { label: "Electrical Units", href: "/electrical/units" },
+  { label: "Power Conversion Tools", href: "/all-conversions" },
+  { label: "Energy Conversion", href: "/convertor/energy" }
+],
+"/electrical/units/watt": [
+  { label: "Watt Definition", href: "/electrical/content/power" },
+  { label: "Watt to mW, kW, MW, GW, dBm, dBW Conversion Calculator", href: "/electrical-calculators/watts-conversion" },
+  { label: "Watt Unit Prefix Table", href: "/electrical/content/watt-prefixes" },
+  { label: "How to Convert Watts to Kilowatts", href: "/electrical-calculations/watts-to-kw" },
+  { label: "How to Convert Watts to Milliwatts", href: "/electrical-calculations/watts-to-mw" },
+  { label: "How to Convert Watts to dBm", href: "/electrical-calculations/watt-to-dbm" },
+  { label: "How to Convert Watts to Amps", href: "/electrical-calculations/watts-to-amps" },
+  { label: "How to Convert Watts to Volts", href: "/electrical-calculations/watts-to-volts" },
+  { label: "How to Convert Watts to Ohms", href: "/electrical-calculations/watts-to-ohms" },
+  { label: "How to Convert Watts to BTU", href: "/electrical-calculations/watts-to-btuh" },
+  { label: "How to Convert Watts to Joules", href: "/electrical-calculations/watts-to-joules" },
+  { label: "How to Convert Watts to Horsepower", href: "/electrical-calculations/watts-to-hp" },
+  { label: "How to Convert Watts to kVA", href: "/electrical-calculations/watts-to-kva" },
+  { label: "How to Convert Watts to VA", href: "/electrical-calculations/watts-to-va" },
+  { label: "Power Consumption Table", href: "/electrical/content/power-consumption-table" }
+],
+"/electrical/content/current": [
+  { label: "Ohm's Law", href: "/electrical/circuit-laws/ohm" },
+  { label: "Kirchhoff's Laws", href: "/electrical/circuit-laws/kirchhoff" },
+  { label: "Electric Charge", href: "/electrical/content/charge" },
+  { label: "Electrical Voltage", href: "/electrical/content/voltage" },
+  { label: "Electrical Resistance", href: "/electrical/content/resistance" },
+  { label: "Electric Power", href: "/electrical/content/power" },
+  { label: "Resistor", href: "/electrical/content/resistor" },
+  { label: "Capacitor", href: "/electrical/content/capacitor" },
+  { label: "Ampere (A)", href: "/electrical/units/ampere" },
+  { label: "Electrical Units", href: "/electrical/units" },
+  { label: "Electrical Calculators", href: "/electrical-calculators" },
+  { label: "Electrical Calculations", href: "/electrical-calculations" }
+],
+"/electrical/content/resistance": [
+  { label: "Resistor", href: "/electrical/content/resistor" },
+  { label: "Ohm (Ω)", href: "/electrical/units/ohm" },
+  { label: "Electrical Voltage", href: "/electrical/content/voltage" },
+  { label: "Electrical Current", href: "/electrical/content/current" },
+  { label: "Ohm's Law", href: "/electrical/circuit-laws/ohm" },
+  { label: "Electrical Calculators", href: "/electrical-calculators" },
+  { label: "Electrical Calculations", href: "/electrical-calculations" }
+],
+"/electrical/content/power": [
+  { label: "Power Calculator", href: "/electrical-calculators/power-calculator" },
+  { label: "Power Factor Calculator", href: "/electrical-calculators/power-factor-calculator" },
+  { label: "Power Factor", href: "/electrical/content/power-factor" },
+  { label: "Watt (W)", href: "/electrical/units/watt" },
+  { label: "dBm (Decibel-milliwatt)", href: "/electrical/units/dbm" },
+  { label: "dBW (Decibel-Watt)", href: "/electrical/units/dbw" },
+  { label: "Kilowatt (kW)", href: "/electrical/units/kw" },
+  { label: "Kilovolt-Amp (kVA)", href: "/electrical/units/kva" },
+  { label: "Efficiency", href: "/electrical/content/efficiency" },
+  { label: "Electrical Voltage", href: "/electrical/content/voltage" },
+  { label: "Electrical Current", href: "/electrical/content/current" },
+  { label: "Electric Charge", href: "/electrical/content/charge" },
+  { label: "Power Conversion Tools", href: "/all-conversions" },
+  { label: "Ohm's Law", href: "/electrical/circuit-laws/ohm" }
+],
+"/electrical/content/charge": [
+  { label: "Coulomb's Law", href: "/electrical/circuit-laws/coulomb" },
+  { label: "Electrical Current", href: "/electrical/content/current" },
+  { label: "Ampere (A)", href: "/electrical/units/ampere" },
+  { label: "Electrical Voltage", href: "/electrical/content/voltage" },
+  { label: "Capacitor", href: "/electrical/content/capacitor" },
+  { label: "Resistor", href: "/electrical/content/resistor" },
+  { label: "Electrical Units", href: "/electrical/units" },
+  { label: "Electrical Calculators", href: "/electrical-calculators" },
+  { label: "Electrical Calculations", href: "/electrical-calculations" }
+],
+"/electrical/content/efficiency": [
+  { label: "Electric Power", href: "/electrical/content/power" },
+  { label: "Watt (W)", href: "/electrical/units/watt" },
+  { label: "Electrical Calculators", href: "/electrical-calculators" },
+  { label: "Electrical Calculations", href: "/electrical-calculations" }
+],
+"/electrical/content/factor": [
+  { label: "Power Factor Calculator", href: "/electrical-calculators/power-factor-calculator" },
+  { label: "Power Calculator", href: "/electrical-calculators/power-calculator" },
+  { label: "Amps to kW Calculator", href: "/electrical-calculations/amps-to-kw" },
+  { label: "Amps to kVA Calculator", href: "/electrical-calculations/amps-to-kva" },
+  { label: "Electric Power", href: "/electrical/content/power" },
+  { label: "Efficiency", href: "/electrical/content/efficiency" },
+  { label: "Electrical Voltage", href: "/electrical/content/voltage" },
+  { label: "Electrical Current", href: "/electrical/content/current" },
+  { label: "Electric Charge", href: "/electrical/content/charge" },
+  { label: "Watt (W)", href: "/electrical/units/watt" },
+  { label: "Power Conversion Tools", href: "/all-conversions" },
+  { label: "Ohm's Law", href: "/electrical/circuit-laws/ohm" },
+  { label: "Electrical Calculators", href: "/electrical-calculators" },
+  { label: "Electrical Calculations", href: "/electrical-calculations" }
+],
+"/electrical/components/resistor": [
+  { label: "Electrical Resistance", href: "/electrical/content/resistance" },
+  { label: "Resistor Symbols", href: "/electrical/content/resistor" },
+  { label: "Ohm (Ω)", href: "/electrical/units/ohm" },
+  { label: "Ohm's Law", href: "/electrical/circuit-laws/ohm" },
+  { label: "Capacitor", href: "/electrical/content/capacitor" },
+  { label: "Inductor", href: "/electrical/content/inductor" }
+],
+"/electrical/components/capacitor": [
+  { label: "Capacitor Symbols", href: "/electrical/content/capacitor" },
+  { label: "Electrical & Electronic Symbols", href: "/electrical/content/symbols" },
+  { label: "Farad (F)", href: "/electrical/units/farad" },
+  { label: "Resistor", href: "/electrical/content/resistor" },
+  { label: "Inductor", href: "/electrical/content/inductor" }
+],
+"/electrical/components/inductor": [
+  { label: "Capacitor", href: "/electrical/content/capacitor" },
+  { label: "Resistor", href: "/electrical/content/resistor" },
+  { label: "Electrical Symbols", href: "/electrical/content/symbols" },
+  { label: "Electrical Units", href: "/electrical/units" },
+  { label: "Ohm's Law", href: "/electrical/circuit-laws/ohm" }
+],
+"/electrical/components/dip-switch": [
+  { label: "Decimal to Binary Converter", href: "/tools/decimal-to-binary" },
+  { label: "Solder Bridge", href: "/electrical/components/solder-bridge" },
+  { label: "Electrical Symbols", href: "/electrical/content/symbols" },
+  { label: "Electronic Components", href: "/electrical/components" }
+],
+"/electrical/components/solder-bridge": [
+  { label: "DIP Switch", href: "/electrical/components/dip-switch" },
+  { label: "Electrical Symbols", href: "/electrical/content/symbols" },
+  { label: "Electronic Components", href: "/electrical/components" }
+],
+"/electrical/symbols/switch": [
+  { label: "Electronic Symbols", href: "/electrical/content/symbols" },
+  { label: "Resistor Symbols", href: "/electrical/content/resistor" },
+  { label: "Capacitor Symbols", href: "/electrical/content/capacitor" },
+  { label: "Diode Symbols", href: "/electrical/symbols/diode" },
+  { label: "Transistor Symbols", href: "/electrical/symbols/transistor" }
+],
+"/electrical/symbols/ground": [
+  { label: "Electronic Symbols", href: "/electrical/content/symbols" },
+  { label: "Resistor Symbols", href: "/electrical/content/resistor" },
+  { label: "Capacitor Symbols", href: "/electrical/content/capacitor" },
+  { label: "Diode Symbols", href: "/electrical/symbols/diode" },
+  { label: "Transistor Symbols", href: "/electrical/symbols/transistor" }
+],
+"/electrical/symbols/resistor": [
+  { label: "Electronic Symbols", href: "/electrical/content/symbols" },
+  { label: "Switch Symbols", href: "/electrical/symbols/switch" },
+  { label: "Capacitor Symbols", href: "/electrical/content/capacitor" },
+  { label: "Diode Symbols", href: "/electrical/symbols/diode" },
+  { label: "Transistor Symbols", href: "/electrical/symbols/transistor" },
+  { label: "Resistor", href: "/electrical/content/resistor" }
+],
+"/electrical/symbols/capacitor": [
+  { label: "Electronic Symbols", href: "/electrical/content/symbols" },
+  { label: "Switch Symbols", href: "/electrical/symbols/switch" },
+  { label: "Resistor Symbols", href: "/electrical/symbols/resistor" },
+  { label: "Diode Symbols", href: "/electrical/symbols/diode" },
+  { label: "Transistor Symbols", href: "/electrical/symbols/transistor" },
+  { label: "Capacitor", href: "/electrical/content/capacitor" }
+],
+"/electrical/symbols/diode": [
+  { label: "Electronic Symbols", href: "/electrical/content/symbols" },
+  { label: "Switch Symbols", href: "/electrical/symbols/switch" },
+  { label: "Resistor Symbols", href: "/electrical/symbols/resistor" },
+  { label: "Capacitor Symbols", href: "/electrical/symbols/capacitor" },
+  { label: "Transistor Symbols", href: "/electrical/symbols/transistor" }
+],
+"/electrical/symbols/transistor": [
+  { label: "Electronic Symbols", href: "/electrical/content/symbols" },
+  { label: "Switch Symbols", href: "/electrical/symbols/switch" },
+  { label: "Resistor Symbols", href: "/electrical/symbols/resistor" },
+  { label: "Capacitor Symbols", href: "/electrical/symbols/capacitor" },
+  { label: "Diode Symbols", href: "/electrical/symbols/diode" }
+],
+"/electrical/circuit-laws/ohm": [
+  { label: "Ohm's Law Calculator", href: "/electrical-calculators/ohms-law-calculator" },
+  { label: "Electrical Voltage", href: "/electrical/content/voltage" },
+  { label: "Electrical Current", href: "/electrical/content/current" },
+  { label: "Electric Power", href: "/electrical/content/power" },
+  { label: "Electrical Resistance", href: "/electrical/content/resistance" },
+  { label: "Ohm (Ω)", href: "/electrical/units/ohm" },
+  { label: "Volt (V)", href: "/electrical/units/volt" },
+  { label: "Ampere (A)", href: "/electrical/units/ampere" },
+  { label: "Electrical Symbols", href: "/electrical/content/symbols" }
+],
+"/electrical/circuit-laws/voltage-divider": [
+  { label: "Voltage Divider Calculator", href: "/electrical-calculators/voltage-divider-calculator" },
+  { label: "Electrical Voltage", href: "/electrical/content/voltage" },
+  { label: "Ohm's Law", href: "/electrical/circuit-laws/ohm" },
+  { label: "Kirchhoff's Laws", href: "/electrical/circuit-laws/kirchhoff" },
+  { label: "Electrical Current", href: "/electrical/content/current" },
+  { label: "Electric Power", href: "/electrical/content/power" },
+  { label: "Electric Charge", href: "/electrical/content/charge" },
+  { label: "Resistor", href: "/electrical/content/resistor" },
+  { label: "Electrical Units", href: "/electrical/units" },
+  { label: "Energy Conversion", href: "/convertor/energy" }
+],
+"/electrical/circuit-laws/kirchhoff": [
+  { label: "Ohm's Law", href: "/electrical/circuit-laws/ohm" },
+  { label: "Electronic Components", href: "/electrical/components" }
+],
+"/electrical/circuit-laws/coulomb": [
+  { label: "Electric Charge", href: "/electrical/content/charge" },
+  { label: "Electrical Current", href: "/electrical/content/current" },
+  { label: "Ampere (A)", href: "/electrical/units/ampere" },
+  { label: "Electrical Voltage", href: "/electrical/content/voltage" },
+  { label: "Capacitor", href: "/electrical/content/capacitor" },
+  { label: "Resistor", href: "/electrical/content/resistor" },
+  { label: "Electrical Units", href: "/electrical/units" }
+],
+"/howto/save-electricity": [
+  { label: "Electricity Bill Calculator", href: "/electrical-calculators/electricity-bill-calculator" },
+  { label: "Energy Consumption Calculator", href: "/electrical-calculators/energy-consumption-calculator" },
+  { label: "How to Save Energy", href: "/howto/save-energy" }
+],
+"/howto/save-energy": [
+  { label: "Energy Cost Calculator", href: "/electrical-calculators/energy-cost-calculator" },
+  { label: "Electricity Bill Calculator", href: "/electrical-calculators/electricity-bill-calculator" },
+  { label: "How to Save Electricity", href: "/howto/save-electricity" }
+],
 
   };
   
