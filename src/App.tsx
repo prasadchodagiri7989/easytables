@@ -540,7 +540,7 @@ const App = () => (
           <Route path="/mortgage" element={<Layout><MortgageCalculator /></Layout>} />
           <Route path="/compound-interest" element={<Layout><CompoundInterestCalculator /></Layout>} />
           <Route path="/bmi" element={<Layout><BMICalculator /></Layout>} />
-          <Route path="/unit-converter" element={<Layout><UnitConverter /></Layout>} />
+          <Route path=" " element={<Layout><UnitConverter /></Layout>} />
           
           {/* Convertors Routes */}
           <Route path="/convertor/length" element={<Layout><LengthConverter /></Layout>} />
@@ -945,10 +945,10 @@ const App = () => (
           <Route path="/electrical-calculations/milliamps-to-amps" element={<Layout><MilliAmpsToAmpsConverter /></Layout>} />
           <Route path="/electrical-calculations/ohms-to-amps" element={<Layout><OhmsToAmpsConverter /></Layout>} />
           <Route path="/electrical-calculations/ohms-to-volts" element={<Layout><OhmsToVoltsConverter /></Layout>} />
-          <Route path="/electrical-calculations/vat-to-amps" element={<Layout><VAToAmpsConverter /></Layout>} />
-          <Route path="/electrical-calculations/vat-to-kva" element={<Layout><VAToKVAConverter /></Layout>} />
-          <Route path="/electrical-calculations/vat-to-kw" element={<Layout><VAToKWConverter /></Layout>} />
-          <Route path="/electrical-calculations/vat-to-watts" element={<Layout><VAToWattsConverter /></Layout>} />
+          <Route path="/electrical-calculations/va-to-amps" element={<Layout><VAToAmpsConverter /></Layout>} />
+          <Route path="/electrical-calculations/va-to-kva" element={<Layout><VAToKVAConverter /></Layout>} />
+          <Route path="/electrical-calculations/va-to-kw" element={<Layout><VAToKWConverter /></Layout>} />
+          <Route path="/electrical-calculations/va-to-watts" element={<Layout><VAToWattsConverter /></Layout>} />
           <Route path="/electrical-calculations/volts-to-amps" element={<Layout><VoltsToAmpsConverter /></Layout>} />
           <Route path="/electrical-calculations/volts-to-ev" element={<Layout><VoltsToEVConverter /></Layout>} />
           <Route path="/electrical-calculations/volts-to-joules" element={<Layout><VoltsToJoulesConverter /></Layout>} />
