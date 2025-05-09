@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
 
 const HtmlCharacterCodes: React.FC = () => {
   return (
-    <div className="w-full max-w-3xl mx-auto">
+    <div className="w-full max-w-3xl mx-auto dark:text-white">
            <Breadcrumb className="mb-4">
                 <BreadcrumbList>
                   <BreadcrumbItem>
@@ -23,7 +23,7 @@ const HtmlCharacterCodes: React.FC = () => {
         <CardHeader>
           <CardTitle>HTML Character Codes</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed dark:text-white">
           {/* Introduction */}
           <p>
             HTML character codes (or HTML entities) are used to display characters that are reserved in HTML
@@ -43,7 +43,7 @@ const HtmlCharacterCodes: React.FC = () => {
                   The ampersand (<strong>&amp;</strong>) character is used in HTML code to represent "AND." Since 
                   the ampersand is a special character, use its character code to display it safely.
                 </p>
-                <pre className="bg-gray-100 p-4 rounded text-sm">
+                <pre className="bg-gray-100 p-4 rounded text-sm dark:text-black">
                   <code>&amp;amp;</code>
                 </pre>
                 <p>It will render as: &amp;</p>
@@ -55,7 +55,7 @@ const HtmlCharacterCodes: React.FC = () => {
                 <p>
                   The check mark (<strong>✓</strong>) symbol can be inserted using its character code.
                 </p>
-                <pre className="bg-gray-100 p-4 rounded text-sm">
+                <pre className="bg-gray-100 p-4 rounded text-sm dark:text-black">
                   <code>&amp;#10003;</code>
                 </pre>
                 <p>It will render as: ✓</p>
@@ -67,7 +67,7 @@ const HtmlCharacterCodes: React.FC = () => {
                 <p>
                   To display a copyright symbol (<strong>©</strong>), use the following character code.
                 </p>
-                <pre className="bg-gray-100 p-4 rounded text-sm">
+                <pre className="bg-gray-100 p-4 rounded text-sm dark:text-black">
                   <code>&amp;copy;</code>
                 </pre>
                 <p>It will render as: ©</p>
@@ -79,7 +79,7 @@ const HtmlCharacterCodes: React.FC = () => {
                 <p>
                   The Euro symbol (<strong>€</strong>) is represented by its character code.
                 </p>
-                <pre className="bg-gray-100 p-4 rounded text-sm">
+                <pre className="bg-gray-100 p-4 rounded text-sm dark:text-black">
                   <code>&amp;euro;</code>
                 </pre>
                 <p>It will render as: €</p>
@@ -91,7 +91,7 @@ const HtmlCharacterCodes: React.FC = () => {
                 <p>
                   Use this character code to display a heart symbol (<strong>♥</strong>).
                 </p>
-                <pre className="bg-gray-100 p-4 rounded text-sm">
+                <pre className="bg-gray-100 p-4 rounded text-sm dark:text-black">
                   <code>&amp;#9829;</code>
                 </pre>
                 <p>It will render as: ♥</p>
@@ -103,7 +103,7 @@ const HtmlCharacterCodes: React.FC = () => {
                 <p>
                   A left double quotation mark (<strong>“</strong>) can be displayed with this code.
                 </p>
-                <pre className="bg-gray-100 p-4 rounded text-sm">
+                <pre className="bg-gray-100 p-4 rounded text-sm dark:text-black">
                   <code>&amp;#8220;</code>
                 </pre>
                 <p>It will render as: “</p>
@@ -115,7 +115,7 @@ const HtmlCharacterCodes: React.FC = () => {
                 <p>
                   To represent a space in HTML using a character code:
                 </p>
-                <pre className="bg-gray-100 p-4 rounded text-sm">
+                <pre className="bg-gray-100 p-4 rounded text-sm dark:text-black">
                   <code>&amp;nbsp;</code>
                 </pre>
                 <p>It will render as a regular space.</p>
@@ -127,7 +127,7 @@ const HtmlCharacterCodes: React.FC = () => {
                 <p>
                   The trademark symbol (<strong>™</strong>) can be displayed using this character code.
                 </p>
-                <pre className="bg-gray-100 p-4 rounded text-sm">
+                <pre className="bg-gray-100 p-4 rounded text-sm dark:text-black">
                   <code>&amp;trade;</code>
                 </pre>
                 <p>It will render as: ™</p>
@@ -138,10 +138,10 @@ const HtmlCharacterCodes: React.FC = () => {
 
           {/* Table of Codes */}
           <div>
-            <h2 className="text-lg font-semibold mb-2">List of Common HTML Character Codes</h2>
+            <h2 className="text-lg font-semibold mb-2 ">List of Common HTML Character Codes</h2>
             <div className="overflow-x-auto">
-              <table className="w-full text-sm border-collapse border border-gray-300">
-                <thead className="bg-gray-100">
+              <table className="w-full text-sm border-collapse border border-gray-300 ">
+                <thead className="bg-gray-100 dark:text-black">
                   <tr>
                     <th className="border border-gray-300 p-2">Character</th>
                     <th className="border border-gray-300 p-2">HTML Entity Code</th>
