@@ -81,7 +81,7 @@ const LsCommand: React.FC = () => {
         <CardHeader>
           <CardTitle>ls Command in Linux/Unix</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>
             The <strong>ls</strong> command is used in Linux/Unix to list the contents of a directory, such as files and subdirectories.
           </p>
@@ -210,6 +210,7 @@ const LsCommand: React.FC = () => {
               <code>{generateCommand()}</code>
             </div>
           </div>
+          
         </CardContent>
       </Card>
     </div>

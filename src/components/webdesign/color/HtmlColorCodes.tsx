@@ -14,6 +14,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Link } from "react-router-dom";
+import { GuidanceSection } from "@/components/GuidanceSection";
 
 const htmlColors = [
   { name: "Black", hex: "#000000", rgb: "rgb(0, 0, 0)" },
@@ -73,6 +74,56 @@ const HtmlColorCode = () => {
               </div>
             ))}
           </div>
+          <GuidanceSection title="How to Use the HTML Color Codes Reference">
+  <p>This section provides a reference for standard HTML color names along with their HEX and RGB representations.</p>
+
+  <h4 className="font-medium mt-3 mb-1">What Are HTML Color Codes?</h4>
+  <p>
+    HTML color codes are used to specify colors in web design using predefined names or numerical representations in HEX or RGB formats.
+  </p>
+
+  <h4 className="font-medium mt-3 mb-1">Common Color Code Formats</h4>
+  <ul className="list-disc pl-5 space-y-1">
+    <li><strong>HEX:</strong> A 6-digit code starting with <code>#</code> representing red, green, and blue (e.g., <code>#FF0000</code>)</li>
+    <li><strong>RGB:</strong> Uses red, green, and blue values between 0 and 255 (e.g., <code>rgb(255, 0, 0)</code>)</li>
+    <li><strong>Named Colors:</strong> Human-readable color names predefined in HTML (e.g., <code>red</code>, <code>blue</code>, <code>teal</code>)</li>
+  </ul>
+
+  <h4 className="font-medium mt-3 mb-1">How to Use This Tool</h4>
+  <ol className="list-decimal pl-5 space-y-1">
+    <li>Browse through the grid of color swatches</li>
+    <li>View the name, HEX code, and RGB value for each color</li>
+    <li>Click to copy (if functionality added) or manually use the code in your CSS or design</li>
+  </ol>
+
+  <h4 className="font-medium mt-3 mb-1">Example Usage in CSS</h4>
+  <div className="bg-muted p-3 rounded text-sm font-mono overflow-x-auto">
+    <code>
+      {`body {
+  background-color: #f0f0f0;
+  color: navy;
+}
+
+.button {
+  background-color: #FF0000; /* Red */
+  color: white;
+}`}
+    </code>
+  </div>
+
+  <h4 className="font-medium mt-3 mb-1">Tips for Designers and Developers</h4>
+  <ul className="list-disc pl-5 space-y-1">
+    <li>Use named colors for quick prototyping or when readability matters</li>
+    <li>Prefer HEX or RGB for more precise control over color shades</li>
+    <li>Consistently use the same format across your project for maintainability</li>
+    <li>Ensure adequate color contrast for accessibility compliance (WCAG)</li>
+  </ul>
+
+  <p className="mt-2 text-sm text-muted-foreground">
+    Note: These are standard web-safe colors recognized by all major browsers.
+  </p>
+</GuidanceSection>
+
         </CardContent>
       </Card>
     </div>

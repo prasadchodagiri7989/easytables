@@ -36,7 +36,7 @@ const AltCodes: React.FC = () => {
         <CardHeader>
           <CardTitle>ALT Codes for Symbols & Characters</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-6 text-sm text-gray-700 leading-relaxed dark:text-white">
           <p>
             ALT codes are keyboard shortcuts for typing special characters and symbols using the numeric keypad.
             Just hold down the <strong>ALT</strong> key and type the numeric code on your keyboard's numpad.

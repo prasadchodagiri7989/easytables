@@ -163,4 +163,9 @@
   .page-transition-exit-active {
     @apply opacity-0 transition-opacity duration-300;
   }
+
+pre code {
+  color: black!important;
+}
+
 }
