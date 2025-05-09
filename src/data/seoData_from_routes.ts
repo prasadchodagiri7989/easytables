@@ -1,4 +1,10 @@
-export const seoData: Record<string, { title: string; description: string }> = {
+export interface SeoMeta {
+  title: string | ((slug: string) => string);
+  description: string | ((slug: string) => string);
+}
+
+
+export const seoData: Record<string, SeoMeta> = {
   "/": { title: "Index", description: "Explore the Index tool for quick and easy calculations or conversions." },
   "/test": { title: "GifToJpg", description: "Explore the GifToJpg tool for quick and easy calculations or conversions." },
   "/scientific": { title: "Scientific Calculator", description: "Explore the Scientific Calculator tool for quick and easy calculations or conversions." },

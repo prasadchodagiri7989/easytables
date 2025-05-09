@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { useLocation } from "react-router-dom";
-import { seoData } from "@/data/seoData";
+import { seoData } from "@/data/seoData_from_routes";
 
 // Type for dynamic SEO meta information
 interface SeoMeta {
