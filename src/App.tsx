@@ -514,11 +514,13 @@ import { PngToJpg } from "./components/image/PngToJpg";
 import { PngToPdf } from "./components/image/PngToPdf";
 import { ImageToBlackWhite } from "./components/image/ImageToBlackWhite";
 
+import { HelmetProvider } from 'react-helmet-async';
 
 
 const queryClient = new QueryClient();
 
 const App = () => (
+  <HelmetProvider>
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
@@ -1104,6 +1106,7 @@ const App = () => (
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
+  </HelmetProvider>
 );
 
 export default App;
