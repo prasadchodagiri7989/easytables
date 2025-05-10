@@ -9,7 +9,7 @@ import {
   Table, Volume2, CalendarDays, CheckSquare, Music, Ruler, Video, Wrench, Hash,
   AlignJustify, FileImage, Type, FileIcon, ImageIcon, Image, Code,
   Zap, CircuitBoard, Lightbulb, Battery, Feather, BookOpen, Workflow, Info,
-  Gauge, Droplet, Flame, X, Terminal
+  Gauge, Droplet, Flame, X, Terminal, Brush, Italic
 } from "lucide-react";
 import { Recycle, Server, Leaf } from "lucide-react";
 
@@ -215,8 +215,8 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
             </CollapsibleTrigger>
             <CollapsibleContent className="pl-6 space-y-1 mt-1">
               <SidebarLink to="/web/all" icon={Code} label="All Web" onClose={onClose} />
-              <SidebarLink to="/web/colors" icon={BookOpen} label="Web Colors" onClose={onClose} />
-              <SidebarLink to="/web/html" icon={BookOpen} label="Web HTML" onClose={onClose} />
+              <SidebarLink to="/web/colors" icon={Brush} label="Web Colors" onClose={onClose} />
+              <SidebarLink to="/web/html" icon={Code} label="Web HTML" onClose={onClose} />
               <SidebarLink to="/web/tools" icon={Info} label="Web Tools" onClose={onClose} />
               <SidebarLink to="/web/development" icon={BookOpen} label="Web Development" onClose={onClose} />
               

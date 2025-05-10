@@ -251,7 +251,7 @@ const PwdCommand: React.FC = () => {
 
             <pre className="bg-gray-100 p-4 rounded text-sm">
               <code>current_dir=$(pwd)</code>
-              <code>if [ "$current_dir" == "/home/user/documents" ]; then</code>
+              <code>if [ "$current_dir" == "/home/user/documents" ];<br/> then</code>
               <code>  echo "In the right directory!"</code>
               <code>else</code>
               <code>  echo "You are not in the right directory!"</code>
@@ -276,6 +276,160 @@ const PwdCommand: React.FC = () => {
               symlinks and other commands, you can leverage it to create more robust shell scripts and improve your command-line workflows.
             </p>
           </div>
+          {/* Historical Background and Evolution of pwd */}
+<div>
+  <h2 className="text-lg font-semibold mb-2">Historical Background of pwd</h2>
+  <p>
+    The <code>pwd</code> command has been a core part of Unix-based systems since the early days of UNIX in the 1970s. It originated from the need for users to
+    determine their location in the directory structure of the filesystem. Originally implemented as a shell built-in, it quickly became a standalone command
+    included in the POSIX standard to ensure consistency across different UNIX variants like BSD, System V, and modern distributions such as Linux and macOS.
+  </p>
+  <p>
+    As filesystems evolved, particularly with the introduction of symbolic links, the behavior of <code>pwd</code> was enhanced to support both logical and
+    physical paths. These changes allowed system users to choose whether to see the symlink path or the resolved actual location using the <code>-L</code> or
+    <code>-P</code> flags.
+  </p>
+</div>
+
+{/* Comparison with Related Commands */}
+<div>
+  <h2 className="text-lg font-semibold mb-2">Comparison with Related Commands</h2>
+  <p>
+    While <code>pwd</code> is focused on displaying the current working directory, several other commands interact with the filesystem in different ways. For
+    instance:
+  </p>
+  <ul className="list-disc pl-6 space-y-1 text-sm">
+    <li><code>cd</code>: Changes the current working directory.</li>
+    <li><code>ls</code>: Lists the contents of a directory, optionally for a path provided.</li>
+    <li><code>dirname</code>: Extracts the directory part of a file path.</li>
+    <li><code>readlink -f</code>: Resolves the absolute path of a symlink, similar to <code>pwd -P</code>.</li>
+  </ul>
+  <p>
+    Understanding these related commands helps provide better control over navigation and scripting in the shell. For example, <code>readlink -f .</code> can be
+    used as a substitute for <code>pwd -P</code> when scripting in more restrictive environments.
+  </p>
+</div>
+
+{/* Integration in Development Environments */}
+<div>
+  <h2 className="text-lg font-semibold mb-2">pwd in Development and Build Environments</h2>
+  <p>
+    In programming environments, <code>pwd</code> is commonly used to locate the base directory for code repositories, especially in shell scripts used in
+    continuous integration (CI) and continuous deployment (CD) systems. For instance, a build script might use <code>pwd</code> to log the starting point of a
+    compilation or packaging step.
+  </p>
+  <p>
+    Developers also use <code>pwd</code> when writing Dockerfiles or configuring environment variables. In a Dockerfile, it’s common to set a working directory
+    using:
+  </p>
+  <pre className="bg-gray-100 p-4 rounded text-sm">
+    <code>WORKDIR /app</code>
+  </pre>
+  <p>
+    Inside the container, running <code>pwd</code> helps confirm that the working directory was properly set, which can prevent build-time errors caused by
+    incorrect relative paths.
+  </p>
+</div>
+
+{/* Edge Cases and Troubleshooting */}
+<div>
+  <h2 className="text-lg font-semibold mb-2">Edge Cases and Troubleshooting</h2>
+  <p>
+    In some scenarios, <code>pwd</code> may produce unexpected results or errors, especially in chroot environments, broken symlinks, or deleted directories.
+  </p>
+
+  <h3 className="text-md font-semibold mt-4">1. Working in Deleted Directories</h3>
+  <p>
+    If a directory has been deleted while a user is still inside it, <code>pwd</code> may fail or show a path that no longer exists:
+  </p>
+  <pre className="bg-gray-100 p-4 rounded text-sm">
+    <code>$ cd /tmp/myfolder</code>
+    <code>$ rm -r /tmp/myfolder</code>
+    <code>$ pwd</code>
+    <code>/tmp/myfolder (but it no longer exists)</code>
+  </pre>
+  <p>
+    To avoid such issues in scripts, always check if the directory exists before proceeding using <code>test -d $(pwd)</code>.
+  </p>
+
+  <h3 className="text-md font-semibold mt-4">2. Symlinks with Deep Nesting</h3>
+  <p>
+    Symlinks pointing to symlinks can create confusion with logical vs. physical paths. Always prefer <code>pwd -P</code> when absolute accuracy is required.
+  </p>
+</div>
+
+{/* Security Implications */}
+<div>
+  <h2 className="text-lg font-semibold mb-2">Security Considerations</h2>
+  <p>
+    While <code>pwd</code> is not a security-sensitive command by itself, its output can inadvertently reveal information about the filesystem structure.
+    This becomes a concern in multi-user environments or when writing scripts that expose directory names to logs.
+  </p>
+  <p>
+    When working with public scripts or automated jobs, consider sanitizing output or avoiding echoing the result of <code>pwd</code> directly to shared logs.
+    It's also good practice to verify permissions before operating in sensitive directories, especially under elevated privileges.
+  </p>
+</div>
+
+{/* Using pwd in Cross-Platform Scripts */}
+<div>
+  <h2 className="text-lg font-semibold mb-2">Using pwd in Cross-Platform Environments</h2>
+  <p>
+    On macOS, Linux, and other Unix-like systems, <code>pwd</code> is consistent and POSIX-compliant. However, on Windows, the behavior differs. If you're
+    writing a script that needs to work on both Windows and Unix, you can use <code>pwd</code> in Git Bash or WSL (Windows Subsystem for Linux), but for native
+    PowerShell use, you'd write:
+  </p>
+  <pre className="bg-gray-100 p-4 rounded text-sm">
+    <code>Get-Location</code>
+  </pre>
+  <p>
+    To make scripts portable, use environment detection and conditional statements:
+  </p>
+  <pre className="bg-gray-100 p-4 rounded text-sm">
+    <code>
+      if command -v pwd &gt; /dev/null; then
+        echo "Current directory: $(pwd)"
+      else
+        echo "pwd not available on this system"
+      fi
+    </code>
+  </pre>
+</div>
+
+{/* Advanced Scripting Techniques */}
+<div>
+  <h2 className="text-lg font-semibold mb-2">Advanced Scripting Techniques Using pwd</h2>
+  <p>
+    One advanced use case of <code>pwd</code> involves capturing it at runtime to dynamically reference file locations. This is useful for scripts that copy,
+    back up, or manipulate files relative to their execution location:
+  </p>
+  <pre className="bg-gray-100 p-4 rounded text-sm">
+    <code>
+      script_dir=$(pwd)<br/>
+      echo "Script running from: $script_dir"<br/>
+      cp "$script_dir/config.txt" "$script_dir/backup/"
+    </code>
+  </pre>
+  <p>
+    This technique ensures that relative paths don’t break if the script is run from different locations.
+  </p>
+</div>
+
+{/* Visual Output Tips */}
+<div>
+  <h2 className="text-lg font-semibold mb-2">Making pwd Output More Informative</h2>
+  <p>
+    The output of <code>pwd</code> can be enhanced using shell customization. For instance, modern shells like <code>zsh</code> or <code>bash</code> allow
+    setting the prompt to include the current directory automatically:
+  </p>
+  <pre className="bg-gray-100 p-4 rounded text-sm">
+    <code>export PS1="\w \$ "</code>
+  </pre>
+  <p>
+    This setting updates your terminal prompt to display the current working directory, making <code>pwd</code> visible at all times without typing it.
+  </p>
+</div>
+
 
           
         </CardContent>
