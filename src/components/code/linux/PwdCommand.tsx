@@ -251,7 +251,7 @@ const PwdCommand: React.FC = () => {
 
             <pre className="bg-gray-100 p-4 rounded text-sm">
               <code>current_dir=$(pwd)</code>
-              <code>if [ "$current_dir" == "/home/user/documents" ]; then</code>
+              <code>if [ "$current_dir" == "/home/user/documents" ];<br/> then</code>
               <code>  echo "In the right directory!"</code>
               <code>else</code>
               <code>  echo "You are not in the right directory!"</code>

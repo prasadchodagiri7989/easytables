@@ -9,7 +9,7 @@ import {
   Table, Volume2, CalendarDays, CheckSquare, Music, Ruler, Video, Wrench, Hash,
   AlignJustify, FileImage, Type, FileIcon, ImageIcon, Image, Code,
   Zap, CircuitBoard, Lightbulb, Battery, Feather, BookOpen, Workflow, Info,
-  Gauge, Droplet, Flame, X
+  Gauge, Droplet, Flame, X, Terminal, Brush, Italic
 } from "lucide-react";
 import { Recycle, Server, Leaf } from "lucide-react";
 
@@ -202,7 +202,7 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
           >
             <CollapsibleTrigger className="flex items-center justify-between w-full px-4 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 text-left">
               <div className="flex items-center">
-                <Zap size={18} className="mr-2 dark:text-gray-300" />
+                <Terminal size={18} className="mr-2 dark:text-gray-300" />
                 <span className="text-sm font-medium dark:text-gray-300">Web Design</span>
               </div>
               <ChevronDown 
@@ -215,8 +215,8 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
             </CollapsibleTrigger>
             <CollapsibleContent className="pl-6 space-y-1 mt-1">
               <SidebarLink to="/web/all" icon={Code} label="All Web" onClose={onClose} />
-              <SidebarLink to="/web/colors" icon={BookOpen} label="Web Colors" onClose={onClose} />
-              <SidebarLink to="/web/html" icon={BookOpen} label="Web HTML" onClose={onClose} />
+              <SidebarLink to="/web/colors" icon={Brush} label="Web Colors" onClose={onClose} />
+              <SidebarLink to="/web/html" icon={Code} label="Web HTML" onClose={onClose} />
               <SidebarLink to="/web/tools" icon={Info} label="Web Tools" onClose={onClose} />
               <SidebarLink to="/web/development" icon={BookOpen} label="Web Development" onClose={onClose} />
               
@@ -398,7 +398,7 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
             <CollapsibleTrigger className="flex items-center justify-between w-full px-4 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 text-left">
               <div className="flex items-center">
                 <Code size={18} className="mr-2 dark:text-gray-300" />
-                <span className="text-sm font-medium dark:text-gray-300">HTML Tools</span>
+                <span className="text-sm font-medium dark:text-gray-300">Web Tools</span>
               </div>
               <ChevronDown 
                 size={16} 
