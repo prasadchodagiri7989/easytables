@@ -9,7 +9,7 @@ import {
   Table, Volume2, CalendarDays, CheckSquare, Music, Ruler, Video, Wrench, Hash,
   AlignJustify, FileImage, Type, FileIcon, ImageIcon, Image, Code,
   Zap, CircuitBoard, Lightbulb, Battery, Feather, BookOpen, Workflow, Info,
-  Gauge, Droplet, Flame, X, Terminal, Brush, Italic
+  Gauge, Droplet, Flame, X, Terminal, Brush, Italic, GitBranch, Wifi, Sun, Book, Divide, Plus, Infinity, Circle, ArrowUp  
 } from "lucide-react";
 import { Recycle, Server, Leaf } from "lucide-react";
 
@@ -216,9 +216,8 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
             <CollapsibleContent className="pl-6 space-y-1 mt-1">
               <SidebarLink to="/web/all" icon={Code} label="All Web" onClose={onClose} />
               <SidebarLink to="/web/colors" icon={Brush} label="Web Colors" onClose={onClose} />
-              <SidebarLink to="/web/html" icon={Code} label="Web HTML" onClose={onClose} />
-              <SidebarLink to="/web/tools" icon={Info} label="Web Tools" onClose={onClose} />
-              <SidebarLink to="/web/development" icon={BookOpen} label="Web Development" onClose={onClose} />
+              <SidebarLink to="/web/html" icon={FileText} label="Web HTML" onClose={onClose} />
+              <SidebarLink to="/web/development" icon={GitBranch} label="Web Development" onClose={onClose} />
               
               
               
@@ -249,7 +248,7 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
                   <SidebarLink to="/electrical/calculators/voltage-divider" icon={Gauge} label="Voltage Divider" onClose={onClose} />
                   <SidebarLink to="/electrical/calculators/capacitance" icon={Battery} label="Capacitance" onClose={onClose} />
                   <SidebarLink to="/electrical/calculators/resistance" icon={Activity} label="Resistance" onClose={onClose} />
-                  <SidebarLink to="/electrical/calculators/frequency" icon={Activity} label="Frequency" onClose={onClose} />
+                  <SidebarLink to="/electrical/calculators/frequency" icon={Wifi} label="Frequency" onClose={onClose} />
                 </CollapsibleContent>
               </Collapsible>
               
@@ -419,7 +418,7 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
           >
             <CollapsibleTrigger className="flex items-center justify-between w-full px-4 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 text-left">
               <div className="flex items-center">
-                <Zap size={18} className="mr-2 dark:text-gray-300" />
+                <Sun size={18} className="mr-2 dark:text-gray-300" />
                 <span className="text-sm font-medium dark:text-gray-300">Eco-Friendly Guides</span>
               </div>
               <ChevronDown 
@@ -483,7 +482,7 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
           >
             <CollapsibleTrigger className="flex items-center justify-between w-full px-4 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 text-left">
               <div className="flex items-center">
-                <FileIcon size={18} className="mr-2 dark:text-gray-300" />
+                <Book size={18} className="mr-2 dark:text-gray-300" />
                 <span className="text-sm font-medium dark:text-gray-300">Mathematics</span>
               </div>
               <ChevronDown 
@@ -496,12 +495,12 @@ export const Sidebar = ({ open, onClose }: SidebarProps) => {
             </CollapsibleTrigger>
             <CollapsibleContent className="pl-6 space-y-1 mt-1">
               <SidebarLink to="/mathematics/all" icon={FileImage} label="All Maths" onClose={onClose} />
-              <SidebarLink to="/mathematics/numbers" icon={FileImage} label="Numbers" onClose={onClose} />
-              <SidebarLink to="/mathematics/algebra" icon={ImageIcon} label="Algebra" onClose={onClose} />
-              <SidebarLink to="/mathematics/calculus" icon={Image} label="Calculus" onClose={onClose} />
-              <SidebarLink to="/mathematics/probability" icon={FileText} label="Probability" onClose={onClose} />
-              <SidebarLink to="/mathematics/trigonometry" icon={FileText} label="Trignometry" onClose={onClose} />
-              <SidebarLink to="/mathematics/symbols" icon={FileText} label="Symbols" onClose={onClose} />
+              <SidebarLink to="/mathematics/numbers" icon={Hash} label="Numbers" onClose={onClose} />
+              <SidebarLink to="/mathematics/algebra" icon={Plus} label="Algebra" onClose={onClose} />
+              <SidebarLink to="/mathematics/calculus" icon={Infinity} label="Calculus" onClose={onClose} />
+              <SidebarLink to="/mathematics/probability" icon={Circle} label="Probability" onClose={onClose} />
+              <SidebarLink to="/mathematics/trigonometry" icon={ArrowUp} label="Trignometry" onClose={onClose} />
+              <SidebarLink to="/mathematics/symbols" icon={Divide} label="Symbols" onClose={onClose} />
 
             </CollapsibleContent>
           </Collapsible>

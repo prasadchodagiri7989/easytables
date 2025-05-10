@@ -9,6 +9,12 @@ const PHPRedirection: React.FC = () => {
 
                                   <Breadcrumb className="mb-4">
                                         <BreadcrumbList>
+                                                    <BreadcrumbItem>
+                                                      <BreadcrumbLink asChild>
+                                                        <Link to="/">Home</Link>
+                                                      </BreadcrumbLink>
+                                                    </BreadcrumbItem>
+                                                    <BreadcrumbSeparator />
                                           <BreadcrumbItem>
                                             <BreadcrumbLink asChild>
                                               <Link to="/web/development">Development Tools</Link>

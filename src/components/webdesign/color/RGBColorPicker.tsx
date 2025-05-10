@@ -30,6 +30,12 @@ export const RGBColorPicker: React.FC = () => {
     <div className="w-full max-w-4xl mx-auto">
           <Breadcrumb className="mb-4">
               <BreadcrumbList>
+                          <BreadcrumbItem>
+                            <BreadcrumbLink asChild>
+                              <Link to="/">Home</Link>
+                            </BreadcrumbLink>
+                          </BreadcrumbItem>
+                          <BreadcrumbSeparator />
                 <BreadcrumbItem>
                   <BreadcrumbLink asChild>
                     <Link to="/web/colors">Color Tools</Link>
