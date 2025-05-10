@@ -22,11 +22,11 @@ export const QuadraticEquationExplanation = () => {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-                            <BreadcrumbLink asChild>
-                              <Link to="/mathematics/algebra">Algebra Tool</Link>
-                            </BreadcrumbLink>
-                          </BreadcrumbItem>
-                          <BreadcrumbSeparator />
+            <BreadcrumbLink asChild>
+              <Link to="/mathematics/algebra">Algebra Tool</Link>
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
           <BreadcrumbItem>
             <BreadcrumbPage>Quadratic Equation Explanation</BreadcrumbPage>
           </BreadcrumbItem>
@@ -84,6 +84,7 @@ export const QuadraticEquationExplanation = () => {
               So, the solutions are x₁ = 3 and x₂ = 2.
             </li>
           </ul>
+          
         </Card>
       </div>
     </>
