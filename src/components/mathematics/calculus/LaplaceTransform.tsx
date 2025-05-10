@@ -77,6 +77,9 @@ export const LaplaceTransformExplanation = () => {
           <p>
             The inverse Laplace transform is used to convert a function back from the frequency domain to the time domain.
           </p>
+
+
+          
         </Card>
       </div>
     </>
