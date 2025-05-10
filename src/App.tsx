@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import Seo from "./components/seo/Seo";
 
 import ScrollToTop from "./components/ScrollToTop";
+import ColorCodes from "./components/webdesign/html/ColorCodes";
 
 // Tools
 import RedirectGenerator from "./components/tools/RedirectGenerator";
@@ -1001,6 +1002,9 @@ const App = () => (
           <Route path="/image/png-to-pdf" element={<Layout><PngToPdf /></Layout>} />
           <Route path="/image/to-black-white" element={<Layout><ImageToBlackWhite /></Layout>} />
 
+
+
+          <Route path="/color-codes" element={<Layout><ColorCodes /></Layout>} />
           
 
 
