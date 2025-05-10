@@ -90,18 +90,91 @@ export const FibonacciNumbersGuide = () => {
           </div>
         </Card>
 
-        <GuidanceSection title="Understanding Fibonacci Numbers">
+        <GuidanceSection title="Detailed Explanation of Fibonacci Numbers">
           <p>
-            Fibonacci numbers are a fundamental concept in mathematics and are closely related to the Golden Ratio. They appear in many natural phenomena and have wide applications in art, architecture, and computer science.
+            The Fibonacci sequence is one of the most famous sequences in mathematics. It is formed by a simple recurrence relation: each term is the sum of the two preceding ones, with the sequence starting from 0 and 1. The mathematical notation of the Fibonacci sequence can be written as:
+          </p>
+          <p className="bg-gray-200 p-3 rounded-md">
+            F(n) = F(n-1) + F(n-2) for n ≥ 2, with initial conditions F(0) = 0 and F(1) = 1.
           </p>
 
-          <h4 className="font-medium mt-3 mb-1">Key Facts about Fibonacci Numbers</h4>
+          <h4 className="font-medium mt-3 mb-1">The Fibonacci Sequence in Detail</h4>
+          <p>
+            The first few numbers of the Fibonacci sequence are 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, and so on. Each number is the sum of the two previous numbers. This sequence has a wide variety of applications in different fields like mathematics, biology, art, and architecture.
+          </p>
+
+          <h4 className="font-medium mt-3 mb-1">Golden Ratio and Its Connection to Fibonacci Numbers</h4>
+          <p>
+            As the Fibonacci sequence progresses, the ratio between consecutive terms approaches the Golden Ratio (approximately 1.618). This ratio, often denoted by the Greek letter φ (phi), is a special number that has been historically associated with beauty and harmony in art, nature, and architecture.
+          </p>
+          <p>
+            In fact, the larger the Fibonacci numbers become, the closer the ratio between consecutive numbers gets to the Golden Ratio. The Fibonacci sequence is said to converge to this ratio as the index number increases, and this convergence becomes increasingly more accurate as the numbers grow.
+          </p>
+
+          <h4 className="font-medium mt-3 mb-1">Mathematical Properties of Fibonacci Numbers</h4>
           <ul className="list-disc pl-5 space-y-1">
-            <li>The Fibonacci sequence begins with 0 and 1, and each subsequent number is the sum of the two preceding ones.</li>
-            <li>The Golden Ratio is closely related to the Fibonacci sequence, as the ratio of consecutive Fibonacci numbers approaches this constant.</li>
-            <li>Fibonacci numbers can be observed in nature, such as in the arrangement of petals, pinecones, and galaxies.</li>
+            <li>
+              Fibonacci numbers grow exponentially, and the growth rate is governed by the Golden Ratio. The general formula for the nth Fibonacci number can be written as Binet’s formula:
+              <p className="bg-gray-200 p-3 rounded-md">
+                F(n) = (φ^n - (1-φ)^n) / √5
+              </p>
+            </li>
+            <li>
+              The Fibonacci sequence is related to the Lucas numbers, which are similar to Fibonacci numbers, but with initial values of 2 and 1. Both sequences follow the same recurrence relation.
+            </li>
+            <li>
+              The Fibonacci sequence also has an interesting connection with prime numbers. For example, the Fibonacci sequence contains prime numbers, and certain Fibonacci numbers are themselves prime numbers.
+            </li>
+          </ul>
+
+          <h4 className="font-medium mt-3 mb-1">Applications of Fibonacci Numbers in Nature</h4>
+          <p>
+            One of the most fascinating aspects of Fibonacci numbers is their appearance in nature. The sequence can be found in a variety of biological settings, such as the arrangement of leaves on a stem, the number of spirals in a sunflower, and the arrangement of scales in a pinecone. The reason behind these occurrences is often related to the optimal packing and growth patterns found in natural systems.
+          </p>
+          <p>
+            Some specific examples of Fibonacci numbers in nature include:
+          </p>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>The number of petals in many flowers, such as lilies (3 petals), buttercups (5 petals), and daisies (34 or 55 petals, depending on the species), follows the Fibonacci sequence.</li>
+            <li>In pinecones, the spirals in the arrangement of the scales are often in Fibonacci numbers, which helps in optimal packing of the scales.</li>
+            <li>Spiral galaxies, such as the Milky Way, have spiral arms that follow the Fibonacci sequence, reflecting an efficient way to structure space.</li>
+          </ul>
+
+          <h4 className="font-medium mt-3 mb-1">Fibonacci Numbers in Art and Architecture</h4>
+          <p>
+            The Fibonacci sequence has been used for centuries in art and architecture to create visually appealing designs. The Golden Ratio, which is closely related to the Fibonacci sequence, is considered a key to aesthetic beauty and harmony. Many artists, architects, and designers have used the Golden Ratio in their works to create balanced and harmonious proportions.
+          </p>
+          <p>
+            Some notable examples include:
+          </p>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>The Parthenon in Athens, a masterpiece of ancient Greek architecture, is thought to have been built using the Golden Ratio, which is closely related to the Fibonacci sequence.</li>
+            <li>The pyramids of Egypt, particularly the Great Pyramid of Giza, are believed to have been designed with the Golden Ratio in mind.</li>
+            <li>Renaissance artists, such as Leonardo da Vinci, incorporated the Fibonacci sequence and the Golden Ratio in their works. For example, Da Vinci’s famous painting "The Last Supper" is said to exhibit Golden Ratio proportions.</li>
+          </ul>
+
+          <h4 className="font-medium mt-3 mb-1">Fibonacci Numbers in Computer Science</h4>
+          <p>
+            Fibonacci numbers are also widely used in computer science, especially in algorithms and data structures. Some applications include:
+          </p>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>Recursive algorithms: The Fibonacci sequence is often used to demonstrate the concept of recursion in computer science. A simple recursive algorithm can be used to compute Fibonacci numbers, although it is not the most efficient method.</li>
+            <li>Dynamic programming: Fibonacci numbers are often used in dynamic programming problems to find the nth Fibonacci number in an efficient manner by storing previously computed values (memoization).</li>
+            <li>Fibonacci search: The Fibonacci search algorithm is an efficient way to search for an element in a sorted array by using Fibonacci numbers to determine the search range.</li>
+            <li>Data structures: Fibonacci numbers are used in certain data structures, such as Fibonacci heaps, which are optimized for efficient operations in algorithms like Dijkstra’s shortest path algorithm.</li>
+          </ul>
+
+          <h4 className="font-medium mt-3 mb-1">Fibonacci Numbers and Their Extensions</h4>
+          <p>
+            The Fibonacci sequence can be extended into different forms and generalizations, leading to more interesting and complex mathematical objects:
+          </p>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>Generalized Fibonacci sequences: These sequences are formed by altering the recurrence relation. For example, instead of adding the two previous terms, one could subtract them or multiply them to generate a new sequence.</li>
+            <li>Tribonacci numbers: The Tribonacci sequence is similar to the Fibonacci sequence but instead of adding the previous two terms, each term is the sum of the three preceding ones. The sequence starts as 0, 0, 1, 1, 2, 4, 7, 13, and so on.</li>
+            <li>Lucas numbers: The Lucas sequence is another variant of the Fibonacci sequence. It starts with 2 and 1 instead of 0 and 1 and follows the same recurrence relation. The Lucas numbers have similar properties to the Fibonacci numbers.</li>
           </ul>
         </GuidanceSection>
+
       </div>
     </>
   );
