@@ -166,6 +166,7 @@
 
 pre code {
   color: black!important;
+  text-wrap: normal;
 }
 
 }
