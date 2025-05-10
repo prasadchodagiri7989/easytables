@@ -330,6 +330,90 @@ const CapacitorSymbols = () => {
     Capacitor symbols are a fundamental part of any electrical schematic. They visually convey not just the presence of capacitance, but the type, polarity, and behavior expected from the component. Understanding these symbols allows you to build, simulate, and troubleshoot circuits more effectively.
   </p>
 </section>
+<section className="space-y-4">
+  <h2 className="text-xl font-semibold">Capacitor Markings and Labeling</h2>
+  <p>
+    In practical circuit design, understanding capacitor symbols is only part of the equation. Real-world capacitors come with a variety of markings indicating their capacitance, voltage rating, tolerance, and sometimes the type of dielectric material used. For instance, a ceramic capacitor might be marked “104,” which represents 100,000 pF or 0.1 µF. The first two digits (10) are the significant figures, and the third (4) is the multiplier (10⁴ pF). Voltage ratings, typically printed separately, might read "50V", "250V", etc.
+  </p>
+  <p>
+    Electrolytic capacitors usually have their capacitance value and voltage printed directly in microfarads and volts, e.g., "10µF 16V". It's important to match the voltage rating with the requirements of your circuit. Exceeding the rated voltage can damage the capacitor or cause it to explode in the case of polarized electrolytics.
+  </p>
+</section>
+
+<section className="space-y-4">
+  <h2 className="text-xl font-semibold">Schematic Variations Across Standards</h2>
+  <p>
+    While the symbols shown earlier are widely accepted, some differences exist depending on the standard being followed—typically IEC (International Electrotechnical Commission) vs ANSI (American National Standards Institute). For example, in ANSI schematics, the symbol for a non-polarized capacitor features two parallel lines, while the IEC version might use one curved and one straight line. Similarly, polarized capacitors may show a plus (+) sign next to the positive terminal or simply use the curved line convention.
+  </p>
+  <p>
+    These variations are especially important when reading or interpreting circuit diagrams from different sources, such as international datasheets or repair manuals for imported equipment. Familiarity with both symbol sets helps engineers work effectively across different regions and industries.
+  </p>
+</section>
+
+<section className="space-y-4">
+  <h2 className="text-xl font-semibold">Capacitor Types in Depth</h2>
+  <p>
+    Capacitors are classified into several major families based on the dielectric material used. Each type affects the electrical behavior and practical applications:
+  </p>
+  <ul className="list-disc list-inside space-y-1">
+    <li>
+      <strong>Ceramic Capacitors:</strong> Widely used, especially in decoupling and filtering applications. They are compact, inexpensive, and non-polarized. Available in Class I (high stability) and Class II/III (higher capacitance, lower stability).
+    </li>
+    <li>
+      <strong>Electrolytic Capacitors:</strong> Provide high capacitance values in a small volume, but are polarized and have relatively large tolerances. Common in power supply filtering.
+    </li>
+    <li>
+      <strong>Tantalum Capacitors:</strong> Offer better stability and ESR (Equivalent Series Resistance) than aluminum electrolytics, but are sensitive to overvoltage and reverse polarity.
+    </li>
+    <li>
+      <strong>Film Capacitors:</strong> Known for high precision, low ESR, and excellent long-term stability. Often used in audio and high-frequency applications.
+    </li>
+    <li>
+      <strong>Supercapacitors (Ultracapacitors):</strong> Provide very high capacitance for energy storage or backup power but are used in low-voltage systems due to low voltage ratings.
+    </li>
+  </ul>
+</section>
+
+<section className="space-y-4">
+  <h2 className="text-xl font-semibold">Capacitor Polarity and Circuit Behavior</h2>
+  <p>
+    The polarity of a capacitor can have a significant effect on circuit behavior. Non-polarized capacitors, such as ceramic or film types, can be inserted in either direction. Polarized capacitors, like electrolytics and tantalums, must be connected correctly to avoid malfunction or damage. In DC circuits, the longer leg of an electrolytic capacitor is typically the positive terminal, and markings on the body often indicate the negative side.
+  </p>
+  <p>
+    In AC applications, such as coupling or bypassing signals, non-polarized capacitors are favored. For high-frequency AC applications, low-inductance capacitors (e.g., surface-mount ceramics) are preferred due to reduced parasitic effects.
+  </p>
+</section>
+
+<section className="space-y-4">
+  <h2 className="text-xl font-semibold">Capacitors in Timing and Oscillator Circuits</h2>
+  <p>
+    Capacitors are essential in timing circuits where they charge and discharge at predictable rates. In combination with resistors, they determine the frequency or delay in RC circuits. For instance, in a 555 timer, a capacitor connected to the threshold pin governs the timing interval for monostable or astable operation. The time constant is given by τ = RC, where R is resistance and C is capacitance.
+  </p>
+  <p>
+    In oscillators, such as Colpitts or LC circuits, capacitors define the oscillation frequency along with inductors. Variations in capacitance or external tuning allow these circuits to generate stable frequency outputs for use in radios, clocks, and other electronic systems.
+  </p>
+</section>
+
+<section className="space-y-4">
+  <h2 className="text-xl font-semibold">Capacitors in Power Supply Design</h2>
+  <p>
+    Capacitors play a vital role in power regulation. Bulk electrolytic capacitors smooth out rectified AC voltage in linear power supplies, while smaller ceramic capacitors filter out high-frequency switching noise in SMPS (Switch Mode Power Supplies). The use of bypass and decoupling capacitors is critical in digital circuits to prevent voltage sag or spikes caused by sudden current draws from ICs.
+  </p>
+  <p>
+    Designers often place a 0.1 µF ceramic capacitor near each microcontroller or IC pin to reduce electromagnetic interference (EMI) and improve signal stability. In high-current systems, combinations of different capacitors—electrolytic for bulk, ceramic for high-frequency—are used in parallel to cover a wide frequency range.
+  </p>
+</section>
+
+<section className="space-y-4">
+  <h2 className="text-xl font-semibold">Failure Modes and Reliability</h2>
+  <p>
+    Capacitors are generally reliable but can fail due to aging, overvoltage, incorrect polarity, or environmental stress. Electrolytic capacitors are prone to drying out, leading to a drop in capacitance and increased ESR. Tantalum capacitors can short-circuit violently when exposed to reverse voltage. Ceramic capacitors may crack under mechanical stress, particularly if not mounted properly on a PCB.
+  </p>
+  <p>
+    Engineers often derate capacitors—selecting components rated for a higher voltage than the circuit will apply—to improve lifespan and reduce risk of failure. Environmental sealing, conformal coating, or using ruggedized capacitors may be required in aerospace or automotive applications.
+  </p>
+</section>
+
 
 
     </>

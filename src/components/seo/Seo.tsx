@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { useLocation } from "react-router-dom";
 import { seoData } from "@/data/seoData_from_routes";
 
-// Type for dynamic SEO meta information
+// Type for SEO metadata
 interface SeoMeta {
   title: string | ((slug: string) => string);
   description: string | ((slug: string) => string);
@@ -12,31 +12,45 @@ interface SeoMeta {
 const Seo: React.FC = () => {
   const { pathname } = useLocation();
 
-  // Handle dynamic routes like /blog/:slug
-  const dynamicSeo = Object.keys(seoData).find((path) =>
-    pathname.match(new RegExp(path.replace(":slug", "([\\w-]+)")))
-  );
+  let meta: SeoMeta | undefined = undefined;
 
-  // Get the SEO meta for the current page
-  const meta = dynamicSeo
-    ? {
+  // First, check for exact path match
+  if (seoData[pathname]) {
+    meta = seoData[pathname];
+  } else {
+    // Then, check for dynamic path match (e.g., /blog/:slug)
+    const dynamicEntry = Object.keys(seoData).find((pattern) => {
+      if (!pattern.includes(":slug")) return false;
+
+      const regex = new RegExp(
+        "^" + pattern.replace(":slug", "([\\w-]+)") + "$"
+      );
+      return regex.test(pathname);
+    });
+
+    if (dynamicEntry) {
+      const slug = pathname.split("/").pop() || "";
+      const dynamicMeta = seoData[dynamicEntry];
+
+      meta = {
         title:
-          typeof seoData[dynamicSeo].title === "function"
-            ? seoData[dynamicSeo].title(pathname.split("/")[2])
-            : seoData[dynamicSeo].title,
+          typeof dynamicMeta.title === "function"
+            ? dynamicMeta.title(slug)
+            : dynamicMeta.title,
         description:
-          typeof seoData[dynamicSeo].description === "function"
-            ? seoData[dynamicSeo].description(pathname.split("/")[2])
-            : seoData[dynamicSeo].description,
-      }
-    : seoData[pathname] || {
-        title: "My Site",
-        description: "Default description for unmatched routes.",
+          typeof dynamicMeta.description === "function"
+            ? dynamicMeta.description(slug)
+            : dynamicMeta.description,
       };
+    }
+  }
 
-  // Ensure the title and description are strings before passing them to Helmet
-  const title = typeof meta.title === "string" ? meta.title : "";
-  const description = typeof meta.description === "string" ? meta.description : "";
+  // Fallback title and description
+  const title = typeof meta?.title === "string" ? meta.title : "My Site";
+  const description =
+    typeof meta?.description === "string"
+      ? meta.description
+      : "Default description for unmatched routes.";
 
   return (
     <Helmet>
