@@ -451,7 +451,7 @@ const InputSection = ({ label, value, setValue, placeholder }) => (
       placeholder={placeholder}
       value={value}
       onChange={(e) => setValue(e.target.value)}
-      className="border rounded p-2 w-full text-sm"
+      className="border rounded p-2 w-full text-sm dark:text-black"
     />
   </div>
 );

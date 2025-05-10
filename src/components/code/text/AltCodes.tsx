@@ -96,7 +96,7 @@ const AltCodes: React.FC = () => {
             <p>
               Here are more useful ALT codes that cover a variety of symbols including currency, math, arrows, and accented characters:
             </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm dark:text-black">
               {[
                 { code: "ALT + 0128", symbol: "€", name: "Euro" },
                 { code: "ALT + 36", symbol: "$", name: "Dollar" },
@@ -240,7 +240,7 @@ const AltCodes: React.FC = () => {
             <p>
               ALT codes support many accented and non-English characters, which makes them useful when typing in languages like French, Spanish, Portuguese, German, and Italian. These include characters like:
             </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm dark:text-black">
               {[
                 { code: "ALT + 0193", symbol: "Á", name: "A Acute (Uppercase)" },
                 { code: "ALT + 0225", symbol: "á", name: "a Acute (Lowercase)" },

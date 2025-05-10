@@ -46,7 +46,7 @@ const AsciiTable: React.FC = () => {
             <div className="overflow-x-auto">
               <table className="table-auto border-collapse w-full text-sm">
                 <thead>
-                  <tr className="bg-gray-100">
+                  <tr className="bg-gray-100 dark:text-black">
                     <th className="border px-4 py-2">Decimal</th>
                     <th className="border px-4 py-2">Hex</th>
                     <th className="border px-4 py-2">Character</th>
@@ -117,7 +117,7 @@ const AsciiTable: React.FC = () => {
               Extended ASCII, also referred to as ISO 8859 or code page 437, is an 8-bit extension of the original 7-bit ASCII standard. It includes additional symbols, letters with diacritics, box-drawing characters, and special glyphs that are useful in various languages and graphical UIs on legacy systems.
             </p>
             <p>Here are some examples of extended ASCII characters:</p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm dark:text-black">
               {[
                 { dec: 128, char: "Ç", desc: "Latin capital letter C with cedilla" },
                 { dec: 130, char: "é", desc: "Latin small letter e with acute" },
@@ -164,12 +164,12 @@ const AsciiTable: React.FC = () => {
               <li><strong>Encoding:</strong> Writing custom serialization formats or working with low-level communication protocols.</li>
             </ul>
             <p>In JavaScript:</p>
-            <pre className="bg-gray-100 p-3 rounded text-xs overflow-auto">
+            <pre className="bg-gray-100 p-3 rounded text-xs overflow-auto dark:text-black">
               {`const code = 'A'.charCodeAt(0); // 65
 const char = String.fromCharCode(65); // 'A'`}
             </pre>
             <p>In Python:</p>
-            <pre className="bg-gray-100 p-3 rounded text-xs overflow-auto">
+            <pre className="bg-gray-100 p-3 rounded text-xs overflow-auto dark:text-black">
               {`code = ord('A')  # 65
 char = chr(65)    # 'A'`}
             </pre>
@@ -197,7 +197,7 @@ char = chr(65)    # 'A'`}
             </p>
             <table className="table-auto border-collapse w-full text-sm mt-2">
               <thead>
-                <tr className="bg-gray-100">
+                <tr className="bg-gray-100 dark:text-black">
                   <th className="border px-4 py-2">Feature</th>
                   <th className="border px-4 py-2">ASCII</th>
                   <th className="border px-4 py-2">Unicode</th>
@@ -245,7 +245,7 @@ char = chr(65)    # 'A'`}
             <p>
               Before GUIs, ASCII was used to draw interfaces and graphics in terminal programs. Box-drawing characters in extended ASCII (like ╔, ═, ║, ╝) allowed the creation of visual UIs in text mode.
             </p>
-            <pre className="bg-gray-100 p-3 rounded text-xs overflow-auto">
+            <pre className="bg-gray-100 p-3 rounded text-xs overflow-auto dark:text-black">
               {`╔══════════════╗
 ║  ASCII BOX   ║
 ╚══════════════╝`}
@@ -328,7 +328,7 @@ char = chr(65)    # 'A'`}
             <p>
               Here's a simple logic example to map numbers to characters in JavaScript:
             </p>
-            <pre className="bg-gray-100 p-3 rounded text-xs overflow-auto">
+            <pre className="bg-gray-100 p-3 rounded text-xs overflow-auto dark:text-black">
               {`for (let i = 32; i < 127; i++) {
   console.log(i, String.fromCharCode(i));
 }`}

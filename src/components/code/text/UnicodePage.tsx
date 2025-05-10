@@ -56,7 +56,7 @@ const UnicodePage: React.FC = () => {
         <CardHeader>
           <CardTitle>Unicode Characters Table</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-8 text-sm text-gray-700 leading-relaxed">
+        <CardContent className="space-y-8 text-sm text-gray-700 leading-relaxed dark:text-white">
           <div>
             <h2 className="text-lg font-semibold mb-2">Search for Unicode</h2>
             <input
@@ -76,13 +76,13 @@ const UnicodePage: React.FC = () => {
                 <thead>
                   <tr>
                     {["Character", "Name", "Unicode", "Escape Sequence", "HTML Code", "HTML Named Code"].map((header, index) => (
-                      <th key={index} className="px-4 py-2 border bg-gray-100 font-semibold">{header}</th>
+                      <th key={index} className="px-4 py-2 border bg-gray-100 font-semibold dark:text-black">{header}</th>
                     ))}
                   </tr>
                 </thead>
                 <tbody>
                   {filteredUnicodeList.map((unicode, index) => (
-                    <tr key={index} className="hover:bg-gray-50">
+                    <tr key={index}>
                       <td className="px-4 py-2 border text-center">{unicode.char}</td>
                       <td className="px-4 py-2 border">{unicode.name}</td>
                       <td className="px-4 py-2 border text-center">{unicode.unicode}</td>
@@ -103,7 +103,7 @@ const UnicodePage: React.FC = () => {
                 <thead>
                   <tr>
                     {["Unicode", "Escape Sequence", "HTML Numeric Code", "HTML Named Code", "Description"].map((header, index) => (
-                      <th key={index} className="px-4 py-2 border bg-gray-100 font-semibold">{header}</th>
+                      <th key={index} className="px-4 py-2 border bg-gray-100 font-semibold dark:text-black">{header}</th>
                     ))}
                   </tr>
                 </thead>
@@ -134,7 +134,7 @@ const UnicodePage: React.FC = () => {
                 <thead>
                   <tr>
                     {["Character", "Unicode", "Escape Sequence", "HTML Numeric Code", "HTML Named Code", "Description"].map((header, index) => (
-                      <th key={index} className="px-4 py-2 border bg-gray-100 font-semibold">{header}</th>
+                      <th key={index} className="px-4 py-2 border bg-gray-100 font-semibold dark:text-black">{header}</th>
                     ))}
                   </tr>
                 </thead>
@@ -167,19 +167,19 @@ const UnicodePage: React.FC = () => {
             <p>
               For example, in JavaScript, Unicode characters can be represented using escape sequences. You can insert Unicode characters directly into a string:
             </p>
-            <pre className="bg-gray-100 p-3 rounded text-xs overflow-auto">
+            <pre className="bg-gray-100 p-3 rounded text-xs overflow-auto dark:text-black">
               {`const smiley = "😊";`}
             </pre>
             <p>
               Additionally, JavaScript allows Unicode characters to be inserted using escape sequences:
             </p>
-            <pre className="bg-gray-100 p-3 rounded text-xs overflow-auto">
+            <pre className="bg-gray-100 p-3 rounded text-xs overflow-auto dark:text-black">
               {`const smiley = "\\uD83D\\uDE0A";`}
             </pre>
             <p>
               Python also provides support for Unicode strings. In Python 3, strings are Unicode by default:
             </p>
-            <pre className="bg-gray-100 p-3 rounded text-xs overflow-auto">
+            <pre className="bg-gray-100 p-3 rounded text-xs overflow-auto dark:text-black">
               {`text = "こんにちは"  # Hello in Japanese`}
             </pre>
             <p>
@@ -216,13 +216,13 @@ const UnicodePage: React.FC = () => {
             <p>
               A great way to implement emojis is to use the character directly in your HTML or JavaScript, or by referencing the Unicode code point using escape sequences:
             </p>
-            <pre className="bg-gray-100 p-3 rounded text-xs overflow-auto">
+            <pre className="bg-gray-100 p-3 rounded text-xs overflow-auto dark:text-black">
               {`const smiley = "😊";`}
             </pre>
             <p>
               Alternatively, you can use the following escape sequence:
             </p>
-            <pre className="bg-gray-100 p-3 rounded text-xs overflow-auto">
+            <pre className="bg-gray-100 p-3 rounded text-xs overflow-auto dark:text-black">
               {`const smiley = "\\uD83D\\uDE0A";`}
             </pre>
             <p>
@@ -266,7 +266,7 @@ const UnicodePage: React.FC = () => {
             <p>
               In MySQL, for example, you can specify the character set when creating a table:
             </p>
-            <pre className="bg-gray-100 p-3 rounded text-xs overflow-auto">
+            <pre className="bg-gray-100 p-3 rounded text-xs overflow-auto dark:text-black">
               {`CREATE TABLE users (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(255) CHARACTER SET utf8mb4,
@@ -318,7 +318,7 @@ const UnicodePage: React.FC = () => {
             <p>
               For example, the Arabic word "مرحبا" (which means "hello") should be displayed correctly with the `dir="rtl"` attribute in HTML:
             </p>
-            <pre className="bg-gray-100 p-3 rounded text-xs overflow-auto">
+            <pre className="bg-gray-100 p-3 rounded text-xs overflow-auto dark:text-black">
               {`<p dir="rtl">مرحبا</p>`}
             </pre>
             <p>
@@ -371,7 +371,7 @@ const UnicodePage: React.FC = () => {
             <p>
               For example, the following JSON object contains Unicode characters in UTF-8 encoding:
             </p>
-            <pre className="bg-gray-100 p-3 rounded text-xs overflow-auto">
+            <pre className="bg-gray-100 p-3 rounded text-xs overflow-auto dark:text-black">
               {`{
   "user": "张伟",
   "message": "Hello, world! 🌍"
@@ -412,7 +412,7 @@ const UnicodePage: React.FC = () => {
             <p>
               For example, in MySQL, you would set the character set to `utf8mb4` to support the full range of Unicode characters, including emojis:
             </p>
-            <pre className="bg-gray-100 p-3 rounded text-xs overflow-auto">
+            <pre className="bg-gray-100 p-3 rounded text-xs overflow-auto dark:text-black">
               {`CREATE TABLE users (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(255) CHARACTER SET utf8mb4,
@@ -432,13 +432,13 @@ const UnicodePage: React.FC = () => {
             <p>
               In Python, Unicode strings are represented by default in Python 3. Strings are Unicode, and you can define them as follows:
             </p>
-            <pre className="bg-gray-100 p-3 rounded text-xs overflow-auto">
+            <pre className="bg-gray-100 p-3 rounded text-xs overflow-auto dark:text-black">
               {`text = "こんにちは"  # Hello in Japanese`}
             </pre>
             <p>
               In JavaScript, you can handle Unicode characters using escape sequences or directly within strings. For example:
             </p>
-            <pre className="bg-gray-100 p-3 rounded text-xs overflow-auto">
+            <pre className="bg-gray-100 p-3 rounded text-xs overflow-auto dark:text-black">
               {`const hello = "こんにちは"; // Hello in Japanese`}
             </pre>
             <p>

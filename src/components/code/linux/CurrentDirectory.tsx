@@ -120,7 +120,7 @@ const CurrentDirectory = () => {
               />
             </div>
 
-            <div className="bg-gray-100 p-4 rounded text-sm mt-4">
+            <div className="bg-gray-100 p-4 rounded text-sm mt-4 dark:text-black">
               <code>{generateCommand()}</code>
             </div>
           </section>

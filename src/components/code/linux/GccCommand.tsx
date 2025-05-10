@@ -139,7 +139,7 @@ const GccCommand: React.FC = () => {
 
           <Section title="GCC Code Generator">
             <div className="grid gap-4 mb-4">
-              <InputField label="Source files" value={sourceFiles} setValue={setSourceFiles} placeholder="file1.c file2.c" />
+              <InputField label="Source files " value={sourceFiles} setValue={setSourceFiles} placeholder="file1.c file2.c"/>
               <InputField label="Object files" value={objectFiles} setValue={setObjectFiles} placeholder="file3.o file4.o" />
               <InputField label="Include directories" value={includeDirs} setValue={setIncludeDirs} placeholder="dir1 dir2" />
               <InputField label="Library files" value={libFiles} setValue={setLibFiles} placeholder="liba.a libb.a" />
@@ -154,7 +154,7 @@ const GccCommand: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-gray-100 p-4 rounded text-sm mt-4">
+            <div className="bg-gray-100 p-4 rounded text-sm mt-4 dark:text-black">
               <code>{generateCommand()}</code>
             </div>
           </Section>
@@ -500,7 +500,7 @@ const InputField = ({ label, value, setValue, placeholder }) => (
       placeholder={placeholder}
       value={value}
       onChange={(e) => setValue(e.target.value)}
-      className="border rounded p-2 w-full text-sm"
+      className="border rounded p-2 w-full text-sm dark:text-black"
     />
   </div>
 );

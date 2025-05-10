@@ -167,7 +167,7 @@ const LsCommand: React.FC = () => {
                 placeholder="file1 file2"
                 value={files}
                 onChange={(e) => setFiles(e.target.value)}
-                className="border rounded p-2 w-full text-sm"
+                className="border rounded p-2 w-full text-sm dark:text-black"
                 disabled={fullPath}
               />
             </div>
@@ -179,7 +179,7 @@ const LsCommand: React.FC = () => {
                 placeholder="dir1 dir2"
                 value={folders}
                 onChange={(e) => setFolders(e.target.value)}
-                className="border rounded p-2 w-full text-sm"
+                className="border rounded p-2 w-full text-sm dark:text-black"
                 disabled={fullPath}
               />
             </div>
@@ -191,7 +191,7 @@ const LsCommand: React.FC = () => {
                 placeholder="out.txt"
                 value={stdoutFile}
                 onChange={(e) => setStdoutFile(e.target.value)}
-                className="border rounded p-2 w-full text-sm"
+                className="border rounded p-2 w-full text-sm dark:text-black"
               />
             </div>
 
@@ -202,11 +202,11 @@ const LsCommand: React.FC = () => {
                 placeholder="err.txt"
                 value={stderrFile}
                 onChange={(e) => setStderrFile(e.target.value)}
-                className="border rounded p-2 w-full text-sm"
+                className="border rounded p-2 w-full text-sm dark:text-black"
               />
             </div>
 
-            <div className="bg-gray-100 p-4 rounded text-sm mt-4">
+            <div className="bg-gray-100 p-4 rounded text-sm mt-4 dark:text-black">
               <code>{generateCommand()}</code>
             </div>
           </div>

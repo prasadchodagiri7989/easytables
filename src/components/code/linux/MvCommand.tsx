@@ -125,7 +125,7 @@ const MvCommand: React.FC = () => {
                   placeholder="e.g., file1 file2 dir1"
                   value={sources}
                   onChange={(e) => setSources(e.target.value)}
-                  className="border rounded p-2 w-full text-sm"
+                  className="border rounded p-2 w-full text-sm dark:text-black"
                 />
               </div>
 
@@ -136,13 +136,13 @@ const MvCommand: React.FC = () => {
                   placeholder="e.g., /path/to/destination/"
                   value={destination}
                   onChange={(e) => setDestination(e.target.value)}
-                  className="border rounded p-2 w-full text-sm"
+                  className="border rounded p-2 w-full text-sm dark:text-black"
                 />
               </div>
             </div>
 
             {/* Command Output */}
-            <div className="bg-gray-100 p-4 rounded text-sm mt-4">
+            <div className="bg-gray-100 p-4 rounded text-sm mt-4 dark:text-black">
               <code>{generateCommand()}</code>
             </div>
           </div>
