@@ -77,7 +77,7 @@ const PwdCommand: React.FC = () => {
           <div>
             <h2 className="text-lg font-semibold mb-4">pwd Command Generator</h2>
             <div className="flex flex-wrap gap-4 mb-4">
-              <label className="flex items-center space-x-1 text-sm">
+              <label className="flex items-center space-x-1 text-sm ">
                 <input
                   type="checkbox"
                   checked={!absolutePath}
@@ -88,7 +88,7 @@ const PwdCommand: React.FC = () => {
             </div>
 
             {/* Command Output */}
-            <div className="bg-gray-100 p-4 rounded text-sm mt-4">
+            <div className="bg-gray-100 p-4 rounded text-sm mt-4 dark:text-black">
               <code>{generateCommand()}</code>
             </div>
           </div>

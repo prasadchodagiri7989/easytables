@@ -54,7 +54,7 @@ const AltCodes: React.FC = () => {
 
           <div>
             <h2 className="text-lg font-semibold mb-2">Common ALT Codes</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 dark:text-black">
               {[
                 { code: "ALT + 0176", symbol: "°", name: "Degree" },
                 { code: "ALT + 0153", symbol: "™", name: "Trademark" },
@@ -73,7 +73,7 @@ const AltCodes: React.FC = () => {
           </div>
 
           <div>
-            <h2 className="text-lg font-semibold mb-2">Tips</h2>
+            <h2 className="text-lg font-semibold mb-2v">Tips</h2>
             <ul className="list-disc pl-6 space-y-1">
               <li>Make sure <strong>Num Lock</strong> is on</li>
               <li>Works only in Windows (not macOS)</li>
