@@ -300,8 +300,6 @@ export const ColorConverter = () => {
           </CardContent>
         </Card>
 
-        // At the end of ColorConverter component
-
 <GuidanceSection title={`How to Convert ${fromFormat.toUpperCase()} to ${toFormat.toUpperCase()}`}>
   <p>Use the format guide and example below:</p>
   <ol className="list-decimal pl-5 my-2 space-y-2">

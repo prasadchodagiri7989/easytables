@@ -35,7 +35,9 @@ export const unitCategories = [
   { label: "Fuel Economy", value: "fuel_economy", path: "/convertor/fuel_economy", icon: Fuel },
   { label: "Voltage", value: "voltage", path: "/convertor/voltage", icon: BatteryCharging },
   { label: "Current", value: "current", path: "/convertor/current", icon: Plug },
-  { label: "Color", value: "color", path: "/convertor/color", icon: Plug }
+  { label: "Color", value: "color", path: "/convertor/color", icon: Droplet },
+  { label: "Number", value: "number", path: "/convertor/number", icon: Hash }
+
 ];
 
 interface SidebarProps {
