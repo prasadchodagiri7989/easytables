@@ -20,7 +20,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { Link, useLocation, useSearchParams } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -31,9 +31,9 @@ export const NumberConverter = () => {
   const [toFormat, setToFormat] = useState("binary");
   const [input, setInput] = useState("");
   const [result, setResult] = useState<string | null>(null);
+  const [disableSelects, setDisableSelects] = useState(false);
 
   const query = useQuery();
-  const [searchParams] = useSearchParams();
 
   useEffect(() => {
     const from = query.get("from");
@@ -42,14 +42,20 @@ export const NumberConverter = () => {
     const isValidFormat = (format: string | null) =>
       numberFormats.some((f) => f.value === format);
 
-    if (isValidFormat(from)) setFromFormat(from!);
-    if (isValidFormat(to)) setToFormat(to!);
+    const validFrom = isValidFormat(from);
+    const validTo = isValidFormat(to);
+
+    if (validFrom) setFromFormat(from!);
+    if (validTo) setToFormat(to!);
+
+    setDisableSelects(validFrom && validTo);
   }, [query]);
 
   const handleSwap = () => {
     setFromFormat(toFormat);
     setToFormat(fromFormat);
     setResult(null);
+    setDisableSelects(false);
   };
 
   const handleConvert = () => {
@@ -77,7 +83,7 @@ export const NumberConverter = () => {
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
-          <BreadcrumbPage>Number Convertor</BreadcrumbPage>
+          <BreadcrumbPage>Number Converter</BreadcrumbPage>
         </BreadcrumbList>
       </Breadcrumb>
 
@@ -90,7 +96,7 @@ export const NumberConverter = () => {
             <div>
               <Label>From</Label>
               <Select value={fromFormat} onValueChange={setFromFormat}>
-                <SelectTrigger disabled>
+                <SelectTrigger id="fromUnit" disabled={disableSelects}>
                   <SelectValue placeholder="From format" />
                 </SelectTrigger>
                 <SelectContent>
@@ -110,7 +116,7 @@ export const NumberConverter = () => {
             <div>
               <Label>To</Label>
               <Select value={toFormat} onValueChange={setToFormat}>
-                <SelectTrigger disabled>
+                <SelectTrigger id="toUnit" disabled={disableSelects}>
                   <SelectValue placeholder="To format" />
                 </SelectTrigger>
                 <SelectContent>

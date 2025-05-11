@@ -34,6 +34,7 @@ export const DataConverter = () => {
   const [availableUnits, setAvailableUnits] = useState<Array<{ label: string; value: string }>>(
     []
   );
+  const [disableSelects, setDisableSelects] = useState(false);
 
     const location = useLocation();
     const [searchParams] = useSearchParams();
@@ -142,9 +143,9 @@ export const DataConverter = () => {
           <div className="grid grid-cols-[1fr,auto,1fr] gap-2 items-end">
           <div className="space-y-2">
             <Label htmlFor="fromUnit">From</Label>
-            <Select value={fromUnit} onValueChange={setFromUnit} disabled>
-              <SelectTrigger id="fromUnit" disabled>
-                <SelectValue placeholder="From unit" />
+            <Select value={fromUnit} onValueChange={setFromUnit}>
+            <SelectTrigger id="fromUnit" disabled={!!(query.get("from") && query.get("to"))}>
+            <SelectValue placeholder="From unit" />
               </SelectTrigger>
               <SelectContent>
                 {availableUnits.map((unit) => (
@@ -166,9 +167,9 @@ export const DataConverter = () => {
 
           <div className="space-y-2">
             <Label htmlFor="toUnit">To</Label>
-            <Select value={toUnit} onValueChange={setToUnit} disabled>
-              <SelectTrigger id="toUnit" disabled>
-                <SelectValue placeholder="To unit" />
+            <Select value={toUnit} onValueChange={setToUnit}>
+            <SelectTrigger id="toUnit" disabled={!!(query.get("from") && query.get("to"))}>
+            <SelectValue placeholder="To unit" />
               </SelectTrigger>
               <SelectContent>
                 {availableUnits.map((unit) => (

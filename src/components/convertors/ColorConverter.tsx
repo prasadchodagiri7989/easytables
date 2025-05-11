@@ -170,13 +170,20 @@ export const ColorConverter = () => {
   const [toFormat, setToFormat] = useState("rgb");
   const [value, setValue] = useState("");
   const [result, setResult] = useState<string | null>(null);
+  const [disableSelects, setDisableSelects] = useState(false); // NEW
 
   useEffect(() => {
     const from = query.get("from");
     const to = query.get("to");
-    if (from && to && colorFormats.some(f => f.value === from) && colorFormats.some(f => f.value === to)) {
-      setFromFormat(from);
-      setToFormat(to);
+    const validFrom = colorFormats.some(f => f.value === from);
+    const validTo = colorFormats.some(f => f.value === to);
+
+    if (validFrom && validTo) {
+      setFromFormat(from!);
+      setToFormat(to!);
+      setDisableSelects(true); // ✅ Disable selects if both present
+    } else {
+      setDisableSelects(false); // Allow selection
     }
   }, [query]);
 
@@ -225,7 +232,7 @@ export const ColorConverter = () => {
               <div className="space-y-2">
                 <Label>From</Label>
                 <Select value={fromFormat} onValueChange={setFromFormat}>
-                  <SelectTrigger>
+                <SelectTrigger disabled={disableSelects}>
                     <SelectValue placeholder="From format" />
                   </SelectTrigger>
                   <SelectContent>
@@ -245,7 +252,7 @@ export const ColorConverter = () => {
               <div className="space-y-2">
                 <Label>To</Label>
                 <Select value={toFormat} onValueChange={setToFormat}>
-                  <SelectTrigger>
+                <SelectTrigger disabled={disableSelects}>
                     <SelectValue placeholder="To format" />
                   </SelectTrigger>
                   <SelectContent>
