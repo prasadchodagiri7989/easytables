@@ -34,7 +34,7 @@ export const GeometrySymbols = () => {
         </BreadcrumbList>
       </Breadcrumb>
 
-      <div className="geometry-symbols-explanation-container bg-white/40 dark:bg-transparent">
+      <div className="geometry-symbols-explanation-container bg-white/40 dark:bg-transparent mx-auto max-w-[900px]">
         <h2 className="geometry-symbols-header text-center text-2xl font-bold mb-4">
           Geometry Symbols
         </h2>

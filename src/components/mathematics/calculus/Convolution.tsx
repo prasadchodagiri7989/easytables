@@ -33,7 +33,7 @@ export const Convolution = () => {
         </BreadcrumbList>
       </Breadcrumb>
 
-      <div className="convolution-explanation-container bg-white/40 dark:bg-transparent">
+      <div className="convolution-explanation-container bg-white/40 dark:bg-transparent mx-auto max-w-[900px]">
         <h2 className="convolution-header text-center text-2xl font-bold mb-4">
           Convolution
         </h2>
@@ -170,6 +170,104 @@ export const Convolution = () => {
           <p>
             Whether you're dealing with continuous or discrete signals, convolution serves as a powerful tool for modifying and analyzing data. By understanding the underlying principles and applications of convolution, you can leverage its power to solve real-world problems in fields ranging from telecommunications to artificial intelligence.
           </p>
+            <h3 className="text-lg font-medium mb-2">Convolution in Differential Equations</h3>
+  <p>
+    Convolution is a powerful tool for solving linear time-invariant differential equations, especially when initial conditions are involved. When a system’s impulse response is known, its output can be determined by convolving the input with the impulse response.
+  </p>
+  <p>
+    For example, if a linear system has an impulse response h(t), and receives an input x(t), the output y(t) is given by:
+  </p>
+  <pre className="my-4 overflow-auto">
+    y(t) = (x * h)(t) = ∫₀^t x(τ)h(t - τ)dτ
+  </pre>
+  <p>
+    This technique is widely used in systems engineering, control theory, and signal analysis, especially in the context of Laplace Transforms.
+  </p>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Convolution in Probability Theory</h3>
+  <p>
+    In probability theory, the convolution of two independent random variables represents the distribution of their sum. If X and Y are two independent random variables with probability density functions f(x) and g(y), then the probability density function of Z = X + Y is given by:
+  </p>
+  <pre className="my-4 overflow-auto">
+    f<sub>Z</sub>(z) = ∫ f(x)g(z - x) dx
+  </pre>
+  <p>
+    This is especially useful when analyzing sums of independent stochastic processes or evaluating expected values over time.
+  </p>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Circular Convolution</h3>
+  <p>
+    Circular convolution is used when working with periodic signals or in contexts involving the Discrete Fourier Transform (DFT). Unlike linear convolution, which assumes the input extends beyond the range with zeros, circular convolution assumes periodic extension of the input signal.
+  </p>
+  <p>
+    This is mathematically defined for two sequences x[n] and h[n] of length N:
+  </p>
+  <pre className="my-4 overflow-auto">
+    y[n] = Σ<sub>k=0</sub><sup>N−1</sup> x[k]·h[(n−k) mod N]
+  </pre>
+  <p>
+    Circular convolution is commonly used in FFT-based fast convolution methods for audio effects, filtering, and spectral analysis.
+  </p>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Practical Example: Audio Reverb</h3>
+  <p>
+    In digital audio production, convolution is used to simulate natural reverberation effects. A recorded impulse response from a real environment (like a concert hall) is convolved with dry audio (voice or instrument recording) to reproduce the realistic acoustic characteristics of that space.
+  </p>
+  <p>
+    This technique, known as <strong>convolution reverb</strong>, has become a standard tool in digital audio workstations (DAWs) and audio plug-ins.
+  </p>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Convolution in Edge Detection Filters</h3>
+  <p>
+    Convolution-based edge detection filters such as the <strong>Sobel</strong>, <strong>Prewitt</strong>, and <strong>Laplacian</strong> operators calculate gradients in pixel intensity. These gradients highlight areas in an image where there is a sharp change, indicating an edge.
+  </p>
+  <p>
+    For example, the horizontal Sobel filter is applied using a kernel:
+  </p>
+  <pre className="my-4 overflow-auto">
+    [ -1  0  1 ]<br/>
+    [ -2  0  2 ]<br/>
+    [ -1  0  1 ]
+  </pre>
+  <p>
+    This detects vertical edges by convolving the kernel with the image matrix and emphasizing differences in pixel intensity in the horizontal direction.
+  </p>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Convolution in Time Series Forecasting</h3>
+  <p>
+    Convolution is useful in preprocessing time series data, particularly in smoothing, trend detection, and noise removal. By convolving a signal with a low-pass filter or moving average kernel, high-frequency noise is reduced, making the underlying trend easier to model.
+  </p>
+  <p>
+    This technique is commonly applied in economic forecasting, stock market trend analysis, and sensor data smoothing.
+  </p>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Biological Interpretation</h3>
+  <p>
+    In computational neuroscience, convolution models describe how neurons respond to stimuli. The input signal represents external stimuli (e.g., light, sound), while the impulse response models the neuron’s behavior. The output is the predicted response of the neuron over time.
+  </p>
+  <p>
+    This concept extends to vision systems, where convolution filters in artificial neural networks emulate the way human eyes process images.
+  </p>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Summary of Use Cases</h3>
+  <ul className="list-disc pl-5 space-y-2">
+    <li><strong>Signal Processing:</strong> Filtering, modulation, time-domain analysis</li>
+    <li><strong>Image Processing:</strong> Blurring, sharpening, edge detection</li>
+    <li><strong>Control Systems:</strong> System output as convolution of input with impulse response</li>
+    <li><strong>Probability:</strong> Distribution of the sum of independent variables</li>
+    <li><strong>Machine Learning:</strong> Feature extraction via CNNs</li>
+    <li><strong>Neuroscience:</strong> Modeling sensory response of biological systems</li>
+    <li><strong>Audio Engineering:</strong> Reverb and equalization effects</li>
+    <li><strong>Time Series:</strong> Trend smoothing and seasonality extraction</li>
+  </ul>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Conclusion</h3>
+  <p>
+    Convolution is a unifying concept across mathematics, science, and engineering. It provides a structured way to describe how inputs are modified by systems, making it a core component in everything from audio engineering and artificial intelligence to signal processing and differential equations.
+  </p>
+  <p>
+    By mastering both the theory and application of convolution, you open the door to a deeper understanding of how data behaves over time and space—and how to shape it for analysis, design, and innovation.
+  </p>
         </Card>
       </div>
     </>

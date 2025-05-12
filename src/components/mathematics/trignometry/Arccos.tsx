@@ -33,7 +33,7 @@ export const Arccos = () => {
         </BreadcrumbList>
       </Breadcrumb>
 
-      <div className="arccos-explanation-container bg-white/40 dark:bg-transparent">
+      <div className="arccos-explanation-container bg-white/40 dark:bg-transparent mx-auto max-w-[900px]">
         <h2 className="arccos-explanation-header text-center text-2xl font-bold mb-4">
           Arccos (Inverse Cosine)
         </h2>

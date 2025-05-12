@@ -33,12 +33,11 @@ export const StandardDeviation = () => {
         </BreadcrumbList>
       </Breadcrumb>
 
-      <div className="standard-deviation-explanation-container bg-white/40 dark:bg-transparent">
+      <div className="standard-deviation-explanation-container bg-white/40 dark:bg-transparent mx-auto max-w-[900px]">
         <h2 className="standard-deviation-explanation-header text-center text-2xl font-bold mb-4">
           Standard Deviation
         </h2>
 
-        <Card className="p-6 glass-card">
           <h3 className="text-lg font-medium mb-2">What is Standard Deviation?</h3>
           <p>
             <strong>Standard deviation</strong> is a measure of how spread out the values in a dataset are around the mean. It's the square root of the variance and gives a more interpretable measure of variability in the same unit as the data.
@@ -209,6 +208,142 @@ export const StandardDeviation = () => {
   <p>
     As we've seen, the concept of standard deviation extends far beyond basic calculation and plays a significant role in fields like finance, quality control, healthcare, and education. By understanding how to apply and interpret standard deviation, you can better assess risk, variability, and uncertainty in a wide range of applications.
   </p>
+<Card className="p-6 glass-card">
+  <h3 className="text-lg font-medium mb-4">Understanding Standard Deviation</h3>
+  <p>
+    <strong>Standard deviation</strong> is a statistical measure that quantifies the amount of variation or dispersion in a dataset. It tells us how much the values in a dataset deviate from the mean (average) of the data. The more spread out the data, the higher the standard deviation; the more clustered the data, the lower the standard deviation.
+  </p>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Why Standard Deviation Matters</h3>
+  <p>
+    Standard deviation is critical in statistics because it allows analysts to understand the consistency of data. Whether comparing student scores, stock prices, or manufacturing quality, it offers a single number that summarizes how data behaves relative to its average.
+  </p>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Formula and Explanation</h3>
+  <p>
+    The formula to calculate standard deviation depends on whether you're working with a population or a sample.
+  </p>
+  <p className="font-medium">Population Standard Deviation (σ):</p>
+  <pre className="my-4">
+    σ = √[ Σ(xᵢ − μ)² / N ]
+  </pre>
+  <p className="font-medium">Sample Standard Deviation (s):</p>
+  <pre className="my-4">
+    s = √[ Σ(xᵢ − x̄)² / (n − 1) ]
+  </pre>
+  <p>
+    Where:
+    <ul className="list-disc pl-5 space-y-2">
+      <li><strong>xᵢ</strong>: Each individual value</li>
+      <li><strong>μ</strong>: Population mean</li>
+      <li><strong>x̄</strong>: Sample mean</li>
+      <li><strong>N</strong>: Total number of values in the population</li>
+      <li><strong>n</strong>: Number of values in the sample</li>
+    </ul>
+  </p>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Example Calculation</h3>
+  <p>Given dataset: 4, 6, 8, 10, 12</p>
+  <ul className="list-disc pl-5 space-y-2">
+    <li>Mean (x̄) = (4+6+8+10+12)/5 = 8</li>
+    <li>Deviations: -4, -2, 0, 2, 4</li>
+    <li>Squared deviations: 16, 4, 0, 4, 16</li>
+    <li>Variance = (16+4+0+4+16)/5 = 8</li>
+    <li>Standard Deviation = √8 ≈ 2.83</li>
+  </ul>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Interpreting the Result</h3>
+  <p>
+    A standard deviation of 2.83 means that most data points lie approximately 2.83 units away from the mean. The closer the standard deviation is to 0, the more consistent your dataset.
+  </p>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Standard Deviation vs. Variance</h3>
+  <p>
+    While both are measures of spread, variance is the average of the squared deviations from the mean. Standard deviation is the square root of variance, making it more interpretable since it’s in the same unit as the data.
+  </p>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Relation to Normal Distribution</h3>
+  <p>
+    In a <strong>normal distribution</strong>, standard deviation determines the width of the bell curve. The data is symmetrically distributed around the mean, and standard deviation defines how tightly or loosely the data is packed around that center.
+  </p>
+  <p>
+    According to the <strong>Empirical Rule</strong>:
+  </p>
+  <ul className="list-disc pl-5 space-y-2">
+    <li>68% of values lie within ±1σ of the mean</li>
+    <li>95% within ±2σ</li>
+    <li>99.7% within ±3σ</li>
+  </ul>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Z-Scores: Standardizing Values</h3>
+  <p>
+    A <strong>z-score</strong> expresses how many standard deviations a value is from the mean:
+  </p>
+  <pre className="my-4">
+    z = (x − μ) / σ
+  </pre>
+  <p>
+    Z-scores allow for easy comparison between different datasets or distributions and help identify outliers.
+  </p>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Applications of Standard Deviation</h3>
+
+  <h4 className="font-medium mt-4 mb-2">1. Finance</h4>
+  <p>
+    Investors use standard deviation to measure the volatility of an asset. A higher standard deviation means higher risk and return fluctuation, while a lower one indicates price stability.
+  </p>
+
+  <h4 className="font-medium mt-4 mb-2">2. Manufacturing</h4>
+  <p>
+    Quality control relies on standard deviation to ensure product consistency. A small standard deviation indicates that products are produced with minimal variation from target specifications.
+  </p>
+
+  <h4 className="font-medium mt-4 mb-2">3. Healthcare</h4>
+  <p>
+    In medical studies, standard deviation helps assess variation in measurements like blood pressure, cholesterol, or dosage effectiveness, helping identify abnormalities.
+  </p>
+
+  <h4 className="font-medium mt-4 mb-2">4. Education</h4>
+  <p>
+    Educators use standard deviation to understand score distribution. A wide spread of student scores may indicate varying learning outcomes and help guide teaching strategies.
+  </p>
+
+  <h4 className="font-medium mt-4 mb-2">5. Sports</h4>
+  <p>
+    Analysts use standard deviation to evaluate performance consistency. For example, a player with a lower standard deviation in scoring is more reliable than one with erratic performance.
+  </p>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Coefficient of Variation (CV)</h3>
+  <p>
+    The <strong>coefficient of variation</strong> (CV) is a standardized measure of dispersion. It's useful when comparing the spread between datasets of different units or scales.
+  </p>
+  <pre className="my-4">CV = (σ / μ) × 100%</pre>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Common Misunderstandings</h3>
+  <ul className="list-disc pl-5 space-y-2">
+    <li>A low standard deviation doesn’t mean data is accurate—only that it’s consistent.</li>
+    <li>Standard deviation assumes a normal distribution; it may not work well for skewed data.</li>
+    <li>In samples, always divide by n−1 (not n) to avoid underestimating variability.</li>
+  </ul>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Limitations of Standard Deviation</h3>
+  <p>
+    Although widely used, standard deviation has its drawbacks:
+  </p>
+  <ul className="list-disc pl-5 space-y-2">
+    <li>Highly sensitive to outliers which can skew results.</li>
+    <li>Assumes a normal distribution, which may not hold true for all datasets.</li>
+    <li>May not accurately reflect variability in heavily skewed or multimodal data.</li>
+  </ul>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Conclusion</h3>
+  <p>
+    Standard deviation is more than a mathematical formula—it’s a practical tool for understanding data variability. Whether comparing student scores, assessing investment risk, or monitoring medical readings, it provides context that raw averages cannot.
+  </p>
+  <p>
+    Mastery of standard deviation empowers decision-makers in every field to interpret and compare data more effectively. Combined with other statistical tools, it forms the backbone of modern data analysis and scientific research.
+  </p>
+
 
         </Card>
       </div>

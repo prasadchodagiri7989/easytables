@@ -33,7 +33,7 @@ export const Probability = () => {
         </BreadcrumbList>
       </Breadcrumb>
 
-      <div className="probability-explanation-container bg-white/40 dark:bg-transparent">
+      <div className="probability-explanation-container bg-white/40 dark:bg-transparent mx-auto max-w-[900px]">
         <h2 className="probability-explanation-header text-center text-2xl font-bold mb-4">
           Basic Probability
         </h2>

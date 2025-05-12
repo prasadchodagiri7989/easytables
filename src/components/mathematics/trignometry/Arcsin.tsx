@@ -33,7 +33,7 @@ export const Arcsin = () => {
         </BreadcrumbList>
       </Breadcrumb>
 
-      <div className="arcsin-explanation-container bg-white/40 dark:bg-transparent">
+      <div className="arcsin-explanation-container bg-white/40 dark:bg-transparent mx-auto max-w-[900px]">
         <h2 className="arcsin-explanation-header text-center text-2xl font-bold mb-4">
           Arcsin (Inverse Sine)
         </h2>

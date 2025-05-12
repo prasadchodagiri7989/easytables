@@ -33,7 +33,7 @@ export const Expectation = () => {
         </BreadcrumbList>
       </Breadcrumb>
 
-      <div className="expectation-explanation-container bg-white/40 dark:bg-transparent">
+      <div className="expectation-explanation-container bg-white/40 dark:bg-transparent mx-auto max-w-[900px]">
         <h2 className="expectation-explanation-header text-center text-2xl font-bold mb-4">
           Expectation (Expected Value)
         </h2>
@@ -154,6 +154,133 @@ export const Expectation = () => {
   <p>
     While the expected value is a useful tool, it does have limitations. One key limitation is that it assumes that the same conditions will hold over repeated trials, which may not always be the case in the real world. In addition, the expected value does not capture the potential for extreme outcomes (outliers) or provide any insight into the likelihood of rare events. For situations where extreme outcomes are significant, other measures, such as the variance or risk-adjusted return, may be more appropriate.
   </p>
+
+  <h3 className="text-lg font-medium mb-4">Introduction to Expected Value</h3>
+  <p>
+    The <strong>Expected Value</strong> (often denoted as E(X)) is a fundamental concept in probability and statistics that represents the average outcome of a random variable over a large number of experiments. It is essentially the long-run mean or the center of a probability distribution and is widely used in decision-making under uncertainty.
+  </p>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Understanding the Concept</h3>
+  <p>
+    Imagine repeating an experiment (like rolling a die) many times and recording the outcomes. While individual outcomes will vary, the average of all outcomes will converge to a certain value — this is the expected value. It's a weighted average where each possible outcome is weighted by its probability.
+  </p>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Mathematical Definition</h3>
+  <p>
+    For a <strong>discrete random variable</strong>, the expected value is calculated as:
+  </p>
+  <pre className="my-4">
+    E(X) = Σ [xᵢ × P(xᵢ)]
+  </pre>
+  <p>
+    Where:
+    <ul className="list-disc pl-5 space-y-2">
+      <li><strong>xᵢ</strong>: Each possible outcome</li>
+      <li><strong>P(xᵢ)</strong>: Probability of that outcome</li>
+      <li><strong>Σ</strong>: Summation across all outcomes</li>
+    </ul>
+  </p>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Example with a Fair Die</h3>
+  <p>
+    For a six-sided fair die, each face (1 to 6) has an equal probability of 1/6:
+  </p>
+  <pre className="my-4">
+    E(X) = (1×1/6) + (2×1/6) + (3×1/6) + (4×1/6) + (5×1/6) + (6×1/6) = 3.5
+  </pre>
+  <p>
+    While you cannot roll a 3.5 on a die, the average value over many rolls would approach 3.5.
+  </p>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Expected Value for Continuous Variables</h3>
+  <p>
+    For <strong>continuous random variables</strong>, the expected value is calculated using an integral:
+  </p>
+  <pre className="my-4">E(X) = ∫ x · f(x) dx</pre>
+  <p>
+    Where <strong>f(x)</strong> is the probability density function of X. This approach is used when the variable can take infinitely many values within an interval (like height, weight, or time).
+  </p>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Applications of Expected Value</h3>
+  <ul className="list-disc pl-5 space-y-2">
+    <li><strong>Finance:</strong> Predicting expected return on investments or assets.</li>
+    <li><strong>Insurance:</strong> Calculating premiums based on risk probabilities.</li>
+    <li><strong>Gambling:</strong> Assessing fairness and profitability of games.</li>
+    <li><strong>Economics:</strong> Modeling demand, pricing, and cost expectations.</li>
+    <li><strong>Machine Learning:</strong> Used in loss functions and probabilistic models.</li>
+  </ul>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Decision-Making Based on Expected Value</h3>
+  <p>
+    Expected value plays a vital role in rational decision-making. Suppose you have two business projects to choose from:
+  </p>
+  <ul className="list-disc pl-5 space-y-2">
+    <li>Project A: 60% chance to earn ₹1000, 40% chance to lose ₹500</li>
+    <li>Project B: Guaranteed return of ₹200</li>
+  </ul>
+  <p>
+    E(A) = (0.6 × 1000) + (0.4 × -500) = 600 - 200 = ₹400 <br />
+    E(B) = ₹200
+  </p>
+  <p>
+    Based on expected value, Project A is preferable, even though it involves more risk.
+  </p>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Expected Value in Gambling</h3>
+  <p>
+    Gambling games often rely on expected value to determine house advantage. For example, in a game where you win ₹100 with a probability of 0.4 and lose ₹50 with a probability of 0.6:
+  </p>
+  <pre className="my-4">E(X) = (0.4 × 100) + (0.6 × -50) = 40 - 30 = ₹10</pre>
+  <p>
+    A positive expected value (like ₹10) implies the game is favorable to the player. Most casino games, however, have a negative expected value for the player.
+  </p>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Law of Large Numbers</h3>
+  <p>
+    The <strong>Law of Large Numbers</strong> states that as an experiment is repeated many times, the sample mean approaches the expected value. This law supports the practical use of expected value in long-term scenarios such as insurance, trading, and statistics.
+  </p>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Expected Value vs. Median vs. Mode</h3>
+  <ul className="list-disc pl-5 space-y-2">
+    <li><strong>Expected Value (Mean):</strong> Weighted average of outcomes.</li>
+    <li><strong>Median:</strong> Middle value of ordered data.</li>
+    <li><strong>Mode:</strong> Most frequently occurring value.</li>
+  </ul>
+  <p>
+    These three may be different, especially in skewed distributions. Expected value considers all outcomes and their probabilities, making it more sensitive to outliers.
+  </p>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Limitations of Expected Value</h3>
+  <ul className="list-disc pl-5 space-y-2">
+    <li>It does not account for variability or risk — a high expected value with high variance might still be risky.</li>
+    <li>Not always an achievable result (e.g., 3.5 from a die roll).</li>
+    <li>Relies on accurate probability estimation, which may not always be possible in real-life scenarios.</li>
+  </ul>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Expected Value in Machine Learning</h3>
+  <p>
+    In machine learning and statistics, expected value helps define cost functions like <strong>mean squared error (MSE)</strong> or <strong>cross-entropy loss</strong>. Models aim to minimize expected loss over training data, making the concept essential in prediction accuracy and optimization.
+  </p>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Insurance and Risk Modeling</h3>
+  <p>
+    Insurance companies use expected value to calculate how much to charge customers. For instance, if the chance of a claim is 2% and the average claim amount is ₹50,000, the expected cost per policy is ₹1000. The company will then add overheads and profit margin to set premiums.
+  </p>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Expected Value in Business Strategy</h3>
+  <p>
+    In uncertain markets, business strategies often rely on expected value to choose among alternatives. Launching a new product, entering a new market, or pricing strategies can all be modeled using expected value projections.
+  </p>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Conclusion</h3>
+  <p>
+    Expected value is a powerful and widely applicable concept in statistics. It helps summarize the central tendency of a random variable and guides decision-making in uncertain situations. While it doesn't predict exact outcomes, it provides a rational foundation for analyzing risk and reward over time.
+  </p>
+  <p>
+    By mastering expected value, you can better understand probability distributions, evaluate financial outcomes, optimize business strategies, and make data-informed decisions across many fields.
+  </p>
+
+
         </Card>
       </div>
     </>
