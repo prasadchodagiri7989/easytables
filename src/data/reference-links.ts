@@ -1810,29 +1810,7 @@ export const referenceLinks: Record<string, { label: string; href: string }[]> =
   { label: "Click Counter", href: "/click-counter" },
   { label: "Click Speed Test", href: "/cps-test" },
   { label: "Online Scoreboard", href: "/scoreboard" },
-  { label: "1 Minute Timer", href: "/countdown#1m" },
-  { label: "2 Minutes Timer", href: "/countdown#2m" },
-  { label: "3 Minutes Timer", href: "/countdown#3m" },
-  { label: "4 Minutes Timer", href: "/countdown#4m" },
-  { label: "5 Minutes Timer", href: "/countdown#5m" },
-  { label: "6 Minutes Timer", href: "/countdown#6m" },
-  { label: "7 Minutes Timer", href: "/countdown#7m" },
-  { label: "10 Minutes Timer", href: "/countdown#10m" },
-  { label: "15 Minutes Timer", href: "/countdown#15m" },
-  { label: "20 Minutes Timer", href: "/countdown#20m" },
-  { label: "30 Minutes Timer", href: "/countdown#30m" },
-  { label: "45 Minutes Timer", href: "/countdown#45m" },
-  { label: "50 Minutes Timer", href: "/countdown#50m" },
-  { label: "60 Minutes Timer", href: "/countdown#60m" },
-  { label: "10 Seconds Timer", href: "/countdown#10s" },
-  { label: "20 Seconds Timer", href: "/countdown#20s" },
-  { label: "30 Seconds Timer", href: "/countdown#30s" },
-  { label: "60 Seconds Timer", href: "/countdown#60s" },
-  { label: "1 Hour Timer", href: "/countdown#1h" },
-  { label: "2 Hours Timer", href: "/countdown#2h" },
-  { label: "3 Hours Timer", href: "/countdown#3h" },
-  { label: "4 Hours Timer", href: "/countdown#4h" },
-  { label: "5 Hours Timer", href: "/countdown#5h" },
+  
 ],
 "/current-time": [
   { label: "UK Time", href: "/current-time#uk" },
@@ -2567,8 +2545,656 @@ export const referenceLinks: Record<string, { label: string; href: string }[]> =
   { label: "Arctan Calculator", href: "/tools/arctan-calculator" },
   { label: "Degrees to Radians Converter", href: "/convertor/angle" },
 ],
+  "/calculator/college-gpa": [
+    { label: "GPA Calculator", href: "/calculator/gpa" },
+    { label: "Grade Calculator", href: "/calculator/grade-basic" },
+    { label: "Final Grade Calculator", href: "/calculator/final-grade" },
+  ],
+  "/calculator/discount": [
+    { label: "GST Calculator", href: "/calculator/gst" },
+    { label: "VAT Calculator", href: "/calculator/vat" },
+    { label: "Percentage Calculator", href: "/percentage" },
+  ],
+  "/calculator/gpa-to-letter": [
+    { label: "GPA Calculator", href: "/calculator/gpa" },
+    { label: "College GPA", href: "/calculator/college-gpa" },
+    { label: "Letter to GPA", href: "/calculator/letter-to-gpa" },
+  ],
+  "/calculator/gst": [
+    { label: "Discount Calculator", href: "/calculator/discount" },
+    { label: "VAT Calculator", href: "/calculator/vat" },
+    { label: "Simple Interest Calculator", href: "/calculator/simple-interest" },
+  ],
+  "/calculator/letter-to-gpa": [
+    { label: "GPA to Letter", href: "/calculator/gpa-to-letter" },
+    { label: "College GPA", href: "/calculator/college-gpa" },
+    { label: "GPA Calculator", href: "/calculator/gpa" },
+  ],
+  "/calculator/test": [
+    { label: "Grade Calculator", href: "/calculator/grade-basic" },
+    { label: "College GPA Calculator", href: "/calculator/college-gpa" },
+    { label: "GPA to Letter Converter", href: "/calculator/gpa-to-letter" },
+  ],
+  "/calculator/vat": [
+    { label: "GST Calculator", href: "/calculator/gst" },
+    { label: "Discount Calculator", href: "/calculator/discount" },
+    { label: "Percentage Calculator", href: "/percentage" },
+  ],
+
+  "/code/all": [
+    { label: "Linux Commands", href: "/linux/all" },
+    { label: "HTML Tools", href: "/web/html" },
+    { label: "Dev Tools", href: "/web/development" },
+  ],
+
+   "/convertor-electrical/:slug": [
+    { label: "Electrical Units", href: "/electrical/units" },
+    { label: "Electrical Calculators", href: "/electrical-calculators" },
+    { label: "Electrical Laws", href: "/electrical/laws" }
+  ],
+
+  "/convertor/area": [
+    { label: "Unit Converter", href: "/unit-converter" },
+    { label: "Volume Converter", href: "/convertor/volume" },
+    { label: "Length Converter", href: "/convertor/length" }
+  ],
+
+  "/convertor/current": [
+    { label: "Amps to Milliamps", href: "/electrical-calculations/amps-to-milliamps" },
+    { label: "Amps to Watts", href: "/electrical-calculations/amps-to-watts" }
+  ],
+
+  "/convertor/data": [
+    { label: "Data Storage Converter", href: "/unit-converter" },
+    { label: "Bytes to KB", href: "/convertor/data" }
+  ],
+
+  "/convertor/fuel_economy": [
+    { label: "Speed Converter", href: "/convertor/speed" },
+    { label: "Energy Usage", href: "/electrical/lighting/energy-usage" }
+  ],
 
 
+  "/convertor/pressure": [
+    { label: "Energy Converter", href: "/convertor/energy" },
+    { label: "Power Converter", href: "/convertor/power" }
+  ],
+
+  "/convertor/speed": [
+    { label: "Time Converter", href: "/convertor/time" },
+    { label: "Distance Calculator", href: "/unit-converter" }
+  ],
+
+  "/convertor/time": [
+    { label: "Time Now", href: "/tools/time-now" },
+    { label: "Time Calculator", href: "/tools/time-calculator" }
+  ],
+
+
+  "/ecology/all": [
+    { label: "Plant Trees", href: "/eco/plant-trees" },
+    { label: "Reduce Plastic Waste", href: "/eco/reduce-plastic-waste" }
+  ],
+  "/electrical-calculations/amp-to-watts": [
+    { label: "Amps to Watts Calculator", href: "/electrical-calculators/amps-to-watts-calculator" },
+    { label: "Watts to Amps", href: "/electrical-calculations/watts-to-amps" },
+    { label: "Voltage to Watts", href: "/electrical-calculations/volts-to-watts" }
+  ],
+
+  "/electrical-calculations/amps-to-milliamps": [
+    { label: "Milliamps to Amps", href: "/electrical-calculations/milliamps-to-amps" },
+    { label: "Amps to Watts", href: "/electrical-calculations/amps-to-watts" }
+  ],
+
+  "/electrical-calculations/db-converter": [
+    { label: "Decibel (dB) Calculator", href: "/electrical/units/decibel" },
+    { label: "dBm Calculator", href: "/electrical/units/dbm" },
+    { label: "dBW Calculator", href: "/electrical/units/dbw" }
+  ],
+
+  "/electrical-calculations/kilowatts-to-joules": [
+    { label: "KW to Joules", href: "/electrical-calculations/kw-to-joules" },
+    { label: "KW to WH", href: "/electrical-calculations/kw-to-wh" }
+  ],
+
+  "/electrical-calculations/kilowatts-to-kva": [
+    { label: "KW to KVA", href: "/electrical-calculations/kw-to-kva" },
+    { label: "KW to VA", href: "/electrical-calculations/kw-to-va" }
+  ],
+
+  "/electrical-calculations/kw-to-joules": [
+    { label: "KW to WH", href: "/electrical-calculations/kw-to-wh" },
+    { label: "KW to KJ", href: "/electrical-calculations/kw-to-kj" }
+  ],
+
+  "/electrical-calculations/kw-to-kj": [
+    { label: "KW to WH", href: "/electrical-calculations/kw-to-wh" },
+    { label: "KW to Joules", href: "/electrical-calculations/kw-to-joules" }
+  ],
+
+  "/electrical-calculations/kw-to-watts": [
+    { label: "KW to WH", href: "/electrical-calculations/kw-to-wh" },
+    { label: "Watts to KW", href: "/electrical-calculations/watts-to-kva" }
+  ],
+
+  "/electrical-calculations/vat-to-amps": [
+    { label: "VAT to KW", href: "/electrical-calculations/vat-to-kw" },
+    { label: "VAT to Watts", href: "/electrical-calculations/vat-to-watts" }
+  ],
+
+  "/electrical-calculations/vat-to-kva": [
+    { label: "VAT to KW", href: "/electrical-calculations/vat-to-kw" },
+    { label: "KVA to KW", href: "/electrical-calculations/kva-to-kw" }
+  ],
+
+  "/electrical-calculations/vat-to-kw": [
+    { label: "VAT to Amps", href: "/electrical-calculations/vat-to-amps" },
+    { label: "KW to KVA", href: "/electrical-calculations/kw-to-kva" }
+  ],
+
+  "/electrical-calculations/vat-to-watts": [
+    { label: "VAT to KW", href: "/electrical-calculations/vat-to-kw" },
+    { label: "Watts to VA", href: "/electrical-calculations/watts-to-va" }
+  ],
+  "/electrical/basic-terms": [
+    { label: "Ohm's Law", href: "/electrical/calculators/ohms-law" },
+    { label: "Voltage Divider", href: "/electrical/calculators/voltage-divider" },
+    { label: "Electric Current", href: "/electrical/content/current" },
+    { label: "Electric Power", href: "/electrical/content/power" },
+  ],
+
+  "/electrical/calculators/capacitance": [
+    { label: "Capacitance Basics", href: "/electrical/components/capacitor" },
+    { label: "Ohm's Law Calculator", href: "/electrical/calculators/ohms-law" },
+    { label: "Power Calculator", href: "/electrical/calculators/power" },
+  ],
+
+  "/electrical/calculators/frequency": [
+    { label: "Power Calculator", href: "/electrical/calculators/power" },
+    { label: "Ohm's Law Calculator", href: "/electrical/calculators/ohms-law" },
+    { label: "Capacitance Calculator", href: "/electrical/calculators/capacitance" },
+  ],
+
+  "/electrical/calculators/ohms-law": [
+    { label: "Voltage Divider", href: "/electrical/calculators/voltage-divider" },
+    { label: "Power Calculator", href: "/electrical/calculators/power" },
+    { label: "Resistance Calculator", href: "/electrical/calculators/resistance" },
+  ],
+
+  "/electrical/calculators/power": [
+    { label: "Ohm's Law", href: "/electrical/calculators/ohms-law" },
+    { label: "Watts to Amps", href: "/electrical-calculators/watts-to-amps-calculator" },
+    { label: "Voltage Divider", href: "/electrical/calculators/voltage-divider" },
+  ],
+
+  "/electrical/calculators/resistance": [
+    { label: "Ohm's Law", href: "/electrical/calculators/ohms-law" },
+    { label: "Capacitance Calculator", href: "/electrical/calculators/capacitance" },
+    { label: "Power Calculator", href: "/electrical/calculators/power" },
+  ],
+
+  "/electrical/calculators/voltage-divider": [
+    { label: "Ohm's Law Calculator", href: "/electrical/calculators/ohms-law" },
+    { label: "Resistor Symbols", href: "/electrical/symbols/resistor" },
+    { label: "Voltage Divider Rule", href: "/electrical/circuit-laws/voltage-divider" },
+  ],
+
+  "/electrical/laws": [
+    { label: "Ohm's Law", href: "/electrical/circuit-laws/ohm" },
+    { label: "Kirchhoff's Laws", href: "/electrical/circuit-laws/kirchhoff" },
+    { label: "Coulomb's Law", href: "/electrical/circuit-laws/coulomb" }
+  ],
+
+
+  "/electrical/save-electricity": [
+    { label: "LED Savings", href: "/electrical/lighting/led-savings" },
+    { label: "Energy Usage", href: "/electrical/lighting/energy-usage" },
+    { label: "How to Save Electricity", href: "/howto/save-electricity" }
+  ],
+    "/final-grade": [
+    { label: "GPA Calculator", href: "/calculator/gpa" },
+    { label: "Grade Calculator", href: "/calculator/grade-basic" },
+    { label: "College GPA", href: "/calculator/college-gpa" }
+  ],
+
+  "/finance-all": [
+    { label: "GST Calculator", href: "/calculator/gst" },
+    { label: "Discount Calculator", href: "/calculator/discount" },
+    { label: "VAT Calculator", href: "/calculator/vat" }
+  ],
+
+  "/gpa": [
+    { label: "College GPA Calculator", href: "/calculator/college-gpa" },
+    { label: "Letter to GPA", href: "/calculator/letter-to-gpa" },
+    { label: "GPA to Letter", href: "/calculator/gpa-to-letter" }
+  ],
+
+  "/grade": [
+    { label: "Grade Calculator", href: "/calculator/grade-basic" },
+    { label: "Final Grade", href: "/final-grade" },
+    { label: "GPA Calculator", href: "/calculator/gpa" }
+  ],
+
+  "/linux/all": [
+    { label: "Cat Command", href: "/linux/cat-command" },
+    { label: "Cd Command", href: "/linux/cd-command" },
+    { label: "Ls Command", href: "/linux/ls-command" }
+  ],
+
+  "/linux/cat-command": [
+    { label: "View Files in Linux", href: "/linux/view-files" },
+    { label: "PWD Command", href: "/linux/pwd-command" },
+    { label: "Current Directory", href: "/linux/current-directory" }
+  ],
+
+  "/linux/cd-command": [
+    { label: "Pwd Command", href: "/linux/pwd-command" },
+    { label: "Ls Command", href: "/linux/ls-command" },
+    { label: "MV Command", href: "/linux/mv-command" }
+  ],
+
+  "/linux/cp-command": [
+    { label: "MV Command", href: "/linux/mv-command" },
+    { label: "Move Files in Linux", href: "/linux/move-files" },
+    { label: "Cat Command", href: "/linux/cat-command" }
+  ],
+
+  "/linux/current-directory": [
+    { label: "Cd Command", href: "/linux/cd-command" },
+    { label: "Pwd Command", href: "/linux/pwd-command" },
+    { label: "View Files", href: "/linux/view-files" }
+  ],
+
+  "/linux/gcc-command": [
+    { label: "Cat Command", href: "/linux/cat-command" },
+    { label: "MV Command", href: "/linux/mv-command" },
+    { label: "Slow VirtualBox Ubuntu", href: "/linux/slow-virtualbox-ubuntu" }
+  ],
+
+  "/linux/ls-command": [
+    { label: "Cd Command", href: "/linux/cd-command" },
+    { label: "PWD Command", href: "/linux/pwd-command" },
+    { label: "Cat Command", href: "/linux/cat-command" }
+  ],
+
+  "/linux/move-files": [
+    { label: "MV Command", href: "/linux/mv-command" },
+    { label: "CP Command", href: "/linux/cp-command" },
+    { label: "Current Directory", href: "/linux/current-directory" }
+  ],
+
+  "/linux/mv-command": [
+    { label: "Move Files", href: "/linux/move-files" },
+    { label: "CP Command", href: "/linux/cp-command" },
+    { label: "CD Command", href: "/linux/cd-command" }
+  ],
+
+  "/linux/pwd-command": [
+    { label: "Cd Command", href: "/linux/cd-command" },
+    { label: "Current Directory", href: "/linux/current-directory" },
+    { label: "Ls Command", href: "/linux/ls-command" }
+  ],
+
+  "/linux/slow-virtualbox-ubuntu": [
+    { label: "GCC Command", href: "/linux/gcc-command" },
+    { label: "Cat Command", href: "/linux/cat-command" },
+    { label: "View Files", href: "/linux/view-files" }
+  ],
+
+  "/linux/view-files": [
+    { label: "Cat Command", href: "/linux/cat-command" },
+    { label: "Current Directory", href: "/linux/current-directory" },
+    { label: "Ls Command", href: "/linux/ls-command" }
+  ],
+
+  "/mathematics/algebra": [
+    { label: "Quadratic Equation", href: "/algebra/quadratic-equation" },
+    { label: "Logarithm", href: "/algebra/logarithm" },
+    { label: "Factorial", href: "/algebra/factorial" }
+  ],
+
+  "/mathematics/all": [
+    { label: "Algebra Tools", href: "/mathematics/algebra" },
+    { label: "Trigonometry Tools", href: "/mathematics/trigonometry" },
+    { label: "Probability Tools", href: "/probability/basic" }
+  ],
+
+  "/mathematics/symbols": [
+    { label: "Math Symbols", href: "/symbols/math" },
+    { label: "Greek Symbols", href: "/symbols/greek" },
+    { label: "Logic Symbols", href: "/symbols/logic" }
+  ],
+
+  "/mathematics/trigonometry": [
+    { label: "Trigonometry Calculator", href: "/tools/trigonometry-calculator" },
+    { label: "Right Triangle Calculator", href: "/tools/right-triangle-calculator" },
+    { label: "Pythagorean Theorem", href: "/tools/pythagorean-theorem-calculator" }
+  ],
+  "/pdf-reader": [
+    { label: "PDF Viewer", href: "/pdf-viewer" },
+    { label: "JPG to PDF", href: "/jpg-to-pdf" },
+    { label: "PNG to PDF", href: "/png-to-pdf" }
+  ],
+
+  "/pdf-viewer": [
+    { label: "PDF Reader", href: "/pdf-reader" },
+    { label: "Image to PDF", href: "/image-to-pdf" },
+    { label: "JPG to PDF", href: "/jpg-to-pdf" }
+  ],
+
+
+  "/test": [
+    { label: "Percentage Calculator", href: "/percentage" },
+    { label: "Grade Calculator", href: "/calculator/grade-basic" },
+    { label: "BMI Calculator", href: "/bmi" }
+  ],
+
+
+  "/text/all": [
+    { label: "Alt Codes", href: "/text/alt-codes" },
+    { label: "ASCII Table", href: "/text/ascii-table" },
+    { label: "Unicode Page", href: "/text/unicode-page" }
+  ],
+
+  "/time/all": [
+    { label: "Current Time", href: "/tools/current-time" },
+    { label: "Time Calculator", href: "/tools/time-calculator" },
+    { label: "Today's Date", href: "/tools/todays-date" }
+  ],
+  "/tools/2-gauge-wire-calculator": [
+    { label: "Wire Gauge Calculator", href: "/tools/wire-gauge-calculator" },
+    { label: "AWG to mm", href: "/tools/awg-to-mm-calculator" },
+    { label: "Voltage Drop Calculator", href: "/tools/voltage-drop-calculator" }
+  ],
+
+  "/tools/age-calculator": [
+    { label: "Birthday Calculator", href: "/tools/birthday-calculator" },
+    { label: "Date Calculator", href: "/tools/date-calculator" },
+    { label: "Days in Year", href: "/tools/days-in-year" }
+  ],
+
+  "/tools/awg-to-mm-calculator": [
+    { label: "Wire Gauge Calculator", href: "/tools/wire-gauge-calculator" },
+    { label: "SWG to mm", href: "/tools/swg-to-mm-calculator" },
+    { label: "2 Gauge Wire", href: "/tools/2-gauge-wire-calculator" }
+  ],
+
+  "/tools/binary-calculator": [
+    { label: "Hex Calculator", href: "/tools/hex-calculator" },
+    { label: "Simple Math Calculator", href: "/tools/simple-math-calculator" },
+    { label: "Base Converter", href: "/tools/base-calculator" }
+  ],
+
+  "/tools/birthday-calculator": [
+    { label: "Age Calculator", href: "/tools/age-calculator" },
+    { label: "Date Calculator", href: "/tools/date-calculator" },
+    { label: "Days in Year", href: "/tools/days-in-year" }
+  ],
+
+  "/tools/current-time": [
+    { label: "Time Now", href: "/tools/time-now" },
+    { label: "Today's Date", href: "/tools/todays-date" },
+    { label: "Date Calculator", href: "/tools/date-calculator" }
+  ],
+
+  "/tools/date-calculator": [
+    { label: "Days in Year", href: "/tools/days-in-year" },
+    { label: "Time Calculator", href: "/tools/time-calculator" },
+    { label: "Birthday Calculator", href: "/tools/birthday-calculator" }
+  ],
+
+  "/tools/days-in-year": [
+    { label: "Age Calculator", href: "/tools/age-calculator" },
+    { label: "Date Calculator", href: "/tools/date-calculator" },
+    { label: "Months of Year", href: "/tools/months-of-year" }
+  ],
+
+  "/tools/division-calculator": [
+    { label: "Simple Math Calculator", href: "/tools/simple-math-calculator" },
+    { label: "Addition Calculator", href: "/tools/addition-calculator" },
+    { label: "Multiplication Calculator", href: "/tools/multiplication-calculator" }
+  ],
+
+  "/tools/dst-back": [
+    { label: "DST Change", href: "/tools/dst-change" },
+    { label: "DST Forward", href: "/tools/dst-forward" },
+    { label: "Current Time", href: "/tools/current-time" }
+  ],
+
+  "/tools/dst-change": [
+    { label: "DST Forward", href: "/tools/dst-forward" },
+    { label: "DST Back", href: "/tools/dst-back" },
+    { label: "Time Calculator", href: "/tools/time-calculator" }
+  ],
+
+  "/tools/dst-forward": [
+    { label: "DST Back", href: "/tools/dst-back" },
+    { label: "DST Change", href: "/tools/dst-change" },
+    { label: "Time Now", href: "/tools/time-now" }
+  ],
+
+  "/tools/fractions-calculator": [
+    { label: "Subtracting Fractions", href: "/tools/subtracting-fractions-calculator" },
+    { label: "Dividing Fractions", href: "/tools/dividing-fractions-calculator" },
+    { label: "Adding Fractions", href: "/tools/adding-fractions-calculator" }
+  ],
+
+  "/tools/gcf-calculator": [
+    { label: "LCM Calculator", href: "/tools/lcm-calculator" },
+    { label: "Simple Math Calculator", href: "/tools/simple-math-calculator" },
+    { label: "Root Calculator", href: "/tools/root-calculator" }
+  ],
+
+  "/tools/hex-calculator": [
+    { label: "Binary Calculator", href: "/tools/binary-calculator" },
+    { label: "Base Converter", href: "/tools/base-calculator" },
+    { label: "Fraction Calculator", href: "/tools/fractions-calculator" }
+  ],
+
+  "/tools/hours-in-week": [
+    { label: "Hours in Year", href: "/tools/hours-in-year" },
+    { label: "Days in Year", href: "/tools/days-in-year" },
+    { label: "Time Calculator", href: "/tools/time-calculator" }
+  ],
+
+  "/tools/hours-in-year": [
+    { label: "Hours in Week", href: "/tools/hours-in-week" },
+    { label: "Seconds in Year", href: "/tools/seconds-in-year" },
+    { label: "Time Calculator", href: "/tools/time-calculator" }
+  ],
+
+  "/tools/lcm-calculator": [
+    { label: "GCF Calculator", href: "/tools/gcf-calculator" },
+    { label: "Root Calculator", href: "/tools/root-calculator" },
+    { label: "Simple Math Calculator", href: "/tools/simple-math-calculator" }
+  ],
+
+  "/tools/months-of-year": [
+    { label: "Days in Year", href: "/tools/days-in-year" },
+    { label: "Weeks in Year", href: "/tools/weeks-in-year" },
+    { label: "Time Now", href: "/tools/time-now" }
+  ],
+
+  "/tools/percentage-increase-calculator": [
+    { label: "Percentage Change Calculator", href: "/calculator/percentage-change" },
+    { label: "Percent Error Calculator", href: "/tools/percent-error-calculator" },
+    { label: "Fraction to Percent", href: "/convertor/number?from=fraction&to=percent" }
+  ],
+
+  "/tools/pythagorean-theorem-calculator": [
+    { label: "Right Triangle Calculator", href: "/tools/right-triangle-calculator" },
+    { label: "Trigonometry Calculator", href: "/tools/trigonometry-calculator" },
+    { label: "Root Calculator", href: "/tools/root-calculator" }
+  ],
+
+  "/tools/ratio-calculator": [
+    { label: "Fraction Calculator", href: "/tools/fractions-calculator" },
+    { label: "GCF Calculator", href: "/tools/gcf-calculator" },
+    { label: "LCM Calculator", href: "/tools/lcm-calculator" }
+  ],
+
+  "/tools/remainder-calculator": [
+    { label: "Division Calculator", href: "/tools/division-calculator" },
+    { label: "Modulus Basics", href: "/math/modulo" },
+    { label: "Simple Math Calculator", href: "/tools/simple-math-calculator" }
+  ],
+
+  "/tools/right-triangle-calculator": [
+    { label: "Pythagorean Theorem Calculator", href: "/tools/pythagorean-theorem-calculator" },
+    { label: "Trigonometry Calculator", href: "/tools/trigonometry-calculator" },
+    { label: "Root Calculator", href: "/tools/root-calculator" }
+  ],
+
+  "/tools/root-calculator": [
+    { label: "Square Root Calculator", href: "/tools/square-root-calculator" },
+    { label: "Exponent Calculator", href: "/tools/exponents-calculator" },
+    { label: "Simple Math Calculator", href: "/tools/simple-math-calculator" }
+  ],
+
+  "/tools/scientific-notation-calculator": [
+    { label: "Exponents Calculator", href: "/tools/exponents-calculator" },
+    { label: "Log Calculator", href: "/tools/log-calculator" },
+    { label: "Complex Numbers Calculator", href: "/tools/complex-numbers-calculator" }
+  ],
+
+  "/tools/seconds-in-day": [
+    { label: "Seconds in Hour", href: "/tools/seconds-in-hour" },
+    { label: "Seconds in Year", href: "/tools/seconds-in-year" },
+    { label: "Time Calculator", href: "/tools/time-calculator" }
+  ],
+
+  "/tools/seconds-in-hour": [
+    { label: "Seconds in Day", href: "/tools/seconds-in-day" },
+    { label: "Seconds in Year", href: "/tools/seconds-in-year" },
+    { label: "Time Calculator", href: "/tools/time-calculator" }
+  ],
+
+  "/tools/seconds-in-year": [
+    { label: "Seconds in Day", href: "/tools/seconds-in-day" },
+    { label: "Seconds in Hour", href: "/tools/seconds-in-hour" },
+    { label: "Time Calculator", href: "/tools/time-calculator" }
+  ],
+
+  "/tools/simple-math-calculator": [
+    { label: "Addition Calculator", href: "/tools/addition-calculator" },
+    { label: "Multiplication Calculator", href: "/tools/multiplication-calculator" },
+    { label: "Subtraction Calculator", href: "/tools/subtraction-calculator" }
+  ],
+
+  "/tools/square-root-calculator": [
+    { label: "Root Calculator", href: "/tools/root-calculator" },
+    { label: "Exponent Calculator", href: "/tools/exponents-calculator" },
+    { label: "Simple Math Calculator", href: "/tools/simple-math-calculator" }
+  ],
+
+  "/tools/subtracting-fractions-calculator": [
+    { label: "Fractions Calculator", href: "/tools/fractions-calculator" },
+    { label: "Adding Fractions", href: "/tools/adding-fractions-calculator" },
+    { label: "Dividing Fractions", href: "/tools/dividing-fractions-calculator" }
+  ],
+
+  "/tools/subtraction-calculator": [
+    { label: "Addition Calculator", href: "/tools/addition-calculator" },
+    { label: "Multiplication Calculator", href: "/tools/multiplication-calculator" },
+    { label: "Simple Math Calculator", href: "/tools/simple-math-calculator" }
+  ],
+
+  "/tools/swg-to-mm-calculator": [
+    { label: "AWG to MM Calculator", href: "/tools/awg-to-mm-calculator" },
+    { label: "Wire Gauge Calculator", href: "/tools/wire-gauge-calculator" },
+    { label: "2 Gauge Wire Calculator", href: "/tools/2-gauge-wire-calculator" }
+  ],
+
+  "/tools/time-calculator": [
+    { label: "Time Now", href: "/tools/time-now" },
+    { label: "Today's Date", href: "/tools/todays-date" },
+    { label: "Seconds in Year", href: "/tools/seconds-in-year" }
+  ],
+
+  "/tools/time-now": [
+    { label: "Current Time", href: "/tools/current-time" },
+    { label: "Time Calculator", href: "/tools/time-calculator" },
+    { label: "Today's Date", href: "/tools/todays-date" }
+  ],
+
+  "/tools/todays-date": [
+    { label: "Time Now", href: "/tools/time-now" },
+    { label: "Date Calculator", href: "/tools/date-calculator" },
+    { label: "Current Time", href: "/tools/current-time" }
+  ],
+
+  "/tools/trigonometry-calculator": [
+    { label: "Sine Calculator", href: "/tools/sine-calculator" },
+    { label: "Cosine Calculator", href: "/tools/cosine-calculator" },
+    { label: "Tangent Calculator", href: "/tools/tangent-calculator" }
+  ],
+
+  "/tools/voltage-drop-calculator": [
+    { label: "Power Calculator", href: "/electrical-calculators/power-calculator" },
+    { label: "Ohm's Law Calculator", href: "/electrical-calculators/ohms-law-calculator" },
+    { label: "Wire Gauge Calculator", href: "/tools/wire-gauge-calculator" }
+  ],
+
+  "/tools/web-colors": [
+    { label: "HTML Color Codes", href: "/tools/html-color-codes" },
+    { label: "RGB Color Picker", href: "/tools/rgb-color-picker" },
+    { label: "Web Safe Colors", href: "/tools/web-safe-colors" }
+  ],
+
+  "/tools/website-traffic-down-checker": [
+    { label: "Screen Resolution Stats", href: "/tools/screen-resolution-statistics" },
+    { label: "Canonical URL Generator", href: "/tools/canonical-url-generator" },
+    { label: "Htaccess Redirection", href: "/tools/htaccess-redirection" }
+  ],
+
+  "/tools/weeks-in-month": [
+    { label: "Weeks in Year", href: "/tools/weeks-in-year" },
+    { label: "Days in Year", href: "/tools/days-in-year" },
+    { label: "Months of Year", href: "/tools/months-of-year" }
+  ],
+
+  "/tools/weeks-in-year": [
+    { label: "Weeks in Month", href: "/tools/weeks-in-month" },
+    { label: "Days in Year", href: "/tools/days-in-year" },
+    { label: "Hours in Year", href: "/tools/hours-in-year" }
+  ],
+
+
+  "/web/all": [
+    { label: "Web Colors", href: "/web/colors" },
+    { label: "Web Tools", href: "/web/tools" },
+    { label: "Web Development", href: "/web/development" }
+  ],
+
+  "/web/colors": [
+    { label: "Web Safe Colors", href: "/tools/web-safe-colors" },
+    { label: "Color Picker", href: "/tools/color-picker-from-image" },
+    { label: "RGB Color Picker", href: "/tools/rgb-color-picker" }
+  ],
+
+  "/web/development": [
+    { label: "Canonical URL Generator", href: "/tools/canonical-url-generator" },
+    { label: "Htaccess Redirection", href: "/tools/htaccess-redirection" },
+    { label: "HTML Tables Generator", href: "/tools/html-tables-generator" }
+  ],
+
+  "/web/html": [
+    { label: "HTML Editor", href: "/tools/html-editor" },
+    { label: "HTML Link Generator", href: "/tools/html-link-generator" },
+    { label: "HTML Color", href: "/tools/html-color" }
+  ],
+
+  "/web/tools": [
+    { label: "Website Down Checker", href: "/tools/website-traffic-down-checker" },
+    { label: "Screen Resolution Stats", href: "/tools/screen-resolution-statistics" },
+    { label: "HTML Editor", href: "/tools/html-editor" }
+  ],
+
+  "/wire/all": [
+    { label: "AWG to MM Calculator", href: "/tools/awg-to-mm-calculator" },
+    { label: "SWG to MM Calculator", href: "/tools/swg-to-mm-calculator" },
+    { label: "Wire Gauge Calculator", href: "/tools/wire-gauge-calculator" }
+  ]
 
 
   };
