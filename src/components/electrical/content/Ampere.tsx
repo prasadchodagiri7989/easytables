@@ -1,7 +1,12 @@
 import React from 'react';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
-
+import {
+  Card,
+  CardHeader,
+  CardContent,
+  CardTitle,
+} from "@/components/ui/card";
 
 const AmpereInfo = () => {
   return (
@@ -25,7 +30,7 @@ const AmpereInfo = () => {
                           </BreadcrumbItem>
                         </BreadcrumbList>
                       </Breadcrumb>
-    
+          <Card className="mx-auto max-w-[900px]">
     <div className="max-w-4xl mx-auto p-6 bg-white rounded-2xl shadow-md space-y-6 bg-white/40 dark:bg-transparent">
       <h1 className="text-3xl font-bold text-center">Ampere - Unit of Electrical Current</h1>
 
@@ -52,7 +57,7 @@ const AmpereInfo = () => {
         <h2 className="text-2xl font-semibold">Table of Ampere Unit Prefixes</h2>
         <table className="table-auto w-full border mt-4">
           <thead>
-            <tr className="bg-gray-100">
+            <tr className="bg-gray-100 dark:text-black">
               <th className="border px-4 py-2">Name</th>
               <th className="border px-4 py-2">Symbol</th>
               <th className="border px-4 py-2">Conversion</th>
@@ -314,6 +319,7 @@ const AmpereInfo = () => {
 </section>
 
     </div>
+    </Card>
     </>
   );
 };

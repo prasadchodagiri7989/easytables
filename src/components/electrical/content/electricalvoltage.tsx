@@ -1,6 +1,12 @@
 import React from "react";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
+import {
+  Card,
+  CardHeader,
+  CardContent,
+  CardTitle,
+} from "@/components/ui/card";
 
 
 const countries = [
@@ -57,6 +63,8 @@ const ElectricalVoltage = () => {
                                         </BreadcrumbItem>
                                       </BreadcrumbList>
                                   </Breadcrumb>
+<Card className="mx-auto max-w-[900px] p-[20px]">
+
 <div className="max-w-3xl p-6  dark:text-white rounded-xl shadow-md">
       <h1 className="text-3xl font-bold mb-6">Electrical Voltage</h1>
 
@@ -385,6 +393,7 @@ const ElectricalVoltage = () => {
 </Section>
 
 
+    </Card>
     </>
   );
 };

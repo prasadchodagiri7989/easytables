@@ -1,6 +1,12 @@
 import React from 'react';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
+import {
+  Card,
+  CardHeader,
+  CardContent,
+  CardTitle,
+} from "@/components/ui/card";
 
 const WattInfo = () => {
   return (
@@ -24,6 +30,7 @@ const WattInfo = () => {
                   </BreadcrumbItem>
                 </BreadcrumbList>
               </Breadcrumb>
+    <Card className="mx-auto max-w-[900px] p-[20px]">
     <div className="max-w-4xl mx-auto p-6 bg-white/40 dark:bg-transparent rounded-2xl shadow-md space-y-6">
       <h1 className="text-3xl font-bold text-center">Watt (W)</h1>
 
@@ -43,7 +50,7 @@ const WattInfo = () => {
         <h2 className="text-2xl font-semibold">Watt Conversion</h2>
         <table className="table-auto w-full border mt-4 text-sm">
           <thead>
-            <tr className="bg-gray-100">
+            <tr className="bg-gray-100 dark:text-black">
               <th className="border px-3 py-2">Name</th>
               <th className="border px-3 py-2">Symbol</th>
               <th className="border px-3 py-2">Conversion</th>
@@ -124,7 +131,7 @@ const WattInfo = () => {
         <h2 className="text-2xl font-semibold">Power Consumption of Some Electrical Components</h2>
         <table className="table-auto w-full border mt-4 text-sm">
           <thead>
-            <tr className="bg-gray-100">
+            <tr className="bg-gray-100 dark:text-black">
               <th className="border px-3 py-2">Electric Component</th>
               <th className="border px-3 py-2">Typical Power Consumption (W)</th>
             </tr>
@@ -391,6 +398,7 @@ const WattInfo = () => {
 </section>
 
 
+    </Card>
     </>
   );
 };

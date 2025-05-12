@@ -124,7 +124,7 @@
           <p>
             In calculus, factorials appear in the expansion of functions using Taylor and Maclaurin series. These series represent functions as infinite sums of terms derived from derivatives. The general term of the Taylor series includes a factorial in the denominator, which ensures convergence and correct weighting of each term:
           </p>
-          <pre className="bg-gray-100 dark:bg-gray-900 p-2 rounded text-sm overflow-x-auto mt-2">
+          <pre className="bg-gray-100 dark:bg-gray-900 p-2 rounded text-sm overflow-x-auto mt-2 dark:bg-white">
             f(x) = f(0) + f&#39;(0)x/1! + f&#39;&#39;(0)x²/2! + f⁽³⁾(0)x³/3! + ...
           </pre>
 
@@ -136,7 +136,7 @@
           <p className="mt-2">
             Factorials also appear in the formula for the binomial coefficient, which is essential for understanding binomial probability distributions. The formula for choosing k successes in n trials is:
           </p>
-          <pre className="bg-gray-100 dark:bg-gray-900 p-2 rounded text-sm overflow-x-auto mt-2">
+          <pre className="bg-gray-100 dark:bg-gray-900 p-2 rounded text-sm overflow-x-auto mt-2 dark:bg-white">
             C(n, k) = n! / (k! × (n - k)!)
           </pre>
 
@@ -144,7 +144,7 @@
           <p>
             One of the defining properties of factorials is that they are recursive by nature. The factorial of any number n greater than 0 is defined in terms of the factorial of (n - 1):
           </p>
-          <pre className="bg-gray-100 dark:bg-gray-900 p-2 rounded text-sm overflow-x-auto mt-2">
+          <pre className="bg-gray-100 dark:bg-gray-900 p-2 rounded text-sm overflow-x-auto mt-2 dark:bg-white">
             n! = n × (n - 1)!
           </pre>
           <p className="mt-2">
@@ -164,7 +164,7 @@
           <p>
             The concept of factorials has been studied since the 12th century, and its use was formalized in the 18th century by French mathematician Christian Kramp and later refined by other mathematicians like James Stirling. Stirling’s approximation is an important formula used to estimate the value of large factorials:
           </p>
-          <pre className="bg-gray-100 dark:bg-gray-900 p-2 rounded text-sm overflow-x-auto mt-2">
+          <pre className="bg-gray-100 dark:bg-gray-900 p-2 rounded text-sm overflow-x-auto mt-2 dark:bg-white">
             n! ≈ √(2πn) × (n/e)ⁿ
           </pre>
 
