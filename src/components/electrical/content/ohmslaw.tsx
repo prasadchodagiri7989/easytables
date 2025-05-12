@@ -8,7 +8,12 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Link } from "react-router-dom";
-
+import {
+  Card,
+  CardHeader,
+  CardContent,
+  CardTitle,
+} from "@/components/ui/card";
 const OhmsLaw: React.FC = () => {
   const [resistance, setResistance] = useState<string>("");
   const [current, setCurrent] = useState<string>("");
@@ -61,7 +66,7 @@ const OhmsLaw: React.FC = () => {
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
-
+      <Card className="mx-auto max-w-[900px] p-[20px]">
       <h1 className="text-2xl font-bold mb-4">Ohm's Law</h1>
       <p className="mb-6">
         Ohm's law shows a linear relationship between the voltage and the current in an electrical circuit.
@@ -368,7 +373,9 @@ const OhmsLaw: React.FC = () => {
   </p>
 </section>
 
-    </div>
+    
+   </Card> 
+  </div>
     
   );
 };

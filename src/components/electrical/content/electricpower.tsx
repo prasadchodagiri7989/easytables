@@ -1,6 +1,12 @@
 import React from "react";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
+import {
+  Card,
+  CardHeader,
+  CardContent,
+  CardTitle,
+} from "@/components/ui/card";
 
 
 const Equation = ({ children }) => (
@@ -38,6 +44,7 @@ const ElectricPower = () => {
                                             </BreadcrumbItem>
                                           </BreadcrumbList>
                                       </Breadcrumb>
+    <Card className="mx-auto max-w-[900px] p-[20px]">
     <div className="max-w-3xl p-6 bg-white/40 dark:bg-transparent dark:text-white rounded-xl shadow-md">
       <h1 className="text-3xl font-bold mb-6">Electric Power</h1>
 
@@ -367,6 +374,7 @@ const ElectricPower = () => {
 </Section>
 
 
+    </Card>
     </>
   );
 };

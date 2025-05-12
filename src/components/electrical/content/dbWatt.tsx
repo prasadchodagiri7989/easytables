@@ -1,6 +1,12 @@
 import React from 'react';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
+import {
+  Card,
+  CardHeader,
+  CardContent,
+  CardTitle,
+} from "@/components/ui/card";
 
 
 const DbmInfo = () => {
@@ -25,6 +31,7 @@ const DbmInfo = () => {
                 </BreadcrumbItem>
               </BreadcrumbList>
           </Breadcrumb>
+                <Card className="mx-auto max-w-[900px]">
     <div className="max-w-4xl mx-auto p-6 bg-white/40 dark:bg-transparent rounded-2xl shadow-md space-y-6">
       <h1 className="text-3xl font-bold text-center">Decibel-milliwatt (dBm)</h1>
 
@@ -319,6 +326,7 @@ const DbmInfo = () => {
     <li>dBm is not meaningful in systems where power is not the primary concern (like digital logic levels).</li>
   </ul>
 </section>
+    </Card>
     </>
   );
 };

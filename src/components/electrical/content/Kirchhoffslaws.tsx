@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
+import {
+  Card,
+  CardHeader,
+  CardContent,
+  CardTitle,
+} from "@/components/ui/card";
 
 
 const KirchhoffLaws = () => {
@@ -78,6 +84,7 @@ const KirchhoffLaws = () => {
               <BreadcrumbPage>Kirchhoff's Laws</BreadcrumbPage>
             </BreadcrumbList>
           </Breadcrumb>
+    <Card className="mx-auto max-w-[900px] p-[20px]">
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">Kirchhoff's Laws</h1>
       <p className="mb-6">
@@ -492,6 +499,7 @@ const KirchhoffLaws = () => {
   </p>
 </section>
 
+    </Card>
     </>
   );
 };

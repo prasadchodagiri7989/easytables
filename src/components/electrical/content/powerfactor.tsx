@@ -1,6 +1,12 @@
 import React from "react";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
+import {
+  Card,
+  CardHeader,
+  CardContent,
+  CardTitle,
+} from "@/components/ui/card";
 
 
 
@@ -39,6 +45,7 @@ const PowerFactor = () => {
                     </BreadcrumbItem>
                   </BreadcrumbList>
               </Breadcrumb>
+    <Card className="mx-auto max-w-[900px] p-[20px]">
     <div className="max-w-4xl p-6 bg-white/40 dark:bg-transparent dark:text-white rounded-xl shadow-md">
       <h1 className="text-3xl font-bold mb-6">Power Factor</h1>
 
@@ -243,6 +250,7 @@ const PowerFactor = () => {
         Power factor is a critical aspect of electrical systems that affects energy efficiency, operational costs, and equipment longevity. Understanding the principles behind power factor, the different types of loads, and the available correction methods is essential for optimizing system performance. By implementing effective power factor correction strategies, industries, utilities, and residential consumers can achieve significant cost savings and contribute to a more sustainable energy future.
       </Section>
 
+    </Card>
     </>
   );
 };

@@ -1,6 +1,12 @@
 import React from "react";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
+import {
+  Card,
+  CardHeader,
+  CardContent,
+  CardTitle,
+} from "@/components/ui/card";
 
 
 export default function FaradInfo() {
@@ -25,6 +31,7 @@ export default function FaradInfo() {
                                                 </BreadcrumbItem>
                                               </BreadcrumbList>
                                           </Breadcrumb>
+    <Card className="mx-auto max-w-[900px] p-[20px]">
     <div className="p-6 max-w-4xl mx-auto space-y-6">
       <h1 className="text-3xl font-bold text-center">Farad (F)</h1>
       <p>
@@ -351,6 +358,7 @@ export default function FaradInfo() {
       </p>
 
 
+    </Card>
     </>
   );
 }

@@ -1,6 +1,12 @@
 import React from "react";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { Link } from "react-router-dom"; // Or use `next/link` for Next.js
+import {
+  Card,
+  CardHeader,
+  CardContent,
+  CardTitle,
+} from "@/components/ui/card";
 
 
 const DipSwitchInfo = () => {
@@ -25,6 +31,7 @@ const DipSwitchInfo = () => {
                                   </BreadcrumbItem>
                                 </BreadcrumbList>
                               </Breadcrumb>
+<Card className="mx-auto max-w-[900px]">
     <div className="p-6 text-gray-800 dark:text-white">
       <h1 className="text-3xl font-bold mb-4">DIP Switch</h1>
 
@@ -316,6 +323,7 @@ void loop() {
 </section>
 
 
+    </Card>
     </>
   );
 };
