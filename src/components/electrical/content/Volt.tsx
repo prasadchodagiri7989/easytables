@@ -54,7 +54,7 @@ const VoltInfo = () => {
         <h2 className="text-2xl font-semibold">Volt Subunits and Conversion</h2>
         <table className="table-auto w-full border mt-4 text-sm">
           <thead>
-            <tr className="bg-gray-100">
+            <tr className="bg-gray-100 dark:text-black">
               <th className="border px-3 py-2">Name</th>
               <th className="border px-3 py-2">Symbol</th>
               <th className="border px-3 py-2">Conversion</th>
