@@ -408,6 +408,137 @@ const CpCommand = () => {
             </ul>
           </section>
 
+<section>
+  <h2 className="text-lg font-semibold mb-2">Copying Files Based on Modification Time</h2>
+  <p>
+    If you only want to copy files modified after a certain time or date, combine <code>find</code> with <code>cp</code>:
+  </p>
+  <pre className="bg-gray-100 p-4 rounded text-sm">
+    <code>{"find . -type f -newermt '2024-12-01' -exec cp {} /backup/ \\;"}</code>
+  </pre>
+  <p>
+    This is useful for incremental backups or archiving recently changed files.
+  </p>
+</section>
+<section>
+  <h2 className="text-lg font-semibold mb-2">Copy Directory Structure Without Files</h2>
+  <p>
+    To replicate a directory hierarchy without copying the files, use:
+  </p>
+  <pre className="bg-gray-100 p-4 rounded text-sm">
+    <code>{"find . -type d -exec mkdir -p /backup/{} \\;"}</code>
+  </pre>
+  <p>
+    Combine this with <code>rsync --include</code> for finer control.
+  </p>
+</section>
+<section>
+  <h2 className="text-lg font-semibold mb-2">Copy Files as Another User</h2>
+  <p>
+    Use <code>sudo</code> or <code>su -c</code> if the destination path is protected:
+  </p>
+  <pre className="bg-gray-100 p-4 rounded text-sm">
+    <code>{"sudo cp file.conf /etc/project/"}</code>
+  </pre>
+  <p>
+    Ensure correct ownership afterward with <code>chown</code> if needed.
+  </p>
+</section>
+<section>
+  <h2 className="text-lg font-semibold mb-2">Dry Run Before Copying</h2>
+  <p>
+    Though <code>cp</code> has no dry-run mode, you can simulate a copy using <code>rsync --dry-run</code>:
+  </p>
+  <pre className="bg-gray-100 p-4 rounded text-sm">
+    <code>{"rsync -av --dry-run ./src/ ./dest/"}</code>
+  </pre>
+  <p>
+    This shows what would be copied without making any changes—great for safety.
+  </p>
+</section>
+<section>
+  <h2 className="text-lg font-semibold mb-2">Understanding cp Exit Codes</h2>
+  <p>
+    The <code>cp</code> command returns <code>0</code> on success and non-zero on failure. In scripts, checking the exit code is essential:
+  </p>
+  <pre className="bg-gray-100 p-4 rounded text-sm">
+    <code>
+      cp file.txt backup/ <br />
+      if [ $? -ne 0 ]; then <br />
+      &nbsp;&nbsp;echo "Copy failed" <br />
+      fi
+    </code>
+  </pre>
+  <p>
+    Combine with logging or alerts in automated environments.
+  </p>
+</section>
+<section>
+  <h2 className="text-lg font-semibold mb-2">Detect Duplicate File Names Before Copy</h2>
+  <p>
+    Before copying, you can detect duplicates that would be overwritten:
+  </p>
+  <pre className="bg-gray-100 p-4 rounded text-sm">
+    <code>{"find source/ -type f -exec basename {} \\; | sort | uniq -d"}</code>
+  </pre>
+  <p>
+    This lists duplicate file names across nested folders—a common issue in large batch copies.
+  </p>
+</section>
+<section>
+  <h2 className="text-lg font-semibold mb-2">Measuring Copy Performance</h2>
+  <p>
+    To evaluate how fast files are copied, use the <code>time</code> command:
+  </p>
+  <pre className="bg-gray-100 p-4 rounded text-sm">
+    <code>{"time cp largefile.iso /mnt/usb/"}</code>
+  </pre>
+  <p>
+    This will print how long the operation took, useful for benchmarking disk speeds or comparing methods.
+  </p>
+</section>
+<section>
+  <h2 className="text-lg font-semibold mb-2">Using cp in Loops for Bulk Copying</h2>
+  <p>
+    You can combine <code>for</code> loops with <code>cp</code> to batch-copy selective files:
+  </p>
+  <pre className="bg-gray-100 p-4 rounded text-sm">
+    <code>
+      {"for file in *.jpg; do"}<br />
+      &nbsp;&nbsp;{"cp \"$file\" /backup/images/"}<br />
+      {"done"}
+    </code>
+  </pre>
+  <p>
+    This gives you control over each file operation, including logging or conditional checks.
+  </p>
+</section>
+<section>
+  <h2 className="text-lg font-semibold mb-2">Handling Filename Conflicts Gracefully</h2>
+  <p>
+    To avoid overwriting existing files, auto-rename them by appending timestamps or suffixes:
+  </p>
+  <pre className="bg-gray-100 p-4 rounded text-sm">
+    <code>
+      {"cp file.txt \"file_$(date +%Y%m%d_%H%M%S).txt\""}
+    </code>
+  </pre>
+  <p>
+    This approach is helpful in backups or when saving multiple versions of a file.
+  </p>
+</section>
+<section>
+  <h2 className="text-lg font-semibold mb-2">Copying Files Over Network</h2>
+  <p>
+    The <code>cp</code> command is local. To copy files remotely, use <code>scp</code>:
+  </p>
+  <pre className="bg-gray-100 p-4 rounded text-sm">
+    <code>{"scp file.txt user@192.168.1.100:/home/user/backup/"}</code>
+  </pre>
+  <p>
+    Use <code>-r</code> with <code>scp</code> for folders. For large transfers, <code>rsync</code> is preferred.
+  </p>
+</section>
 
         </CardContent>
       </Card>

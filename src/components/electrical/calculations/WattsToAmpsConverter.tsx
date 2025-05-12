@@ -358,6 +358,76 @@ const WattsToAmpsConverter: React.FC = () => {
     <li><strong>Industrial Machinery:</strong> Determine wire size and breaker ratings for motors and heavy equipment.</li>
   </ul>
 </div>
+<div>
+  <h2 className="font-semibold text-base mt-6 mb-2">Common Voltage Standards Around the World</h2>
+  <p>
+    Knowing local supply voltage is crucial for accurate amp conversion. Here's a quick look at global standards:
+  </p>
+  <ul className="list-disc list-inside space-y-2">
+    <li><strong>USA & Canada:</strong> 120V / 240V</li>
+    <li><strong>UK & Europe:</strong> 230V (±10%)</li>
+    <li><strong>Japan:</strong> 100V (with 50Hz in East, 60Hz in West)</li>
+    <li><strong>India & Australia:</strong> 230V</li>
+    <li><strong>Brazil:</strong> 127V / 220V depending on region</li>
+  </ul>
+  <p>
+    Always confirm your country’s voltage before using the converter.
+  </p>
+</div>
+<div>
+  <h2 className="font-semibold text-base mt-6 mb-2">When Not to Use Simple Watts to Amps Conversion</h2>
+  <p>
+    This calculator works best for resistive loads and consistent conditions. Avoid oversimplifying in the following cases:
+  </p>
+  <ul className="list-disc list-inside space-y-2">
+    <li>For rapidly fluctuating loads (e.g., compressors, motors starting)</li>
+    <li>When surge current (inrush current) is significant</li>
+    <li>When harmonic distortion or non-linear loads are involved (e.g., computers)</li>
+    <li>In systems with power factor correction capacitors or variable frequency drives (VFDs)</li>
+  </ul>
+</div>
+<div>
+  <h2 className="font-semibold text-base mt-6 mb-2">Engineering Formulas Used Behind the Scenes</h2>
+  <p>These formulas form the mathematical basis for all amp conversions:</p>
+  <ul className="list-disc list-inside space-y-1">
+    <li><strong>DC Current:</strong> <code>I = P ÷ V</code></li>
+    <li><strong>AC Single Phase:</strong> <code>I = P ÷ (V × PF)</code></li>
+    <li><strong>AC Three Phase:</strong> <code>I = P ÷ (√3 × V × PF)</code></li>
+    <li><strong>Apparent Power:</strong> <code>S = V × I (Volt-Amps)</code></li>
+    <li><strong>Power Factor:</strong> <code>PF = P ÷ S</code></li>
+  </ul>
+</div>
+<div>
+  <h2 className="font-semibold text-base mt-6 mb-2">Understanding Load Diversity</h2>
+  <p>
+    In real-world design, not all devices run at full load all the time. Load diversity accounts for this and prevents oversizing wires and transformers.
+  </p>
+  <ul className="list-disc list-inside space-y-2">
+    <li><strong>Diversity Factor:</strong> Ratio of total possible load vs actual maximum load</li>
+    <li><strong>Helps avoid:</strong> Overspending on infrastructure</li>
+    <li><strong>Used in:</strong> Commercial buildings, apartment wiring, data centers</li>
+  </ul>
+</div>
+<div>
+  <h2 className="font-semibold text-base mt-6 mb-2">Thermal Limits and I²R Losses</h2>
+  <p>
+    Every conductor resists current flow. The heat produced is:
+    <br /><code>Heat = I² × R</code>
+  </p>
+  <p>
+    Doubling the current increases heat fourfold. This principle is why proper amp estimation and cable sizing are critical to safety.
+  </p>
+</div>
+<div>
+  <h2 className="font-semibold text-base mt-6 mb-2">Example: Lithium Battery Load Calculation</h2>
+  <p>
+    You have a 48V lithium battery system with an inverter pulling 1500 watts.
+  </p>
+  <p><strong>Amps = 1500W ÷ 48V = 31.25 A</strong></p>
+  <p>
+    This helps design correct fuse sizes, battery bank discharge ratings, and cable selection.
+  </p>
+</div>
 
 
         </CardContent>
