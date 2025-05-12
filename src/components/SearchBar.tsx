@@ -20,68 +20,6 @@ type SearchResult = {
 };
 
 const staticRoutes: SearchResult[] = [
-  // Calculator
-  { id: "scientific", title: "Scientific Calculator", path: "/scientific" },
-  { id: "percentage", title: "Percentage Calculator", path: "/percentage" },
-  { id: "fraction", title: "Fraction Calculator", path: "/fraction" },
-  { id: "average", title: "Average Calculator", path: "/average" },
-  { id: "grade", title: "Grade Calculator", path: "/grade" },
-  { id: "gpa", title: "GPA Calculator", path: "/gpa" },
-  { id: "final-grade", title: "Final Grade Calculator", path: "/final-grade" },
-  { id: "mortgage", title: "Mortgage Calculator", path: "/mortgage" },
-  { id: "compound-interest", title: "Compound Interest Calculator", path: "/compound-interest" },
-  { id: "bmi", title: "BMI Calculator", path: "/bmi" },
-  { id: "unit-converter", title: "All Unit Converters", path: "/unit-converter" },
-
-  // Unit Converters
-  { id: "length", title: "Length Converter", path: "/convertor/length" },
-  { id: "mass", title: "Mass Converter", path: "/convertor/mass" },
-  { id: "temperature", title: "Temperature Converter", path: "/convertor/temperature" },
-  { id: "area", title: "Area Converter", path: "/convertor/area" },
-  { id: "volume", title: "Volume Converter", path: "/convertor/volume" },
-  { id: "time", title: "Time Converter", path: "/convertor/time" },
-  { id: "speed", title: "Speed Converter", path: "/convertor/speed" },
-  { id: "pressure", title: "Pressure Converter", path: "/convertor/pressure" },
-  { id: "energy", title: "Energy Converter", path: "/convertor/energy" },
-  { id: "power", title: "Power Converter", path: "/convertor/power" },
-  { id: "data", title: "Data Converter", path: "/convertor/data" },
-  { id: "angle", title: "Angle Converter", path: "/convertor/angle" },
-  { id: "frequency", title: "Frequency Converter", path: "/convertor/frequency" },
-  { id: "fuel", title: "Fuel Economy Converter", path: "/convertor/fuel_economy" },
-  { id: "voltage", title: "Voltage Converter", path: "/convertor/voltage" },
-  { id: "current", title: "Current Converter", path: "/convertor/current" },
-
-  // Text Tools
-  { id: "word-counter", title: "Word Counter", path: "/word-counter" },
-  { id: "character-counter", title: "Character Counter", path: "/character-counter" },
-  { id: "line-counter", title: "Line Counter", path: "/line-counter" },
-  { id: "word-frequency", title: "Word Frequency", path: "/word-frequency" },
-  { id: "pdf-reader", title: "PDF Reader", path: "/pdf-reader" },
-  { id: "image-to-text", title: "Image to Text", path: "/image-to-text" },
-
-  // PDF Tools
-  { id: "image-to-pdf", title: "Image to PDF", path: "/image-to-pdf" },
-  { id: "jpg-to-pdf", title: "JPG to PDF", path: "/jpg-to-pdf" },
-  { id: "png-to-pdf", title: "PNG to PDF", path: "/png-to-pdf" },
-  { id: "pdf-viewer", title: "PDF Viewer", path: "/pdf-viewer" },
-
-  // Online Tools (add more as needed)
-  { id: "current-time", title: "Current Time", path: "/current-time" },
-  { id: "stopwatch", title: "Stopwatch", path: "/stopwatch" },
-  { id: "alarm-clock", title: "Alarm Clock", path: "/alarm-clock" },
-  { id: "todo-list", title: "Todo List", path: "/todo-list" },
-  { id: "random-number", title: "Random Number Generator", path: "/random-number" },
-
-  // Tools
-  { id: "base64-encode", title: "Base64 Encode", path: "/tools/base64-encode" },
-  { id: "base64-decode", title: "Base64 Decode", path: "/tools/base64-decode" },
-  { id: "image-to-base64", title: "Image to Base64", path: "/tools/image-to-base64" },
-  { id: "html-editor", title: "HTML Editor", path: "/tools/html-editor" },
-  { id: "http-header-checker", title: "HTTP Header Checker", path: "/tools/http-header-checker" },
-  { id: "url-encode", title: "URL Encode", path: "/tools/url-encode" },
-  { id: "url-decode", title: "URL Decode", path: "/tools/url-decode" },
-  // Add more tools from your route list
-
   // Auto-generated Current Conversions
 { id: "a-to-ma", title: "Ampere to Milliampere", path: "/convertor/current?from=a&to=ma" },
 { id: "a-to-ka", title: "Ampere to Kiloampere", path: "/convertor/current?from=a&to=ka" },
