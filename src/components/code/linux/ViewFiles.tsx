@@ -460,6 +460,253 @@ const ViewFiles: React.FC = () => {
               Mastery of <code>ls</code> not only speeds up navigation but deepens your understanding of the file system, permissions, and scripting essentials in Unix-like environments.
             </p>
           </div>
+          {/* File Sorting by Extension */}
+          <div>
+            <h2 className="text-lg font-semibold mb-2">Sort Files by Extension</h2>
+            <p>
+              The <code>ls</code> command lets you sort files based on file extensions. This can help when you're managing projects with multiple file types:
+            </p>
+            <pre className="bg-gray-100 p-4 rounded text-sm">
+              <code>$ ls -lX</code>
+            </pre>
+            <p>
+              This command sorts the files alphabetically by extension while showing them in a detailed list format.
+            </p>
+          </div>
+
+          {/* Hiding Owner and Group Information */}
+          <div>
+            <h2 className="text-lg font-semibold mb-2">Hiding Owner and Group Columns</h2>
+            <p>
+              You can use <code>--hide</code> or modify output formatting via tools like <code>cut</code> or <code>awk</code> to hide specific fields in the <code>ls -l</code> output. For example:
+            </p>
+            <pre className="bg-gray-100 p-4 rounded text-sm">
+              <code>$ ls -l | awk '{"print $9"}'</code>
+            </pre>
+            <p>
+              This command will show only filenames in a long listing.
+            </p>
+          </div>
+
+          {/* Showing Only Directories */}
+          <div>
+            <h2 className="text-lg font-semibold mb-2">Show Only Directories</h2>
+            <p>
+              Use <code>ls</code> with <code>grep</code> or combine with <code>find</code> to show only directories:
+            </p>
+            <pre className="bg-gray-100 p-4 rounded text-sm">
+              <code>$ ls -l | grep "^d"</code>
+            </pre>
+            <p>
+              This filters the list to only show directory entries.
+            </p>
+          </div>
+
+          {/* Combining with stat Command */}
+          <div>
+            <h2 className="text-lg font-semibold mb-2">Combining with stat for File Info</h2>
+            <p>
+              While <code>ls -l</code> gives a snapshot, <code>stat</code> provides detailed metadata about each file. For example:
+            </p>
+            <pre className="bg-gray-100 p-4 rounded text-sm">
+              <code>$ stat filename.txt</code>
+            </pre>
+            <p>
+              You can script this to get stats for a batch of files returned by <code>ls</code>.
+            </p>
+          </div>
+
+          {/* Using ls with Date Range */}
+          <div>
+            <h2 className="text-lg font-semibold mb-2">Filter Files by Date</h2>
+            <p>
+              While <code>ls</code> doesn't directly filter by date, you can combine it with <code>find</code> to list files modified within a specific time frame:
+            </p>
+            <pre className="bg-gray-100 p-4 rounded text-sm">
+              <code>$ find . -type f -mtime -7 | xargs ls -lh</code>
+            </pre>
+            <p>
+              This shows files modified in the last 7 days.
+            </p>
+          </div>
+
+          {/* List Files Sorted by Access Time */}
+          <div>
+            <h2 className="text-lg font-semibold mb-2">Sort Files by Last Accessed Time</h2>
+            <p>
+              To view the most recently accessed files, use:
+            </p>
+            <pre className="bg-gray-100 p-4 rounded text-sm">
+              <code>$ ls -ltu</code>
+            </pre>
+            <p>
+              Combine this with <code>-h</code> for readable size and <code>-r</code> for reverse order.
+            </p>
+          </div>
+
+          {/* Show Files by Owner */}
+          <div>
+            <h2 className="text-lg font-semibold mb-2">List Files by Owner</h2>
+            <p>
+              Although <code>ls</code> does not filter by user, you can use <code>find</code> in combination:
+            </p>
+            <pre className="bg-gray-100 p-4 rounded text-sm">
+              <code>$ find . -user username -exec ls -lh {} \;</code>
+            </pre>
+            <p>
+              This will display files owned by a specific user.
+            </p>
+          </div>
+
+          {/* Viewing File Sizes in KB, MB, GB */}
+          <div>
+            <h2 className="text-lg font-semibold mb-2">Show File Sizes in Units</h2>
+            <p>
+              Combine <code>ls -lh</code> to get size in human-readable units like K, M, G:
+            </p>
+            <pre className="bg-gray-100 p-4 rounded text-sm">
+              <code>$ ls -lh /path/to/files</code>
+            </pre>
+          </div>
+
+          {/* Limit ls Output to First N Files */}
+          <div>
+            <h2 className="text-lg font-semibold mb-2">Limit Output to Top N Files</h2>
+            <p>
+              Use <code>head</code> or <code>tail</code> to preview limited listings:
+            </p>
+            <pre className="bg-gray-100 p-4 rounded text-sm">
+              <code>$ ls -lh | head -n 10</code>
+            </pre>
+            <p>This displays the first 10 entries from the listing.</p>
+          </div>
+
+          {/* ls vs dir on Linux vs Windows */}
+<div>
+  <h2 className="text-lg font-semibold mb-2">Comparison: <code>ls</code> vs <code>dir</code></h2>
+  <p>
+    While <code>ls</code> is the standard file listing command in Unix/Linux systems, Windows traditionally uses <code>dir</code>. For users transitioning between the platforms, here’s a quick comparison:
+  </p>
+  <ul className="list-disc pl-6 space-y-1 text-sm">
+    <li><code>ls</code> lists files and directories in a clean, color-coded format if enabled.</li>
+    <li><code>dir</code> (Windows) includes file size, creation time, and available disk space by default.</li>
+    <li>PowerShell users can use <code>Get-ChildItem</code> (<code>gci</code>) for a modern alternative.</li>
+  </ul>
+  <p>
+    On Windows Subsystem for Linux (WSL), <code>ls</code> works exactly like on native Linux.
+  </p>
+</div>
+
+{/* Filtering Output with Patterns */}
+<div>
+  <h2 className="text-lg font-semibold mb-2">Filtering Output by Pattern</h2>
+  <p>
+    You can use shell wildcards to filter <code>ls</code> results. For instance:
+  </p>
+  <pre className="bg-gray-100 p-4 rounded text-sm">
+    <code>$ ls *.txt</code>
+  </pre>
+  <p>This command lists only files ending in <code>.txt</code>.</p>
+  <p>To match all uppercase files:</p>
+  <pre className="bg-gray-100 p-4 rounded text-sm">
+    <code>$ ls [A-Z]*</code>
+  </pre>
+</div>
+
+{/* Using ls with file extensions */}
+<div>
+  <h2 className="text-lg font-semibold mb-2">Listing Files by Extension</h2>
+  <p>
+    To list all image files (e.g., <code>.jpg</code> and <code>.png</code>) in a folder:
+  </p>
+  <pre className="bg-gray-100 p-4 rounded text-sm">
+    <code>$ ls *.jpg *.png</code>
+  </pre>
+  <p>
+    You can also combine with <code>-l</code> to show details:
+  </p>
+  <pre className="bg-gray-100 p-4 rounded text-sm">
+    <code>$ ls -lh *.jpg</code>
+  </pre>
+</div>
+
+{/* Displaying file access rights */}
+<div>
+  <h2 className="text-lg font-semibold mb-2">Understanding File Access Rights</h2>
+  <p>
+    When using <code>ls -l</code>, you’ll see access permissions such as:
+  </p>
+  <pre className="bg-gray-100 p-4 rounded text-sm">
+    <code>-rw-r--r--</code>
+  </pre>
+  <p>This breaks down as:</p>
+  <ul className="list-disc pl-6 space-y-1 text-sm">
+    <li><code>r</code> = read</li>
+    <li><code>w</code> = write</li>
+    <li><code>x</code> = execute</li>
+  </ul>
+  <p>
+    Permissions are grouped as: <strong>owner</strong>, <strong>group</strong>, and <strong>others</strong>.
+  </p>
+</div>
+
+{/* Combining ls with stat */}
+<div>
+  <h2 className="text-lg font-semibold mb-2">Using <code>ls</code> with <code>stat</code></h2>
+  <p>
+    The <code>ls</code> command gives a summary view, while <code>stat</code> provides detailed metadata. For example:
+  </p>
+  <pre className="bg-gray-100 p-4 rounded text-sm">
+    <code>$ stat filename.txt</code>
+  </pre>
+  <p>Shows full access times, inode number, block size, and more.</p>
+</div>
+
+{/* Checking file types visually */}
+<div>
+  <h2 className="text-lg font-semibold mb-2">Identifying File Types with <code>ls</code></h2>
+  <p>
+    Combine <code>-F</code> with <code>ls</code> to mark file types:
+  </p>
+  <pre className="bg-gray-100 p-4 rounded text-sm">
+    <code>$ ls -F</code>
+  </pre>
+  <p>
+    This appends:
+    <ul className="list-disc pl-6 space-y-1 text-sm">
+      <li><code>/</code> for directories</li>
+      <li><code>*</code> for executables</li>
+      <li><code>@</code> for symlinks</li>
+    </ul>
+  </p>
+</div>
+
+{/* Using ls with environment variables */}
+<div>
+  <h2 className="text-lg font-semibold mb-2">Customizing <code>ls</code> with Environment Variables</h2>
+  <p>
+    You can define how <code>ls</code> behaves by exporting variables in your shell profile:
+  </p>
+  <pre className="bg-gray-100 p-4 rounded text-sm">
+    <code>export LS_OPTIONS='--color=auto -h'</code>
+  </pre>
+  <p>Then use:</p>
+  <pre className="bg-gray-100 p-4 rounded text-sm">
+    <code>eval "$(dircolors)"</code>
+  </pre>
+</div>
+
+{/* Summary with tips */}
+<div>
+  <h2 className="text-lg font-semibold mb-2">Quick Tips for Daily Use</h2>
+  <ul className="list-disc pl-6 space-y-1 text-sm">
+    <li>Use <code>ll</code> as an alias for <code>ls -lh</code></li>
+    <li>Pipe <code>ls</code> to <code>grep</code> to search for files by name</li>
+    <li>Use <code>ls -ltr</code> to list recently changed files in reverse</li>
+    <li>Use <code>ls -lhS</code> to sort by size</li>
+    <li>Add <code>--group-directories-first</code> to keep folders on top</li>
+  </ul>
+</div>
 
 
         </CardContent>

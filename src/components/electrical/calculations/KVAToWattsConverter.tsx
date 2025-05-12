@@ -231,6 +231,118 @@ const KVAToWattsConverter: React.FC = () => {
   In conclusion, while the formula for converting kVA to watts is straightforward, the implications of that calculation are significant. Whether you're evaluating backup power capacity, preparing for an energy audit, or managing a high-load industrial process, this converter is a practical tool that bridges technical accuracy with everyday application. Always ensure you're factoring in power factor correctly, and leverage this tool as a first step toward building smarter, safer, and more cost-effective electrical systems.
 </p>
 
+{/* Deep Dive: Power Triangle Visualization */}
+<div>
+  <h2 className="font-semibold text-base mt-6 mb-2">Understanding the Power Triangle</h2>
+  <p>
+    In AC circuits, power can be visualized as a triangle with three components:
+  </p>
+  <ul className="list-disc list-inside ml-4">
+    <li><strong>Real Power (Watts):</strong> The usable power (horizontal leg).</li>
+    <li><strong>Reactive Power (VARs):</strong> Power that oscillates and doesn’t perform work (vertical leg).</li>
+    <li><strong>Apparent Power (kVA):</strong> Vector sum of real and reactive power (hypotenuse).</li>
+  </ul>
+  <p className="mt-2">
+    The power factor is the cosine of the angle between the real and apparent power. As reactive power increases, the angle widens and the power factor decreases.
+  </p>
+</div>
+
+{/* Diagram Placeholder */}
+<div className="mt-4">
+  <img
+    src="https://via.placeholder.com/400x250.png?text=Power+Triangle"
+    alt="Power Triangle"
+    className="rounded border"
+  />
+</div>
+
+{/* Section: Importance of Power Factor Correction */}
+<div>
+  <h2 className="font-semibold text-base mt-6 mb-2">Power Factor Correction</h2>
+  <p>
+    Correcting poor power factor can lead to significant energy savings. This is typically done by installing capacitor banks, which reduce the reactive power demand and increase the power factor. This means your facility will draw less apparent power (kVA) for the same real power usage (W), leading to lower utility bills.
+  </p>
+  <p>
+    Example: If a 100 kVA system operates at 0.7 PF, it delivers only 70 kW of usable power. By improving the PF to 0.95, the same system delivers 95 kW — a 35% gain in efficiency.
+  </p>
+</div>
+
+{/* Section: Application by Industry */}
+<div>
+  <h2 className="font-semibold text-base mt-6 mb-2">kVA to W Conversion by Industry</h2>
+  <table className="table-auto w-full border-collapse border text-sm">
+    <thead>
+      <tr>
+        <th className="border p-2 text-left">Industry</th>
+        <th className="border p-2 text-left">Typical Load</th>
+        <th className="border p-2 text-left">Estimated PF</th>
+        <th className="border p-2 text-left">Use Case</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td className="border p-2">Manufacturing</td>
+        <td className="border p-2">Motors, welders</td>
+        <td className="border p-2">0.75</td>
+        <td className="border p-2">Machine sizing, PF penalty avoidance</td>
+      </tr>
+      <tr>
+        <td className="border p-2">Data Centers</td>
+        <td className="border p-2">Servers, cooling</td>
+        <td className="border p-2">0.95</td>
+        <td className="border p-2">Generator backup sizing</td>
+      </tr>
+      <tr>
+        <td className="border p-2">Retail & Commercial</td>
+        <td className="border p-2">Lighting, HVAC</td>
+        <td className="border p-2">0.85</td>
+        <td className="border p-2">Utility billing accuracy</td>
+      </tr>
+      <tr>
+        <td className="border p-2">Renewables</td>
+        <td className="border p-2">Inverters, batteries</td>
+        <td className="border p-2">0.90</td>
+        <td className="border p-2">Solar system sizing</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+{/* Real-World Problem Solving */}
+<div>
+  <h2 className="font-semibold text-base mt-6 mb-2">Example Scenario</h2>
+  <p>
+    A facility has a 120 kVA UPS system. The typical load power factor is 0.82. To calculate how much real power (watts) this system supports:
+  </p>
+  <p className="bg-gray-100 p-3 rounded font-mono dark:text-black">
+    Real Power = 1000 × kVA × PF = 1000 × 120 × 0.82 = <strong>98,400 W</strong>
+  </p>
+  <p>
+    This means the UPS can support up to 98.4 kW of real, usable power. Operating beyond this would lead to overloads or potential failures.
+  </p>
+</div>
+
+{/* Impact on Infrastructure */}
+<div>
+  <h2 className="font-semibold text-base mt-6 mb-2">Infrastructure Impacts</h2>
+  <ul className="list-disc list-inside ml-4">
+    <li><strong>Cabling:</strong> Larger kVA means more current, requiring thicker cables.</li>
+    <li><strong>Transformers:</strong> Sized in kVA, but must meet real power demand in W.</li>
+    <li><strong>Switchgear:</strong> Breakers and fuses are rated for current, which rises with low PF.</li>
+    <li><strong>Generators:</strong> Must handle peak apparent power, not just average wattage.</li>
+  </ul>
+</div>
+
+{/* Summary Card */}
+<div className="bg-blue-50 dark:bg-gray-800 p-4 rounded mt-6 border">
+  <h2 className="font-semibold text-base mb-2">Summary</h2>
+  <p>
+    The kVA to W conversion is essential when sizing systems, budgeting energy, and optimizing electrical efficiency.
+    Use the formula <strong>W = 1000 × kVA × PF</strong> to get quick and reliable results.
+  </p>
+</div>
+
+
         </CardContent>
       </Card>
     </div>
