@@ -33,7 +33,7 @@ export const AlgebraSymbols = () => {
         </BreadcrumbList>
       </Breadcrumb>
 
-      <div className="algebra-symbols-explanation-container bg-white/40 dark:bg-transparent">
+      <div className="algebra-symbols-explanation-container bg-white/40 dark:bg-transparent mx-auto max-w-[900px]">
         <h2 className="algebra-symbols-header text-center text-2xl font-bold mb-4">
           Algebra Symbols
         </h2>

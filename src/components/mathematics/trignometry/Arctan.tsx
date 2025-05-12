@@ -33,7 +33,7 @@ export const Arctan = () => {
         </BreadcrumbList>
       </Breadcrumb>
 
-      <div className="arctan-explanation-container bg-white/40 dark:bg-transparent">
+      <div className="arctan-explanation-container bg-white/40 dark:bg-transparent mx-auto max-w-[900px]">
         <h2 className="arctan-explanation-header text-center text-2xl font-bold mb-4">
           Arctan (Inverse Tangent)
         </h2>

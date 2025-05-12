@@ -33,7 +33,7 @@ export const Variance = () => {
         </BreadcrumbList>
       </Breadcrumb>
 
-      <div className="variance-explanation-container bg-white/40 dark:bg-transparent">
+      <div className="variance-explanation-container bg-white/40 dark:bg-transparent mx-auto max-w-[900px]">
         <h2 className="variance-explanation-header text-center text-2xl font-bold mb-4">
           Variance
         </h2>

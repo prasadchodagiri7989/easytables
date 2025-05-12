@@ -33,7 +33,7 @@ export const NormalDistribution = () => {
         </BreadcrumbList>
       </Breadcrumb>
 
-      <div className="normal-distribution-explanation-container bg-white/40 dark:bg-transparent">
+      <div className="normal-distribution-explanation-container bg-white/40 dark:bg-transparent mx-auto max-w-[900px]">
         <h2 className="normal-distribution-header text-center text-2xl font-bold mb-4">
           Normal Distribution
         </h2>
@@ -261,6 +261,108 @@ export const NormalDistribution = () => {
     Similarly, hypothesis tests, such as the t-test or z-test, rely on the assumption that the data follows a normal distribution. These tests allow us to determine whether a sample mean is significantly different from a hypothesized population mean, or whether there is enough evidence to reject a null hypothesis.
   </p>
 
+
+  <h3 className="text-lg font-medium mb-4">Introduction to Normal Distribution</h3>
+  <p>
+    The <strong>Normal Distribution</strong>, also known as the Gaussian distribution, is a foundational concept in statistics. It is widely used in various fields including natural sciences, social sciences, engineering, and finance. A normal distribution appears as a symmetrical, bell-shaped curve where most of the data clusters around a central mean, with probabilities tapering off equally in both directions.
+  </p>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Key Features</h3>
+  <ul className="list-disc pl-5 space-y-2">
+    <li>Perfectly symmetrical about the mean.</li>
+    <li>Mean, median, and mode are equal.</li>
+    <li>Follows the empirical 68-95-99.7 rule.</li>
+    <li>Fully defined by its mean (μ) and standard deviation (σ).</li>
+    <li>Total area under the curve equals 1.</li>
+  </ul>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Mathematical Formula</h3>
+  <pre className="my-4 overflow-auto">
+    f(x) = (1 / (σ√(2π))) × e<sup>-(x - μ)² / (2σ²)</sup>
+  </pre>
+  <p>
+    This formula describes the probability density function (PDF) of a normal distribution. It helps in computing the likelihood of different outcomes within a data set that follows a normal pattern.
+  </p>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Understanding the Empirical Rule</h3>
+  <p>
+    The <strong>Empirical Rule</strong>, or the 68-95-99.7 rule, states that in a normal distribution:
+  </p>
+  <ul className="list-disc pl-5 space-y-2">
+    <li>68% of data lies within 1σ of the mean.</li>
+    <li>95% of data lies within 2σ of the mean.</li>
+    <li>99.7% of data lies within 3σ of the mean.</li>
+  </ul>
+  <p>
+    This rule helps in quickly estimating the spread and variability of a dataset, making it especially useful in quality control and forecasting.
+  </p>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Central Limit Theorem (CLT)</h3>
+  <p>
+    The <strong>Central Limit Theorem</strong> explains the common occurrence of the normal distribution. It states that the mean of a large number of independent, identically distributed variables will tend to be normally distributed, regardless of the original distribution. This property underpins much of statistical inference, allowing analysts to assume normality in many real-world situations.
+  </p>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Z-Scores and Standardization</h3>
+  <p>
+    A <strong>z-score</strong> tells us how many standard deviations a data point is from the mean. It is calculated using:
+  </p>
+  <pre className="my-4">Z = (X - μ) / σ</pre>
+  <p>
+    Z-scores standardize values and allow comparison across different datasets or distributions. This makes them crucial in hypothesis testing and confidence interval estimation.
+  </p>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Applications in Real Life</h3>
+  <ul className="list-disc pl-5 space-y-2">
+    <li><strong>Finance:</strong> Stock market returns and risk modeling often assume normality.</li>
+    <li><strong>Manufacturing:</strong> Product dimensions follow normal patterns used in quality checks.</li>
+    <li><strong>Psychology:</strong> IQ scores are normally distributed across the population.</li>
+    <li><strong>Healthcare:</strong> Measurements like blood pressure and cholesterol often follow a normal distribution.</li>
+  </ul>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Limitations of Normal Distribution</h3>
+  <p>
+    While powerful, normal distribution has limitations. It assumes perfect symmetry and may not model datasets with skewed or heavy-tailed distributions. For instance, income distribution is typically right-skewed, not normal. In such cases, transformations or different statistical models may be more appropriate.
+  </p>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Skewness and Kurtosis</h3>
+  <p>
+    To assess how closely data follows a normal distribution, two key metrics are used:
+  </p>
+  <ul className="list-disc pl-5 space-y-2">
+    <li><strong>Skewness:</strong> Indicates asymmetry. Positive skew means a longer right tail, negative skew a longer left tail.</li>
+    <li><strong>Kurtosis:</strong> Indicates "tailedness." High kurtosis means more outliers; low kurtosis means fewer extreme values.</li>
+  </ul>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Standard vs. General Normal Distribution</h3>
+  <p>
+    The <strong>standard normal distribution</strong> has a mean of 0 and a standard deviation of 1. Any normal distribution can be converted to standard form using z-scores, making it easier to analyze probabilities using standard tables or software.
+  </p>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Computing Probabilities</h3>
+  <p>
+    Using a z-table or statistical tools (like Python's SciPy or Excel functions), you can compute probabilities that a value lies below, above, or between certain points in a normal distribution.
+  </p>
+  <pre className="my-4">P(Z {"<"} z) = ∫ from -∞ to z f(x) dx</pre>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Role in Hypothesis Testing</h3>
+  <p>
+    Many statistical tests, like the t-test and z-test, assume the data follows a normal distribution. This assumption allows analysts to compare sample data to a hypothesized population parameter, helping in decision-making based on probability and confidence.
+  </p>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Example Scenario</h3>
+  <p>
+    Suppose the average exam score is 75 with a standard deviation of 8. You want to know the probability a student scores below 83.
+  </p>
+  <ul className="list-disc pl-5 space-y-2">
+    <li>Calculate z = (83 - 75) / 8 = 1.0</li>
+    <li>From z-table: P(Z {"<"} 1.0) ≈ 0.8413</li>
+    <li>This means approximately 84.13% of students scored below 83.</li>
+  </ul>
+
+  <h3 className="text-lg font-medium mt-6 mb-2">Summary</h3>
+  <p>
+    The normal distribution is a cornerstone of modern statistics. Its widespread occurrence in natural and social phenomena, combined with mathematical properties like symmetry and standardization, make it essential for data analysis. Understanding its parameters, applications, and limitations allows better modeling, inference, and prediction in real-world scenarios.
+  </p>
   <h4 className="text-md font-medium mt-6 mb-2">Conclusion: Why Normal Distribution Matters</h4>
   <p>
     The normal distribution remains one of the most important concepts in statistics due to its prevalence in real-world data and its foundational role in statistical theory. Whether it's understanding the distribution of human heights, making predictions about stock prices, or conducting experiments in the laboratory, the normal distribution is an essential tool for statisticians and researchers.
@@ -269,6 +371,7 @@ export const NormalDistribution = () => {
   <p>
     In summary, the normal distribution is characterized by its symmetry, bell-shaped curve, and two key parameters: the mean and standard deviation. The concepts of skewness, kurtosis, z-scores, and the Empirical Rule provide further insights into the distribution's behavior. Additionally, the relationship between normal distribution and other distributions, as well as its role in statistical inference, demonstrates its versatility and importance across a wide range of applications.
   </p>
+
         </Card>
       </div>
     </>

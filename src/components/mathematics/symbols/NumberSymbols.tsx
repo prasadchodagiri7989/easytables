@@ -33,7 +33,7 @@ export const NumberSymbols = () => {
         </BreadcrumbList>
       </Breadcrumb>
 
-      <div className="number-symbols-explanation-container bg-white/40 dark:bg-transparent">
+      <div className="number-symbols-explanation-container bg-white/40 dark:bg-transparent mx-auto max-w-[900px]">
         <h2 className="number-symbols-header text-center text-2xl font-bold mb-4">
           Number Symbols
         </h2>

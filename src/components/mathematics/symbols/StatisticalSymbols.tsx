@@ -33,7 +33,7 @@ export const StatisticalSymbols = () => {
         </BreadcrumbList>
       </Breadcrumb>
 
-      <div className="statistical-symbols-explanation-container bg-white/40 dark:bg-transparent">
+      <div className="statistical-symbols-explanation-container bg-white/40 dark:bg-transparent mx-auto max-w-[900px]">
         <h2 className="statistical-symbols-header text-center text-2xl font-bold mb-4">
           Statistical Symbols
         </h2>

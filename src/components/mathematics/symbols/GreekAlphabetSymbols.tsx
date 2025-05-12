@@ -34,7 +34,7 @@ export const GreekAlphabetSymbols = () => {
         </BreadcrumbList>
       </Breadcrumb>
 
-      <div className="greek-alphabet-symbols-explanation-container bg-white/40 dark:bg-transparent">
+      <div className="greek-alphabet-symbols-explanation-container bg-white/40 dark:bg-transparent mx-auto max-w-[900px]">
         <h2 className="greek-alphabet-symbols-header text-center text-2xl font-bold mb-4">
           Greek Alphabet Symbols
         </h2>

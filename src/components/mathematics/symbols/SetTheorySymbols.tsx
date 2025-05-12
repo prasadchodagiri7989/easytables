@@ -33,7 +33,7 @@ export const SetTheorySymbols = () => {
         </BreadcrumbList>
       </Breadcrumb>
 
-      <div className="set-theory-symbols-explanation-container bg-white/40 dark:bg-transparent">
+      <div className="set-theory-symbols-explanation-container bg-white/40 dark:bg-transparent mx-auto max-w-[900px]">
         <h2 className="set-theory-symbols-header text-center text-2xl font-bold mb-4">
           Set Theory Symbols
         </h2>

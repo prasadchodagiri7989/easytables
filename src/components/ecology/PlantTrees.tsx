@@ -176,6 +176,59 @@ const PlantTrees: React.FC = () => {
     </p>
   </div>
 
+{/* Tree Care Tips for Beginners */}
+<div>
+  <h2 className="text-lg font-semibold mb-2">Tree Care Tips for Beginners</h2>
+  <p>
+    Planting a tree is only the beginning. Proper care in the early years ensures it survives and thrives for decades. Here are a few tips for first-time planters:
+  </p>
+  <ul className="list-disc pl-6 space-y-1 text-sm">
+    <li>
+      <strong>Choose the Right Location:</strong> Consider sunlight, soil type, space for roots and canopy, and proximity to buildings or utility lines.
+    </li>
+    <li>
+      <strong>Use Mulch:</strong> Apply mulch around the base to retain moisture, prevent weeds, and regulate temperature—but avoid piling it against the trunk.
+    </li>
+    <li>
+      <strong>Water Wisely:</strong> Water deeply and regularly during the first few years, especially in dry seasons. Reduce frequency as roots establish.
+    </li>
+    <li>
+      <strong>Protect from Pests:</strong> Use guards or fencing if wildlife may damage the young tree. Inspect regularly for signs of disease or pests.
+    </li>
+    <li>
+      <strong>Prune Correctly:</strong> Prune to remove dead or damaged limbs and encourage healthy structure. Avoid heavy pruning in the first year.
+    </li>
+  </ul>
+  <p>
+    A well-cared-for tree not only survives—it thrives, benefiting future generations.
+  </p>
+</div>
+
+{/* Inspiring Global Tree Planting Movements */}
+<div>
+  <h2 className="text-lg font-semibold mb-2">Inspiring Global Tree Planting Movements</h2>
+  <p>
+    Around the world, people are coming together to reverse deforestation and restore nature. These powerful tree-planting campaigns are transforming landscapes and mindsets:
+  </p>
+  <ul className="list-disc pl-6 space-y-1 text-sm">
+    <li>
+      <strong>The Billion Tree Tsunami (Pakistan):</strong> A nationwide effort launched to combat deforestation, which successfully planted over 1 billion trees and expanded forests across Khyber Pakhtunkhwa.
+    </li>
+    <li>
+      <strong>Team Trees (Global):</strong> A viral campaign launched by YouTubers MrBeast and Mark Rober, which raised funds to plant over 20 million trees globally in partnership with the Arbor Day Foundation.
+    </li>
+    <li>
+      <strong>Plant for the Planet (Germany):</strong> Initiated by a 9-year-old student, this movement has engaged children across 100+ countries and planted millions of trees to fight climate change.
+    </li>
+    <li>
+      <strong>Trillion Tree Campaign (UNEP):</strong> A long-term initiative to mobilize governments, corporations, and citizens to plant one trillion trees by 2050, supporting climate resilience and biodiversity.
+    </li>
+  </ul>
+  <p>
+    These initiatives show that collective action, no matter how small, can drive global environmental progress. Supporting or starting your own local campaign can amplify this positive impact.
+  </p>
+</div>
+
   {/* Conclusion: Every Tree Counts */}
   <div>
     <h2 className="text-lg font-semibold mb-2">Conclusion: Every Tree Counts</h2>
@@ -187,9 +240,6 @@ const PlantTrees: React.FC = () => {
     </p>
   </div>
 </div>
-
-
-
         </CardContent>
       </Card>
     </div>
