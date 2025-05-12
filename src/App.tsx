@@ -169,7 +169,7 @@ import CapacitorSymbols from "./components/electrical/content/CapacitorSymbol";
 import TransistorSymbols from "./components/electrical/content/Transistorsymbol";
 
 import OhmsLaw from "./components/electrical/content/ohmslaw";
-import VoltageDivider from "./components/electrical/content/voltagedriver";
+import VoltageDivider from "./components/electrical/content/VoltageDivider";
 import KirchhoffLaws from "./components/electrical/content/Kirchhoffslaws";
 import CoulombsLaw from "./components/electrical/content/Coulombslaw";
 

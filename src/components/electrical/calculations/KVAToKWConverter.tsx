@@ -254,6 +254,107 @@ const KVAToKWConverter: React.FC = () => {
 <p className="mt-4">
   To get the best out of your energy systems, always aim to maintain your power factor above 0.9 and use tools like this converter to plan smartly. Whether you're working on a small generator installation or a large industrial plant, this conversion plays a vital role in ensuring that your infrastructure is both cost-effective and future-ready.
 </p>
+{/* Section: Visualizing Efficiency */}
+<div>
+  <h2 className="font-semibold text-base mt-6 mb-2">Visualizing System Efficiency</h2>
+  <p>
+    The relationship between kVA and kW illustrates how efficiently an electrical system converts total supplied power into usable energy.
+    Here's a quick visual analogy:
+  </p>
+  <ul className="list-disc list-inside ml-4 mt-2">
+    <li><strong>kVA:</strong> The full fuel tank (available power)</li>
+    <li><strong>kW:</strong> The actual fuel burned to produce work (used power)</li>
+    <li><strong>PF:</strong> The efficiency of burning that fuel</li>
+  </ul>
+  <p className="mt-2">
+    A low PF means you're carrying extra “fuel” (kVA) that isn’t contributing to the task (kW), which results in energy losses.
+  </p>
+</div>
+
+{/* Section: Real-World Impact of Power Factor */}
+<div>
+  <h2 className="font-semibold text-base mt-6 mb-2">Impact of Power Factor on Infrastructure</h2>
+  <ul className="list-disc list-inside ml-4">
+    <li><strong>Transformer Sizing:</strong> Transformers are rated in kVA. An inefficient PF requires a larger transformer for the same kW output.</li>
+    <li><strong>Generator Ratings:</strong> Generators must cover peak kVA. A lower PF increases generator costs unnecessarily.</li>
+    <li><strong>Cabling and Switchgear:</strong> Higher kVA demand means thicker cables and heavier switchgear, increasing installation cost.</li>
+    <li><strong>Billing and Penalties:</strong> Utilities may penalize for consistently poor PF under specific thresholds (e.g., {"<"} 0.85).</li>
+  </ul>
+</div>
+
+{/* Section: Power Factor Correction Devices */}
+<div>
+  <h2 className="font-semibold text-base mt-6 mb-2">Devices for Power Factor Correction</h2>
+  <p>
+    When power factor is low, facilities use the following methods to improve it:
+  </p>
+  <ul className="list-disc list-inside ml-4">
+    <li><strong>Capacitor Banks:</strong> The most common method for compensating reactive power.</li>
+    <li><strong>Automatic PF Correction Panels:</strong> Intelligent systems that adjust capacitance dynamically.</li>
+    <li><strong>Synchronous Condensers:</strong> Used in high-power installations to maintain stable PF.</li>
+    <li><strong>Active Harmonic Filters:</strong> Correct PF and filter harmonics at the same time.</li>
+  </ul>
+</div>
+
+{/* Section: Quick Conversion Table */}
+<div>
+  <h2 className="font-semibold text-base mt-6 mb-2">Quick kVA to kW Conversion Table</h2>
+  <table className="table-auto w-full border-collapse border text-sm">
+    <thead>
+      <tr>
+        <th className="border p-2 text-left">kVA</th>
+        <th className="border p-2 text-left">PF</th>
+        <th className="border p-2 text-left">kW</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td className="border p-2">5</td><td className="border p-2">0.8</td><td className="border p-2">4.0</td></tr>
+      <tr><td className="border p-2">10</td><td className="border p-2">0.9</td><td className="border p-2">9.0</td></tr>
+      <tr><td className="border p-2">20</td><td className="border p-2">0.85</td><td className="border p-2">17.0</td></tr>
+      <tr><td className="border p-2">50</td><td className="border p-2">0.92</td><td className="border p-2">46.0</td></tr>
+      <tr><td className="border p-2">75</td><td className="border p-2">0.75</td><td className="border p-2">56.25</td></tr>
+    </tbody>
+  </table>
+</div>
+
+{/* Section: Industry Applications */}
+<div>
+  <h2 className="font-semibold text-base mt-6 mb-2">Applications in Industry</h2>
+  <ul className="list-disc list-inside ml-4 mt-1">
+    <li><strong>Manufacturing Plants:</strong> Optimize motor usage by monitoring PF and converting kVA to kW for budgeting.</li>
+    <li><strong>Data Centers:</strong> Precisely plan backup capacity in real power, not just apparent.</li>
+    <li><strong>Telecom Infrastructure:</strong> Accurately provision UPS systems based on real power usage.</li>
+    <li><strong>Healthcare Facilities:</strong> Ensure that generator capacity matches life-critical system demands in kW.</li>
+  </ul>
+</div>
+
+{/* Section: Design Considerations */}
+<div>
+  <h2 className="font-semibold text-base mt-6 mb-2">Design Considerations</h2>
+  <p>
+    When sizing your system based on kW needs, consider this:
+  </p>
+  <ul className="list-disc list-inside ml-4 mt-1">
+    <li>Always measure actual load PF rather than estimating.</li>
+    <li>Account for peak load versus average load.</li>
+    <li>Leave a margin for PF degradation due to load changes.</li>
+    <li>Factor in harmonics that might impact apparent power.</li>
+  </ul>
+</div>
+
+{/* Section: Summary Card */}
+<div className="bg-blue-50 dark:bg-gray-800 p-4 rounded mt-6 border">
+  <h2 className="font-semibold text-base mb-2">Summary</h2>
+  <p>
+    The kVA to kW conversion ensures that your electrical systems are sized correctly and run efficiently. Understanding this conversion reduces operational costs, avoids penalties, and enhances overall power system performance. Always aim to keep your power factor above 0.9 and validate all sizing decisions using real kW requirements.
+  </p>
+</div>
+<div>
+  <h2 className="font-semibold text-base mt-6 mb-2">Final Thoughts</h2>
+  <p>
+    Converting kVA to kW is a vital calculation in power system planning, generator sizing, and energy optimization. By factoring in the power factor, users can accurately determine how much power is truly usable. This not only aids in efficient system design but also prevents overspending on oversized equipment. Whether you're designing an industrial power layout, managing facility loads, or assessing backup systems, this tool simplifies the process. Maintaining a high power factor ensures lower operational costs and better infrastructure reliability. Keep this converter handy as a trusted reference for both daily operations and long-term planning decisions.
+  </p>
+</div>
 
 
         </CardContent>

@@ -260,6 +260,300 @@ const WhToMahConverter: React.FC = () => {
               range, or planning a mobile charging solution, understanding Wh and mAh conversions is essential.
             </p>
           </div>
+
+          <div>
+            <h2 className="font-semibold text-base mt-6 mb-2">Reversing the Calculation: mAh to Wh</h2>
+            <p>
+              If you want to convert in the opposite direction (from mAh to Wh), the formula becomes:
+            </p>
+            <pre className="bg-gray-100 p-4 rounded text-sm">
+              <code>Wh = (mAh × V) ÷ 1000</code>
+            </pre>
+            <p>
+              This is useful when evaluating the energy required to charge a battery or when estimating energy delivery from
+              a power source to a device.
+            </p>
+          </div>
+
+          {/* Accuracy Considerations */}
+          <div>
+            <h2 className="font-semibold text-base mt-6 mb-2">Factors Affecting Conversion Accuracy</h2>
+            <p>
+              Real-world battery performance often varies slightly from theoretical calculations due to:
+            </p>
+            <ul className="list-disc list-inside ml-4 mt-1 space-y-1">
+              <li><strong>Voltage drop:</strong> As batteries discharge, their voltage can drop, affecting energy output.</li>
+              <li><strong>Discharge rate (C-rate):</strong> Fast discharge may reduce usable capacity.</li>
+              <li><strong>Temperature:</strong> High or low temperatures can impact battery efficiency and lifespan.</li>
+              <li><strong>Battery age:</strong> Older batteries may have reduced capacity compared to their rated value.</li>
+            </ul>
+          </div>
+
+          {/* Common Battery Voltages Reference */}
+          <div>
+            <h2 className="font-semibold text-base mt-6 mb-2">Common Battery Voltages</h2>
+            <p>Here are typical voltages for popular battery types:</p>
+            <ul className="list-disc list-inside ml-4 mt-1 space-y-1">
+              <li><strong>Li-ion (single cell):</strong> 3.6V – 3.7V</li>
+              <li><strong>Li-ion (3S configuration):</strong> 11.1V</li>
+              <li><strong>Lead-acid (car battery):</strong> 12V</li>
+              <li><strong>NiMH/NiCd (AA type):</strong> 1.2V</li>
+              <li><strong>9V block battery:</strong> 9V</li>
+            </ul>
+          </div>
+
+          {/* Example Project Applications */}
+          <div>
+            <h2 className="font-semibold text-base mt-6 mb-2">Applications in Real Projects</h2>
+            <p>
+              The Wh to mAh conversion is widely applicable in:
+            </p>
+            <ul className="list-disc list-inside ml-4 mt-1 space-y-1">
+              <li><strong>IoT Projects:</strong> Sizing batteries for sensors or ESP32 boards based on energy usage.</li>
+              <li><strong>Wearable Electronics:</strong> Determining how long a smartwatch or fitness band can run.</li>
+              <li><strong>Electric Bikes:</strong> Calculating range based on battery watt-hour ratings and motor power.</li>
+              <li><strong>RC Cars:</strong> Matching battery pack capacity to motor draw and expected runtime.</li>
+              <li><strong>Camping Equipment:</strong> Powering LED lanterns, fans, or small USB appliances.</li>
+            </ul>
+          </div>
+
+          {/* Educational Use */}
+          <div>
+            <h2 className="font-semibold text-base mt-6 mb-2">Educational Use for STEM Learning</h2>
+            <p>
+              This conversion concept is frequently taught in electrical engineering, physics, and robotics courses.
+              It teaches:
+            </p>
+            <ul className="list-disc list-inside ml-4 mt-1 space-y-1">
+              <li>Basic electric formulas involving energy and charge</li>
+              <li>Unit conversions using SI prefixes (milli, kilo, etc.)</li>
+              <li>Voltage-current-power relationships (Ohm’s Law and Power Law)</li>
+              <li>Battery sizing, selection, and performance estimation</li>
+            </ul>
+          </div>
+
+          {/* Design Safety Tips */}
+          <div>
+            <h2 className="font-semibold text-base mt-6 mb-2">Design Safety Tips</h2>
+            <p>
+              When designing or using battery-powered systems, always observe these precautions:
+            </p>
+            <ul className="list-disc list-inside ml-4 mt-1 space-y-1">
+              <li>Always match voltage and capacity ratings correctly to avoid damage</li>
+              <li>Use fuses or overcurrent protection circuits</li>
+              <li>Ensure adequate ventilation in high-discharge devices</li>
+              <li>Never overcharge lithium-ion batteries without a proper battery management system (BMS)</li>
+              <li>Use certified chargers that match the battery specifications</li>
+            </ul>
+          </div>
+
+          {/* Glossary of Terms */}
+          <div>
+            <h2 className="font-semibold text-base mt-6 mb-2">Glossary</h2>
+            <dl className="ml-4">
+              <dt className="font-medium">Wh (Watt-hour)</dt>
+              <dd className="mb-2">A measure of electrical energy equivalent to one watt of power consumed for one hour.</dd>
+
+              <dt className="font-medium">mAh (Milliamp-hour)</dt>
+              <dd className="mb-2">A unit that measures electric charge, representing the capacity of a battery to supply 1 milliamp for 1 hour.</dd>
+
+              <dt className="font-medium">Voltage (V)</dt>
+              <dd className="mb-2">The electrical potential difference, or the "pressure" that drives electric current through a circuit.</dd>
+            </dl>
+          </div>
+
+          {/* Developer Tools */}
+          <div>
+            <h2 className="font-semibold text-base mt-6 mb-2">For Developers and Engineers</h2>
+            <p>
+              If you're building apps, tools, or systems that rely on energy computations, here's how this converter helps:
+            </p>
+            <ul className="list-disc list-inside ml-4 mt-1 space-y-1">
+              <li>Used in hardware testing UIs or dashboards for IoT devices</li>
+              <li>Embedded into battery selection interfaces in configuration apps</li>
+              <li>Incorporated into calculators for e-commerce platforms selling battery packs</li>
+              <li>Helpful for firmware developers tuning power profiles on microcontrollers</li>
+            </ul>
+          </div>
+
+          {/* Additional Use Case */}
+          <div>
+            <h2 className="font-semibold text-base mt-6 mb-2">Use in Solar-Powered Applications</h2>
+            <p>
+              In solar energy systems, storage batteries are often rated in Wh, while devices run on mAh specifications. This converter
+              allows system designers to:
+            </p>
+            <ul className="list-disc list-inside ml-4 mt-1 space-y-1">
+              <li>Match panel output to storage battery requirements</li>
+              <li>Estimate how many times a 2000 mAh phone can be charged from a 40 Wh solar power bank</li>
+              <li>Balance daytime generation with night-time device usage</li>
+            </ul>
+          </div>
+
+          {/* Final Insight */}
+          <div>
+            <h2 className="font-semibold text-base mt-6 mb-2">Final Insight</h2>
+            <p>
+              With growing demand for portable energy—from wearables to electric mobility—understanding and calculating conversions
+              like Wh to mAh is more important than ever. Whether you're a student, engineer, DIYer, or just a tech-savvy consumer,
+              this knowledge empowers you to make smarter decisions.
+            </p>
+          </div>
+          <div>
+    <h2 className="font-semibold text-base mt-6 mb-2">Effect of Voltage Variations</h2>
+    <p>
+      Different devices and batteries operate at varying voltages. Even slight changes in voltage can significantly impact mAh calculations.
+      For example, a 10 Wh battery at 3.7V gives ~2702 mAh, but at 5V it’s only 2000 mAh. Always use the exact voltage for your device or battery.
+    </p>
+    <p>
+      Devices with voltage regulators may stabilize output, but input-side voltage still affects energy calculations and how long the system can run.
+    </p>
+  </div>
+
+  {/* Battery Chemistry Overview */}
+  <div>
+    <h2 className="font-semibold text-base mt-6 mb-2">Battery Chemistry and Voltage</h2>
+    <p>
+      Different battery chemistries come with distinct voltage ranges and charging behaviors. Here’s a quick reference:
+    </p>
+    <ul className="list-disc list-inside ml-4 mt-1">
+      <li><strong>Lithium-Ion:</strong> 3.6V to 3.7V nominal, full charge up to 4.2V</li>
+      <li><strong>Lithium-Polymer:</strong> Similar to Li-Ion but more flexible packaging</li>
+      <li><strong>Nickel-Cadmium (NiCd):</strong> 1.2V nominal</li>
+      <li><strong>Nickel-Metal Hydride (NiMH):</strong> 1.2V nominal</li>
+      <li><strong>Lead-Acid:</strong> 2V per cell, 6V or 12V common formats</li>
+    </ul>
+  </div>
+
+  {/* Comparing Batteries by Wh and mAh */}
+  <div>
+    <h2 className="font-semibold text-base mt-6 mb-2">Comparing Batteries</h2>
+    <p>
+      When choosing between two batteries:
+    </p>
+    <ul className="list-disc list-inside ml-4 mt-1">
+      <li>If voltage is the same, higher mAh = longer runtime</li>
+      <li>If mAh is the same, higher voltage = more energy (Wh)</li>
+      <li>Use the Wh-to-mAh formula to normalize comparisons</li>
+    </ul>
+    <p>
+      Example: A 5000 mAh battery at 3.7V has 18.5 Wh. A 3000 mAh battery at 7.4V has 22.2 Wh and will deliver more energy.
+    </p>
+  </div>
+
+  {/* Runtime Estimation */}
+  <div>
+    <h2 className="font-semibold text-base mt-6 mb-2">Estimating Runtime from Wh or mAh</h2>
+    <p>
+      You can estimate how long a device will run using:
+    </p>
+    <pre className="bg-gray-100 p-4 rounded text-sm">
+      <code>Runtime (hours) = mAh ÷ device current (mA)</code>
+    </pre>
+    <p>
+      If your battery is 2000 mAh and your device uses 400 mA:
+    </p>
+    <pre className="bg-gray-100 p-4 rounded text-sm">
+      <code>Runtime = 2000 ÷ 400 = 5 hours</code>
+    </pre>
+  </div>
+
+  {/* How Battery Labels Can Be Misleading */}
+  <div>
+    <h2 className="font-semibold text-base mt-6 mb-2">Understanding Battery Labeling</h2>
+    <p>
+      Battery manufacturers may list Wh, mAh, or both—sometimes based on marketing or regulatory reasons.
+      Always double-check:
+    </p>
+    <ul className="list-disc list-inside ml-4 mt-1">
+      <li>If only mAh is shown, look for voltage to compute Wh</li>
+      <li>Check if capacity is at nominal or max voltage</li>
+      <li>See if rated under specific discharge conditions (C-rate)</li>
+    </ul>
+  </div>
+
+  {/* Visualizing the Difference */}
+  <div>
+    <h2 className="font-semibold text-base mt-6 mb-2">Visualizing Energy Capacity</h2>
+    <p>
+      Think of a battery as a water tank:
+    </p>
+    <ul className="list-disc list-inside ml-4 mt-1">
+      <li><strong>Wh</strong> = how much water the tank holds</li>
+      <li><strong>Voltage</strong> = the height of the tank (pressure)</li>
+      <li><strong>mAh</strong> = flow capacity under specific voltage</li>
+    </ul>
+    <p>
+      Changing the tank’s height (voltage) affects how fast the water (electricity) flows out and how long it lasts.
+    </p>
+  </div>
+
+  {/* Advanced Example with Chart */}
+  <div>
+    <h2 className="font-semibold text-base mt-6 mb-2">Advanced Example</h2>
+    <p>
+      Below is a table showing different batteries and their converted mAh values at various voltages:
+    </p>
+    <table className="table-auto w-full text-left border-collapse mt-2 text-sm">
+      <thead>
+        <tr>
+          <th className="border-b p-2">Battery</th>
+          <th className="border-b p-2">Wh</th>
+          <th className="border-b p-2">Voltage (V)</th>
+          <th className="border-b p-2">Converted mAh</th>
+        </tr>
+      </thead>
+      <tbody>
+        {[
+          { name: "Smartphone", wh: 10, v: 3.7 },
+          { name: "Laptop", wh: 56, v: 11.1 },
+          { name: "Power Bank", wh: 20, v: 5 },
+          { name: "Camera Battery", wh: 8, v: 7.2 },
+          { name: "Portable Speaker", wh: 12, v: 3.7 }
+        ].map((item) => (
+          <tr key={item.name}>
+            <td className="border-b p-2">{item.name}</td>
+            <td className="border-b p-2">{item.wh} Wh</td>
+            <td className="border-b p-2">{item.v} V</td>
+            <td className="border-b p-2">{((item.wh * 1000) / item.v).toFixed(2)} mAh</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  {/* Tools That Use Wh/mAh Data */}
+  <div>
+    <h2 className="font-semibold text-base mt-6 mb-2">Where This Data is Used</h2>
+    <ul className="list-disc list-inside ml-4 mt-1 space-y-1">
+      <li>Battery management systems (BMS)</li>
+      <li>Electric vehicle dashboards</li>
+      <li>IoT battery monitoring apps</li>
+      <li>Online battery comparison tools</li>
+      <li>Mobile OS battery stats (Android/iOS)</li>
+    </ul>
+  </div>
+
+  {/* Developer API Idea */}
+  <div>
+    <h2 className="font-semibold text-base mt-6 mb-2">Developer Tip: Create an API</h2>
+    <p>
+      If you're building an application or dashboard, you can create an API endpoint like:
+    </p>
+    <pre className="bg-gray-100 p-4 rounded text-sm">
+      <code>
+        POST /convert-wh-to-mah{"\n"}
+        {"{"}
+        "wh": 10, "voltage": 3.7{"}"}
+      </code>
+    </pre>
+    <p>
+      And return:
+    </p>
+    <pre className="bg-gray-100 p-4 rounded text-sm">
+      <code>{"{ \"mah\": 2702.70 }"}</code>
+    </pre>
+  </div>
         </CardContent>
 
       </Card>
