@@ -314,7 +314,7 @@ const VAToWattsConverter: React.FC = () => {
                   <th className="p-2 border">PF = 1.0</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="dark:text-white">
                 <tr><td className="p-2 border">500</td><td className="p-2 border">300 W</td><td className="p-2 border">400 W</td><td className="p-2 border">500 W</td></tr>
                 <tr><td className="p-2 border">1000</td><td className="p-2 border">600 W</td><td className="p-2 border">800 W</td><td className="p-2 border">1000 W</td></tr>
                 <tr><td className="p-2 border">2000</td><td className="p-2 border">1200 W</td><td className="p-2 border">1600 W</td><td className="p-2 border">2000 W</td></tr>
@@ -322,7 +322,30 @@ const VAToWattsConverter: React.FC = () => {
               </tbody>
             </table>
           </div>
+          <h2 className="text-xl font-semibold mb-4">Additional Insights into VA and Watts</h2>
 
+<h3 className="text-lg font-semibold mt-4">📌 Common Real-World Use Cases</h3>
+<ul className="list-disc pl-5 mb-4">
+  <li><strong>Data Centers:</strong> Power distribution units are rated in VA, but servers and switches require real wattage figures for UPS configuration.</li>
+  <li><strong>Home Theaters:</strong> AV receivers and amplifiers list both VA and watt ratings. Understanding both helps avoid overloading circuits.</li>
+  <li><strong>Medical Equipment:</strong> Sensitive devices often specify power factor requirements for efficient operation and compliance with electrical standards.</li>
+  <li><strong>Industrial Machines:</strong> Motors, transformers, and inverters require accurate VA to watt conversion for energy auditing and safety planning.</li>
+</ul>
+
+<h3 className="text-lg font-semibold mt-4">🧠 Common Misconceptions</h3>
+<ul className="list-disc pl-5 mb-4">
+  <li><strong>Myth:</strong> VA and Watts are always the same.<br/><strong>Truth:</strong> Only true for purely resistive loads where the power factor is 1.</li>
+  <li><strong>Myth:</strong> Higher VA always means more power.<br/><strong>Truth:</strong> A higher VA with a low power factor could result in lower actual power (Watts).</li>
+  <li><strong>Myth:</strong> Power factor doesn’t matter in residential settings.<br/><strong>Truth:</strong> While utilities may not charge directly based on PF, inefficient usage affects appliance performance and lifespan.</li>
+</ul>
+
+<h3 className="text-lg font-semibold mt-4">💡 Tips for Improving Power Factor</h3>
+<ul className="list-disc pl-5 mb-4">
+  <li>Use capacitor banks in industrial setups to offset inductive loads.</li>
+  <li>Choose appliances and equipment with high power factor ratings.</li>
+  <li>Regularly maintain motors and electrical devices to prevent lagging PF.</li>
+  <li>Install power factor correction devices if your usage justifies it.</li>
+</ul>
           <div>
             <h2 className="font-semibold text-base mt-6 mb-2">Engineering Insight: Reactive Power</h2>
             <p>

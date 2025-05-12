@@ -197,6 +197,81 @@ const AmpsToVoltsConverter: React.FC = () => {
               </li>
             </ul>
           </div>
+          <section>
+  <h2 className="text-xl font-semibold mb-2">⚠️ Limitations & Assumptions</h2>
+  <ul className="list-disc list-inside space-y-1">
+    <li>Formulas assume ideal conditions—real-world systems may introduce inductance or fluctuations.</li>
+    <li>Constant power/resistance is assumed during conversion, which may not hold in dynamic systems.</li>
+    <li>Temperature can affect resistance, influencing voltage values.</li>
+    <li>AC circuits require impedance or power factor for accurate voltage computation.</li>
+  </ul>
+</section>
+
+<section>
+  <h2 className="text-xl font-semibold mb-2">⚡ Impedance-Based Conversion (AC Circuits)</h2>
+  <p>In AC circuits, resistance is replaced with <strong>impedance (Z)</strong>. The formula becomes:</p>
+  <pre className="bg-gray-100 p-3 rounded-md overflow-auto dark:text-black">
+    V = I × Z{'\n'}
+    Z = √(R² + X²)
+  </pre>
+  <p>This approach is useful for speakers, motors, and AC power distribution systems.</p>
+</section>
+
+<section>
+  <h2 className="text-xl font-semibold mb-2">🛠️ Related Calculations</h2>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 dark:text-black">
+    <div className="bg-gray-50 p-3 rounded shadow-sm">
+      <h3 className="font-medium">Volts to Amps</h3>
+      <code>I = V / R</code>
+    </div>
+    <div className="bg-gray-50 p-3 rounded shadow-sm">
+      <h3 className="font-medium">Watts to Amps</h3>
+      <code>I = P / V</code>
+    </div>
+    <div className="bg-gray-50 p-3 rounded shadow-sm">
+      <h3 className="font-medium">Ohms from Volts and Amps</h3>
+      <code>R = V / I</code>
+    </div>
+    <div className="bg-gray-50 p-3 rounded shadow-sm">
+      <h3 className="font-medium">Watts from Volts and Amps</h3>
+      <code>P = V × I</code>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 className="text-xl font-semibold mb-2">❓ Frequently Asked Questions</h2>
+  <div className="space-y-3">
+    <div>
+      <strong>Q1: Can you convert amps to volts directly?</strong>
+      <p>No, you need either resistance (ohms) or power (watts) as additional context.</p>
+    </div>
+    <div>
+      <strong>Q2: What if I only know amps?</strong>
+      <p>Conversion isn't possible without another value like resistance or power.</p>
+    </div>
+    <div>
+      <strong>Q3: Does voltage change with current?</strong>
+      <p>Yes, in resistive circuits. According to Ohm’s Law, if resistance is fixed, voltage increases with current.</p>
+    </div>
+    <div>
+      <strong>Q4: Why do some appliances list only current and power?</strong>
+      <p>Many AC devices omit voltage, assuming a standard like 120V or 230V. You can back-calculate voltage using V = P / I.</p>
+    </div>
+    <div>
+      <strong>Q5: What's a practical example of this conversion?</strong>
+      <p>Electricians use these calculations to ensure wiring and circuit breakers are properly rated.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 className="text-xl font-semibold mb-2">📘 Summary</h2>
+  <p>
+    Converting amps to volts is a foundational electrical calculation that depends on knowing either resistance or power. It's used across residential, automotive, and industrial contexts. Always double-check unit consistency and consult specifications before applying conversions to real systems.
+  </p>
+</section>
+
           <hr className="border-gray-300 dark:border-gray-600" />
 
           {/* Conclusion: The Interplay of Electrical Quantities */}
@@ -209,7 +284,102 @@ const AmpsToVoltsConverter: React.FC = () => {
               Understanding these conversions is crucial for anyone involved in electrical work, from basic circuit analysis to complex system design and troubleshooting. By grasping the interplay between current, voltage, power, and resistance, one can effectively analyze and manipulate electrical circuits for a wide range of applications while ensuring safety and efficiency.
             </p>
           </div>
+          <section>
+  <h2 className="text-xl font-semibold mb-2">🔧 Practical Examples</h2>
+  <div className="space-y-4 dark:text-black">
+    <div className="bg-gray-50 p-4 rounded shadow-sm">
+      <h3 className="font-medium">Example 1: Household Lighting</h3>
+      <p>
+        If you have a 60-watt lightbulb and you're running it on a 120V circuit, you can calculate the current:
+      </p>
+      <pre className="bg-gray-100 p-3 rounded-md">
+        I = P / V {'→'} I = 60W / 120V {'→'} I = 0.5A
+      </pre>
+      <p>This means your lightbulb draws 0.5 amps of current.</p>
+    </div>
+    <div className="bg-gray-50 p-4 rounded shadow-sm">
+      <h3 className="font-medium">Example 2: Electric Car Charger</h3>
+      <p>
+        For an electric car charger rated at 3.3 kW operating on a 240V system, find the current:
+      </p>
+      <pre className="bg-gray-100 p-3 rounded-md">
+        I = P / V {'→'} I = 3300W / 240V {'→'} I ≈ 13.75A
+      </pre>
+      <p>This charger draws approximately 13.75 amps of current while charging the car.</p>
+    </div>
+  </div>
+</section>
 
+<section>
+  <h2 className="text-xl font-semibold mb-2">💡 Advanced Topics: Power Factor</h2>
+  <p>In real-world AC circuits, you might need to account for the power factor (PF), which describes how effectively current is converted into useful work.</p>
+  <p>The formula for current with power factor (for AC circuits) becomes:</p>
+  <pre className="bg-gray-100 p-3 rounded-md overflow-auto dark:text-black">
+    I = P / (V × PF)
+  </pre>
+  <p>For example, in a motor with a 0.85 power factor, a 1000W load running on 230V would draw:</p>
+  <pre className="bg-gray-100 p-3 rounded-md dark:text-black">
+    I = 1000W / (230V × 0.85) {'→'} I ≈ 5.88A
+  </pre>
+  <p>This shows that the current is higher when the power factor is less than 1.0, meaning not all power is used effectively.</p>
+</section>
+
+<section>
+  <h2 className="text-xl font-semibold mb-2">🌐 International Voltage Standards</h2>
+  <p>Different countries use different standard voltages for household electricity. Here's a quick comparison:</p>
+  <ul className="list-disc list-inside space-y-2">
+    <li><strong>North America</strong>: 120V (60Hz)</li>
+    <li><strong>Europe</strong>: 230V (50Hz)</li>
+    <li><strong>Australia</strong>: 230V (50Hz)</li>
+    <li><strong>Asia</strong>: 220V (50Hz)</li>
+  </ul>
+  <p>This variation can impact appliances and devices, so converters or adapters might be required for international travel or moving equipment.</p>
+</section>
+
+<section>
+  <h2 className="text-xl font-semibold mb-2">🔋 Energy Efficiency and Voltage</h2>
+  <p>When converting electrical energy to mechanical work, higher voltage systems can be more energy-efficient. Here's why:</p>
+  <ul className="list-disc list-inside space-y-2">
+    <li><strong>Higher voltage</strong> reduces current in the same power system, minimizing energy losses due to resistance.</li>
+    <li><strong>Lower current</strong> also reduces the need for heavy-duty wiring, making systems lighter and more cost-effective.</li>
+    <li>However, high-voltage systems require more sophisticated insulation and safety protocols.</li>
+  </ul>
+  <p>In industrial applications, this tradeoff between voltage and current is crucial for optimizing energy efficiency and reducing infrastructure costs.</p>
+</section>
+
+<section>
+  <h2 className="text-xl font-semibold mb-2">🔎 Troubleshooting Voltage Issues</h2>
+  <p>Voltage issues can arise in systems due to factors like improper wiring, device malfunction, or incorrect calculations. Here are some common signs:</p>
+  <ul className="list-disc list-inside space-y-2">
+    <li>Devices not turning on or malfunctioning could indicate insufficient voltage.</li>
+    <li>Overheating wiring or electrical components might signal excessive current due to low voltage or high resistance.</li>
+    <li>Frequent tripping of circuit breakers can suggest an imbalance between voltage and current.</li>
+  </ul>
+  <p>To troubleshoot, check the voltage at different points using a multimeter and ensure your system's components are rated for the correct voltage and current.</p>
+</section>
+
+<section>
+  <h2 className="text-xl font-semibold mb-2">🔌 Related Tools & Calculators</h2>
+  <p>For better accuracy and to simplify calculations, you can use the following tools:</p>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 dark:text-black">
+    <div className="bg-gray-50 p-4 rounded shadow-sm">
+      <h3 className="font-medium">Amps to Volts Calculator</h3>
+      <p>Calculate volts directly from amps, given known power or resistance values.</p>
+    </div>
+    <div className="bg-gray-50 p-4 rounded shadow-sm">
+      <h3 className="font-medium">Power Factor Calculator</h3>
+      <p>Determine the power factor in AC circuits and adjust current calculations accordingly.</p>
+    </div>
+    <div className="bg-gray-50 p-4 rounded shadow-sm">
+      <h3 className="font-medium">Voltage Drop Calculator</h3>
+      <p>Estimate the voltage drop in electrical circuits to optimize wiring selection.</p>
+    </div>
+    <div className="bg-gray-50 p-4 rounded shadow-sm">
+      <h3 className="font-medium">Electrical Load Calculator</h3>
+      <p>Calculate the total load of an electrical system based on power ratings of individual devices.</p>
+    </div>
+  </div>
+</section>
         </CardContent>
       </Card>
     </div>

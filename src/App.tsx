@@ -488,6 +488,7 @@ import WattsToWhConverter from "./components/electrical/calculations/WattsToWhCo
 import WhToKwConverter from "./components/electrical/calculations/WhToKwConverter";
 import WhToMahConverter from "./components/electrical/calculations/WhToMahConverter";
 import WhToWattsConverter from "./components/electrical/calculations/WhToWattsConverter";
+import KVAtoAmpsConverter from "./components/electrical/calculations/KVAtoAmpsConverter";
 
 import FinancialCalculators from "./components/calculators/financial/FinancialCalculators";
 import MathTools from "./components/calculators/math/MathTools";
@@ -931,7 +932,7 @@ const App = () => (
           <Route path="/electrical-calculations/kw-to-kva" element={<Layout><KilowattsToKVAConverter /></Layout>} />
           <Route path="/electrical-calculations/kw-to-joules" element={<Layout><KilowattsToJoulesConverter /></Layout>} />
 
-          <Route path="/electrical-calculations/kva-to-amps" element={<Layout><KVAToAmpsCalculator /></Layout>} />
+          <Route path="/electrical-calculations/kva-to-amps" element={<Layout><KVAtoAmpsConverter /></Layout>} />
           <Route path="/electrical-calculations/kva-to-watts" element={<Layout><KVAToWattsConverter /></Layout>} />
           <Route path="/electrical-calculations/kwh-to-kw" element={<Layout><KWhToKWConverter /></Layout>} />
           <Route path="/electrical-calculations/kwh-to-watt" element={<Layout><KWhToWattConverter /></Layout>} />

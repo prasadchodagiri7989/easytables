@@ -44,7 +44,7 @@ export const Arcsin = () => {
             Arcsin (also called the inverse sine function) is used to determine the angle whose sine value is a given number.
             The formula for Arcsin is:
           </p>
-          <pre className="my-4">
+          <pre className="my-4 dark:text-black">
             θ = sin⁻¹(x)
           </pre>
           <p>
@@ -121,7 +121,7 @@ export const Arcsin = () => {
   <p>
     The derivative of the Arcsin function with respect to \( x \) is given by the following formula:
   </p>
-  <pre className="my-4">d/dx [sin⁻¹(x)] = 1 / √(1 - x²)</pre>
+  <pre className="my-4 dark:text-black">d/dx [sin⁻¹(x)] = 1 / √(1 - x²)</pre>
   <p>
     This formula is useful when working with functions that involve inverse sine, as it allows us to differentiate such functions efficiently. It is also used in solving problems in physics and engineering, where the rate of change of an angle is needed.
   </p>
@@ -130,7 +130,7 @@ export const Arcsin = () => {
   <p>
     The integral of the Arcsin function with respect to \( x \) is given by:
   </p>
-  <pre className="my-4">∫ sin⁻¹(x) dx = x sin⁻¹(x) - √(1 - x²) + C</pre>
+  <pre className="my-4 dark:text-black">∫ sin⁻¹(x) dx = x sin⁻¹(x) - √(1 - x²) + C</pre>
   <p>
     This result is important when solving integrals that involve inverse sine, which frequently appear in physics problems dealing with angles, rotations, or projections.
   </p>
@@ -144,11 +144,11 @@ export const Arcsin = () => {
   <p>
     Suppose in a right triangle, the length of the opposite side is 3 units, and the hypotenuse is 5 units. To find the angle \( θ \) using the sine function, you can use the formula:
   </p>
-  <pre className="my-4">sin(θ) = opposite / hypotenuse = 3 / 5 = 0.6</pre>
+  <pre className="my-4 dark:text-black">sin(θ) = opposite / hypotenuse = 3 / 5 = 0.6</pre>
   <p>
     Now, to find the angle \( θ \), you apply the Arcsin function:
   </p>
-  <pre className="my-4">θ = sin⁻¹(0.6) ≈ 36.87°</pre>
+  <pre className="my-4 dark:text-black">θ = sin⁻¹(0.6) ≈ 36.87°</pre>
   <p>
     This is the angle corresponding to the sine value of 0.6, and you can use this method to solve similar problems in geometry.
   </p>
@@ -161,7 +161,7 @@ export const Arcsin = () => {
   <ul className="list-disc pl-5 space-y-2">
     <li><strong>Domain Error</strong>: The input to Arcsin must be within the range [-1, 1]. If you input a value outside this range, you will get an error. Ensure that your input value is valid for the function.</li>
     <li><strong>Confusion Between Radians and Degrees</strong>: By default, the Arcsin function returns the result in radians. If you need the result in degrees, simply convert the result from radians to degrees:
-      <pre className="my-4">degrees = radians * (180 / π)</pre>
+      <pre className="my-4 dark:text-black">degrees = radians * (180 / π)</pre>
     </li>
     <li><strong>Negative Values</strong>: When working with negative values, remember that the Arcsin function returns angles in the range [-π/2, π/2]. Ensure you are interpreting the results correctly for your problem context.</li>
   </ul>
@@ -174,7 +174,7 @@ export const Arcsin = () => {
   <p>
     The great-circle distance between two points on the Earth's surface can be calculated using the inverse sine function. The formula involves the latitudes and longitudes of two points, and the inverse sine helps determine the central angle between them.
   </p>
-  <pre className="my-4">d = R * arcsin(√(sin²(Δφ/2) + cos(φ₁) * cos(φ₂) * sin²(Δλ/2)))</pre>
+  <pre className="my-4 dark:text-black">d = R * arcsin(√(sin²(Δφ/2) + cos(φ₁) * cos(φ₂) * sin²(Δλ/2)))</pre>
   <p>
     Where:
     <ul className="list-disc pl-5 space-y-2">
@@ -198,7 +198,7 @@ export const Arcsin = () => {
   <p>
     When two signals are out of phase, the phase difference can be calculated by using Arcsin. For example, if the amplitude ratio between two sinusoidal signals is known, the phase difference between them can be determined by using the inverse sine function.
   </p>
-  <pre className="my-4">θ = arcsin(V₁ / V₂)</pre>
+  <pre className="my-4 dark:text-black">θ = arcsin(V₁ / V₂)</pre>
   <p>
     Where:
     <ul className="list-disc pl-5 space-y-2">
@@ -220,7 +220,7 @@ export const Arcsin = () => {
   <p>
     Inverse kinematics is a method used to determine the joint angles of a robotic arm to achieve a desired end-effector position. The inverse sine function plays a critical role when calculating the angle of a joint based on the position of the end-effector. For example, if you know the length of the robot arm and the distance to the target position, you can use Arcsin to calculate the angle between the robot arm and the horizontal plane.
   </p>
-  <pre className="my-4">θ = arcsin(d / L)</pre>
+  <pre className="my-4 dark:text-black">θ = arcsin(d / L)</pre>
   <p>
     Where:
     <ul className="list-disc pl-5 space-y-2">
@@ -242,7 +242,7 @@ export const Arcsin = () => {
   <p>
     Arcsin can be used in the process of normalizing data for statistical analysis. When dealing with values that are restricted within a certain range, such as proportions or probabilities, the inverse sine function is used to map the data from the range [-1, 1] to the interval [-π/2, π/2]. This transformation is useful when applying machine learning algorithms that require input data in a specific format.
   </p>
-  <pre className="my-4">normalized_value = arcsin(value)</pre>
+  <pre className="my-4 dark:text-black">normalized_value = arcsin(value)</pre>
   <p>
     This transformation allows for more accurate and efficient processing in machine learning tasks such as clustering, regression, and classification.
   </p>
@@ -256,7 +256,7 @@ export const Arcsin = () => {
   <p>
     The angular separation between two stars can be determined using Arcsin, given the distances involved. If the stars' positions are known in terms of their right ascension and declination, the Arcsin function can calculate the angle between them. This is crucial in understanding star clusters and their relative positioning in the sky.
   </p>
-  <pre className="my-4">θ = arcsin(√(sin²(Δα/2) + cos(α₁) * cos(α₂) * sin²(Δδ/2)))</pre>
+  <pre className="my-4 dark:text-black">θ = arcsin(√(sin²(Δα/2) + cos(α₁) * cos(α₂) * sin²(Δδ/2)))</pre>
   <p>
     Where:
     <ul className="list-disc pl-5 space-y-2">
@@ -279,7 +279,7 @@ export const Arcsin = () => {
   <p>
     When rotating an object in 3D space, Arcsin can be used to calculate the angle of rotation needed to align the object with a specific axis. This is particularly useful in creating realistic animations or simulations, where precise control over object positioning is necessary.
   </p>
-  <pre className="my-4">θ = arcsin(r / √(x² + y² + z²))</pre>
+  <pre className="my-4 dark:text-black">θ = arcsin(r / √(x² + y² + z²))</pre>
   <p>
     Where:
     <ul className="list-disc pl-5 space-y-2">

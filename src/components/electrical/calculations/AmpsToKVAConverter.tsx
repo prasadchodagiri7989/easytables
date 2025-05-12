@@ -331,6 +331,158 @@ const AmpsToKVAGuide: React.FC = () => {
             <li>Know your system type (single or three-phase).</li>
             <li>Use the correct formula.</li>
           </ul>
+          <div className="space-y-6">
+  <h2 className="text-xl font-semibold mt-4 mb-2 text-gray-800 dark:text-gray-200">🧠 Why kVA Matters</h2>
+  <p>Many electrical devices like transformers, generators, and UPS systems are rated in kVA because:</p>
+  <ul className="list-disc ml-6 space-y-1">
+    <li>They must handle both real and reactive power.</li>
+    <li>kVA rating ensures the total load capacity is considered.</li>
+    <li>It provides a universal measure regardless of the load type.</li>
+  </ul>
+
+  <h2 className="text-xl font-semibold mt-4 mb-2 text-gray-800 dark:text-gray-200">🔍 Real-World Amps to kVA Conversion Examples</h2>
+  <div>
+    <h4 className="text-md font-semibold mt-3 mb-1 text-gray-800 dark:text-gray-200">Example 1: Office UPS Load (Single-Phase)</h4>
+    <p>Voltage = 230V</p>
+    <p>Load Current = 12A</p>
+    <div className="bg-gray-200 p-3 rounded-md mt-1 dark:bg-gray-700 dark:text-gray-200">
+      <p><code className="text-sm">kVA = (12A × 230V) / 1000 = 2.76 kVA</code></p>
+    </div>
+  </div>
+  <div>
+    <h4 className="text-md font-semibold mt-3 mb-1 text-gray-800 dark:text-gray-200">Example 2: Industrial Pump (Three-Phase)</h4>
+    <p>Voltage = 415V</p>
+    <p>Current = 85A</p>
+    <div className="bg-gray-200 p-3 rounded-md mt-1 dark:bg-gray-700 dark:text-gray-200">
+      <p><code className="text-sm">kVA = (1.732 × 85A × 415V) / 1000 ≈ 61.18 kVA</code></p>
+    </div>
+  </div>
+  <div>
+    <h4 className="text-md font-semibold mt-3 mb-1 text-gray-800 dark:text-gray-200">Example 3: Backup Generator (Single-Phase)</h4>
+    <p>Voltage = 240V</p>
+    <p>Load = 50A</p>
+    <div className="bg-gray-200 p-3 rounded-md mt-1 dark:bg-gray-700 dark:text-gray-200">
+      <p><code className="text-sm">kVA = (50A × 240V) / 1000 = 12 kVA</code></p>
+    </div>
+  </div>
+
+  <h2 className="text-xl font-semibold mt-4 mb-2 text-gray-800 dark:text-gray-200">📊 Amps to kVA Table (Single-Phase, 240V)</h2>
+  <div className="overflow-x-auto">
+    <table className="min-w-full border border-gray-300 dark:border-gray-600">
+      <thead className="bg-gray-100 dark:bg-gray-800">
+        <tr>
+          <th className="px-4 py-2 border-b dark:border-gray-600 text-left">Amps</th>
+          <th className="px-4 py-2 border-b dark:border-gray-600 text-left">kVA</th>
+        </tr>
+      </thead>
+      <tbody>
+        {[
+          { amps: 5, kva: 1.2 }, { amps: 10, kva: 2.4 }, { amps: 15, kva: 3.6 },
+          { amps: 20, kva: 4.8 }, { amps: 25, kva: 6.0 }, { amps: 30, kva: 7.2 },
+          { amps: 40, kva: 9.6 }, { amps: 50, kva: 12.0 }
+        ].map(row => (
+          <tr key={row.amps}>
+            <td className="px-4 py-2 border-b dark:border-gray-600">{row.amps}</td>
+            <td className="px-4 py-2 border-b dark:border-gray-600">{row.kva.toFixed(1)}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <h2 className="text-xl font-semibold mt-4 mb-2 text-gray-800 dark:text-gray-200">📊 Amps to kVA Table (Three-Phase, 415V)</h2>
+  <div className="overflow-x-auto">
+    <table className="min-w-full border border-gray-300 dark:border-gray-600">
+      <thead className="bg-gray-100 dark:bg-gray-800">
+        <tr>
+          <th className="px-4 py-2 border-b dark:border-gray-600 text-left">Amps</th>
+          <th className="px-4 py-2 border-b dark:border-gray-600 text-left">kVA</th>
+        </tr>
+      </thead>
+      <tbody>
+        {[
+          { amps: 10, kva: 7.18 }, { amps: 20, kva: 14.36 }, { amps: 30, kva: 21.54 },
+          { amps: 40, kva: 28.72 }, { amps: 50, kva: 35.90 }, { amps: 60, kva: 43.08 },
+        ].map(row => (
+          <tr key={row.amps}>
+            <td className="px-4 py-2 border-b dark:border-gray-600">{row.amps}</td>
+            <td className="px-4 py-2 border-b dark:border-gray-600">{row.kva.toFixed(2)}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>
+<div className="space-y-6">
+ 
+  <h2 className="text-xl font-semibold mt-4 mb-2 text-gray-800 dark:text-gray-200">⚡ Why is Understanding kVA Important?</h2>
+  <p>When dealing with electrical equipment, the need to understand the relationship between Amps and kVA arises in several situations:</p>
+  <ul className="list-disc ml-6 space-y-1">
+    <li><strong>Power System Design:</strong> Engineers use kVA ratings to determine the size of transformers, generators, and cables required for a specific electrical load.</li>
+    <li><strong>Energy Efficiency:</strong> Knowing how much energy equipment consumes helps reduce losses and improve system efficiency.</li>
+    <li><strong>Load Management:</strong> Correctly sizing equipment and ensuring the load is balanced between devices is critical for maintaining system stability and longevity.</li>
+  </ul>
+
+ 
+  <h2 className="text-xl font-semibold mt-4 mb-2 text-gray-800 dark:text-gray-200">🔄 How to Convert kVA to Amps</h2>
+  <p>In some cases, you might need to go the other way around—converting kVA to Amps. The formula for this is:</p>
+  <div className="bg-gray-200 p-3 rounded-md mt-1 dark:bg-gray-700 dark:text-gray-200">
+    <code className="text-sm">Amps = (kVA × 1000) / Voltage</code>
+  </div>
+  <p>For three-phase systems, the formula becomes:</p>
+  <div className="bg-gray-200 p-3 rounded-md mt-1 dark:bg-gray-700 dark:text-gray-200">
+    <code className="text-sm">Amps = (kVA × 1000) / (Voltage × 1.732)</code>
+  </div>
+  
+  <h3 className="text-lg font-semibold mt-3 mb-2 text-gray-800 dark:text-gray-200">Example: Converting kVA to Amps (Single-Phase)</h3>
+  <p>If you have a load of 5 kVA and a voltage of 240V:</p>
+  <div className="bg-gray-200 p-3 rounded-md mt-1 dark:bg-gray-700 dark:text-gray-200">
+    <p><code className="text-sm">Amps = (5 kVA × 1000) / 240V = 20.83 Amps</code></p>
+  </div>
+
+
+  <h2 className="text-xl font-semibold mt-4 mb-2 text-gray-800 dark:text-gray-200">⚠️ Common Mistakes When Converting kVA to Amps</h2>
+  <p>While the formulas seem straightforward, here are some common mistakes to avoid:</p>
+  <ul className="list-disc ml-6 space-y-1">
+    <li><strong>Forgetting to account for the phase:</strong> Using the wrong phase (single-phase vs. three-phase) can lead to incorrect calculations.</li>
+    <li><strong>Confusing Voltage Ratings:</strong> Ensure you use the correct voltage rating for your system. Voltage can differ depending on location (e.g., 240V in North America vs. 415V in many parts of Europe).</li>
+    <li><strong>Overlooking Power Factor:</strong> In many real-world applications, power factor should also be considered, especially for three-phase systems. A low power factor can cause discrepancies in expected load capacity.</li>
+  </ul>
+
+  <h2 className="text-xl font-semibold mt-4 mb-2 text-gray-800 dark:text-gray-200">💡 Practical Use Cases</h2>
+  <h3 className="text-lg font-semibold mt-3 mb-2 text-gray-800 dark:text-gray-200">1. Sizing Electrical Transformers</h3>
+  <p>When designing or replacing electrical transformers, engineers use kVA ratings to match the transformer's output with the system's load demand. By converting between kVA and Amps, they can ensure that transformers are not under or over-sized, which helps avoid costly damages and inefficiencies.</p>
+
+  <h3 className="text-lg font-semibold mt-3 mb-2 text-gray-800 dark:text-gray-200">2. Generators for Backup Power</h3>
+  <p>For backup generators, it's crucial to know the kVA rating to match the required load. For instance, if an office needs 5 kVA of backup power, the generator must have a sufficient rating to avoid overloads. Converting from Amps to kVA helps determine the exact generator size needed.</p>
+
+  <h3 className="text-lg font-semibold mt-3 mb-2 text-gray-800 dark:text-gray-200">3. Electrical Panel Sizing</h3>
+  <p>Electrical panels must be properly sized to handle the total current drawn from all connected devices. Converting Amps to kVA is essential for panel designers to ensure that the panel can support the required power load without overloading or wasting energy.</p>
+
+ 
+  <h2 className="text-xl font-semibold mt-4 mb-2 text-gray-800 dark:text-gray-200">❓ Frequently Asked Questions</h2>
+  <h3 className="text-lg font-semibold mt-3 mb-2 text-gray-800 dark:text-gray-200">1. What is the difference between kVA and kW?</h3>
+  <p>kVA (kilovolt-amperes) represents the apparent power, while kW (kilowatts) represents the real power consumed by a device. The difference lies in the power factor (pf), which is the ratio of real power to apparent power. The formula is:</p>
+  <div className="bg-gray-200 p-3 rounded-md mt-1 dark:bg-gray-700 dark:text-gray-200">
+    <code className="text-sm">kW = kVA × pf</code>
+  </div>
+
+  <h3 className="text-lg font-semibold mt-3 mb-2 text-gray-800 dark:text-gray-200">2. Can I convert Amps directly to kVA?</h3>
+  <p>Yes, but you need to know the voltage and the phase (single-phase or three-phase) of the electrical system. The formula will differ based on whether you're dealing with single-phase or three-phase systems.</p>
+
+  <h3 className="text-lg font-semibold mt-3 mb-2 text-gray-800 dark:text-gray-200">3. Why do we need to know both kVA and Amps?</h3>
+  <p>Knowing both kVA and Amps gives a clearer understanding of a system's total power requirements and how much current is required to support it. This is crucial when designing, installing, or replacing electrical systems, ensuring safe operation, and preventing overloads.</p>
+
+</div>
+<div className="space-y-6">
+  <h2 className="text-xl font-semibold mt-4 mb-2 text-gray-800 dark:text-gray-200">🔚 Conclusion</h2>
+  <p>Understanding the relationship between Amps and kVA is crucial for anyone working with electrical systems, whether you're designing power systems, selecting equipment, or troubleshooting electrical issues. By knowing how to convert between these two units, you can ensure that your devices are properly sized, energy-efficient, and safe to operate.</p>
+
+  <p>The kVA rating of equipment helps determine its capacity to handle both real and reactive power, while Amps indicate the current being drawn by the system. These two measurements are fundamental in sizing transformers, generators, electrical panels, and backup power systems. Converting between them allows for precise calculations, preventing overloading or underutilizing equipment, which can lead to inefficiency or damage.</p>
+
+  <p>In conclusion, mastering kVA and Amps conversions is essential for ensuring optimal performance, reliability, and safety in electrical installations. Whether you're an engineer, technician, or DIY enthusiast, understanding these conversions helps you make informed decisions and manage electrical systems more effectively.</p>
+</div>
+
         </CardContent>
       </Card>
     </div>

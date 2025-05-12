@@ -253,6 +253,147 @@ const AhToMAhGuide: React.FC = () => {
               </tbody>
             </table>
           </div>
+          <div className="space-y-4">
+    <h3 className="text-xl font-semibold">What Are Ampere-Hours (Ah)?</h3>
+    <p>
+      Ampere-hours (Ah) are a measure of electric charge. It represents the amount of current (in amperes) a battery can supply over a specific period (in hours). For instance, a 2 Ah battery can deliver 2 amps of current for 1 hour or 1 amp for 2 hours.
+    </p>
+  </div>
+
+  <div className="space-y-4">
+    <h3 className="text-xl font-semibold">What Are Milliampere-Hours (mAh)?</h3>
+    <p>
+      Milliampere-hours (mAh) are a smaller unit of electric charge, commonly used in small electronics like phones, wearables, and handheld devices. 1 Ah is equal to 1000 mAh, so a 2 Ah battery is also a 2000 mAh battery.
+    </p>
+  </div>
+
+  <div className="space-y-4">
+    <h3 className="text-xl font-semibold">Ah to mAh Conversion Formula</h3>
+    <p>
+      To convert ampere-hours (Ah) to milliampere-hours (mAh), multiply by 1000.
+    </p>
+    <div className="bg-gray-100 dark:bg-gray-800 rounded p-4">
+      <code className="block text-center font-semibold">mAh = Ah × 1000</code>
+    </div>
+  </div>
+
+  <div className="space-y-4">
+    <h3 className="text-xl font-semibold">Example Conversions</h3>
+    <ul className="list-disc pl-6 space-y-2">
+      <li>0.5 Ah = 500 mAh</li>
+      <li>1 Ah = 1000 mAh</li>
+      <li>2.5 Ah = 2500 mAh</li>
+      <li>5 Ah = 5000 mAh</li>
+      <li>10 Ah = 10000 mAh</li>
+    </ul>
+  </div>
+
+  <div className="space-y-4">
+    <h3 className="text-xl font-semibold">Conversion Table</h3>
+    <div className="overflow-x-auto">
+      <table className="table-auto w-full border border-gray-300 dark:border-gray-600">
+        <thead className="bg-gray-200 dark:bg-gray-700">
+          <tr>
+            <th className="border px-4 py-2">Ampere-Hours (Ah)</th>
+            <th className="border px-4 py-2">Milliampere-Hours (mAh)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr className="even:bg-gray-50 even:dark:bg-gray-900">
+            <td className="border px-4 py-2">0.1 Ah</td>
+            <td className="border px-4 py-2">100 mAh</td>
+          </tr>
+          <tr className="even:bg-gray-50 even:dark:bg-gray-900">
+            <td className="border px-4 py-2">0.5 Ah</td>
+            <td className="border px-4 py-2">500 mAh</td>
+          </tr>
+          <tr className="even:bg-gray-50 even:dark:bg-gray-900">
+            <td className="border px-4 py-2">1 Ah</td>
+            <td className="border px-4 py-2">1000 mAh</td>
+          </tr>
+          <tr className="even:bg-gray-50 even:dark:bg-gray-900">
+            <td className="border px-4 py-2">2.5 Ah</td>
+            <td className="border px-4 py-2">2,500 mAh</td>
+          </tr>
+          <tr className="even:bg-gray-50 even:dark:bg-gray-900">
+            <td className="border px-4 py-2">5 Ah</td>
+            <td className="border px-4 py-2">5,000 mAh</td>
+          </tr>
+          <tr className="even:bg-gray-50 even:dark:bg-gray-900">
+            <td className="border px-4 py-2">10 Ah</td>
+            <td className="border px-4 py-2">10,000 mAh</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div className="space-y-4">
+    <h3 className="text-xl font-semibold">Why Convert Ah to mAh?</h3>
+    <p>
+      Devices like smartphones, cameras, and power banks often specify battery capacity in mAh, while manufacturers may provide specs in Ah. Converting helps in comparing batteries, calculating runtime, and selecting replacements or upgrades.
+    </p>
+  </div>
+
+  <div className="space-y-4">
+    <h3 className="text-xl font-semibold">Real-Life Example</h3>
+    <p>
+      Suppose you have a drone that requires a 2200 mAh battery. If you're shopping for batteries labeled in Ah, you'd look for one that's approximately 2.2 Ah.
+    </p>
+  </div>
+
+  <div className="space-y-4">
+    <h3 className="text-xl font-semibold">Common Mistakes to Avoid</h3>
+    <ul className="list-disc pl-6 space-y-2">
+      <li>Confusing Ah with mAh—always multiply or divide by 1000.</li>
+      <li>Ignoring voltage—Ah/mAh only tells part of the energy story.</li>
+      <li>Assuming higher mAh always means better performance—it depends on the device and usage.</li>
+    </ul>
+  </div>
+
+  <div className="space-y-4">
+    <h3 className="text-xl font-semibold">Frequently Asked Questions</h3>
+    <ul className="space-y-4">
+      <li>
+        <p><strong>Q: Is 1000 mAh the same as 1 Ah?</strong></p>
+        <p>A: Yes. 1 Ah = 1000 mAh.</p>
+      </li>
+      <li>
+        <p><strong>Q: Can I replace a 2000 mAh battery with a 2500 mAh one?</strong></p>
+        <p>A: Yes, as long as the voltage and size are compatible.</p>
+      </li>
+      <li>
+        <p><strong>Q: How do I convert mAh back to Ah?</strong></p>
+        <p>A: Divide mAh by 1000. For example, 1500 mAh = 1.5 Ah.</p>
+      </li>
+    </ul>
+  </div>
+
+  <div className="space-y-4">
+    <h3 className="text-xl font-semibold">Ah vs. mAh: Key Differences</h3>
+    <ul className="list-disc pl-6 space-y-2">
+      <li><strong>Ah</strong>: Used in larger batteries (e.g., car batteries, solar systems).</li>
+      <li><strong>mAh</strong>: Used in smaller electronics (e.g., phones, remotes).</li>
+      <li><strong>Relation</strong>: 1 Ah = 1000 mAh.</li>
+    </ul>
+  </div>
+
+  <div className="space-y-4">
+    <h3 className="text-xl font-semibold">Battery Capacity Myths</h3>
+    <ul className="list-disc pl-6 space-y-2">
+      <li><span className="font-bold">"Higher mAh means faster charging."</span> False. Charging speed depends on amperage and charger quality.</li>
+      <li><span className="font-bold">"mAh determines battery lifespan."</span> Not exactly. Lifespan is more influenced by charge cycles, temperature, and usage patterns.</li>
+      <li><span className="font-bold">"All 5000mAh batteries are the same."</span> False. Voltage, chemistry, build quality, and brand affect real-world performance.</li>
+      <li><span className="font-bold">"You can mix batteries with different mAh."</span> Not recommended. It may cause uneven discharge and damage, especially in series setups.</li>
+    </ul>
+  </div>
+
+  <div className="space-y-4">
+    <h3 className="text-xl font-semibold">Summary</h3>
+    <p>
+      Converting Ah to mAh is simple—just multiply by 1000. Understanding this conversion helps when comparing or replacing batteries, especially across different product specifications. Always ensure you consider voltage and device requirements before choosing a battery.
+    </p>
+  </div>
 
           <h3 className="text-lg font-semibold">Final Thoughts</h3>
           <p>

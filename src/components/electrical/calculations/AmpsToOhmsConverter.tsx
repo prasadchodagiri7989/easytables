@@ -337,6 +337,137 @@ const AmpsToOhmsConverter: React.FC = () => {
               Use this tool to streamline your work, verify your calculations, and deepen your understanding of electrical principles.
             </p>
           </section>
+{/* Additional Advanced Content */}
+
+{/* Material Resistivity and Resistivity Equation */}
+<section>
+  <h2 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Material Resistivity and the Resistivity Equation</h2>
+  <p>
+    Every conductive material has a property called resistivity (ρ), measured in ohm-meters (Ω·m). Resistivity quantifies how strongly a material opposes current flow. The resistance of a uniform conductor of length L and cross-sectional area A is given by:
+  </p>
+  <p className="mt-2 text-center font-mono bg-gray-100 dark:bg-gray-700 p-3 rounded-md">
+    <code>R = ρ × (L / A)</code>
+  </p>
+  <p className="mt-2">
+    Where ρ depends on temperature and material type. For example, copper (ρ ≈ 1.68×10⁻⁸ Ω·m) has very low resistivity, making it ideal for wiring. By contrast, nichrome wire (ρ ≈ 1.10×10⁻⁶ Ω·m) is used in heating elements because of its higher resistivity.
+  </p>
+</section>
+
+{/* Temperature Dependence of Resistance */}
+<section>
+  <h2 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Temperature Dependence of Resistance</h2>
+  <p>
+    The resistance of most conductive materials changes with temperature. For metals, resistance increases with rising temperature:
+  </p>
+  <p className="mt-2 text-center font-mono bg-gray-100 dark:bg-gray-700 p-3 rounded-md">
+    <code>R(T) = R₀ [1 + α (T − T₀)]</code>
+  </p>
+  <p className="mt-2">
+    - R(T): Resistance at temperature T  
+    - R₀: Resistance at reference temperature T₀ (often 20°C)  
+    - α: Temperature coefficient (for copper, α ≈ 0.0039 /°C)  
+    This effect is crucial in precision circuits where temperature drift can affect measurements and performance.
+  </p>
+</section>
+
+{/* Series and Parallel Resistor Networks */}
+<section>
+  <h2 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Series and Parallel Resistor Networks</h2>
+  <p>
+    Real-world circuits often use combinations of resistors. In <strong>series</strong>, resistances simply add:
+  </p>
+  <p className="mt-2 text-center font-mono bg-gray-100 dark:bg-gray-700 p-3 rounded-md">
+    <code>Rₛₑᵣᵢₑₛ = R₁ + R₂ + R₃ + …</code>
+  </p>
+  <p className="mt-2">
+    In <strong>parallel</strong>, the reciprocals add:
+  </p>
+  <p className="mt-2 text-center font-mono bg-gray-100 dark:bg-gray-700 p-3 rounded-md">
+    <code>1 / Rₚₐᵣₐ = 1 / R₁ + 1 / R₂ + 1 / R₃ + …</code>
+  </p>
+  <p className="mt-2">
+    These rules let you compute equivalent resistances when combining multiple components.
+  </p>
+</section>
+
+{/* Resistor Color Code and Identification */}
+<section>
+  <h2 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Resistor Color Code and Identification</h2>
+  <p>
+    Through-hole resistors use colored bands to indicate resistance and tolerance. The first two bands are significant digits, the third is the multiplier, and the fourth is tolerance. For a 4-band resistor labeled <span className="font-mono">“Brown-Black-Red-Gold”</span>:
+  </p>
+  <ul className="list-disc ml-6 mt-2">
+    <li>Brown = 1 (first digit)</li>
+    <li>Black = 0 (second digit)</li>
+    <li>Red  = ×10² multiplier = 100</li>
+    <li>Gold = ±5% tolerance</li>
+  </ul>
+  <p className="mt-2">
+    Thus, resistance = 10 × 100 = 1,000 Ω ±5%.
+  </p>
+</section>
+
+{/* Skin Effect in AC Circuits */}
+<section>
+  <h2 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Skin Effect in AC Circuits</h2>
+  <p>
+    At higher frequencies, alternating current tends to flow near the conductor’s surface, effectively increasing its resistance. This phenomenon—called the skin effect—reduces the effective cross-sectional area at AC and raises the impedance:
+  </p>
+  <p className="mt-2">
+    Z = Rᵣₑdc + jXₗ (where Rᵣₑdc {">"} Rdc). Specialized litz wire or larger conductors help mitigate this for RF and power-frequency applications.
+  </p>
+</section>
+
+{/* Precision Measurement Techniques */}
+<section>
+  <h2 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Precision Measurement Techniques</h2>
+  <p>
+    For high-accuracy resistance measurements, four-wire (Kelvin) measurements eliminate lead and contact resistance. A constant current source drives current through the outer leads, while voltage is sensed by inner leads.
+  </p>
+  <p className="mt-2">
+    This technique is essential when measuring milliohms or microohm-level resistances in shunts, PCB traces, or precision shunts.
+  </p>
+</section>
+
+{/* Non-Ohmic and Temperature-Dependent Resistors */}
+<section>
+  <h2 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Non-Ohmic and Temperature-Dependent Resistors</h2>
+  <p>
+    Not all resistors obey Ohm’s Law at all voltages or temperatures. Thermistors (NTC/PTC) and varistors exhibit non-linear resistance. For example:
+  </p>
+  <ul className="list-disc ml-6 mt-2">
+    <li><strong>NTC Thermistor:</strong> Resistance decreases as temperature rises.</li>
+    <li><strong>PTC Thermistor:</strong> Resistance increases with temperature.</li>
+    <li><strong>Varistor (MOV):</strong> High resistance at low voltage, low resistance at high voltage for surge suppression.</li>
+  </ul>
+</section>
+
+{/* Historical Context and Standards */}
+<section>
+  <h2 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Historical Context and Standards</h2>
+  <p>
+    Ohm’s Law was first formulated by Georg Simon Ohm in 1827. Modern standards (IEC 60062 for resistor codes, IEEE 1417 for measurement techniques) ensure consistent component identification and measurement methodologies across the industry.
+  </p>
+  <p className="mt-2">
+    Compliance with these standards is critical in industrial, aerospace, and medical applications where reliability and traceability are mandatory.
+  </p>
+</section>
+
+{/* Practical Lab Exercise */}
+<section>
+  <h2 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Practical Lab Exercise</h2>
+  <p>
+    Try this hands-on experiment: take three resistors (100 Ω, 220 Ω, 470 Ω) and measure their resistance with a multimeter. Then wire them in series and in parallel, calculate the expected values using series/parallel formulas, and verify with your meter. Record your data and compute percent error.
+  </p>
+</section>
+
+{/* Conclusion and Further Reading */}
+<section>
+  <h2 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Conclusion and Further Reading</h2>
+  <p>
+    Understanding resistance in depth—including material properties, temperature effects, network combinations, and non-ohmic behaviors—empowers you to design robust, reliable circuits. For more, explore IEEE papers on precision measurement, manufacturer datasheets for resistor materials, and advanced texts like “The Art of Electronics.”
+  </p>
+</section>
 
         </CardContent>
       </Card>

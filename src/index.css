@@ -183,6 +183,7 @@ pre {
   font-size: 0.875rem;        /* Smaller font size */
   overflow-x: auto;           /* Enable horizontal scroll for long lines */
   white-space: pre-wrap;      /* Wrap long lines */
+  color: black!important;
 }
 
 }

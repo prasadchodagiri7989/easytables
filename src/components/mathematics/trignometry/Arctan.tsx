@@ -44,7 +44,7 @@ export const Arctan = () => {
             Arctan (also called the inverse tangent function) is used to determine the angle whose tangent value is a given number.
             The formula for Arctan is:
           </p>
-          <pre className="my-4">
+          <pre className="my-4 dark:text-black">
             θ = tan⁻¹(x)
           </pre>
           <p>
@@ -74,7 +74,7 @@ export const Arctan = () => {
   <p>
     In navigation, Arctan is used to calculate the bearing angle between two points on the Earth’s surface, especially when working with latitude and longitude coordinates. If you have the difference in the coordinates (Δx, Δy), Arctan can be used to calculate the angle between the two points. This is important for determining direction and plotting courses for ships or aircraft.
   </p>
-  <pre className="my-4">θ = tan⁻¹(Δy / Δx)</pre>
+  <pre className="my-4 dark:text-black">θ = tan⁻¹(Δy / Δx)</pre>
   <p>
     Where:
     <ul className="list-disc pl-5 space-y-2">
@@ -88,7 +88,7 @@ export const Arctan = () => {
   <p>
     In robotics, Arctan is used for calculating angles of rotation and orientations of robotic arms or mobile robots. The inverse tangent function comes in handy when a robot is navigating through a 2D plane, helping to determine the required angle based on the position of the robot or the obstacles around it.
   </p>
-  <pre className="my-4">θ = tan⁻¹(y / x)</pre>
+  <pre className="my-4 dark:text-black">θ = tan⁻¹(y / x)</pre>
   <p>
     Where:
     <ul className="list-disc pl-5 space-y-2">
@@ -102,7 +102,7 @@ export const Arctan = () => {
   <p>
     In signal processing, Arctan is used in phase angle calculations. In many systems, the phase of a signal is important for understanding its behavior in relation to other signals. The inverse tangent function helps in determining the phase angle when the ratio of signal components is known. This is particularly important in modulated signals, Fourier transforms, and frequency analysis.
   </p>
-  <pre className="my-4">θ = tan⁻¹(Im / Re)</pre>
+  <pre className="my-4 dark:text-black">θ = tan⁻¹(Im / Re)</pre>
   <p>
     Where:
     <ul className="list-disc pl-5 space-y-2">
@@ -116,11 +116,11 @@ export const Arctan = () => {
   <p>
     In signal processing, two signals with different frequencies and phases may be combined. The Arctan function can be used to determine the phase difference between the two signals. This is done by calculating the inverse tangent of the ratio of their imaginary and real components.
   </p>
-  <pre className="my-4">Phase Difference = tan⁻¹(Imaginary Component / Real Component)</pre>
+  <pre className="my-4 dark:text-black">Phase Difference = tan⁻¹(Imaginary Component / Real Component)</pre>
   <p>
     For example, if one signal has an imaginary component of 5 and a real component of 12, the phase difference is:
   </p>
-  <pre className="my-4">Phase Difference = tan⁻¹(5 / 12) ≈ 22.6°</pre>
+  <pre className="my-4 dark:text-black">Phase Difference = tan⁻¹(5 / 12) ≈ 22.6°</pre>
   
   <h3 className="text-lg font-medium mt-6 mb-2">Arctan in Control Systems</h3>
   <p>
@@ -134,7 +134,7 @@ export const Arctan = () => {
   <p>
     In geometry, Arctan is often used to solve for unknown angles in right-angled triangles. If the lengths of the opposite and adjacent sides are known, the angle can be calculated using Arctan. This is commonly applied in trigonometry to find the angle between two vectors, lines, or planes.
   </p>
-  <pre className="my-4">θ = tan⁻¹(opposite / adjacent)</pre>
+  <pre className="my-4 dark:text-black">θ = tan⁻¹(opposite / adjacent)</pre>
   <p>
     Where:
     <ul className="list-disc pl-5 space-y-2">
@@ -148,7 +148,7 @@ export const Arctan = () => {
   <p>
     Polar coordinates are another area where Arctan is often used. In polar coordinate systems, a point is described by its radial distance from the origin and the angle from a reference axis (typically the positive x-axis). When the coordinates of a point in the Cartesian plane are known, Arctan can be used to calculate the angle in polar coordinates.
   </p>
-  <pre className="my-4">θ = tan⁻¹(y / x)</pre>
+  <pre className="my-4 dark:text-black">θ = tan⁻¹(y / x)</pre>
   <p>
     This is particularly useful in fields such as computer graphics, where objects are often manipulated using polar coordinates.
   </p>
@@ -162,7 +162,7 @@ export const Arctan = () => {
   <p>
     When working with angular data or cyclical features (such as time of day, season, or geographical direction), Arctan can be used to map these features into a more useful range. For instance, if the data is represented as a ratio, applying the Arctan function can make the data easier to process for algorithms that require a bounded range.
   </p>
-  <pre className="my-4">normalized_feature = tan⁻¹(original_feature)</pre>
+  <pre className="my-4 dark:text-black">normalized_feature = tan⁻¹(original_feature)</pre>
 
   <h3 className="text-lg font-medium mt-6 mb-2">Arctan in Computer Graphics and Visualization</h3>
   <p>
@@ -173,7 +173,7 @@ export const Arctan = () => {
   <p>
     In 3D graphics, Arctan is used for rotating objects based on the mouse movement or keyboard input. By calculating the angle of rotation, Arctan helps determine how much to rotate an object around the x, y, or z-axis to achieve the desired orientation.
   </p>
-  <pre className="my-4">θ = tan⁻¹(dy / dx)</pre>
+  <pre className="my-4 dark:text-black">θ = tan⁻¹(dy / dx)</pre>
 
   <h3 className="text-lg font-medium mt-6 mb-2">Conclusion</h3>
   <p>
@@ -188,7 +188,7 @@ export const Arctan = () => {
   <p>
     In surveying, Arctan is used to calculate the angle of elevation or depression between two points. For example, if a surveyor needs to find the angle between the ground and a point on a building, they can use the height and horizontal distance between the two points and apply the inverse tangent function to calculate the angle. This angle is essential for determining the correct slope for roads or the height of tall structures.
   </p>
-  <pre className="my-4">θ = tan⁻¹(height / distance)</pre>
+  <pre className="my-4 dark:text-black">θ = tan⁻¹(height / distance)</pre>
   <p>
     Where:
     <ul className="list-disc pl-5 space-y-2">
@@ -202,7 +202,7 @@ export const Arctan = () => {
   <p>
     In physics, particularly in the study of projectile motion, Arctan is used to calculate the angle of launch needed to achieve a specific trajectory. When a projectile is launched with a given initial velocity, the angle at which it is launched affects its range and height. By using the inverse tangent function, one can find the optimal launch angle based on the horizontal and vertical components of velocity.
   </p>
-  <pre className="my-4">θ = tan⁻¹(vertical velocity / horizontal velocity)</pre>
+  <pre className="my-4 dark:text-black">θ = tan⁻¹(vertical velocity / horizontal velocity)</pre>
   <p>
     Where:
     <ul className="list-disc pl-5 space-y-2">
@@ -216,7 +216,7 @@ export const Arctan = () => {
   <p>
     In control systems, Arctan is used to determine the phase angle in frequency response analysis. When designing filters, amplifiers, or controllers, engineers use the inverse tangent to calculate the phase shift between input and output signals at different frequencies. This is important for ensuring that systems behave as expected and avoid undesirable resonances or instabilities.
   </p>
-  <pre className="my-4">θ = tan⁻¹(Imaginary Part / Real Part)</pre>
+  <pre className="my-4 dark:text-black">θ = tan⁻¹(Imaginary Part / Real Part)</pre>
   <p>
     Where:
     <ul className="list-disc pl-5 space-y-2">
@@ -235,7 +235,7 @@ export const Arctan = () => {
   <p>
     In complex analysis, the inverse tangent function is used to solve problems involving the complex plane. When dealing with complex numbers, Arctan can be used to compute the argument (angle) of a complex number, which helps in converting between rectangular and polar forms of complex numbers. This conversion is crucial in fields like electrical engineering and signal processing, where complex numbers are used to represent impedance and phase relationships.
   </p>
-  <pre className="my-4">θ = tan⁻¹(Imaginary Part / Real Part)</pre>
+  <pre className="my-4 dark:text-black">θ = tan⁻¹(Imaginary Part / Real Part)</pre>
   <p>
     The inverse tangent function is used to determine the angle of a complex number from its real and imaginary components. This helps in visualizing complex numbers as vectors in the complex plane and is a fundamental concept in complex analysis.
   </p>
@@ -244,7 +244,7 @@ export const Arctan = () => {
   <p>
     In Fourier transforms, which are used to convert a signal from the time domain to the frequency domain, Arctan helps calculate the phase spectrum. The phase of a signal is an essential component of understanding how a signal behaves over time. Arctan is often used to compute the phase angle between different frequency components in the Fourier domain.
   </p>
-  <pre className="my-4">θ = tan⁻¹(Imaginary Component / Real Component)</pre>
+  <pre className="my-4 dark:text-black">θ = tan⁻¹(Imaginary Component / Real Component)</pre>
   <p>
     By applying Arctan to the real and imaginary parts of a signal in the frequency domain, one can determine the phase shift of each frequency component, which is crucial for analyzing signals in communications, audio processing, and many other fields.
   </p>
@@ -253,7 +253,7 @@ export const Arctan = () => {
   <p>
     In integral calculus, Arctan is often used in integration techniques such as trigonometric substitution. A common integral involving Arctan is the integral of 1/(1 + x²), which results in the inverse tangent function. This is one of the standard integrals that is frequently encountered in many branches of mathematics and physics.
   </p>
-  <pre className="my-4">∫ (1 / (1 + x²)) dx = tan⁻¹(x) + C</pre>
+  <pre className="my-4 dark:text-black">∫ (1 / (1 + x²)) dx = tan⁻¹(x) + C</pre>
   <p>
     This integral appears in various problems, including those related to electromagnetism, fluid dynamics, and statistical mechanics. Understanding the integration of Arctan helps in solving problems that involve inverse functions and related rate changes.
   </p>
@@ -267,7 +267,7 @@ export const Arctan = () => {
   <p>
     Feature engineering is the process of transforming raw data into features that can be used in machine learning models. When dealing with cyclical features such as time of day or angles, Arctan can be used to transform these features into a more machine-learning-friendly format. For example, when the data represents an angle, applying the inverse tangent function ensures that the features are normalized and fall within a specific range.
   </p>
-  <pre className="my-4">normalized_feature = tan⁻¹(original_feature)</pre>
+  <pre className="my-4 dark:text-black">normalized_feature = tan⁻¹(original_feature)</pre>
 
   <h4 className="text-md font-semibold mt-4 mb-2">Arctan in Clustering Algorithms</h4>
   <p>

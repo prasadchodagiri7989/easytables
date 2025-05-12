@@ -44,7 +44,7 @@ export const Arccos = () => {
             Arccos (also called the inverse cosine function) is used to determine the angle whose cosine value is a given number.
             The formula for Arccos is:
           </p>
-          <pre className="my-4">
+          <pre className="my-4 dark:text-black">
             θ = cos⁻¹(x)
           </pre>
           <p>
@@ -118,7 +118,7 @@ export const Arccos = () => {
   <p>
     One common application of the Arccos function is finding the angle between two vectors. This is useful in physics, computer graphics, and many other fields. The formula for finding the angle \( \theta \) between two vectors \( \mathbf{"A"} \) and \( \mathbf{"B"} \) is:
   </p>
-  <pre className="my-4">
+  <pre className="my-4 dark:text-black dark:text-black">
     θ = cos⁻¹( (A • B) / (|A| |B|) )
   </pre>
   <p>
@@ -133,7 +133,7 @@ export const Arccos = () => {
   <p>
     To compute this angle, we need the dot product of the vectors and the magnitudes of the vectors. Once we have those, we can use the Arccos function to find the angle between the two vectors. Here's an example:
   </p>
-  <pre className="my-4">
+  <pre className="my-4 dark:text-black dark:text-black">
     Let vector A = (3, 4) and vector B = (4, 3).<br />
     A • B = 3*4 + 4*3 = 24.<br />
     |A| = √(3² + 4²) = 5, and |B| = √(4² + 3²) = 5.<br />
@@ -204,10 +204,10 @@ export const Arccos = () => {
 
   <ul className="list-disc pl-5 space-y-2">
     <li><strong>Derivative of Arccos</strong>: The derivative of \( \cos^{-1}(x) \) with respect to \(x\) is given by:
-      <pre className="my-4">d/dx [cos⁻¹(x)] = -1 / √(1 - x²)</pre>
+      <pre className="my-4 dark:text-black">d/dx [cos⁻¹(x)] = -1 / √(1 - x²)</pre>
     </li>
     <li><strong>Integral of Arccos</strong>: The integral of \( \cos^{-1}(x) \) with respect to \(x\) is:
-      <pre className="my-4">∫ cos⁻¹(x) dx = x cos⁻¹(x) - √(1 - x²) + C</pre>
+      <pre className="my-4 dark:text-black">∫ cos⁻¹(x) dx = x cos⁻¹(x) - √(1 - x²) + C</pre>
     </li>
   </ul>
 
@@ -215,7 +215,7 @@ export const Arccos = () => {
   <p>
     In vector mathematics, the angle between two vectors \( \mathbf{"A"} \) and \( \mathbf{"B"} \) is often computed using the Arccos function. Given two vectors in n-dimensional space, the cosine of the angle between them is given by the formula:
   </p>
-  <pre className="my-4">
+  <pre className="my-4 dark:text-black">
     cos(θ) = (A • B) / (|A| |B|)
   </pre>
   <p>
@@ -228,7 +228,7 @@ export const Arccos = () => {
     </ul>
     After finding the cosine of the angle, the Arccos function is applied to get the angle \( θ \) itself:
   </p>
-  <pre className="my-4">θ = cos⁻¹( (A • B) / (|A| |B|) )</pre>
+  <pre className="my-4 dark:text-black">θ = cos⁻¹( (A • B) / (|A| |B|) )</pre>
 
   <h3 className="text-lg font-medium mt-6 mb-2">Common Problems and Solutions</h3>
   <p>
@@ -238,7 +238,7 @@ export const Arccos = () => {
   <ul className="list-disc pl-5 space-y-2">
     <li><strong>Domain Error</strong>: If you input a value outside the domain of the Arccos function (i.e., a value less than -1 or greater than 1), you will get an error. Make sure your input is within the valid range [-1, 1].</li>
     <li><strong>Units Confusion</strong>: The Arccos function returns values in radians by default. If you need the result in degrees, you will need to convert the result from radians to degrees:
-      <pre className="my-4">degrees = radians * (180 / π)</pre>
+      <pre className="my-4 dark:text-black">degrees = radians * (180 / π)</pre>
     </li>
     <li><strong>Handling Negative Results</strong>: When dealing with negative input values, remember that Arccos will give you angles between 0 and π (0° to 180°). If you're looking for a negative angle in the context of a specific problem, you may need to adjust your approach based on the symmetry of the cosine function.</li>
   </ul>
