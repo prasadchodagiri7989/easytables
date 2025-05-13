@@ -118,7 +118,7 @@ export const Arccos = () => {
   <p>
     One common application of the Arccos function is finding the angle between two vectors. This is useful in physics, computer graphics, and many other fields. The formula for finding the angle \( \theta \) between two vectors \( \mathbf{"A"} \) and \( \mathbf{"B"} \) is:
   </p>
-  <pre className="my-4 dark:text-black dark:text-black">
+  <pre className="my-4 dark:text-black">
     θ = cos⁻¹( (A • B) / (|A| |B|) )
   </pre>
   <p>
@@ -133,7 +133,7 @@ export const Arccos = () => {
   <p>
     To compute this angle, we need the dot product of the vectors and the magnitudes of the vectors. Once we have those, we can use the Arccos function to find the angle between the two vectors. Here's an example:
   </p>
-  <pre className="my-4 dark:text-black dark:text-black">
+  <pre className="my-4 dark:text-black">
     Let vector A = (3, 4) and vector B = (4, 3).<br />
     A • B = 3*4 + 4*3 = 24.<br />
     |A| = √(3² + 4²) = 5, and |B| = √(4² + 3²) = 5.<br />
